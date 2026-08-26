@@ -1,0 +1,35 @@
+# macOS
+.DS_Store
+**/.DS_Store
+
+# 编辑器本地配置
+.vscode/
+**/.vscode/
+
+# ESP-IDF 构建产物和可重新下载的托管组件
+**/build/
+**/managed_components/
+**/sdkconfig.old
+
+# Python 临时文件和虚拟环境
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# 本地日志
+*.log
+
+# 服务端运行数据和生成音频
+server/ambient_desk.db
+server/ambient_desk.db-*
+server/recordings/
+server/tts/
+
+# 本地密钥和环境变量；示例文件允许提交
+.env
+.env.*
+!.env.example
+
+# 本机 Wi-Fi 凭据，禁止提交到 Git
+ambient_desk_firmware/main/wifi_credentials.h

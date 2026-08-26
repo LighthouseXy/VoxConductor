@@ -1,0 +1,6 @@
+dependencies:
+  espressif/esp_lvgl_port: "2.8.0~1"
+  lvgl/lvgl:
+    version: "^9.5.0"
+    public: true
+  espressif/cjson: "^1.7.19"

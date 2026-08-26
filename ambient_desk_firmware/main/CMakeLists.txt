@@ -1,0 +1,24 @@
+idf_component_register(
+    SRCS
+        "ambient_desk_firmware.c"
+        "app_audio.c"
+        "app_button.c"
+        "app_display.c"
+        "app_network.c"
+        "app_storage.c"
+        "app_ui.c"
+        "app_ui_font_14.c"
+        "app_ui_font_weather_24.c"
+    INCLUDE_DIRS "."
+    PRIV_REQUIRES
+        esp_lcd
+        esp_driver_spi
+        esp_driver_i2s
+        esp_wifi
+        esp_event
+        esp_netif
+        esp_http_client
+        heap
+        nvs_flash
+        fatfs
+)
