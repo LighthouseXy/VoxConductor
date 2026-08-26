@@ -130,7 +130,7 @@ idf.py build
 idf.py flash monitor
 ```
 
-固件烧录、服务端启动和实机验收步骤见 [演示与验证](docs/DEMO_AND_VERIFICATION.md)。
+固件烧录、服务端启动和实机验收步骤见 [验收与验证](docs/DEMO_AND_VERIFICATION.md)。
 
 ## 仓库结构
 
@@ -161,7 +161,7 @@ ambient-desk/
 
 - [系统架构与关键设计](docs/ARCHITECTURE.md)
 - [硬件、接线与电气约束](docs/HARDWARE_V1.md)
-- [演示与验证说明](docs/DEMO_AND_VERIFICATION.md)
+- [验收与验证说明](docs/DEMO_AND_VERIFICATION.md)
 - [功能分析与后续扩展](docs/FEATURE_ANALYSIS_AND_EXPANSION.md)
 - [开发日志](docs/logs/README.md)
 - [V1 实装 BOM](docs/BOM.csv)
