@@ -23,6 +23,8 @@ venv/
 # 服务端运行数据和生成音频
 server/ambient_desk.db
 server/ambient_desk.db-*
+server/voxconductor.db
+server/voxconductor.db-*
 server/recordings/
 server/tts/
 
@@ -32,4 +34,4 @@ server/tts/
 !.env.example
 
 # 本机 Wi-Fi 凭据，禁止提交到 Git
-ambient_desk_firmware/main/wifi_credentials.h
+firmware/main/wifi_credentials.h

@@ -26,7 +26,7 @@ def ask_deepseek(
             {
                 "role": "system",
                 "content": (
-                    "你是Ambient Desk桌面语音助手。"
+                    "你是VoxConductor桌面智能语音中枢。"
                     "请结合对话历史理解当前问题。"
                     "如果历史中没有相关信息，不要假装记得。"
                     "请用简短中文回答，不超过两句话，"

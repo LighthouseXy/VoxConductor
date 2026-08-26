@@ -1,9 +1,15 @@
-# AmbientDesk｜ESP32-S3 桌面语音助手
+# VoxConductor｜桌面智能语音中枢
 
-AmbientDesk 是一套可运行的桌面语音助手原型。ESP32-S3 负责按键交互、语音采集、流式音频播放、240×240 图形界面和 microSD 记录；本地 FastAPI 服务负责 ASR、上下文管理、DeepSeek 推理、实时 TTS 与天气数据聚合。
+VoxConductor 是一套基于 ESP32-S3 的桌面智能语音中枢。设备端负责按键交互、语音采集、流式音频播放、240×240 图形界面和 microSD 记录；本地 FastAPI 服务负责 ASR、上下文管理、DeepSeek 推理、实时 TTS 与天气数据聚合。
+
+## 名称与定位
+
+`Vox` 表示语音交互入口，`Conductor` 表示对模型、音频链路、信息服务和设备能力的统一协调。这个名称强调项目不是单纯的聊天机器人或固定指令遥控器，而是以自然语音为入口、可继续扩展工具调用和嵌入式设备控制的桌面中枢。
+
+当前 V1 已实现语音对话、上下文、时间、天气、界面与本地记录；外部设备联动仍属于后续扩展，本文不会把规划能力描述成现有成果。
 
 <p align="center">
-  <img src="docs/images/ambientdesk-prototype.jpg" alt="AmbientDesk 分光棱镜显示原型" width="420">
+  <img src="docs/images/voxconductor-prototype.jpg" alt="VoxConductor 分光棱镜显示原型" width="420">
 </p>
 
 ## 已实现功能
@@ -115,16 +121,16 @@ curl http://127.0.0.1:8000/weather/current
 ### 2. 配置并编译固件
 
 ```bash
-cp ambient_desk_firmware/main/wifi_credentials.example.h \
-   ambient_desk_firmware/main/wifi_credentials.h
+cp firmware/main/wifi_credentials.example.h \
+   firmware/main/wifi_credentials.h
 ```
 
-填写 2.4 GHz Wi-Fi 的 SSID 和密码，并把 `ambient_desk_firmware/main/app_network.c` 顶部的三个本地服务 URL 改为运行 FastAPI 的电脑局域网地址。
+填写 2.4 GHz Wi-Fi 的 SSID 和密码，并把 `firmware/main/app_network.c` 顶部的三个本地服务 URL 改为运行 FastAPI 的电脑局域网地址。
 
 在 ESP-IDF 6.0.2 终端中执行：
 
 ```bash
-cd ambient_desk_firmware
+cd firmware
 idf.py set-target esp32s3
 idf.py build
 idf.py flash monitor
@@ -135,11 +141,11 @@ idf.py flash monitor
 ## 仓库结构
 
 ```text
-ambient-desk/
-├── ambient_desk_firmware/   ESP32-S3 固件
-│   └── main/                显示、UI、按键、音频、网络、存储模块
-├── server/                  FastAPI、ASR、DeepSeek、TTS、天气与上下文
-├── docs/                    架构、硬件、日志、功能分析与演示说明
+voxconductor/
+├── firmware/   ESP32-S3 固件
+│   └── main/   显示、UI、按键、音频、网络、存储模块
+├── server/     FastAPI、ASR、DeepSeek、TTS、天气与上下文
+├── docs/       架构、硬件、日志、功能分析与演示说明
 └── README.md
 ```
 

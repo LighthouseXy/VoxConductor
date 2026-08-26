@@ -35,7 +35,7 @@
 #define AUDIO_TURN_URL "http://192.168.1.16:8000/audio/turn"
 #define AUDIO_TURN_METADATA_URL_PREFIX "http://192.168.1.16:8000/audio/turn/"
 
-#define DEVICE_SESSION_ID "ambient-desk-01"
+#define DEVICE_SESSION_ID "voxconductor-01"
 #define TURN_METADATA_BUFFER_SIZE 4096
 #define TTS_PLAYBACK_FRAMES_PER_BLOCK 256
 // 约340ms音频，用来吸收HTTP和Wi-Fi短时抖动。

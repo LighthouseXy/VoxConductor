@@ -1,4 +1,4 @@
-# AmbientDesk V1 硬件与接线
+# VoxConductor V1 硬件与接线
 
 最后更新：2026-08-26
 

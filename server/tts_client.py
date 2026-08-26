@@ -249,7 +249,7 @@ def synthesize_speech(
 
 def main() -> None:
     output_path = synthesize_speech(
-        "你好，我是Ambient Desk，很高兴认识你。"
+        "你好，我是VoxConductor桌面智能语音中枢，很高兴认识你。"
     )
 
     # 读取WAV参数，为后续ESP32播放确定采样格式

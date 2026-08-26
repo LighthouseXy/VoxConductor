@@ -1,4 +1,4 @@
-# AmbientDesk V1 系统架构
+# VoxConductor V1 系统架构
 
 最后更新：2026-08-26
 
@@ -19,7 +19,7 @@ V1 解决一个明确问题：使用单个 ESP32-S3 和本地服务，完成可�
 
 | 组件 | 职责 | 关键文件 |
 | --- | --- | --- |
-| 固件入口 | 初始化顺序、语音轮次任务、`turn_id` 生成 | `ambient_desk_firmware/main/ambient_desk_firmware.c` |
+| 固件入口 | 初始化顺序、语音轮次任务、`turn_id` 生成 | `firmware/main/main.c` |
 | 显示驱动 | ST7789、SPI2、LVGL 显示注册、棱镜方向补偿 | `app_display.c` |
 | UI | 三个常驻页面、天气数据、Wi-Fi 状态、语音覆盖层与动画 | `app_ui.c` |
 | 按键 | 20 ms 轮询、消抖、500 ms 长按、短按/长按事件 | `app_button.c` |
@@ -97,7 +97,7 @@ sequenceDiagram
 
 ## 6. 上下文与轮次一致性
 
-- 固件当前使用固定 `session_id`：`ambient-desk-01`。
+- 固件当前使用固定 `session_id`：`voxconductor-01`。
 - 每次长按创建新的 `turn_id`，组合 Unix 时间、启动内序号和 FreeRTOS tick。
 - 服务端按 `session_id` 从 SQLite 读取最近 12 条消息，即最多 6 轮 user/assistant 对话。
 - 模型成功回答后，服务端在一个数据库事务中保存本轮 user 和 assistant 消息。

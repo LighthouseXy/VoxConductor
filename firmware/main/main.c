@@ -21,7 +21,7 @@
 
 #define TURN_ID_BUFFER_SIZE 48
 
-static const char *TAG = "ambient_desk";
+static const char *TAG = "voxconductor";
 
 static _Atomic bool s_voice_turn_active = false;
 static _Atomic bool s_voice_ready = false;

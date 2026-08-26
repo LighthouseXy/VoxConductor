@@ -1,4 +1,4 @@
-# AmbientDesk 功能分析与拓展
+# VoxConductor 功能分析与拓展
 
 > 文档状态：方案基线，2026-08-26 只读核对当前仓库后更新。
 >
@@ -7,7 +7,7 @@
 
 ## 1. 结论摘要
 
-AmbientDesk 当前已经跑通可用的半双工语音闭环：长按 GPIO1 实体按键开始录音，松开发送，最长 20 秒；设备把整段 PCM 及固定 `session_id`、本轮 `turn_id` 上传到 Mac 上的 FastAPI 服务。服务端对整段录音做非流式 ASR，把最终文字与 SQLite 中最近 6 轮对话一起发给 DeepSeek，拿到完整回答后启动实时 TTS；TTS 音频块通过 HTTP 流式返回，ESP32-S3 校验轮次后由 MAX98357A 播放，完成后再按同一轮次取回文字并追加到 microSD。
+VoxConductor 当前已经跑通可用的半双工语音闭环：长按 GPIO1 实体按键开始录音，松开发送，最长 20 秒；设备把整段 PCM 及固定 `session_id`、本轮 `turn_id` 上传到 Mac 上的 FastAPI 服务。服务端对整段录音做非流式 ASR，把最终文字与 SQLite 中最近 6 轮对话一起发给 DeepSeek，拿到完整回答后启动实时 TTS；TTS 音频块通过 HTTP 流式返回，ESP32-S3 校验轮次后由 MAX98357A 播放，完成后再按同一轮次取回文字并追加到 microSD。
 
 当前最值得优化的不是更换大模型或引入通用 Agent 框架，而是定位整段录音上传的长尾，并把一轮请求的时间点、身份和取消语义补齐。推荐依次完成：精确日志与上传优化 → 端到端 `session_id/turn_id` 和取消 → 可选的流式 ASR/VAD → 按键打断 → AEC/NS/VAD 语音打断。
 
@@ -54,7 +54,7 @@ MAX98357A → 4 Ω / 3 W 扬声器
 - **[代码事实]** 服务端接受 32,000～640,000 字节的 16 kHz/16-bit/mono PCM，先生成完整 WAV，再调用 ASR；`asr_client.py` 把完整 WAV 编成 Data URL，且请求设置为 `stream: false`。
 - **[代码事实]** `deepseek_client.py` 使用非流式请求，回答限制为不超过两句、适合 10 秒内朗读；当前 TTS 不会在 DeepSeek 仍生成文字时提前开始。
 - **[代码事实]** 当前 TTS 已经是实时 WebSocket TTS；`app.py` 用 `StreamingResponse` 逐块返回。固件累计 16 KiB 预缓冲后开始播放，不再等待完整 PCM 下载。
-- **[代码事实]** 设备以固定的 `ambient-desk-01` 作为当前 `session_id`，并为每轮生成 `turn_id`；两者随请求传给服务端，返回音频中的 `turn_id` 会由设备校验。服务端把最近 12 条消息（最多 6 轮）从 SQLite 传给 DeepSeek；目前数据库只保存 `user/assistant` 文本，不保存工具调用、取消和完整事件流。
+- **[代码事实]** 设备以固定的 `voxconductor-01` 作为当前 `session_id`，并为每轮生成 `turn_id`；两者随请求传给服务端，返回音频中的 `turn_id` 会由设备校验。服务端把最近 12 条消息（最多 6 轮）从 SQLite 传给 DeepSeek；目前数据库只保存 `user/assistant` 文本，不保存工具调用、取消和完整事件流。
 - **[日志事实]** 2026-08-19 已在实机完成 ASR、DeepSeek、TTS 和扬声器闭环；当前流式 TTS 是该日志之后的代码进展。
 - **[代码事实]** 设备当前处于半双工流程：录音结束后才请求和播放；播放期间没有为新一轮用户语音持续采集。
 
@@ -311,7 +311,7 @@ DeepSeek Harness（`dsh`）是 DeepSeek AI 官方开源的 Agent Harness，不�
 
 官方说明见 [架构文档](https://github.com/deepseek-ai/deepseek-harness/blob/master/docs/architecture.md) 与 [Core 子系统](https://github.com/deepseek-ai/deepseek-harness/blob/master/docs/subsystems/core.md)。官方也提供 Python SDK；SDK 会启动配套运行时，通过同一 Harness 实例和相同 `session_id` 延续持久会话。其入门示例主要面向可修改隔离工作区的编码任务，默认示例工具是持久 Bash 与文本编辑器，而不是语音助手领域工具。参考：[Python SDK 指南](https://github.com/deepseek-ai/deepseek-harness/blob/master/docs/user/guide/python-sdk.md)。
 
-因此，对 AmbientDesk 更准确的定位是：它可能替代或补充 **Mac 服务端的 Agent 编排层**，不能替代设备音频链路。
+因此，对 VoxConductor 更准确的定位是：它可能替代或补充 **Mac 服务端的 Agent 编排层**，不能替代设备音频链路。
 
 ### 13.2 当前链路与可插入位置
 
@@ -332,7 +332,7 @@ ESP32-S3 整段录音
 现有服务器已经拥有一个轻量会话层，而不是完全无状态：
 
 - `conversation_store.py` 用 SQLite 保存 `session_id/turn_id/role/content`；
-- 当前设备会话固定为 `ambient-desk-01`；
+- 当前设备会话固定为 `voxconductor-01`；
 - 每轮从数据库读取最多 12 条消息，即最多 6 轮上下文；
 - 设备生成 `turn_id`，服务端按 `session_id/turn_id` 保存，并在响应中返回供设备校验；
 - 没有工具调用记录、运行步骤、取消状态、迟到数据判定或上下文压缩。
@@ -349,7 +349,7 @@ ASR 最终文本 → 路由器                                      → TTS
 
 ### 13.3 对具体功能的实际价值
 
-| 功能 | Harness 能提供的价值 | 仍需 AmbientDesk 自己完成 |
+| 功能 | Harness 能提供的价值 | 仍需 VoxConductor 自己完成 |
 | --- | --- | --- |
 | 多轮上下文 | 用事件日志统一记录用户消息、模型消息、工具调用和结果；支持恢复、回放和派生上下文 | 设备身份到 `session_id` 的映射、上下文保留策略、摘要/压缩规则、旧数据库迁移 |
 | 工具调用 | 提供工具 schema、注册、执行守卫和多步骤 Agent Loop | 定义天气、搜索、提醒、会话检索等领域工具；参数校验、超时、错误语义和幂等性 |
@@ -361,7 +361,7 @@ ASR 最终文本 → 路由器                                      → TTS
 
 ### 13.4 它不能替代的部分
 
-以下能力仍属于 AmbientDesk 固件、音频服务或供应商适配层：
+以下能力仍属于 VoxConductor 固件、音频服务或供应商适配层：
 
 - INMP441 采集、MAX98357A 播放和 I2S 资源切换；
 - ST7789/LVGL UI 与设备状态机；
@@ -423,7 +423,7 @@ Harness 不一定让单轮回答更快。复杂 Agent 请求通常会增加：
 
 - 官方明确处于 Developer Preview，存在破坏兼容性改动；
 - 当前服务使用 Python 3.14 虚拟环境，虽然官方文档写 Python 3.10+，仍需实测对应 wheel/runtime 在本机的兼容性；
-- Python SDK 示例面向隔离工作区和编码工具，不等于已经具备 AmbientDesk 的语音事件、提醒和 SD 接口；
+- Python SDK 示例面向隔离工作区和编码工具，不等于已经具备 VoxConductor 的语音事件、提醒和 SD 接口；
 - 若 Harness 和现有 SQLite 同时保存同一会话，可能出现重复记录、顺序不一致和两个上下文事实源；
 - Agent 工具结果可能很长，直接送入模型与 TTS 会增加 token、延迟和朗读时长。
 
@@ -431,12 +431,12 @@ Harness 不一定让单轮回答更快。复杂 Agent 请求通常会增加：
 
 ### 13.8 安全边界
 
-官方 Python 示例明确使用可修改隔离工作区，并暴露持久 Bash 与文本编辑器；文档还提醒其示例文件系统可访问运行时进程所能看到的绝对路径。因此不能把该默认示例直接用于 AmbientDesk 主服务。
+官方 Python 示例明确使用可修改隔离工作区，并暴露持久 Bash 与文本编辑器；文档还提醒其示例文件系统可访问运行时进程所能看到的绝对路径。因此不能把该默认示例直接用于 VoxConductor 主服务。
 
 若实验接入，首版安全边界为：
 
 - 不挂载 Bash、任意文件编辑、子 Agent或自修改工具；
-- 只注册 AmbientDesk 专用的少量工具，并默认只读；
+- 只注册 VoxConductor 专用的少量工具，并默认只读；
 - 会话搜索工具只能访问当前设备/用户授权的 `session_id`；
 - SD 工具只能访问专用同步目录，禁止任意路径；
 - Web 内容一律按不可信输入处理，限制长度和来源，避免网页提示注入改变系统规则；
@@ -643,7 +643,7 @@ USB MSC 可以让电脑像读取 U 盘一样读取 SD 卡，适合用户人工�
 **[后续方案]** 简单文本可以逐步升级为追加式 `conversations.jsonl`。每行是一条完整且独立的 JSON 记录，例如：
 
 ```json
-{"record_id":"ambient-desk-01:20260826-42","session_id":"ambient-desk-01","turn_id":"20260826-42","timestamp":"2026-08-26T21:35:12+08:00","user":"明天会下雨吗？","assistant":"明天有阵雨，出门建议带伞。"}
+{"record_id":"voxconductor-01:20260826-42","session_id":"voxconductor-01","turn_id":"20260826-42","timestamp":"2026-08-26T21:35:12+08:00","user":"明天会下雨吗？","assistant":"明天有阵雨，出门建议带伞。"}
 ```
 
 最低字段包括：
@@ -695,15 +695,15 @@ JSONL 应保持追加式。与其反复修改历史行中的 `sync_status`，更
 
 ### 14.7 与 HoloCubic 的区别
 
-HoloCubic 中的 TF 卡主要用于图片、视频、天气图标等媒体和资源文件，也可配合网页文件管理功能使用。AmbientDesk 可以借鉴“资源放在可更换存储中”和“提供受限管理入口”的思路，但不应直接照搬为语音上下文架构。
+HoloCubic 中的 TF 卡主要用于图片、视频、天气图标等媒体和资源文件，也可配合网页文件管理功能使用。VoxConductor 可以借鉴“资源放在可更换存储中”和“提供受限管理入口”的思路，但不应直接照搬为语音上下文架构。
 
-AmbientDesk 的语音对话依赖服务端 ASR、DeepSeek、TTS 和未来 Agent 编排，在线每轮数据天然先经过服务端。因此服务端数据库更适合作为上下文中心，SD 卡更适合作为设备侧辅助存储。两类项目的核心数据流不同，不能因为都使用 TF/SD 卡，就让 Agent 以远程文件浏览代替会话数据库。
+VoxConductor 的语音对话依赖服务端 ASR、DeepSeek、TTS 和未来 Agent 编排，在线每轮数据天然先经过服务端。因此服务端数据库更适合作为上下文中心，SD 卡更适合作为设备侧辅助存储。两类项目的核心数据流不同，不能因为都使用 TF/SD 卡，就让 Agent 以远程文件浏览代替会话数据库。
 
 ### 14.8 仍需产品与架构决策
 
 以下问题不会阻塞当前 V1 对话，但在开发同步前需要明确产品决策：
 
-1. **身份模型**：`ambient-desk-01` 是设备 ID、用户 ID 还是长期会话 ID；多设备和多人使用时如何隔离。
+1. **身份模型**：`voxconductor-01` 是设备 ID、用户 ID 还是长期会话 ID；多设备和多人使用时如何隔离。
 2. **离线范围**：断网时只记录诊断/待办，还是需要离线语音识别和本地指令；后者会显著扩大 V1 范围。
 3. **上行数据范围**：只上传设备离线产生的数据，还是也用 SD 记录对服务端 SQLite 做对账；推荐前者为主、后者只做修复工具。
 4. **下行记忆范围**：只同步摘要和偏好，还是同步完整历史；推荐只同步体积小、用途明确、可版本化的派生数据。
@@ -719,15 +719,15 @@ AmbientDesk 的语音对话依赖服务端 ASR、DeepSeek、TTS 和未来 Agent 
 - `docs/HARDWARE_V1.md`
 - `docs/BOM.csv`
 - `docs/logs/README.md` 与 2026-08-04 至 2026-08-26 的开发日志
-- `ambient_desk_firmware/main/ambient_desk_firmware.c`
-- `ambient_desk_firmware/main/idf_component.yml`
+- `firmware/main/main.c`
+- `firmware/main/idf_component.yml`
 - `server/app.py`
 - `server/asr_client.py`
 - `server/conversation_store.py`
 - `server/deepseek_client.py`
 - `server/tts_client.py`
-- `ambient_desk_firmware/main/app_network.c`
-- `ambient_desk_firmware/main/app_storage.c`
+- `firmware/main/app_network.c`
+- `firmware/main/app_storage.c`
 - Espressif 官方 ESP-SR AEC 文档（链接见第 7.2 节）
 - DeepSeek Harness 官方仓库、架构、Core、Python SDK 与 capability seams 文档（链接见第 13 节）
 

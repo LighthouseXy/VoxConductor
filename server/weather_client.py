@@ -66,7 +66,7 @@ def get_current_weather() -> dict:
 
     request = urllib.request.Request(
         f"{WEATHER_URL}?{query}",
-        headers={"User-Agent": "AmbientDesk/1.0"},
+        headers={"User-Agent": "VoxConductor/1.0"},
     )
 
     try:

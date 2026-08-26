@@ -25,10 +25,10 @@ from conversation_store import (
     save_turn,
 )
 
-app = FastAPI(title="Ambient Desk Voice Service")
+app = FastAPI(title="VoxConductor Voice Service")
 
 # 当前ESP32使用固定会话；以后改为从请求头读取session_id
-DEFAULT_SESSION_ID = "ambient-desk-01"
+DEFAULT_SESSION_ID = "voxconductor-01"
 
 init_database()
 
@@ -109,7 +109,7 @@ def get_latest_audio_turn() -> dict[str, str]:
 
     return latest_turn.copy()
 
-TTS_TEST_TEXT = "你好，我是Ambient Desk，很高兴认识你。"
+TTS_TEST_TEXT = "你好，我是VoxConductor桌面智能语音中枢，很高兴认识你。"
 
 @app.get("/audio/turn/{turn_id}")
 def get_audio_turn_by_id(

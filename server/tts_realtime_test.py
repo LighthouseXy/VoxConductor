@@ -108,7 +108,7 @@ def main() -> None:
         callback.started_at = time.perf_counter()
 
         client.append_text(
-            "你好，我是Ambient Desk，"
+            "你好，我是VoxConductor桌面智能语音中枢，"
             "这是一段实时语音合成测试。"
         )
 

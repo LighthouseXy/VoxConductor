@@ -195,7 +195,7 @@ static void create_home_page_content(lv_obj_t *screen) {
 
   // 顶部品牌文字
   lv_obj_t *brand = lv_label_create(screen);
-  lv_label_set_text(brand, "智能桌面");
+  lv_label_set_text(brand, "VOXCONDUCTOR");
   lv_obj_set_style_text_font(brand, &app_ui_font_14,
                              LV_PART_MAIN);
   lv_obj_set_style_text_color(brand, lv_color_hex(UI_COLOR_TEXT), LV_PART_MAIN);

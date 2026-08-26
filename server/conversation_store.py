@@ -2,7 +2,8 @@ from pathlib import Path
 import sqlite3
 
 
-DATABASE_PATH = Path(__file__).parent / "ambient_desk.db"
+DATABASE_PATH = Path(__file__).parent / "voxconductor.db"
+LEGACY_DATABASE_PATH = Path(__file__).parent / "ambient_desk.db"
 MAX_CONTEXT_MESSAGES = 12
 
 
@@ -14,6 +15,10 @@ def connect_database() -> sqlite3.Connection:
 
 def init_database() -> None:
     """创建对话消息表。重复执行不会清空已有内容。"""
+    # 首次使用新名称时沿用旧数据库，避免项目改名导致上下文丢失。
+    if not DATABASE_PATH.exists() and LEGACY_DATABASE_PATH.exists():
+        LEGACY_DATABASE_PATH.replace(DATABASE_PATH)
+
     with connect_database() as connection:
         connection.execute(
             """
@@ -27,6 +32,15 @@ def init_database() -> None:
                 created_at TEXT NOT NULL
                     DEFAULT CURRENT_TIMESTAMP
             )
+            """
+        )
+
+        # 将单设备V1的旧会话身份同步到新项目名称。
+        connection.execute(
+            """
+            UPDATE messages
+            SET session_id = 'voxconductor-01'
+            WHERE session_id = 'ambient-desk-01'
             """
         )
 

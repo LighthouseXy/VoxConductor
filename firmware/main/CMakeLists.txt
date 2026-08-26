@@ -1,6 +1,6 @@
 idf_component_register(
     SRCS
-        "ambient_desk_firmware.c"
+        "main.c"
         "app_audio.c"
         "app_button.c"
         "app_display.c"
