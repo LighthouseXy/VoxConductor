@@ -6,8 +6,9 @@ from weather_client import get_current_weather
 import wave
 import asyncio
 import time
+import os
 
-from deepseek_client import ask_deepseek
+from deepseek_client import MODEL as DEEPSEEK_MODEL, ask_deepseek
 from asr_client import transcribe_audio
 from tts_client import (
     TTS_OUTPUT_PATH,
@@ -18,6 +19,7 @@ from tts_client import (
 from uuid import uuid4
 
 from conversation_store import (
+    MAX_CONTEXT_MESSAGES,
     clear_session,
     init_database,
     load_recent_messages,
@@ -31,6 +33,58 @@ app = FastAPI(title="VoxConductor Voice Service")
 DEFAULT_SESSION_ID = "voxconductor-01"
 
 init_database()
+LOG_SEPARATOR = "─" * 44
+
+
+def compact_text(text: str, limit: int = 100) -> str:
+    """把多行文本整理成适合终端显示的一行。"""
+    result = " ".join(text.split())
+
+    if len(result) <= limit:
+        return result
+
+    return result[: limit - 1] + "…"
+
+
+def print_service_banner() -> None:
+    """显示服务端当前运行配置，不输出密钥。"""
+    asr_model = os.environ.get("ASR_MODEL", "qwen3-asr-flash")
+    tts_model = "qwen3-tts-flash-realtime"
+
+    print(
+        "\n"
+        "VoxConductor Voice Service\n"
+        f"{LOG_SEPARATOR}\n"
+        "状态    已启动\n"
+        "地址    http://0.0.0.0:8000\n"
+        f"会话    {DEFAULT_SESSION_ID}\n"
+        f"上下文  最近 {MAX_CONTEXT_MESSAGES // 2} 轮\n"
+        f"ASR     {asr_model}\n"
+        f"LLM     {DEEPSEEK_MODEL}\n"
+        f"TTS     {tts_model}\n"
+        f"{LOG_SEPARATOR}",
+        flush=True,
+    )
+
+
+def print_turn_failure(
+    turn_tag: str,
+    stage: str,
+    turn_started: float,
+    error: Exception,
+) -> None:
+    """用统一格式显示本轮失败原因。"""
+    print(
+        "\n"
+        f"TURN {turn_tag} · 执行失败\n"
+        f"{LOG_SEPARATOR}\n"
+        f"阶段    {stage}\n"
+        f"耗时    {time.perf_counter() - turn_started:.2f} 秒\n"
+        f"原因    {compact_text(str(error), 120)}\n"
+        "结果    失败\n"
+        f"{LOG_SEPARATOR}",
+        flush=True,
+    )
 
 AUDIO_SAMPLE_RATE = 16000
 AUDIO_CHANNELS = 1
@@ -61,6 +115,8 @@ latest_turn = {
 
 class ChatRequest(BaseModel):
     text: str = Field(min_length=1, max_length=2000)
+
+print_service_banner()
 
 @app.get("/health")
 def health() -> dict[str, str]:
@@ -208,7 +264,8 @@ async def process_audio_turn(
         max_length=64,
     ),
 ) -> Response:
-# 从开始接收录音起统计整轮服务端耗时
+    # 短标识只用于终端显示，数据库仍保存完整turn_id
+    turn_tag = x_turn_id[-8:]
     turn_started = time.perf_counter()
 
     receive_started = time.perf_counter()
@@ -222,30 +279,30 @@ async def process_audio_turn(
         / AUDIO_SAMPLE_WIDTH_BYTES
     )
 
-    print(
-        f"收到录音：{len(pcm_data)}字节，"
-        f"{audio_seconds:.2f}秒，"
-        f"上传接收耗时：{receive_elapsed:.2f}秒"
-    )
-
     if (
         len(pcm_data) < AUDIO_MIN_BYTES
         or len(pcm_data) > AUDIO_MAX_BYTES
         or len(pcm_data) % AUDIO_SAMPLE_WIDTH_BYTES != 0
     ):
+        error = ValueError(
+            f"录音长度为{len(pcm_data)}字节，"
+            f"允许范围为{AUDIO_MIN_BYTES}～{AUDIO_MAX_BYTES}字节"
+        )
+        print_turn_failure(
+            turn_tag,
+            "录音校验",
+            turn_started,
+            error,
+        )
         raise HTTPException(
             status_code=400,
-            detail=(
-                f"录音长度错误：收到{len(pcm_data)}字节，"
-                f"允许范围为{AUDIO_MIN_BYTES}～{AUDIO_MAX_BYTES}字节"
-            ),
+            detail=str(error),
         )
 
     RECORDINGS_DIR.mkdir(exist_ok=True)
-
     wav_path = RECORDINGS_DIR / "latest.wav"
 
-    # ESP32上传的是16 kHz、16位、单声道原始PCM
+    # ESP32上传的是16kHz、16位、单声道原始PCM
     with wave.open(str(wav_path), "wb") as wav_file:
         wav_file.setnchannels(AUDIO_CHANNELS)
         wav_file.setsampwidth(AUDIO_SAMPLE_WIDTH_BYTES)
@@ -253,45 +310,53 @@ async def process_audio_turn(
         wav_file.writeframes(pcm_data)
 
     asr_started = time.perf_counter()
+
     try:
-        # ASR是同步网络请求，放入工作线程，避免阻塞FastAPI
         transcript = await asyncio.to_thread(
             transcribe_audio,
             wav_path,
         )
     except (RuntimeError, TimeoutError) as error:
+        print_turn_failure(
+            turn_tag,
+            "ASR",
+            turn_started,
+            error,
+        )
         raise HTTPException(
             status_code=502,
             detail=str(error),
         ) from error
 
     asr_elapsed = time.perf_counter() - asr_started
-    print(f"ASR耗时：{asr_elapsed:.2f} 秒")
-    print(f"ASR识别结果：{transcript}")
 
-    # 每次调用模型前读取最近6轮对话
-    conversation_history = load_recent_messages(
-        x_session_id
-    )
+    # 每两条消息代表一轮用户与助手对话
+    conversation_history = load_recent_messages(x_session_id)
+    context_turns = len(conversation_history) // 2
 
     deepseek_started = time.perf_counter()
+
     try:
-        # 将语音识别文字交给DeepSeek生成回答
         answer = await asyncio.to_thread(
             ask_deepseek,
             transcript,
             conversation_history,
         )
     except (RuntimeError, TimeoutError) as error:
+        print_turn_failure(
+            turn_tag,
+            "DeepSeek",
+            turn_started,
+            error,
+        )
         raise HTTPException(
             status_code=502,
             detail=str(error),
         ) from error
 
     deepseek_elapsed = time.perf_counter() - deepseek_started
-    print(f"DeepSeek耗时：{deepseek_elapsed:.2f} 秒")
-    print(f"DeepSeek回答：{answer}")
-        # 只有模型成功回答后才保存，失败请求不会污染上下文
+
+    # 只有模型成功回答后才保存，失败请求不会污染上下文
     save_turn(
         x_session_id,
         x_turn_id,
@@ -299,38 +364,69 @@ async def process_audio_turn(
         answer,
     )
 
-    print(
-        f"已保存会话：session={x_session_id}，"
-        f"turn={x_turn_id}"
-    )
-    # TTS播放前保存本轮文字，供ESP32随后写入SD卡
     latest_turn["transcript"] = transcript
     latest_turn["answer"] = answer
+
     def answer_audio_stream():
-        # 直到所有音频块发送完成，才统计本轮最终耗时
         tts_started = time.perf_counter()
+        first_audio_elapsed = None
+        tts_first_chunk_elapsed = None
+        audio_bytes = 0
+        chunk_count = 0
 
         try:
-            yield from stream_speech(answer)
+            for audio_chunk in stream_speech(answer):
+                if first_audio_elapsed is None:
+                    first_audio_at = time.perf_counter()
+
+                    # 用户感受到的响应时间：请求开始到首个语音块
+                    first_audio_elapsed = (
+                        first_audio_at - turn_started
+                    )
+                    tts_first_chunk_elapsed = (
+                        first_audio_at - tts_started
+                    )
+
+                audio_bytes += len(audio_chunk)
+                chunk_count += 1
+                yield audio_chunk
+
+            if first_audio_elapsed is None:
+                raise RuntimeError("TTS没有返回任何音频数据")
 
         except Exception as error:
-            print(f"实时TTS流发送失败：{error}")
+            print_turn_failure(
+                turn_tag,
+                "TTS",
+                turn_started,
+                error,
+            )
             raise
 
-        finally:
-            tts_elapsed = time.perf_counter() - tts_started
-            total_elapsed = time.perf_counter() - turn_started
+        # 24kHz、16位、单声道，每秒为48000字节
+        generated_audio_seconds = audio_bytes / 48000
 
-            print(
-                "本轮流式服务端耗时："
-                f"上传接收={receive_elapsed:.2f}s，"
-                f"ASR={asr_elapsed:.2f}s，"
-                f"DeepSeek={deepseek_elapsed:.2f}s，"
-                f"TTS流={tts_elapsed:.2f}s，"
-                f"总计={total_elapsed:.2f}s"
-            )
+        print(
+            "\n"
+            f"TURN {turn_tag} · 上下文 {context_turns} 轮\n"
+            f"{LOG_SEPARATOR}\n"
+            f"录音    {audio_seconds:.2f} 秒\n"
+            f"用户    {compact_text(transcript)}\n"
+            f"助手    {compact_text(answer)}\n"
+            "\n"
+            f"响应    {first_audio_elapsed:.2f} 秒（首个音频块）\n"
+            "阶段    "
+            f"接收 {receive_elapsed:.2f}｜"
+            f"ASR {asr_elapsed:.2f}｜"
+            f"模型 {deepseek_elapsed:.2f}｜"
+            f"TTS首包 {tts_first_chunk_elapsed:.2f}\n"
+            f"音频    {generated_audio_seconds:.2f} 秒｜"
+            f"{chunk_count} 块\n"
+            "结果    成功\n"
+            f"{LOG_SEPARATOR}",
+            flush=True,
+        )
 
-    # 不再等待完整WAV，实时TTS每生成一块就发送一块
     return StreamingResponse(
         answer_audio_stream(),
         media_type="application/octet-stream",
@@ -338,8 +434,6 @@ async def process_audio_turn(
             "X-Audio-Sample-Rate": "24000",
             "X-Audio-Channels": "1",
             "X-Audio-Bits": "16",
-
-            # 把当前轮次身份返回给ESP32验证
             "X-Session-ID": x_session_id,
             "X-Turn-ID": x_turn_id,
         },

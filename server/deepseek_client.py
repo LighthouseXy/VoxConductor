@@ -64,8 +64,6 @@ def ask_deepseek(
         method="POST",
     )
 
-    print(f"正在调用模型：{MODEL}")
-
     try:
         with urllib.request.urlopen(
             request,

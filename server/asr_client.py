@@ -56,9 +56,6 @@ def transcribe_audio(audio_path: Path) -> str:
         method="POST",
     )
 
-    print(f"正在识别：{audio_path.name}")
-    print(f"使用模型：{model}")
-
     try:
         with urllib.request.urlopen(request, timeout=60) as response:
             response_body = json.load(response)

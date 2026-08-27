@@ -6,7 +6,6 @@ import wave
 from pathlib import Path
 
 import base64
-import time
 from collections.abc import Iterator
 from queue import Empty, Queue
 
@@ -34,20 +33,21 @@ class RealtimeTtsCallback(QwenTtsRealtimeCallback):
         # SDK回调运行在其他线程，Queue负责安全地把PCM交给HTTP响应
         self.audio_queue: Queue[bytes | None] = Queue()
         self.error: RuntimeError | None = None
-        self.started_at = 0.0
-        self.first_audio_received = False
+        self.finished = False
 
     def on_open(self) -> None:
-        print("实时TTS WebSocket连接成功")
+        pass
 
     def on_close(self, close_status_code, close_msg) -> None:
-        # 如果连接意外关闭，也要结束HTTP生成器，避免请求永久等待
-        self.audio_queue.put(None)
+        # 没有收到session.finished即关闭，应当按失败处理
+        if not self.finished and self.error is None:
+            self.error = RuntimeError(
+                "实时TTS连接意外关闭："
+                f"{close_status_code}, {close_msg}"
+            )
 
-        print(
-            "实时TTS WebSocket关闭："
-            f"{close_status_code}, {close_msg}"
-        )
+        if not self.finished:
+            self.audio_queue.put(None)
 
     def on_event(self, response: dict) -> None:
         event_type = response.get("type")
@@ -55,18 +55,11 @@ class RealtimeTtsCallback(QwenTtsRealtimeCallback):
         if event_type == "response.audio.delta":
             audio_chunk = base64.b64decode(response["delta"])
 
-            if not self.first_audio_received:
-                self.first_audio_received = True
-
-                print(
-                    "实时TTS首个音频块延迟："
-                    f"{time.perf_counter() - self.started_at:.2f} 秒"
-                )
-
             self.audio_queue.put(audio_chunk)
 
         elif event_type == "session.finished":
             # None表示流结束，不会被当成音频发送
+            self.finished = True
             self.audio_queue.put(None)
 
         elif event_type == "error":
@@ -108,12 +101,8 @@ def stream_speech(text: str) -> Iterator[bytes]:
             mode="server_commit",
         )
 
-        callback.started_at = time.perf_counter()
-
         client.append_text(text)
         client.finish()
-
-        chunk_number = 0
 
         while True:
             try:
@@ -128,15 +117,11 @@ def stream_speech(text: str) -> Iterator[bytes]:
             if audio_chunk is None:
                 break
 
-            chunk_number += 1
-
             # StreamingResponse每次取得一个块就立即发送
             yield audio_chunk
 
         if callback.error:
             raise callback.error
-
-        print(f"实时TTS流结束，共{chunk_number}个音频块")
 
     finally:
         client.close()
