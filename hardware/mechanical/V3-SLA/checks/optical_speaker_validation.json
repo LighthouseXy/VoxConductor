@@ -1,1 +1,20 @@
-{}
+{
+  "LCD_reference/01_main_shell": 0.0,
+  "LCD_reference/02_base": 0.0,
+  "LCD_reference/03_LCD_retainer": 0.0,
+  "LCD_reference/04_speaker_cradle": 0.0,
+  "LCD_reference/05_speaker_retainer": 0.0,
+  "LCD_reference/06_prism_carrier": 0.0,
+  "prism_reference/01_main_shell": 0.0,
+  "prism_reference/02_base": 0.0,
+  "prism_reference/03_LCD_retainer": 0.0,
+  "prism_reference/04_speaker_cradle": 0.0,
+  "prism_reference/05_speaker_retainer": 0.0,
+  "prism_reference/06_prism_carrier": 0.0,
+  "speaker_reference/01_main_shell": 0.0,
+  "speaker_reference/02_base": 0.0,
+  "speaker_reference/03_LCD_retainer": 0.0,
+  "speaker_reference/04_speaker_cradle": 0.0,
+  "speaker_reference/05_speaker_retainer": 0.0,
+  "speaker_reference/06_prism_carrier": 0.0
+}

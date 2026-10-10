@@ -52,7 +52,9 @@ checks/validation.json：最终STEP重新载入；全PCB和元件包络从下方
   新螺丝柱距已扩张PCB扫掠体最小约1.45mm。
 checks/delivery_validation.json：8个STL封闭、每边两面；STL/STEP体积误差<0.5%；
   03/05/06与原件几何差为零；底盖螺丝包络与PCB、底盖通孔及USB/SD出口检查通过。
-checks/optical_speaker_validation.json：保留光学件与LCD/30mm棱镜/扬声器参考包络检查通过。
+checks/optical_speaker_validation.json：LCD/30mm棱镜/扬声器三组参考包络与六个结构件，共18组交叠检查均为0。
+逐文件复核时发现此前报告为空，原脚本按内部对象名筛选，漏掉FreeCAD添加下划线的结构件。
+已改为按零件标签筛选并要求完整检查数量，再用--check-only补检；没有改写几何或装配文件。
 
 六、实物验证边界
 此版修复已证实的方向错误和装入干涉；不是树脂公差或强度的实物认证。
@@ -76,6 +78,8 @@ presentation/V3-SLA_装配与修正说明.pptx为当前版本装配说明。
 [内部装配预览](preview/02_internal_exploded.png) · [PCB 与柱位](preview/03_board_and_bosses.png) · [装配 PPT](presentation/V3-SLA_装配与修正说明.pptx)
 
 源文件运行顺序：`extract_pcb.py` → `build.py` → `verify_delivery.py` → `complete_assembly.py` → `render.py` → `render_3d.py` → `make_presentation.py` → `package.py`。提取用 KiCad Python，建模/检查用 FreeCAD Python，预览需要 NumPy、Pillow 和 Matplotlib，PPT 需要 python-pptx。脚本中的 macOS 应用库路径在其他系统上需按安装位置调整。
+
+只复核现有装配的光学/扬声器包络时，运行 `complete_assembly.py --check-only`；只更新校验报告，不保存或导出装配。缺少六个结构件或18组检查时会报错，不接受空报告作为通过。
 
 `source/frozen_v2/` 的六个 STEP 是重建所需的固定输入，不能当作废弃旧版本删除。它们不属于打印清单。`preview/scene.json` 是预览脚本的数据输入，STEP 用于 CAD，STL 用于打印，PPT 用于装配，各有用途。
 

@@ -12,11 +12,11 @@
     "06_prism_carrier"
   ],
   "files": {
-    "README.md": "013ccdbb2817754fb8f7a1b586bbf2b41e0e8c819a5bef4b41cbe1045b3bb794",
+    "README.md": "7af9291afc463dfc366d21e4ce2d90ea15fb0e1872900be35373666e86a1068c",
     "assembly/V3_assembly.FCStd": "5ba25dfee5b72a18c81c3f76ec0ca5639e0ff636f22f11f26dbbc5b9bb9cd99e",
     "assembly/V3_assembly_DO_NOT_PRINT.step": "324b6c11c70d5b058c19025847467d7109a688da282115fe268c4cc114c50dec",
     "checks/delivery_validation.json": "6d3f57e415fd94ae38d49d9bfe21c27863354d5f6d54230e88f1fc7eaf3052ac",
-    "checks/optical_speaker_validation.json": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+    "checks/optical_speaker_validation.json": "7102db2bda22b1b069751edf2b05785bcc5dd5244c0db01c4a36b28c7ccf58be",
     "checks/validation.json": "85e40a45f9ee4f029c4e62e429ee985f643e709a851dcedfe203a3e9163cb0c7",
     "parts/01_main_shell.step": "af413b7a74820b6dd2f45d7fdbfaeae21aad2fb56db0574f1da41199fa98adbb",
     "parts/02_base.step": "fa05578cdb67c75c067c530971e6246a8f40432b7008e7b078ddc6b93878e79c",
@@ -36,7 +36,7 @@
     "print/05_speaker_retainer.stl": "b2aa6a824634c00f6301e44481ef72eedef267b036212ae78ad00485c4bc6f77",
     "print/06_prism_carrier.stl": "5cedd11caa65848a98d373441084bb49085862799d9c001db5c4799f406b209e",
     "source/build.py": "8cf38a76401153b1862408f32ec8d9a7a071a6baa382907f61cabefc2e4e9bda",
-    "source/complete_assembly.py": "f3a868b6e39a5ce42a12e5ef25aba9ebe59c5bbb94e64092d3682382b68b26d9",
+    "source/complete_assembly.py": "42344ae5874e8d7d6cb2ea40a7129770d58eaff75d1e048df41245b47f3c823f",
     "source/extract_pcb.py": "d7c2c1f6748d39b2dabe46b49da6ebcfaf65ad5ee3b2fccacb7310a90f28711e",
     "source/frozen_v2/01_main_shell.step": "604bab16a404f60b2a897d0580110dc1e6f075008b03a970dcefd5fe11981383",
     "source/frozen_v2/02_base.step": "88aca8a89e10dd7b435a6ae3c136d9aa23f40639addf3986057e8b2ead553750",
