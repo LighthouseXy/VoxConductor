@@ -2,6 +2,8 @@
 
 最后更新：2026-10-11（保留 9 月 25 日确认的 GPIO 映射）
 
+本文是开发时查阅的器件、引脚和电气说明。整体介绍、原理图、PCB、贴片前后照片、部件局部图和 3D 结构见 [硬件设计与装配](HARDWARE_DESIGN.md)。已有整机运行演示；下文检查顺序仍用于换板或重新装配后的验证。
+
 当前固件面向定制PCB，不再沿用开发板加模块的旧接线。引脚取自用户确认的最新版 `VoxConductor.kicad_sch` 导出网络表；以下数字均为GPIO编号，不是WROOM模组封装脚号。
 
 原型备份已单独保存。[`BOM.csv`](BOM.csv)仍是旧模块原型的历史物料与验证记录，不作为本次贴片板的采购表或接线依据。新板编译通过不代表硬件已验证。
@@ -45,7 +47,7 @@
 ## 3. 本次固件适配
 
 - `app_display.c`：迁移四个SPI控制/数据引脚，增加GPIO9背光。先关背光，面板和LVGL初始化成功后开启，失败路径不主动点亮；当前已接入 LEDC/PWM 亮度调节。
-- `app_audio.c`：迁移麦克风与功放两组I2S引脚。保留左声道采集、左右槽复制播放和35%软件音量；播放保持24kHz，声学回声参考单独转换为16kHz。
+- `app_audio.c`：迁移麦克风与功放两组I2S引脚。保留左声道采集与左右槽复制播放；软件音量可调，实际值以设备配置为准。播放保持24kHz，声学回声参考单独转换为16kHz。
 - `app_storage.c`：迁移SD四线，保持SPI3、10MHz及不自动格式化策略。
 - `app_button.c`：迁移到GPIO16，保留10ms独立采样、连续3次稳定消抖、500ms长按和忙时短按取消。
 - `app_motion.h`：SDA/SCL改为39/40。AD0接地，预期I²C地址0x68；保留Y轴和方向1，需按实际安装核对左右方向。
@@ -88,11 +90,11 @@ python3 tests/test_board_pins.py /path/to/exported-netlist.xml
 
 ## 6. 当前实物与组装资料
 
-我已整理 [整机、PCB 与组装照片](SHOWCASE.md#2-pcb-与组装部件)：包含装配后的电路板、单块裸板，以及外壳、屏幕/排线、棱镜、按键和扬声器的部件全景。它们用于展示实物与结构，不替代原理图、电气测试或正式采购 BOM。
+我已整理 [电路、PCB 与装配说明](HARDWARE_DESIGN.md)：包含设计导出、贴片前后实拍、两张部件全景，以及主板、屏幕、外壳、底盖、透明承托件、按键和扬声器的局部图。设计版本和实物验证分别标注。
 
 <p align="center">
-  <img src="images/2026-10-10/pcb-assembled.jpg" alt="定制 PCB 装配实拍" width="420">
-  <img src="images/2026-10-10/device-rear.jpg" alt="整机后侧接口" width="230">
+  <img src="images/2026-10-11/pcb-assembled.jpg" alt="定制 PCB 装配实拍" width="420">
+  <img src="images/2026-10-11/device-rear.jpg" alt="整机后侧接口" width="230">
 </p>
 
 [查看高分辨率部件全景](images/2026-10-10/assembly-parts-overview.jpg)。原理图、PCB、制造文件及 V3-SLA 结构现已统一收录于 [hardware/](../hardware/README.md)；当前本机固件改动不随本次硬件资料发布。

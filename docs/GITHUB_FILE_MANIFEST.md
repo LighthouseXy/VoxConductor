@@ -13,9 +13,11 @@
 - `docs/DESKTOP_TOOLS_AND_GAMES.md`
 - `docs/DEVICE_CLOUD_VOICE.md`
 - `docs/FEATURE_ANALYSIS_AND_EXPANSION.md`
+- `docs/FEATURES.md`
 - `docs/GITHUB_FILE_MANIFEST.md`
 - `docs/GITHUB_PUBLICATION_CHECKLIST.md`
 - `docs/HARDWARE_V1.md`
+- `docs/HARDWARE_DESIGN.md`
 - `docs/LAN_DEVICE_PROTOCOL.md`
 - `docs/MPU6050_GESTURES.md`
 - `docs/README.md`
@@ -51,9 +53,10 @@
 - `docs/logs/2026-10-08.md`
 - `docs/logs/2026-10-09.md`
 - `docs/logs/2026-10-10.md`
+- `docs/logs/2026-10-11.md`
 - `docs/logs/README.md`
 
-## 当前展示图片和清单
+## 原始发布图片和清单
 
 - `docs/images/2026-10-10/alarm-edit-hour.jpg`
 - `docs/images/2026-10-10/assembly-parts-overview.jpg`
@@ -73,6 +76,22 @@
 - `docs/images/2026-10-10/weather-current.jpg`
 - `docs/images/2026-10-10/weather-hourly.jpg`
 - `docs/images/2026-10-10/weather-metrics.jpg`
+
+## 2026-10-11 展示版素材
+
+本目录只保留正文使用或链接的素材，逐文件名称、来源和 SHA-256 见 [manifest.json](images/2026-10-11/manifest.json)：
+
+| 文件组 | 内容与用途 |
+| --- | --- |
+| `device-*.jpg` | 圆形时钟与整机正面、侧面、后侧、另一侧开口 |
+| `pcb-*.jpg` | 裸板批次、单板细节与贴片后实物 |
+| `assembly-parts-*.jpg` | 两张部件全景的裁边展示版 |
+| `part-*.jpg` | 主板、屏幕、主壳、底盖、固定框、透明件、按键、扬声器共八个局部 |
+| 闹钟/天气/设置/语音/菜单图片 | 功能页面，与文字说明对应 |
+| 原理图与 PCB SVG | 用于文档内放大查看；不是新增投板修订 |
+| `web-*.jpg` | 真实前端运行的模拟数据截图，未连接设备 |
+
+结构预览直接引用硬件目录，未重复提交；未使用的 Peripherals 导出和包装局部图不保留。桌面原件及此前公开历史照片不删除。
 
 ## 演示视频
 
