@@ -1,5 +1,10 @@
 # VoxConductor V1 验收与验证
 
+> 历史文档：以下 V1 服务端模式的架构/实测保留原口径，不代表 2026-10-10 开发版直连固件。当前说明见 [设备直连](DEVICE_CLOUD_VOICE.md)、[语音实施](VOICE_DIALOGUE_AND_MEMORY_PLAN.md)；当前实物和视频见 [展示图集](SHOWCASE.md)。
+
+
+> 本文对应原V1服务端模式。当前固件的功能验证见 [语音对话实施方案](VOICE_DIALOGUE_AND_MEMORY_PLAN.md)，配置与启动见 [设备直连说明](DEVICE_CLOUD_VOICE.md)。旧版截图不表示最新直连、记忆与提醒改动已通过实机测试。
+
 最后更新：2026-08-27
 
 ## 1. 验收目标

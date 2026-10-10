@@ -1,186 +1,90 @@
-# VoxConductor｜桌面智能语音中枢
+# VoxConductor｜棱镜显示桌面语音助手
 
-VoxConductor 是一套基于 ESP32-S3 的桌面智能语音中枢。设备端负责按键交互、语音采集、流式音频播放、240×240 图形界面和 microSD 记录；本地 FastAPI 服务负责 ASR、上下文管理、DeepSeek 推理、实时 TTS 与天气数据聚合。
+我想做一台能自然融入桌面的设备：抬头看时间和天气，开口查询信息、调整设置，也能在需要时专注计时、播放音乐。VoxConductor 是我围绕这个想法持续制作的 ESP32-S3 桌面语音助手。
 
-V1 已完成按键半双工语音对话、多轮上下文、时间与天气显示、实时 TTS 播放和 microSD 会话记录。
-
-<p align="center">
-  <img src="docs/images/voxconductor-prototype.jpg" alt="VoxConductor 分光棱镜显示原型" width="420">
-</p>
-
-## 已实现功能
-
-| 模块 | 当前实现 | 验证状态 |
-| --- | --- | --- |
-| 显示 | ST7789 240×240 + LVGL 9；主页、天气页、语音页和语音状态覆盖层 | 已在实机显示 |
-| 交互 | 单键短按切页；长按 500 ms 开始录音；松开发送 | 已在实机验证 |
-| 录音 | INMP441，16 kHz、16 位、单声道；录音范围 1～20 秒 | 已在实机验证 |
-| 语音链路 | 录音上传 → 千问 ASR → DeepSeek → 千问实时 TTS → ESP32 流式播放 | 已完成端到端实机验证 |
-| 上下文 | SQLite 按 `session_id` 保存消息；每轮向 DeepSeek 提供最近 12 条消息 | 已在服务端验证 |
-| 轮次隔离 | 设备生成 `turn_id`；播放前校验响应中的 `X-Turn-ID` | 已在代码中实现 |
-| 网络信息 | Wi-Fi、SNTP 校时、Open-Meteo 当前天气；失败后重试，成功后定时刷新 | 已在实机验证 |
-| 本地记录 | microSD 追加保存时间、用户文本和 AI 回答 | 已在实机验证 |
-
-## 实机界面
+我把定制 PCB、屏幕与棱镜结构、音频输入输出、姿态交互和云端语音服务整合到同一台设备里。它不需要电脑常驻运行服务端；设备负责采集、播放、界面、工具执行与本地记录，语音识别、大模型和语音合成由云端完成。
 
 <p align="center">
-  <img src="docs/images/home-page.jpg" alt="主页" width="240">
-  <img src="docs/images/weather-page.jpg" alt="天气页" width="240">
-  <img src="docs/images/voice-ready.jpg" alt="语音助手页" width="240">
+  <img src="docs/images/2026-10-10/device-clock-front.jpg" alt="VoxConductor 整机实拍：棱镜中的圆形时钟" width="380">
 </p>
+
+> 更新于 2026-10-10。本次发布更新文档、15 张精选实拍照片、2 段完整演示视频及 2 段回答节选；以下介绍的是我当前开发中的实机版本，最新固件代码将另行整理发布。唤醒、查询和语音控制已有演示，播报连续性与唤醒词打断仍是我正在重点优化的部分。
+
+[实物与演示](docs/SHOWCASE.md) · [开发日志](docs/logs/README.md) · [硬件说明](docs/HARDWARE_V1.md) · [后续计划](docs/ROADMAP.md) · [完整文档](docs/README.md)
+
+## 演示视频
+
+两段视频分别展示我通过语音查询时间、天气，以及通过语音调整设备音量。原片保留原声和完整过程；另备有注明原片区间的回答阶段节选，不用节选表达响应速度。点击封面打开原视频；如果浏览器不能直接播放，可以下载查看。
+
+| 唤醒与时间、天气查询 · 约 26 秒 | 语音调节音量 · 约 29 秒 |
+| --- | --- |
+| [![唤醒与查询演示封面](docs/images/2026-10-10/demo-time-weather-cover.jpg)](docs/videos/2026-10-10/wake-time-weather.mp4?raw=true) | [![语音音量控制演示封面](docs/images/2026-10-10/demo-volume-cover.jpg)](docs/videos/2026-10-10/voice-volume-control.mp4?raw=true) |
+
+这两段是功能演示，不是唤醒成功率、端到端延迟或长时间稳定性的统计测试。更多界面和组装过程见 [展示图集](docs/SHOWCASE.md)。
+
+## 我已经做了什么
+
+| 方向 | 当前开发版能力 |
+| --- | --- |
+| 桌面显示 | 圆形时钟、壁纸加数字时间两种主页；锁屏统一显示无壁纸时钟；亮度、方向和外观设置 |
+| 天气信息 | 当前天气、未来 12 小时预报、紫外线数值及当日 UV 大于 3 的时段、USAQI/PM2.5、风力与湿度 |
+| 语音交互 | 本地“小冰小冰”唤醒、长按说话、连续接话、按键取消；回答中用唤醒词打断正在联调 |
+| 语音控制 | 时间/天气查询、音量与主页设置、任务与提醒等设备工具；读取真实执行结果后再组织回答 |
+| 日常工具 | 闹钟、提醒、待办、备忘录、倒计时和番茄钟；闹钟编辑和小时预报支持倾斜变速操作 |
+| 媒体与管理 | 本地音乐、环境音、静态/动态壁纸；同网网页管理、媒体上传、设置及诊断入口 |
+| 对话记录 | 有界近期上下文、长期记忆、历史检索和删除；microSD 保存结构化文字与快照 |
+
+我没有把所有功能都塞到时钟下面：时钟二级页只保留闹钟，其他工具集中到菜单中。输入以实体按键和姿态传感器为主，不依赖触摸屏。游戏相关内容已经备份并从当前固件移除，优先把桌面和语音体验做好。
 
 <p align="center">
-  <img src="docs/images/voice-listening.jpg" alt="聆听状态" width="190">
-  <img src="docs/images/voice-thinking.jpg" alt="思考状态" width="190">
-  <img src="docs/images/voice-speaking.jpg" alt="回答状态" width="190">
+  <img src="docs/images/2026-10-10/weather-current.jpg" alt="当前天气" width="220">
+  <img src="docs/images/2026-10-10/weather-hourly.jpg" alt="未来十二小时预报" width="220">
+  <img src="docs/images/2026-10-10/weather-metrics.jpg" alt="空气质量、紫外线、风与湿度" width="220">
 </p>
 
-界面针对分光棱镜的反射方向进行显示翻转，并使用高对比度中心渐变，降低屏幕矩形边界在棱镜中的可见度。
+照片中的天气数值是拍摄时的数据，不是实时读数。天气和空气质量来自网络服务，不是板载环境传感器；空气质量采用 US AQI，不能与中国 AQI 的同一数值直接等同。
 
-## 系统架构
+## 我怎样实现它
 
-```mermaid
-flowchart LR
-    U["用户按键与语音"] --> D["ESP32-S3 设备"]
-    D -->|"16 kHz PCM + session_id + turn_id"| S["FastAPI 本地服务"]
-    S --> A["千问 ASR"]
-    A --> L["DeepSeek 文本生成"]
-    DB[("SQLite 上下文")] <--> S
-    L --> T["千问实时 TTS"]
-    T -->|"24 kHz PCM 流"| D
-    D --> P["MAX98357A + 扬声器"]
-    D --> C[("microSD 文本记录")]
-    W["Open-Meteo"] --> S
-    S -->|"当前天气"| D
-```
+硬件使用 ESP32-S3-WROOM-1、240×240 ST7789 显示屏、INMP441 麦克风、MAX98357A 功放、扬声器、姿态传感器、microSD 和实体按键。棱镜利用屏幕反射形成悬浮观感，不是真正的三维全息投影。具体引脚与装配边界见 [硬件说明](docs/HARDWARE_V1.md)。
 
-完整职责边界、状态流和数据格式见 [系统架构](docs/ARCHITECTURE.md)。
+固件以 ESP-IDF 和 LVGL 为基础，使用 ESP-SR 做本地唤醒与声学处理。当前语音流程是：
 
-## 多轮上下文验证
+1. 设备采集语音，云端 ASR 返回最终转写。
+2. 明确的本机快捷命令直接处理；其他问题由模型选择是否调用白名单工具。
+3. 设备校验参数、执行工具，将结果交回模型生成回答。
+4. 释放模型连接后建立 TTS 会话，缓冲 PCM 并通过 I2S 播放。
+5. 本轮结束后保存状态；在连续对话窗口中等待下一句。
 
-以下实机测试使用同一 `session_id` 连续完成四轮语音对话：第一轮告知项目代号与主控，第二轮追问主控；第三轮修改项目代号，第四轮再次询问代号与主控。服务端显示的“上下文 0～3 轮”对应本轮请求之前已加载的历史轮次。
+我选择让模型连接和 TTS 连接错开，控制内部 RAM 的峰值。PSRAM 用于较大的音频、显示和文本缓冲；SD 用于持久存储，不能代替实时内存。详细职责与验证方法见 [语音与记忆](docs/VOICE_DIALOGUE_AND_MEMORY_PLAN.md)。
 
-<p align="center">
-  <img src="docs/images/context-dialog-turns-1-2.png" alt="多轮上下文测试：建立信息并追问主控" width="48%">
-  <img src="docs/images/context-dialog-turns-3-4.png" alt="多轮上下文测试：更新项目代号并再次回忆" width="48%">
-</p>
+## 当前进展与边界
 
-测试结果表明，当前服务端可以在同一会话内读取既有信息、接受后续修正，并在新轮次中同时引用更新后的项目代号和此前保存的主控信息。截图中的接收、ASR、模型、TTS 首包和音频时长用于定位单轮延迟，不作为统计性能结论。
+我已经完成从模块原型到定制 PCB 整机的推进，也通过实机演示验证了基础语音交互和部分设备控制。接下来最重要的不是继续堆功能，而是让每次操作的结果都可靠、可解释。
 
-## 硬件基线
+- **语音唤醒**：已从 Computer 切换到“小冰小冰”，目前使用 1 倍增益。实际效果仍受距离、发音和环境影响。
+- **语音打断**：日志已出现成功打断并进入新一轮的记录，但我还在验证漏检、回声混入与新问题完整性，不把它描述为稳定全双工。
+- **播报卡顿**：已定位并调整播放调度、写入分块和底层缓冲；最新改动需要继续听测，不能仅凭“请求成功”就算解决。
+- **云端依赖**：问答需要网络和自己的服务凭据；本地时钟、界面与部分工具不等于离线大模型。
+- **发布范围**：这次仅同步文档与素材，不包含尚未发布的固件、个人凭据、构建产物或私人对话记录。
 
-- ESP32-S3 N16R8 Nano：16 MB Flash、8 MB PSRAM
-- ST7789 SPI TFT：1.3 英寸、240×240
-- INMP441 I2S 数字麦克风
-- MAX98357A I2S D 类功放与 4 Ω / 3 W 扬声器
-- microSD SPI 模块与 microSD 卡
-- 单个低电平有效实体按键
-- 25.4 mm 分光棱镜
+后续安排见 [开发计划](docs/ROADMAP.md)，问题、判断和修改过程按日期保留在 [开发日志](docs/logs/README.md)。
 
-当前接线、GPIO、电源与 BTL 扬声器安全要求见 [硬件与接线](docs/HARDWARE_V1.md)。
+## 阅读与复现
 
-## 软件栈
+[配置说明](docs/DEVICE_CLOUD_VOICE.md) 描述当前开发版所需的模型、分区和服务配置；它不是“本次文档提交已经发布全部新代码”的承诺。复现时请以实际源码提交和对应配置为准，不要混用旧应用与新模型分区。
 
-- 固件：ESP-IDF 6.0.2、LVGL 9.5、`esp_lvgl_port` 2.8
-- 服务端：Python、FastAPI、SQLite
-- 云服务：千问 ASR、DeepSeek Chat Completions、千问实时 TTS
-- 天气：Open-Meteo
+| 入口 | 内容 |
+| --- | --- |
+| [展示图集](docs/SHOWCASE.md) | 整机、PCB、部件、界面与两段演示 |
+| [硬件与接线](docs/HARDWARE_V1.md) | 板载器件、GPIO、装配和检查顺序 |
+| [桌面交互](docs/DESKTOP_TOOLS_AND_GAMES.md) | 主页、闹钟、天气、设置、媒体 |
+| [网页管理设计](docs/WEB_MANAGEMENT_DESIGN.md) | 已有管理能力与下一步改版 |
+| [发布清单](docs/GITHUB_PUBLICATION_CHECKLIST.md) | 文档与素材范围、代码和资源后续整理 |
+| [V1 历史架构](docs/ARCHITECTURE.md) / [验证记录](docs/DEMO_AND_VERIFICATION.md) | 原 FastAPI 服务端阶段，保留当时的真实结果 |
 
-## 快速开始
+## 许可与致谢
 
-### 1. 启动服务端
+项目采用 [PolyForm Noncommercial License 1.0.0](LICENSE)。这是源码可见项目，不以 OSI 开源项目名义发布；使用范围以许可证为准。
 
-```bash
-cd server
-python3 -m venv .venv
-source .venv/bin/activate
-pip install -r requirements.txt
-cp .env.example .env
-```
-
-在 `.env` 中填入自己的服务密钥、百炼兼容接口地址和天气位置。加载配置并启动：
-
-```bash
-set -a
-source .env
-set +a
-uvicorn app:app --host 0.0.0.0 --port 8000
-```
-
-检查本地服务：
-
-```bash
-curl http://127.0.0.1:8000/health
-curl http://127.0.0.1:8000/weather/current
-```
-
-### 2. 配置并编译固件
-
-```bash
-cp firmware/main/wifi_credentials.example.h \
-   firmware/main/wifi_credentials.h
-```
-
-填写 2.4 GHz Wi-Fi 的 SSID 和密码，并把 `firmware/main/app_network.c` 顶部的三个本地服务 URL 改为运行 FastAPI 的电脑局域网地址。
-
-在 ESP-IDF 6.0.2 终端中执行：
-
-```bash
-cd firmware
-idf.py set-target esp32s3
-idf.py build
-idf.py flash monitor
-```
-
-### 3. 操作与验证
-
-1. 短按按键，在主页、天气页和语音页之间切换。
-2. 长按按键 500 ms，设备进入“聆听中”；继续按住并说话。
-3. 松开按键后，设备停止录音并上传本轮语音。
-4. 服务端完成语音识别、上下文加载、模型回答和实时语音合成。
-5. 设备流式播放回答，结束后返回原页面，并将本轮文字追加到 microSD。
-
-启动日志、页面、语音链路和上下文的完整验收方法见 [验收与验证](docs/DEMO_AND_VERIFICATION.md)。
-
-## 仓库结构
-
-```text
-voxconductor/
-├── firmware/   ESP32-S3 固件
-│   └── main/   显示、UI、按键、音频、网络、存储模块
-├── server/     FastAPI、ASR、DeepSeek、TTS、天气与上下文
-├── docs/       架构、硬件、日志、功能分析与演示说明
-└── README.md
-```
-
-## V1 范围
-
-以下内容没有在 V1 中实现：
-
-- 语音打断播放、AEC 和全双工对话；
-- 流式 ASR 或 DeepSeek 文本流；当前在完整录音识别和完整文本回答后启动实时 TTS；
-- HTTPS/WSS 设备认证、远程部署和密钥轮换；
-- Wi-Fi 配网界面和服务端地址持久化；当前两项在编译期配置；
-- 多用户、多设备并发隔离；当前固件使用固定 `session_id`；
-- 自动联网搜索、工具调用 Agent、长期记忆摘要和 SD 卡远程文件接口；
-- 电池、摄像头、环境传感器、IMU 手势切页、定制 PCB 与成品外壳。
-
-当前版本为面包板与模块化硬件组成的功能原型，尚未进入定制 PCB、结构设计和产品认证阶段。
-
-## 文档索引
-
-- [系统架构与关键设计](docs/ARCHITECTURE.md)
-- [硬件、接线与电气约束](docs/HARDWARE_V1.md)
-- [验收与验证说明](docs/DEMO_AND_VERIFICATION.md)
-- [功能分析与后续扩展](docs/FEATURE_ANALYSIS_AND_EXPANSION.md)
-- [开发日志](docs/logs/README.md)
-- [V1 实装 BOM](docs/BOM.csv)
-
-## 许可与使用限制
-
-本项目采用 [PolyForm Noncommercial License 1.0.0](LICENSE)，属于**源码可见（source-available）项目，不是 OSI 定义下的开源软件**。
-
-- 允许个人学习、研究、实验和其他非商业用途；
-- 允许在同一许可约束下，为非商业目的修改和分发；
-- 未经版权所有者书面授权，禁止将本项目或其衍生作品用于任何预期商业用途；
-- 仓库引用的 ESP-IDF、LVGL 及其他第三方组件，分别遵循其自身许可证，本许可证仅适用于本仓库中版权所有者有权许可的原创内容。
+ESP-IDF、LVGL、ESP-SR 及云端服务各有自己的许可或使用条款。天气和空气质量使用 Open-Meteo 数据，空气质量来源包括 CAMS；相关来源与归属见 [数据服务说明](https://open-meteo.com/en/docs/air-quality-api)。第三方音乐的原始作者、许可和修改说明随媒体资源包保留，不作为我的原创作品展示。

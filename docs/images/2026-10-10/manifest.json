@@ -1,0 +1,250 @@
+{
+  "collection_date": "2026-10-10",
+  "note": "Selected photos and original videos preserved byte-for-byte. Excerpts omit earlier stages and do not measure end-to-end latency. Original desktop files unchanged.",
+  "items": [
+    {
+      "file": "docs/images/2026-10-10/device-clock-front.jpg",
+      "source_filename": "39b185eede5d3b4d2c9aa39179bdce29.jpg",
+      "kind": "original_photo",
+      "bytes": 103517,
+      "sha256": "8dc12a6badc8bb82c186f0749eb6c267c70d97490a999b1497ae07cf7772a914",
+      "stored_dimensions": [
+        1280,
+        1707
+      ],
+      "exif_orientation": 1
+    },
+    {
+      "file": "docs/images/2026-10-10/device-side.jpg",
+      "source_filename": "5418ffa45afd0219d48e856811bbd99d.jpg",
+      "kind": "original_photo",
+      "bytes": 70135,
+      "sha256": "6ccb28f9192748ba6be5f9a4601338a976fcc8c40da13f65e698f3be6fbd5e4d",
+      "stored_dimensions": [
+        960,
+        1280
+      ],
+      "exif_orientation": 1
+    },
+    {
+      "file": "docs/images/2026-10-10/device-rear.jpg",
+      "source_filename": "b1ad4101cfd19db86e0b826115570721.jpg",
+      "kind": "original_photo",
+      "bytes": 77119,
+      "sha256": "4bb47807fb0b8a8515c5f5f938954a83fcf0a91df614769c28ca89d3734d986f",
+      "stored_dimensions": [
+        960,
+        1280
+      ],
+      "exif_orientation": 1
+    },
+    {
+      "file": "docs/images/2026-10-10/assembly-parts-overview.jpg",
+      "source_filename": "6a404a1753310248477df7897d7916a7.jpg",
+      "kind": "original_photo",
+      "bytes": 16746701,
+      "sha256": "d479f9f636509d1d0aff189fe0850db7203c77a585938921b6c9bd5d6daaa5c2",
+      "stored_dimensions": [
+        8064,
+        6048
+      ],
+      "exif_orientation": 6
+    },
+    {
+      "file": "docs/images/2026-10-10/pcb-assembled.jpg",
+      "source_filename": "53ea342118c882a3719b62ea473a658e.jpg",
+      "kind": "original_photo",
+      "bytes": 230514,
+      "sha256": "8cbbc67ff98a4d064f0995d9780f657948bf45dd61068e2700884cf7032038ad",
+      "stored_dimensions": [
+        1707,
+        1280
+      ],
+      "exif_orientation": 1
+    },
+    {
+      "file": "docs/images/2026-10-10/pcb-bare-detail.jpg",
+      "source_filename": "d29a4610b9ff20f452b24187a67dcd63.jpg",
+      "kind": "original_photo",
+      "bytes": 332300,
+      "sha256": "e4bd3ca4ac499f215bd4f82236e9ba54500304ebd27dfeb9daee0ad348fc4646",
+      "stored_dimensions": [
+        1280,
+        1707
+      ],
+      "exif_orientation": 1
+    },
+    {
+      "file": "docs/images/2026-10-10/weather-current.jpg",
+      "source_filename": "e4933a6687d7ec3931e9aee85f2a60e1.jpg",
+      "kind": "original_photo",
+      "bytes": 94148,
+      "sha256": "0426d102c783248222c30966578c97996c6dab53abd017559710051004e0af91",
+      "stored_dimensions": [
+        1280,
+        1707
+      ],
+      "exif_orientation": 1
+    },
+    {
+      "file": "docs/images/2026-10-10/weather-hourly.jpg",
+      "source_filename": "76e2e49fb38fa35b3893a8c4182f96f3.jpg",
+      "kind": "original_photo",
+      "bytes": 104654,
+      "sha256": "e5ffde05f52f7d7e5f0b2e4c152ed8c5ccd62a9ceff1a401d8c9180b4bacb83c",
+      "stored_dimensions": [
+        1280,
+        1707
+      ],
+      "exif_orientation": 1
+    },
+    {
+      "file": "docs/images/2026-10-10/weather-metrics.jpg",
+      "source_filename": "e0148abd7540bdc4fbbd4b9dfcd6de4f.jpg",
+      "kind": "original_photo",
+      "bytes": 115232,
+      "sha256": "826db706460087bcaa09e1f90f5de0ea09d8940322828cbd86383d7dd98489c6",
+      "stored_dimensions": [
+        1280,
+        1707
+      ],
+      "exif_orientation": 1
+    },
+    {
+      "file": "docs/images/2026-10-10/alarm-edit-hour.jpg",
+      "source_filename": "a21f450b58e779659ecd24163b08a02b.jpg",
+      "kind": "original_photo",
+      "bytes": 102798,
+      "sha256": "33144acc79779d7f6feb8e489b0efe90cb6667fcfff95657494e1aa5c7dc120b",
+      "stored_dimensions": [
+        1280,
+        1707
+      ],
+      "exif_orientation": 1
+    },
+    {
+      "file": "docs/images/2026-10-10/settings-grid.jpg",
+      "source_filename": "ab78a8827c15ac65620d096c8afd72ad.jpg",
+      "kind": "original_photo",
+      "bytes": 107211,
+      "sha256": "2d51853e8a82bd90b10cc367388262789356e67ce1911e42a0208c3e30871617",
+      "stored_dimensions": [
+        1280,
+        1707
+      ],
+      "exif_orientation": 1
+    },
+    {
+      "file": "docs/images/2026-10-10/desktop-menu.jpg",
+      "source_filename": "6ed2474e0261109696b0f7283188e532.jpg",
+      "kind": "original_photo",
+      "bytes": 101196,
+      "sha256": "e07d08e9dbb67ee53711142749c552a650e734c3d44a421e17db9f5939d5ca26",
+      "stored_dimensions": [
+        1280,
+        1707
+      ],
+      "exif_orientation": 1
+    },
+    {
+      "file": "docs/images/2026-10-10/voice-listening.jpg",
+      "source_filename": "72022aac1f1a54ec2732b276c2fbd142.jpg",
+      "kind": "original_photo",
+      "bytes": 96459,
+      "sha256": "c8c4fa3d32f158146c1132ad90312b3d626be1baaeac7bb8b507ae164e998ec6",
+      "stored_dimensions": [
+        1280,
+        1707
+      ],
+      "exif_orientation": 1
+    },
+    {
+      "file": "docs/images/2026-10-10/voice-processing.jpg",
+      "source_filename": "3b73d8f73c5cb38d2c8565daf09a1f7e.jpg",
+      "kind": "original_photo",
+      "bytes": 97931,
+      "sha256": "e45944136a00640356cfaf29bf8703fdc3f446c73c4f9677e8c69d23eb50d13a",
+      "stored_dimensions": [
+        1280,
+        1707
+      ],
+      "exif_orientation": 1
+    },
+    {
+      "file": "docs/images/2026-10-10/voice-speaking.jpg",
+      "source_filename": "9d4e451924e63a551dba14f66fdb9d0d.jpg",
+      "kind": "original_photo",
+      "bytes": 98027,
+      "sha256": "a622c607bd106e2232c0eda61790170396df0566a549c1a59daaffc89cbfc8a2",
+      "stored_dimensions": [
+        1280,
+        1707
+      ],
+      "exif_orientation": 1
+    },
+    {
+      "file": "docs/videos/2026-10-10/wake-time-weather.mp4",
+      "source_filename": "d323f76af3fde19d407d6bfdcffcb50f.mp4",
+      "kind": "original_video",
+      "bytes": 1548298,
+      "sha256": "67c9c2037b92a1a59307769f9c3a2b74982f44d6e7dc8e68e2289e4ca1f82093",
+      "duration_seconds": 25.933333,
+      "dimensions": [
+        720,
+        1280
+      ],
+      "audio_tracks": 1
+    },
+    {
+      "file": "docs/videos/2026-10-10/voice-volume-control.mp4",
+      "source_filename": "f1cb52b4ce5e2dcb8e2fc16780ca615b.mp4",
+      "kind": "original_video",
+      "bytes": 1755512,
+      "sha256": "b5df07d3508ac58de11fcaf57db3b471bccdc23592e26a5e5ff86e705cb05555",
+      "duration_seconds": 29.266667,
+      "dimensions": [
+        720,
+        1280
+      ],
+      "audio_tracks": 1
+    },
+    {
+      "file": "docs/videos/2026-10-10/wake-time-weather-answer-clip.mp4",
+      "source_file": "docs/videos/2026-10-10/wake-time-weather.mp4",
+      "kind": "answer_excerpt",
+      "source_start_seconds": 10,
+      "source_end_seconds": 25.933333,
+      "duration_seconds": 15.933333,
+      "bytes": 1061954,
+      "sha256": "4e0c7bced5f6ebc49674f768d4e5f8207dda3b29b86a4acb6b6e4f1e231f45f0",
+      "editing": "Continuous excerpt; original speed and audio; no concatenation"
+    },
+    {
+      "file": "docs/videos/2026-10-10/voice-volume-answer-clip.mp4",
+      "source_file": "docs/videos/2026-10-10/voice-volume-control.mp4",
+      "kind": "answer_excerpt",
+      "source_start_seconds": 18,
+      "source_end_seconds": 29.266667,
+      "duration_seconds": 11.266667,
+      "bytes": 743140,
+      "sha256": "98570cf9f1d9779335ba3e5e32e8a4e4b771836e279bca445a65f8549f553eb2",
+      "editing": "Continuous excerpt; original speed and audio; no concatenation"
+    },
+    {
+      "file": "docs/images/2026-10-10/demo-time-weather-cover.jpg",
+      "source_file": "docs/videos/2026-10-10/wake-time-weather.mp4",
+      "kind": "video_frame",
+      "actual_timestamp_seconds": 23.466667,
+      "bytes": 79739,
+      "sha256": "3077e4a4a590ac6d369d7171b9440c5c6c714ae2688bef7be57a001faa47ad9b"
+    },
+    {
+      "file": "docs/images/2026-10-10/demo-volume-cover.jpg",
+      "source_file": "docs/videos/2026-10-10/voice-volume-control.mp4",
+      "kind": "video_frame",
+      "actual_timestamp_seconds": 26.4,
+      "bytes": 79251,
+      "sha256": "00b6c2fb9edbc0da01f42d773e3550fecd937b20d6058e26c63a25dd15e2bd09"
+    }
+  ]
+}
