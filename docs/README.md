@@ -29,3 +29,7 @@
 - [功能分析与历史方案](FEATURE_ANALYSIS_AND_EXPANSION.md)：旧方案按日期保留，当前取舍以最新说明为准。
 
 主机检查、编译、烧录和实机验收分别记录；图片与单次视频不替代可靠性测试。
+
+## 硬件设计文件
+
+[硬件设计入口](../hardware/README.md)统一收录 KiCad、原理图 PDF、板载 BOM、制造资料和 V3-SLA 外壳；[装配 PPT](../hardware/mechanical/V3-SLA/presentation/V3-SLA_装配与修正说明.pptx)与打印清单在同一版本目录。

@@ -10,7 +10,7 @@
 
 > 更新于 2026-10-10。本次发布更新文档、15 张精选实拍照片、2 段完整演示视频及 2 段回答节选；以下介绍的是我当前开发中的实机版本，最新固件代码将另行整理发布。唤醒、查询和语音控制已有演示，播报连续性与唤醒词打断仍是我正在重点优化的部分。
 
-[实物与演示](docs/SHOWCASE.md) · [开发日志](docs/logs/README.md) · [硬件说明](docs/HARDWARE_V1.md) · [后续计划](docs/ROADMAP.md) · [完整文档](docs/README.md)
+[实物与演示](docs/SHOWCASE.md) · [开发日志](docs/logs/README.md) · [硬件说明](docs/HARDWARE_V1.md) · [原理图、PCB 与 3D 文件](hardware/README.md) · [后续计划](docs/ROADMAP.md) · [完整文档](docs/README.md)
 
 ## 演示视频
 

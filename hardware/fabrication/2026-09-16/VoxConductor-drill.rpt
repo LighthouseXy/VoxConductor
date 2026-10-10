@@ -1,0 +1,30 @@
+Drill report for VoxConductor.kicad_pcb
+Created on 2026-09-16T22:19:04
+
+Copper Layer Stackup:
+    =============================================================
+    L1 :  F.Cu                      front
+    L2 :  In1.Cu                    in1
+    L3 :  In2.Cu                    in2
+    L4 :  B.Cu                      back
+
+
+Drill file 'VoxConductor-PTH.drl' contains
+    plated through holes:
+    =============================================================
+    T1  0.300mm  0.0118"  (96 holes))
+    T2  0.300mm  0.0118"  (12 holes))
+    T3  0.600mm  0.0236"  (4 holes)  (with 4 slots)
+    T4  0.750mm  0.0295"  (2 holes))
+
+    Total plated holes count 114
+
+
+Drill file 'VoxConductor-NPTH.drl' contains
+    unplated through holes:
+    =============================================================
+    T1  0.500mm  0.0197"  (1 hole)
+    T2  0.650mm  0.0256"  (2 holes))
+    T3  2.200mm  0.0866"  (3 holes))
+
+    Total unplated holes count 6

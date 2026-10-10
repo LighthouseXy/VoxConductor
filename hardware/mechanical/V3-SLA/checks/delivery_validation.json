@@ -1,0 +1,92 @@
+{
+  "meshes": {
+    "06_prism_carrier.stl": {
+      "closed_two_faces_per_edge": true,
+      "relative_volume_error": 5.0006843954684785e-05,
+      "facets": 2742
+    },
+    "04_speaker_cradle.stl": {
+      "closed_two_faces_per_edge": true,
+      "relative_volume_error": 0.0009888057766369986,
+      "facets": 21148
+    },
+    "01_main_shell.stl": {
+      "closed_two_faces_per_edge": true,
+      "relative_volume_error": 0.00041489810031849236,
+      "facets": 27248
+    },
+    "02_base.stl": {
+      "closed_two_faces_per_edge": true,
+      "relative_volume_error": 3.855423868968279e-05,
+      "facets": 11416
+    },
+    "03_LCD_retainer.stl": {
+      "closed_two_faces_per_edge": true,
+      "relative_volume_error": 6.482740871351186e-06,
+      "facets": 2232
+    },
+    "05_speaker_retainer.stl": {
+      "closed_two_faces_per_edge": true,
+      "relative_volume_error": 2.8069219638175328e-05,
+      "facets": 1728
+    },
+    "07_entry_frame_first_print.stl": {
+      "closed_two_faces_per_edge": true,
+      "relative_volume_error": 3.257068918854211e-05,
+      "facets": 3632
+    },
+    "08_pilot_coupon_1p5_1p6_1p7.stl": {
+      "closed_two_faces_per_edge": true,
+      "relative_volume_error": 2.2033422132871377e-06,
+      "facets": 1272
+    }
+  },
+  "unchanged": {
+    "03_LCD_retainer": 0.0,
+    "05_speaker_retainer": 0.0,
+    "06_prism_carrier": 0.0
+  },
+  "fasteners": [
+    {
+      "center": [
+        -25.5,
+        12
+      ],
+      "2x4_tip_z": 4.3,
+      "base_overlap_mm3": 0.0,
+      "pcb_gap_mm": 4.359862186147837
+    },
+    {
+      "center": [
+        25.5,
+        12
+      ],
+      "2x4_tip_z": 4.3,
+      "base_overlap_mm3": 0.0,
+      "pcb_gap_mm": 4.359862186147837
+    },
+    {
+      "center": [
+        -25.5,
+        61.5
+      ],
+      "2x4_tip_z": 4.3,
+      "base_overlap_mm3": 0.0,
+      "pcb_gap_mm": 4.011297179640066
+    },
+    {
+      "center": [
+        25.5,
+        61.5
+      ],
+      "2x4_tip_z": 4.3,
+      "base_overlap_mm3": 0.0,
+      "pcb_gap_mm": 4.011297179640066
+    }
+  ],
+  "ports": {
+    "USB_plug_overmould_14x8": 0.0,
+    "SD_card_exit": 0.0
+  },
+  "limits": "14x8 USB plug is a stated envelope; actual user cable and card finger grip still need physical trial."
+}

@@ -1,6 +1,6 @@
 # VoxConductor 硬件与接线
 
-最后更新：2026-10-10（保留 9 月 25 日确认的 GPIO 映射）
+最后更新：2026-10-11（保留 9 月 25 日确认的 GPIO 映射）
 
 当前固件面向定制PCB，不再沿用开发板加模块的旧接线。引脚取自用户确认的最新版 `VoxConductor.kicad_sch` 导出网络表；以下数字均为GPIO编号，不是WROOM模组封装脚号。
 
@@ -95,4 +95,10 @@ python3 tests/test_board_pins.py /path/to/exported-netlist.xml
   <img src="images/2026-10-10/device-rear.jpg" alt="整机后侧接口" width="230">
 </p>
 
-[查看高分辨率部件全景](images/2026-10-10/assembly-parts-overview.jpg)。本次只发布展示素材，没有把未经整理的硬件设计文件或新固件随文档提交。
+[查看高分辨率部件全景](images/2026-10-10/assembly-parts-overview.jpg)。原理图、PCB、制造文件及 V3-SLA 结构现已统一收录于 [hardware/](../hardware/README.md)；当前本机固件改动不随本次硬件资料发布。
+
+## 7. 结构文件与当前修订
+
+[V3-SLA 装配、打印与螺丝清单](../hardware/mechanical/V3-SLA/README.md)修复 USB 左右镜像和 PCB 装入柱位干涉。需成套替换主壳、底盖、扬声器托架；先打印入口框和底盖试装。CAD 检查通过，树脂实配待完成。
+
+KiCad 源文件仍是 9 月投板状态，实物 J2 旋转返修尚未写回设计；生产文件不代表已包含该修正。详细边界见 [硬件设计入口](../hardware/README.md)。

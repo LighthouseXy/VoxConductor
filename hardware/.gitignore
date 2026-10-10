@@ -1,0 +1,13 @@
+*.kicad_prl
+*.kicad_sch~
+*.kicad_pcb~
+*.lck
+~*.lck
+*-backups/
+*.FCBak
+*.FCStd1
+__pycache__/
+*.pyc
+.DS_Store
+.history/
+*.zip

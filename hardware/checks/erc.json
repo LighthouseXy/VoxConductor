@@ -1,0 +1,60 @@
+{
+    "$schema": "https://schemas.kicad.org/erc.v1.json",
+    "coordinate_units": "mm",
+    "date": "2026-10-11T03:14:39",
+    "ignored_checks": [
+        {
+            "description": "Global label only appears once in the schematic",
+            "key": "single_global_label"
+        },
+        {
+            "description": "Four connection points are joined together",
+            "key": "four_way_junction"
+        },
+        {
+            "description": "SPICE model issue",
+            "key": "simulation_model_issue"
+        },
+        {
+            "description": "Assigned footprint doesn't match footprint filters",
+            "key": "footprint_filter"
+        }
+    ],
+    "included_severities": [
+        "error",
+        "warning"
+    ],
+    "kicad_version": "10.0.6",
+    "sheets": [
+        {
+            "path": "/",
+            "uuid_path": "/65a47b29-ca77-4cb9-965d-09a81dd25a99",
+            "violations": [
+                {
+                    "description": "类型为 未指定 和 电源输入 的引脚已连接",
+                    "items": [
+                        {
+                            "description": "Symbol U6 引脚 17 [PAD, 未指定, 图线]",
+                            "pos": {
+                                "x": 3.6322,
+                                "y": 2.2352
+                            },
+                            "uuid": "133d84c4-8edd-410b-8089-313ce851c57b"
+                        },
+                        {
+                            "description": "Symbol U6 引脚 3 [GND, 电源输入, 图线]",
+                            "pos": {
+                                "x": 3.5814,
+                                "y": 2.2352
+                            },
+                            "uuid": "45f3d468-ad31-4622-893e-0694ed650794"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "pin_to_pin"
+                }
+            ]
+        }
+    ],
+    "source": "VoxConductor.kicad_sch"
+}
