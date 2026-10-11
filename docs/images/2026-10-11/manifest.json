@@ -531,34 +531,66 @@
       "file": "docs/images/2026-10-11/web-overview-desktop.jpg",
       "kind": "browser_mock_preview_not_device_test",
       "source_filename": "media_web.html",
-      "source_sha256": "e6cb3cd01f8dc960668547004bd633f64be1dca71f8048d90ed6193c6369dffb",
+      "source_sha256": "17ed9b24e684bab940620f0a423412c7cec17041977cb4ab1db74564eb97b895",
       "dimensions": [
         1425,
         1095
       ],
-      "sha256": "e04dfa767a3b4b13e1985b28f8fe1dee6de42bebe3718a2c28437d2d124c559c"
+      "sha256": "3c58424ea093e9386f3910c62d9a588a2ab6b17818ee985bdac633d4318877c8"
     },
     {
       "file": "docs/images/2026-10-11/web-appearance-desktop.jpg",
       "kind": "browser_mock_preview_not_device_test",
       "source_filename": "media_web.html",
-      "source_sha256": "e6cb3cd01f8dc960668547004bd633f64be1dca71f8048d90ed6193c6369dffb",
+      "source_sha256": "17ed9b24e684bab940620f0a423412c7cec17041977cb4ab1db74564eb97b895",
       "dimensions": [
         1425,
         1024
       ],
-      "sha256": "ff5480a4de0c1d97949a78520cd7e65ab953ddaef23dc2fbf4e8a19ef5803e46"
+      "sha256": "1241b602246789cfb01c9434563207536c823d034a9bcf46845aede8937e9756"
     },
     {
       "file": "docs/images/2026-10-11/web-overview-mobile.jpg",
       "kind": "browser_mock_preview_not_device_test",
       "source_filename": "media_web.html",
-      "source_sha256": "e6cb3cd01f8dc960668547004bd633f64be1dca71f8048d90ed6193c6369dffb",
+      "source_sha256": "17ed9b24e684bab940620f0a423412c7cec17041977cb4ab1db74564eb97b895",
       "dimensions": [
         375,
-        812
+        1300
       ],
-      "sha256": "962482067f672d4e450d8df3aa999dc35ba261f6991f796416e97473625fb157"
+      "sha256": "3ea4f4ae94106be7876dfd1441b17e0a40439c1118fa9f7db59cdc00537053af"
+    },
+    {
+      "file": "docs/images/2026-10-11/web-tasks-desktop.jpg",
+      "kind": "browser_mock_preview_not_device_test",
+      "source_filename": "media_web.html",
+      "source_sha256": "17ed9b24e684bab940620f0a423412c7cec17041977cb4ab1db74564eb97b895",
+      "dimensions": [
+        1425,
+        1026
+      ],
+      "sha256": "552201f89b0123dfb22c912f6c2b0657b1d78052dab1c3630488e6600200178e"
+    },
+    {
+      "file": "docs/images/2026-10-11/part-beamsplitter-prism.jpg",
+      "source_filename": "06a29871eb1ac874c787b9266ea6ad2a.jpg",
+      "source_sha256": "b681e52102a6e43317dfe10dc9df6835718430f29b6ad8e7d54c3e7511be780b",
+      "stored_dimensions": [
+        1278,
+        1438
+      ],
+      "orientation": 1,
+      "crop_xywh_after_orientation": [
+        60,
+        180,
+        1160,
+        1140
+      ],
+      "dimensions": [
+        1160,
+        1140
+      ],
+      "sha256": "4927a8f647e5343a2c5c6fe6bf1edc2916ba56eb7b960c552062865c5b8b5d65"
     }
   ]
 }

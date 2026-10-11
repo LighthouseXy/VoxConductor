@@ -1,0 +1,44 @@
+{
+  "date": "2026-10-11",
+  "files": [
+    {
+      "file": "wake-time-weather.mp4",
+      "source_file": "d323f76af3fde19d407d6bfdcffcb50f.mp4",
+      "source_sha256": "67c9c2037b92a1a59307769f9c3a2b74982f44d6e7dc8e68e2289e4ca1f82093",
+      "output_sha256": "46333af3ce512f9ef36dc9c9916e976c53fa6e030ee60f6287c42300e7a65eae",
+      "processed_interval_seconds": [
+        0,
+        10.0
+      ],
+      "pitch_ratio": 0.8,
+      "tempo_compensation": 1.25,
+      "video_stream_identical": true,
+      "audio_reencoded": "AAC 128 kbps",
+      "scope": "questioning interval; no speaker-separated source is available",
+      "strong_anonymization": false,
+      "output_duration_seconds": 25.934,
+      "output_audio_duration_seconds": 25.933,
+      "decode_check": "Full audio/video decode completed without reported errors; no human listening verification"
+    },
+    {
+      "file": "voice-volume-control.mp4",
+      "source_file": "f1cb52b4ce5e2dcb8e2fc16780ca615b.mp4",
+      "source_sha256": "b5df07d3508ac58de11fcaf57db3b471bccdc23592e26a5e5ff86e705cb05555",
+      "output_sha256": "f4f77937a9a03938fddf8be29f3d745d169241d9243d301ce86d2b326c9a1751",
+      "processed_interval_seconds": [
+        0,
+        18.0
+      ],
+      "pitch_ratio": 0.8,
+      "tempo_compensation": 1.25,
+      "video_stream_identical": true,
+      "audio_reencoded": "AAC 128 kbps",
+      "scope": "questioning interval; no speaker-separated source is available",
+      "strong_anonymization": false,
+      "output_duration_seconds": 29.267,
+      "output_audio_duration_seconds": 29.266,
+      "decode_check": "Full audio/video decode completed without reported errors; no human listening verification"
+    }
+  ],
+  "notes": "Original Desktop files kept. Earlier public Git commits may still contain the original sound."
+}

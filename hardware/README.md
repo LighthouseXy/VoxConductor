@@ -9,7 +9,7 @@
 | KiCad 工程 | [VoxConductor.kicad_pro](VoxConductor.kicad_pro) | 用 KiCad 10 打开；原理图、PCB、项目库均在本目录 |
 | 原理图 | [可浏览 PDF](exports/VoxConductor-schematic.pdf)、[源文件](VoxConductor.kicad_sch) | 完整单页主原理图 |
 | PCB | [源文件](VoxConductor.kicad_pcb)、[顶层图](exports/pcb-top.svg) | 52 × 50 mm、四层板 |
-| 板载物料 | [board-bom.csv](exports/board-bom.csv) | 从当前原理图导出，含 DNP；不是完整采购料号表 |
+| 板载物料 | [电子 BOM 说明](BOM.md)、[分组 CSV](exports/board-bom.csv)、[逐位号 CSV](exports/board-bom-detailed.csv) | 61 个位置，与原理图网表核对；含 2 个 DNP，采购规格另行确认 |
 | 制板资料 | [2026-09-16 制造文件](fabrication/2026-09-16/README.md) | 已制板源版本的 Gerber、钻孔与坐标表 |
 | 3D 外壳 | [V3-SLA 装配与打印说明](mechanical/V3-SLA/README.md) | STEP、STL、FreeCAD、PPT、预览和重建脚本 |
 | 板级接线 | [硬件与 GPIO](../docs/HARDWARE_V1.md) | 固件接口与通电检查 |

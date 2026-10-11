@@ -1,6 +1,6 @@
 # ESP32-S3 云端直连语音、记忆与工具
 
-更新日期：2026-10-10。以下针对当前开发版，最新固件不包含在本次文档与素材提交中。
+更新日期：2026-10-11。以下针对当前开发版，最新固件不包含在本次文档与素材提交中。整体设计见 [技术架构](TECHNICAL_ARCHITECTURE.md)。
 
 当前主流程在 ESP32-S3 运行，不需要电脑 FastAPI。ASR、DeepSeek、TTS 推理仍使用互联网云服务。功能职责、实现状态与实机验证步骤统一见 [语音对话实施方案](VOICE_DIALOGUE_AND_MEMORY_PLAN.md)。
 
@@ -17,16 +17,17 @@ ESP-IDF 终端等价命令：
 
 ```bash
 cd firmware
-idf.py reconfigure
 idf.py build
 idf.py flash monitor
 ```
+
+`build` 会处理必要的首次配置；修改组件、Kconfig 或分区后再按需要运行 `idf.py reconfigure`。日常改 C/HTML 源码直接增量构建，不每次 `fullclean`。串口端口用实际设备替换；只看日志、不想复位时使用 `idf.py -p <端口> monitor --no-reset`，先关闭其他占用串口的监视器。
 
 `dependencies.lock` 由组件管理器在重新配置时更新。不要手工猜测新组件的哈希。
 
 当前 ASR 使用 `qwen3-asr-flash-realtime`，配置宏为 `CLOUD_ASR_REALTIME_URL`；旧整段 ASR 函数保留但不是默认入口。已有私有配置未定义新宏时使用中国内地实时端点。LLM 为 `deepseek-flash`；TTS 使用原有实时端点及音色。
 
-密钥头文件被 Git 忽略，但密钥仍在固件中，不可公开 BIN、ELF 或整个 build 目录。新增局域网令牌同样不能公开。SD 文字为明文存储，不自动保存录音。
+密钥头文件被 Git 忽略，但密钥仍在固件中，不可公开含个人凭据的 BIN、ELF 或整个 build 目录。外部局域网设备的控制令牌同样不能公开；这与当前不需要配对码的管理网页不同。SD 文字为明文存储，不自动保存录音。
 
 ## 默认交互与语音链路
 

@@ -8,6 +8,7 @@
 | --- | --- |
 | [项目总览](../README.md) | 开发期许、当前能力、技术路线与主要边界 |
 | [硬件设计与装配](HARDWARE_DESIGN.md) | 三个实拍方向、电路、PCB、贴片前后、装配部件和结构 |
+| [技术架构与路线](TECHNICAL_ARCHITECTURE.md) | 外设、音频、模型工具、轮次协调、资源和持久化 |
 | [功能与页面](FEATURES.md) | 完整功能总览，再按设备页面介绍实际能力 |
 | [实物与演示](SHOWCASE.md) | 精选图片、完整视频与注明来源的连续节选 |
 | [后续计划](ROADMAP.md) | 稳定性优先级、待完善功能与暂缓范围 |
@@ -17,6 +18,7 @@
 | 文档 | 阅读内容 |
 | --- | --- |
 | [硬件工程入口](../hardware/README.md) | KiCad、制造资料、BOM、供应商依据与校验；不重复保存 ZIP |
+| [定制 PCB 电子 BOM](../hardware/BOM.md) | 电阻、电容、IC、连接器与逐位号明细；不与原型模块清单混用 |
 | [V3 结构与打印](../hardware/mechanical/V3-SLA/README.md) | STEP/STL、试件、装配 PPT、重建输入与待试装边界 |
 | [硬件与接线](HARDWARE_V1.md) | GPIO、器件配置、电气限制与通电检查 |
 | [设备直连云服务](DEVICE_CLOUD_VOICE.md) | 服务配置、模型、分区、操作和资源限制 |

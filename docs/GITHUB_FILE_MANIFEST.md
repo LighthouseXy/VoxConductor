@@ -18,6 +18,7 @@
 - `docs/GITHUB_PUBLICATION_CHECKLIST.md`
 - `docs/HARDWARE_V1.md`
 - `docs/HARDWARE_DESIGN.md`
+- `docs/TECHNICAL_ARCHITECTURE.md`
 - `docs/LAN_DEVICE_PROTOCOL.md`
 - `docs/MPU6050_GESTURES.md`
 - `docs/README.md`
@@ -86,12 +87,14 @@
 | `device-*.jpg` | 圆形时钟与整机正面、侧面、后侧、另一侧开口 |
 | `pcb-*.jpg` | 裸板批次、单板细节与贴片后实物 |
 | `assembly-parts-*.jpg` | 两张部件全景的裁边展示版 |
-| `part-*.jpg` | 主板、屏幕、主壳、底盖、固定框、透明件、按键、扬声器共八个局部 |
+| `part-*.jpg` | 八个全景局部图，加一张新增方形分光棱镜独立实拍 |
 | 闹钟/天气/设置/语音/菜单图片 | 功能页面，与文字说明对应 |
 | 原理图与 PCB SVG | 用于文档内放大查看；不是新增投板修订 |
 | `web-*.jpg` | 真实前端运行的模拟数据截图，未连接设备 |
 
 结构预览直接引用硬件目录，未重复提交；未使用的 Peripherals 导出和包装局部图不保留。桌面原件及此前公开历史照片不删除。
+
+10 月 11 日后续更新另增加 `hardware/BOM.md`、`hardware/exports/board-bom-detailed.csv` 与视频 `audio-processing.json`：电子 BOM 覆盖 61 个位号，视频记录提问阶段变调、来源与画面一致性校验。完整视频的发布路径未变，校验值随音轨更新；桌面原件保留。
 
 ## 演示视频
 
@@ -124,7 +127,7 @@
 - 占位符配置示例、测试与桩、资源制作/SD 备份工具。
 - 可选局域网示例与历史服务端，各自说明边界。
 
-本批没有对这些代码执行构建、烧录或发布。正式发布前需在干净克隆中检查依赖、资源和测试入口；密钥头文件、个人 SD 数据与含凭据的构建产物不进入清单。详细规则见 [发布准备](GITHUB_PUBLICATION_CHECKLIST.md)。
+10 月 11 日后续开发已在本机执行固件编译；本批仍不烧录或发布这些代码。正式发布前需在干净克隆中检查依赖、资源和测试入口；密钥头文件、个人 SD 数据与含凭据的构建产物不进入清单。详细规则见 [发布准备](GITHUB_PUBLICATION_CHECKLIST.md)。
 
 ## 2026-10-11 硬件资料
 

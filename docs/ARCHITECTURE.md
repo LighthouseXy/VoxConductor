@@ -1,11 +1,7 @@
 # VoxConductor V1 系统架构
 
 > 历史文档：以下 V1 服务端模式的架构/实测保留原口径，不代表 2026-10-10 开发版直连固件。当前说明见 [设备直连](DEVICE_CLOUD_VOICE.md)、[语音实施](VOICE_DIALOGUE_AND_MEMORY_PLAN.md)；当前实物和视频见 [展示图集](SHOWCASE.md)。
-
-
-> 本文记录已验证的V1服务端架构。当前固件的语音按键入口已迁移为设备直连云服务，职责变化及限制见 [云端直连语音](DEVICE_CLOUD_VOICE.md)。下文服务端上下文与语音上传描述不代表当前入口。
-
-设备端记忆、工具、流式输入/输出、取消、声学模块与局域网控制的模块职责见 [设备端实施方案](VOICE_DIALOGUE_AND_MEMORY_PLAN.md)。
+当前整体技术路线见 [技术架构](TECHNICAL_ARCHITECTURE.md)。以下继续保留 V1 当时的设计与验证口径。
 
 最后更新：2026-08-26
 

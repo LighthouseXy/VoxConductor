@@ -1,6 +1,6 @@
 {
   "collection_date": "2026-10-10",
-  "note": "Selected photos and original videos preserved byte-for-byte. Excerpts omit earlier stages and do not measure end-to-end latency. Original desktop files unchanged.",
+  "note": "Selected original photos preserved byte-for-byte. Full videos now change the questioning-interval pitch; picture streams and timelines retained. Answer excerpts retain original speed and audio. Desktop originals unchanged; earlier Git commits may contain original voice.",
   "items": [
     {
       "file": "docs/images/2026-10-10/device-clock-front.jpg",
@@ -185,28 +185,42 @@
     {
       "file": "docs/videos/2026-10-10/wake-time-weather.mp4",
       "source_filename": "d323f76af3fde19d407d6bfdcffcb50f.mp4",
-      "kind": "original_video",
-      "bytes": 1548298,
-      "sha256": "67c9c2037b92a1a59307769f9c3a2b74982f44d6e7dc8e68e2289e4ca1f82093",
+      "kind": "questioning_pitch_processed_full_video",
+      "bytes": 1785359,
+      "sha256": "46333af3ce512f9ef36dc9c9916e976c53fa6e030ee60f6287c42300e7a65eae",
       "duration_seconds": 25.933333,
       "dimensions": [
         720,
         1280
       ],
-      "audio_tracks": 1
+      "audio_tracks": 1,
+      "source_sha256": "67c9c2037b92a1a59307769f9c3a2b74982f44d6e7dc8e68e2289e4ca1f82093",
+      "processing_file": "docs/videos/2026-10-10/audio-processing.json",
+      "processed_interval_seconds": [
+        0,
+        10.0
+      ],
+      "video_stream_identical": true
     },
     {
       "file": "docs/videos/2026-10-10/voice-volume-control.mp4",
       "source_filename": "f1cb52b4ce5e2dcb8e2fc16780ca615b.mp4",
-      "kind": "original_video",
-      "bytes": 1755512,
-      "sha256": "b5df07d3508ac58de11fcaf57db3b471bccdc23592e26a5e5ff86e705cb05555",
+      "kind": "questioning_pitch_processed_full_video",
+      "bytes": 2016267,
+      "sha256": "f4f77937a9a03938fddf8be29f3d745d169241d9243d301ce86d2b326c9a1751",
       "duration_seconds": 29.266667,
       "dimensions": [
         720,
         1280
       ],
-      "audio_tracks": 1
+      "audio_tracks": 1,
+      "source_sha256": "b5df07d3508ac58de11fcaf57db3b471bccdc23592e26a5e5ff86e705cb05555",
+      "processing_file": "docs/videos/2026-10-10/audio-processing.json",
+      "processed_interval_seconds": [
+        0,
+        18.0
+      ],
+      "video_stream_identical": true
     },
     {
       "file": "docs/videos/2026-10-10/wake-time-weather-answer-clip.mp4",
@@ -217,7 +231,8 @@
       "duration_seconds": 15.933333,
       "bytes": 1061954,
       "sha256": "4e0c7bced5f6ebc49674f768d4e5f8207dda3b29b86a4acb6b6e4f1e231f45f0",
-      "editing": "Continuous excerpt; original speed and audio; no concatenation"
+      "editing": "Continuous excerpt from Desktop original; original speed and audio; no concatenation. Published full-video questioning audio changed later.",
+      "source_original_sha256": "67c9c2037b92a1a59307769f9c3a2b74982f44d6e7dc8e68e2289e4ca1f82093"
     },
     {
       "file": "docs/videos/2026-10-10/voice-volume-answer-clip.mp4",
@@ -228,7 +243,8 @@
       "duration_seconds": 11.266667,
       "bytes": 743140,
       "sha256": "98570cf9f1d9779335ba3e5e32e8a4e4b771836e279bca445a65f8549f553eb2",
-      "editing": "Continuous excerpt; original speed and audio; no concatenation"
+      "editing": "Continuous excerpt from Desktop original; original speed and audio; no concatenation. Published full-video questioning audio changed later.",
+      "source_original_sha256": "b5df07d3508ac58de11fcaf57db3b471bccdc23592e26a5e5ff86e705cb05555"
     },
     {
       "file": "docs/images/2026-10-10/demo-time-weather-cover.jpg",
@@ -236,7 +252,8 @@
       "kind": "video_frame",
       "actual_timestamp_seconds": 23.466667,
       "bytes": 79739,
-      "sha256": "3077e4a4a590ac6d369d7171b9440c5c6c714ae2688bef7be57a001faa47ad9b"
+      "sha256": "3077e4a4a590ac6d369d7171b9440c5c6c714ae2688bef7be57a001faa47ad9b",
+      "source_original_sha256": "67c9c2037b92a1a59307769f9c3a2b74982f44d6e7dc8e68e2289e4ca1f82093"
     },
     {
       "file": "docs/images/2026-10-10/demo-volume-cover.jpg",
@@ -244,7 +261,8 @@
       "kind": "video_frame",
       "actual_timestamp_seconds": 26.4,
       "bytes": 79251,
-      "sha256": "00b6c2fb9edbc0da01f42d773e3550fecd937b20d6058e26c63a25dd15e2bd09"
+      "sha256": "00b6c2fb9edbc0da01f42d773e3550fecd937b20d6058e26c63a25dd15e2bd09",
+      "source_original_sha256": "b5df07d3508ac58de11fcaf57db3b471bccdc23592e26a5e5ff86e705cb05555"
     }
   ]
 }
