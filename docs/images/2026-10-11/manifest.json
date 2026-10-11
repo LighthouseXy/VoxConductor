@@ -591,6 +591,22 @@
         1140
       ],
       "sha256": "4927a8f647e5343a2c5c6fe6bf1edc2916ba56eb7b960c552062865c5b8b5d65"
+    },
+    {
+      "file": "docs/images/2026-10-11/web-voice-settings-desktop.jpg",
+      "kind": "browser_mock_preview_not_device_test",
+      "source_filename": "media_web.html",
+      "source_sha256": "0916bb839747d7aaaba82a91970b2721e73de3c8a698a2b4ac1a93967ff58028",
+      "dimensions": [1425, 990],
+      "sha256": "64d9df01db0b663d3e46a00284779515d64071347058487e66831ba5785dd3b4"
+    },
+    {
+      "file": "docs/images/2026-10-11/web-voice-settings-mobile.jpg",
+      "kind": "browser_mock_preview_not_device_test",
+      "source_filename": "media_web.html",
+      "source_sha256": "0916bb839747d7aaaba82a91970b2721e73de3c8a698a2b4ac1a93967ff58028",
+      "dimensions": [375, 812],
+      "sha256": "d162239ae522a39d3b2d950f7dd7c5134880fe12bb737bcdf025599cba1140c0"
     }
   ]
 }
