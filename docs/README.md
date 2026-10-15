@@ -30,7 +30,7 @@
 
 ## 3. 查看验证与发布
 
-- [按日期开发日志](logs/README.md)：实现、问题、判断、修改与遗留事项。
+- 开发日志和个人面试资料仅在本机保留，不属于公开文档。
 - [发布准备与范围](GITHUB_PUBLICATION_CHECKLIST.md)：本批发布和后续代码整理分开记录。
 - [文件清单](GITHUB_FILE_MANIFEST.md)：文档、素材、硬件的用途与范围。
 - [图片索引](images/README.md)、[视频说明](videos/2026-10-10/README.md)：原图、裁切图、演示和预览的区别。

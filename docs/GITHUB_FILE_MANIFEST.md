@@ -27,35 +27,9 @@
 - `docs/VOICE_DIALOGUE_AND_MEMORY_PLAN.md`
 - `docs/WEB_MANAGEMENT_DESIGN.md`
 
-## 开发日志
+## 仅本地保留的资料
 
-- `docs/logs/2026-08-04.md`
-- `docs/logs/2026-08-05.md`
-- `docs/logs/2026-08-07.md`
-- `docs/logs/2026-08-08.md`
-- `docs/logs/2026-08-09.md`
-- `docs/logs/2026-08-17.md`
-- `docs/logs/2026-08-18.md`
-- `docs/logs/2026-08-19.md`
-- `docs/logs/2026-08-20.md`
-- `docs/logs/2026-08-26.md`
-- `docs/logs/2026-08-27.md`
-- `docs/logs/2026-09-25.md`
-- `docs/logs/2026-09-26.md`
-- `docs/logs/2026-09-27.md`
-- `docs/logs/2026-09-30.md`
-- `docs/logs/2026-10-01.md`
-- `docs/logs/2026-10-02.md`
-- `docs/logs/2026-10-03.md`
-- `docs/logs/2026-10-04.md`
-- `docs/logs/2026-10-05.md`
-- `docs/logs/2026-10-06.md`
-- `docs/logs/2026-10-07.md`
-- `docs/logs/2026-10-08.md`
-- `docs/logs/2026-10-09.md`
-- `docs/logs/2026-10-10.md`
-- `docs/logs/2026-10-11.md`
-- `docs/logs/README.md`
+2026-10-15 起，开发日志和个人面试技术资料仅保留在本机，已从公开版本移除。它们不属于当前发布清单，后续提交由忽略规则排除。
 
 ## 原始发布图片和清单
 

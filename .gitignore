@@ -35,3 +35,6 @@ server/tts/
 
 # 本机 Wi-Fi 凭据，禁止提交到 Git
 firmware/main/wifi_credentials.h
+
+# 仅本地保留的开发日志与面试技术资料
+/docs/logs/
