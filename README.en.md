@@ -1,6 +1,6 @@
 # VoxConductor
 
-[简体中文](README.md) | [English](README.en.md)
+[English](README.md) | [简体中文](README.zh-CN.md)
 
 [Development and maintenance history](DEVELOPMENT_HISTORY.en.md)
 

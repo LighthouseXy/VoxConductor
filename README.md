@@ -1,126 +1,93 @@
-# VoxConductor｜棱镜显示桌面语音助手
+# VoxConductor
 
-[简体中文](README.md) | [English](README.en.md)
+[English](README.md) | [简体中文](README.zh-CN.md)
 
-[开发与维护记录](DEVELOPMENT_HISTORY.md)
+[Development and maintenance history](DEVELOPMENT_HISTORY.en.md)
 
-我想做一台能自然融入桌面的设备：抬头看时间和天气，开口查询信息、调整设置，也能在需要时专注计时、播放音乐。VoxConductor 是我围绕这个想法持续制作的 ESP32-S3 桌面语音助手。
+VoxConductor is an ESP32-S3 desktop voice assistant that combines a custom PCB, a prism display, audio input and output, physical controls, motion interaction, and cloud voice services. The device handles its interface, audio capture and playback, local tools, and local records. Speech recognition, language-model responses, and speech synthesis run in the cloud.
 
-我把定制 PCB、屏幕与棱镜结构、音频输入输出、姿态交互和云端语音服务整合到同一台设备里。它不需要电脑常驻运行服务端；设备负责采集、播放、界面、工具执行与本地记录，语音识别、大模型和语音合成由云端完成。
+The display appears to float inside the prism, but it is a two-dimensional image. The firmware interface is currently Chinese-only; the repository does not provide an English UI or a language switch.
 
-<p align="center">
-  <img src="docs/images/2026-10-11/device-clock-front.jpg" alt="VoxConductor 整机实拍：棱镜中的圆形时钟" width="380">
-</p>
+## What it does
 
-> 更新于 2026-10-11。当前已完成定制 PCB 整机和主要桌面功能，并提供语音查询、音量控制演示。我正在继续优化播报连续性与唤醒词打断。硬件设计资料、文档和展示素材已整理；开发版固件另行发布。
+- Shows the time and weather, and provides pages for alarms, media, focus tools, and settings.
+- Supports voice queries and selected device actions through tools handled on the device.
+- Uses physical buttons and an inertial sensor for interaction; it does not rely on a touchscreen.
+- Runs the main interaction on the device without a PC-hosted FastAPI service.
+- Includes a KiCad hardware project, manufacturing files, a board-level bill of materials, and mechanical design files.
 
-[硬件设计与装配](docs/HARDWARE_DESIGN.md) · [技术架构](docs/TECHNICAL_ARCHITECTURE.md) · [功能与页面](docs/FEATURES.md) · [后续计划](docs/ROADMAP.md) · [完整文档](docs/README.md)
+Voice features require an internet connection and credentials for the configured cloud services. VoxConductor is not an offline language-model device. The existing demonstrations show individual queries and a volume-control interaction; they do not measure wake-word success, latency, or long-term reliability.
 
-## 项目概述
+## Device photos
 
-开发之初，我希望它能成为一个随手可用的桌面伙伴：平时显示时间和天气，需要时能直接开口问问题，也能调整设备、设置提醒和管理专注时间。我希望交互尽量自然，同时保留可靠的实体按键。
+![Assembled VoxConductor viewed from the front, with the round clock visible in the prism](docs/images/2026-10-11/device-clock-front.jpg)
 
-现在，它已经从模块原型推进到定制 PCB 与外壳组成的整机。时钟、天气、闹钟、媒体和设置有了各自的页面；语音链路能够完成云端问答，并通过设备工具读取信息、执行部分设置。已有演示记录了当前效果，稳定性通过后续回归持续提高。
+![Front view of the assembled enclosure](docs/images/2026-10-11/device-front.jpg)
 
-| 技术层 | 我的实现路线 |
-| --- | --- |
-| 电路与结构 | 52 × 50 mm 四层 PCB；数字 MEMS 麦克风、I2S 功放、姿态传感器；分光棱镜与打印结构 |
-| 显示与交互 | ESP-IDF / FreeRTOS + LVGL 9；SPI2 显示、SPI3 存储；统一按键事件和倾斜变速操作 |
-| 语音链路 | 16 kHz 实时 ASR → DeepSeek 工具调用 → 24 kHz TTS；ESP-SR 本地关键词与播放参考回声处理 |
-| 执行与状态 | 单轮协调、代次隔离与取消交接；白名单参数校验、确认规则、设备实际回执 |
-| 资源与持久化 | PSRAM 有界音频/显示缓冲；SD 轮次原文与双槽校验快照；同网网页复用设备业务模块 |
+![Custom VoxConductor PCB after component assembly](docs/images/2026-10-11/pcb-assembled.jpg)
 
-棱镜带来悬浮观感，显示内容仍是二维图像。云端问答需要网络；天气来自网络服务。模块、页面和验证进展分别放在下面的专题文档里。
+![The device menu showing desktop tools](docs/images/2026-10-11/desktop-menu.jpg)
 
-## 硬件设计与装配
+Additional images and demonstration videos are collected in [Showcase](docs/SHOWCASE.md). The question audio in the full demonstration videos has been pitch-shifted. They are edited demonstrations, not untouched recordings or statistical tests.
 
-| 整机正面 | 整机侧面 | 整机后侧 |
-| --- | --- | --- |
-| ![正面实拍](docs/images/2026-10-11/device-front.jpg) | ![侧面实拍](docs/images/2026-10-11/device-side.jpg) | ![后侧实拍](docs/images/2026-10-11/device-rear.jpg) |
+## Hardware
 
-我将硬件资料按“电路 → PCB 布局 → 裸板与贴片 → 部件装配 → 结构与整机”整理。主原理图、PCB 外层布局、贴片前后照片、两张部件全景及部件局部图都在 [硬件设计与装配](docs/HARDWARE_DESIGN.md) 中。
+The active hardware project is in the hardware directory. It includes the KiCad schematic and PCB, fabrication outputs, project libraries, and V3-SLA mechanical files. The board is 52 × 50 mm and four-layer. The board BOM covers 61 component positions; it is not a complete bill of materials for the whole assembled device.
 
-[硬件工程目录](hardware/README.md) 保存 KiCad、制造资料和 3D 文件；[电子 BOM](hardware/BOM.md) 汇总 61 个器件位置，提供电阻、电容、IC、连接器及逐位号明细。10 月 11 日的 V3 结构仍待打印试装，已有实物照片记录此前装配成果；GPIO 和电气说明见 [硬件与接线](docs/HARDWARE_V1.md)。
+There are known revision boundaries to review before fabricating or printing:
 
-## 软件功能总览
+- The physical J2 screen connector was repaired on the assembled device, but that repair has not yet been written back to the current KiCad design.
+- The V3-SLA enclosure has passed CAD checks, but its resin-printed fit, cable bends, and thread strength still need physical validation.
 
-| 方向 | 当前开发版能力 |
-| --- | --- |
-| 桌面显示 | 圆形时钟、壁纸加数字时间两种主页；锁屏统一显示无壁纸时钟；亮度、方向和外观设置 |
-| 天气信息 | 当前天气、未来 12 小时预报、紫外线数值及当日 UV 大于 3 的时段、USAQI/PM2.5、风力与湿度 |
-| 语音交互 | 本地“小冰小冰”唤醒、长按说话、连续接话、按键取消；回答中用唤醒词打断正在联调 |
-| 语音控制 | 时间/天气查询、音量与主页设置、任务与提醒等设备工具；读取真实执行结果后再组织回答 |
-| 日常工具 | 闹钟、提醒、待办、备忘录、倒计时和番茄钟；闹钟编辑和小时预报支持倾斜变速操作 |
-| 媒体与管理 | 本地音乐、环境音、静态/动态壁纸；同网网页管理、媒体上传、设置及诊断入口 |
-| 对话记录 | 有界近期上下文、长期记忆、历史检索和删除；microSD 保存结构化文字与快照 |
+Start with [Hardware design and assembly](hardware/README.md) and [Hardware design notes](docs/HARDWARE_DESIGN.md). Do not treat the current design files as a newly verified production revision.
 
-我没有把所有功能都塞到时钟下面：时钟二级页只保留闹钟，其他工具集中到菜单中。输入以实体按键和姿态传感器为主，不依赖触摸屏。游戏相关内容已经备份并从当前固件移除，优先把桌面和语音体验做好。
+## Architecture and documentation
 
-<p align="center">
-  <img src="docs/images/2026-10-11/weather-current.jpg" alt="当前天气" width="220">
-  <img src="docs/images/2026-10-11/weather-hourly.jpg" alt="未来十二小时预报" width="220">
-  <img src="docs/images/2026-10-11/weather-metrics.jpg" alt="空气质量、紫外线、风与湿度" width="220">
-</p>
+- [Technical architecture](docs/TECHNICAL_ARCHITECTURE.md)
+- [Feature overview](docs/FEATURES.md)
+- [Device-direct voice setup](docs/DEVICE_CLOUD_VOICE.md)
+- [Roadmap](docs/ROADMAP.md)
+- [Showcase and media notes](docs/SHOWCASE.md)
 
-照片中的天气数值是拍摄时的数据，不是实时读数。天气和空气质量来自网络服务，不是板载环境传感器；空气质量采用 US AQI，不能与中国 AQI 的同一数值直接等同。
+The repository also keeps material from an earlier V1 server-based architecture for historical reference. The current device-direct voice flow does not require that server to run on a PC.
 
-[功能与页面说明](docs/FEATURES.md) 先列完整能力，再按主页、闹钟、天气、语音、工具、设置和管理网页逐页介绍。每组说明对应照片或演示；尚未补齐专项演示的功能明确标注当前状态。
+## Using an existing device
 
-## 语音流程与资源安排
+1. Power on the device and connect it to a 2.4 GHz Wi-Fi network.
+2. Wait for network time synchronization. Weather requires internet access; it is an online service, not a measurement from an onboard environmental sensor.
+3. For a voice query, use the device's configured push-to-talk or wake-word interaction and wait for the listening state before speaking.
+4. Cloud voice queries require working ASR, model, and TTS service configuration. Keep Wi-Fi and provider credentials in local, ignored configuration files; never commit real credentials or paste them into issue reports.
 
-固件以 ESP-IDF 和 LVGL 为基础，使用 ESP-SR 做本地唤醒与声学处理。当前语音流程是：
+The repository includes a Wi-Fi placeholder at [firmware/main/wifi_credentials.example.h](firmware/main/wifi_credentials.example.h). Configure cloud service credentials only in the local, ignored files documented for the current firmware, and never commit them. See [Device and cloud voice setup](docs/DEVICE_CLOUD_VOICE.md) for the current configuration context.
 
-1. 设备采集语音，云端 ASR 返回最终转写。
-2. 明确的本机快捷命令直接处理；其他问题由模型选择是否调用白名单工具。
-3. 设备校验参数、执行工具，将结果交回模型生成回答。
-4. 释放模型连接后建立 TTS 会话，缓冲 PCM 并通过 I2S 播放。
-5. 本轮结束后保存状态；在连续对话窗口中等待下一句。
+The SD-card conversation log is plain text. Use care with personal content and do not upload private conversations, logs, or recordings to public issues.
 
-我选择让模型连接和 TTS 连接错开，控制内部 RAM 峰值。PSRAM 用于较大的音频、显示和文本缓冲；SD 用于持久存储，不能代替实时内存。对话取消、工具回执、回声参考和存储恢复共同构成工程边界，详细路线见 [技术架构](docs/TECHNICAL_ARCHITECTURE.md)，阶段实现与回归见 [语音与记忆](docs/VOICE_DIALOGUE_AND_MEMORY_PLAN.md)。
+## Building firmware
 
-## 当前待优化的部分
+The documented target is ESP32-S3. The project uses ESP-IDF 6.0.2 with component versions recorded in firmware/dependencies.lock and project configuration. Use the matching board's flash and PSRAM configuration.
 
-我已经完成从模块原型到定制 PCB 整机的推进，也通过实机演示验证了基础语音交互和部分设备控制。接下来最重要的不是继续堆功能，而是让每次操作的结果都可靠、可解释。
+With a compatible ESP-IDF environment, the documented commands are:
 
-- **语音唤醒**：已从 Computer 切换到“小冰小冰”，目前使用 1 倍增益。实际效果仍受距离、发音和环境影响。
-- **语音打断**：日志已出现成功打断并进入新一轮的记录，但我还在验证漏检、回声混入与新问题完整性，不把它描述为稳定全双工。
-- **播报卡顿**：已定位并调整播放调度、写入分块和底层缓冲；最新改动需要继续听测，不能仅凭“请求成功”就算解决。
-- **云端依赖**：问答需要网络和自己的服务凭据；本地时钟、界面与部分工具不等于离线大模型。
-- **管理网页**：六区布局、草稿保护、轻量状态、媒体执行回执、上传取消与 Range 试听已实现并通过编译，设备上的上传、保存和语音忙时体验仍需实机回归。
-- **结构迭代**：V3 CAD 已整理，后续需要打印、试装并检查接口、排线和声学表现。
-- **发布范围**：硬件工程与作品文档已分别整理。最新固件另做完整发布，不在本次文档更新中混入个人凭据、构建产物或私人对话记录。
+```sh
+cd firmware
+idf.py build
+idf.py -p YOUR_SERIAL_PORT flash monitor
+```
 
-后续安排见 [开发计划](docs/ROADMAP.md)。开发日志和个人面试资料仅在本机保留，不随公开仓库发布。
+Replace `YOUR_SERIAL_PORT` with the actual serial device path. Consult the linked device setup and architecture documents before mixing the current firmware with historical V1 server or partition settings.
 
-## 演示视频
+## Limitations
 
-了解硬件、功能与技术路线后，可以通过下面两段视频查看实际交互。我对提问阶段的音轨做了变调，保留画面、操作顺序和原有时长；它们不是未经处理的原声视频。处理区间与连续节选见 [视频说明](docs/videos/2026-10-10/README.md)。
+- Wake-word performance depends on distance, pronunciation, and the acoustic environment.
+- Interruption during speech and playback continuity still have reliability limits; the project is not described as stable full-duplex voice.
+- The management web interface includes settings and media tools, but upload, save, and voice-busy interactions still require device regression testing.
+- A single demonstration does not establish recognition accuracy, latency, wake-word success rate, or long-term stability.
+- Cloud model and speech services have their own availability, account, privacy, and pricing terms.
 
-| 唤醒与时间、天气查询 · 约 26 秒 | 语音调节音量 · 约 29 秒 |
-| --- | --- |
-| [![唤醒与查询演示封面](docs/images/2026-10-10/demo-time-weather-cover.jpg)](docs/videos/2026-10-10/wake-time-weather.mp4?raw=true) | [![语音音量控制演示封面](docs/images/2026-10-10/demo-volume-cover.jpg)](docs/videos/2026-10-10/voice-volume-control.mp4?raw=true) |
+## Contributing
 
-这两段展示单次功能过程，不是唤醒成功率、延迟或长时间稳定性的统计测试。更多界面与组装过程见 [展示图集](docs/SHOWCASE.md)。
+Issues and pull requests are useful for reproducible firmware or documentation problems, hardware-document corrections, and improvements that preserve current device behavior. Include the board revision, toolchain version, and concise reproduction steps when relevant. Do not attach credentials, private logs, conversation records, or third-party media without permission. For hardware or media contributions, identify the source and redistribution terms.
 
-## 阅读与复现
+## License
 
-[配置说明](docs/DEVICE_CLOUD_VOICE.md) 描述当前开发版所需的模型、分区和服务配置；它不是“本次文档提交已经发布全部新代码”的承诺。复现时请以实际源码提交和对应配置为准，不要混用旧应用与新模型分区。
-
-| 入口 | 内容 |
-| --- | --- |
-| [文档导航](docs/README.md) | 按作品介绍、开发使用、验证进展和历史参考阅读 |
-| [硬件设计与装配](docs/HARDWARE_DESIGN.md) | 三视角、原理图、PCB、加工照片、部件与结构 |
-| [电子 BOM](hardware/BOM.md) / [技术架构](docs/TECHNICAL_ARCHITECTURE.md) | 元件明细、系统分工、音频链路、工具执行和资源安排 |
-| [功能与页面](docs/FEATURES.md) | 功能总览与每个页面的实拍说明 |
-| [展示图集](docs/SHOWCASE.md) | 整机、PCB、部件、界面与两段演示 |
-| [硬件与接线](docs/HARDWARE_V1.md) | 板载器件、GPIO、装配和检查顺序 |
-| [桌面交互](docs/DESKTOP_TOOLS_AND_GAMES.md) | 主页、闹钟、天气、设置、媒体 |
-| [网页管理设计](docs/WEB_MANAGEMENT_DESIGN.md) | 新布局、实际接口、当前实现与验收方法 |
-| [发布清单](docs/GITHUB_PUBLICATION_CHECKLIST.md) | 文档与素材范围、代码和资源后续整理 |
-| [V1 历史架构](docs/ARCHITECTURE.md) / [验证记录](docs/DEMO_AND_VERIFICATION.md) | 原 FastAPI 服务端阶段，保留当时的真实结果 |
-
-## 许可与致谢
-
-本版本中列明的项目原创软件代码与原创技术文档采用 [MIT License](LICENSE)，允许依照许可进行商业使用、修改与再分发，并须保留版权和许可声明。具体路径与当前文件记录见 [许可范围](LICENSE_SCOPE.md)。硬件、字体、依赖、图片、影音和数据不包含在项目 MIT 授权中，保留各自的版权、许可或原有使用条件。
-
-ESP-IDF、LVGL、ESP-SR 及云端服务各有自己的许可或使用条款。天气和空气质量使用 Open-Meteo 数据，空气质量来源包括 CAMS；相关来源与归属见 [数据服务说明](https://open-meteo.com/en/docs/air-quality-api)。第三方音乐的原始作者、许可和修改说明随媒体资源包保留，不作为我的原创作品展示。
+The project-authored software and original technical documentation listed for this version are licensed under the [MIT License](LICENSE). MIT permits commercial use, modification, and redistribution subject to retaining the copyright and permission notice. See [License scope](LICENSE_SCOPE.md) for the exact paths and current-file records. Hardware, dependencies, fonts, vendor materials, photos, audio, video, and data are excluded from this project MIT grant and retain their own copyrights, licenses, or existing terms. See [Third-party notices](THIRD_PARTY_NOTICES.md) before reuse.
