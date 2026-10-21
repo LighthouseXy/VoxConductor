@@ -1,0 +1,2498 @@
+{
+  "copyright": "2026 云月 (GitHub: LighthouseXy)",
+  "project_license": "MIT",
+  "scope": "project-authored software, configuration and original technical documentation listed below; third-party and asset exceptions retain their own terms",
+  "mit_files": [
+    {
+      "path": ".gitignore",
+      "sha256": "50bf9069003eb072536d97497d72abc2dbab166f5cffd9f764d9b1bc2cc4b943",
+      "license": "MIT",
+      "repository_blob_sha": "f973021a15981adc52251fb6b34e4d61e46da129",
+      "recorded_source_available_in_repository": false,
+      "version_record": "different_recorded_version"
+    },
+    {
+      "path": "README.en.md",
+      "sha256": "51cff0a33b2c789c5c34cdf095625681daaa9c067866c13989af7404900534a8",
+      "license": "MIT",
+      "repository_blob_sha": "159b5bc2df29f6147ed1a82528d0fe82ba85a647",
+      "recorded_source_available_in_repository": false,
+      "version_record": "different_recorded_version"
+    },
+    {
+      "path": "README.md",
+      "sha256": "c38d0121c4e5c8365f26569a8014237b758bc21522c4753a14641bfa1df08ddb",
+      "license": "MIT",
+      "repository_blob_sha": "7a070410a2f558338fcfc08bcab7b94e97fb9f30",
+      "recorded_source_available_in_repository": false,
+      "version_record": "different_recorded_version"
+    },
+    {
+      "path": "docs/ARCHITECTURE.md",
+      "sha256": "2647c8a2c5cdbfb828d23a6d7a3157f3f5bc1637ee9c6e393372bd3391ee7b23",
+      "license": "MIT",
+      "repository_blob_sha": "f36186163da4be2ea83440dfcfdbff30858e1ace",
+      "recorded_source_available_in_repository": true,
+      "version_record": "matching_distributed_version"
+    },
+    {
+      "path": "docs/DEMO_AND_VERIFICATION.md",
+      "sha256": "ea51e57ac7c582096fa2b6b6baf9689e3a75173b89c8269df2b2bed7c0e8818f",
+      "license": "MIT",
+      "repository_blob_sha": "7a8ba270d56cea22f673be74d4d82f8a2e53c25a",
+      "recorded_source_available_in_repository": true,
+      "version_record": "matching_distributed_version"
+    },
+    {
+      "path": "docs/DESKTOP_TOOLS_AND_GAMES.md",
+      "sha256": "3aaf07d32f607f31c9d03a3f585e860ff96e19aff0b9030181fdc45b3c300802",
+      "license": "MIT",
+      "repository_blob_sha": "ce4cf63be73fc16d8b7187cb114e993563cfeb41",
+      "recorded_source_available_in_repository": true,
+      "version_record": "matching_distributed_version"
+    },
+    {
+      "path": "docs/DEVICE_CLOUD_VOICE.md",
+      "sha256": "78e2d2107ce2c3f263a27760833028f605ffc09f634d39abdb453f22b4ab6e98",
+      "license": "MIT",
+      "repository_blob_sha": "733ef14e9c98c0c96401b5884b2cdff3ad8e468d",
+      "recorded_source_available_in_repository": true,
+      "version_record": "matching_distributed_version"
+    },
+    {
+      "path": "docs/FEATURES.md",
+      "sha256": "90c81f602eb497c5d41e08e26ab20286c1ee6c6c36f54ac867345eea5da386d7",
+      "license": "MIT",
+      "repository_blob_sha": "137c869237cfc87e2bceb635ac3b975f015fb808",
+      "recorded_source_available_in_repository": true,
+      "version_record": "matching_distributed_version"
+    },
+    {
+      "path": "docs/FEATURE_ANALYSIS_AND_EXPANSION.md",
+      "sha256": "da3891925b86449c94fec457cf47b83851f7cd26da7c63d4c6cf4165f0320ad4",
+      "license": "MIT",
+      "repository_blob_sha": "428eb07036826131fbdddb4f20e5c597f0032265",
+      "recorded_source_available_in_repository": true,
+      "version_record": "matching_distributed_version"
+    },
+    {
+      "path": "docs/GITHUB_FILE_MANIFEST.md",
+      "sha256": "10dedddff98693ca3485cb5673e5acf74d9aa23102affd613d2e82ee42361d1e",
+      "license": "MIT",
+      "repository_blob_sha": "54ee840b9600d73df2213f66d07ca63a9b2c8922",
+      "recorded_source_available_in_repository": true,
+      "version_record": "matching_distributed_version"
+    },
+    {
+      "path": "docs/GITHUB_PUBLICATION_CHECKLIST.md",
+      "sha256": "ccfd2d27db7c2b44e072d63c739be6a94aaff7af51e0777568eecbfb9edd6b25",
+      "license": "MIT",
+      "repository_blob_sha": "cd6aa917d026f46b602fdc204931651189bc371f",
+      "recorded_source_available_in_repository": true,
+      "version_record": "matching_distributed_version"
+    },
+    {
+      "path": "docs/HARDWARE_DESIGN.md",
+      "sha256": "6da19eb9953a7866c00f29bcb9dc54499d9b4daa5ea1a7bf067849105ddabc49",
+      "license": "MIT",
+      "repository_blob_sha": "9106f96c05ce08dbd2658ac4277002cd18c520f4",
+      "recorded_source_available_in_repository": true,
+      "version_record": "matching_distributed_version"
+    },
+    {
+      "path": "docs/HARDWARE_V1.md",
+      "sha256": "5adc19cb531b2076b1e2048cfedfc6001eb0417d82184cd9b57f1ef9ab24d859",
+      "license": "MIT",
+      "repository_blob_sha": "36051cd205570d03e7e8252afc6725482076deec",
+      "recorded_source_available_in_repository": true,
+      "version_record": "matching_distributed_version"
+    },
+    {
+      "path": "docs/LAN_DEVICE_PROTOCOL.md",
+      "sha256": "265e0c2862baf88a4cb9a94926ea8be74078bb2b2952eef66dc2ae442245e054",
+      "license": "MIT",
+      "repository_blob_sha": "8fcbc7bac1b565e0b98edf26185b77b33a25c94a",
+      "recorded_source_available_in_repository": true,
+      "version_record": "matching_distributed_version"
+    },
+    {
+      "path": "docs/MPU6050_GESTURES.md",
+      "sha256": "323036a99c021023f3a3e04db1444f49eb792fd5d9c8f4b8260598aa60e2be01",
+      "license": "MIT",
+      "repository_blob_sha": "fcc01f5f9a68af5d8441ed52c9732e5827bf54d9",
+      "recorded_source_available_in_repository": true,
+      "version_record": "matching_distributed_version"
+    },
+    {
+      "path": "docs/README.md",
+      "sha256": "cca06a5d37d258670c71f8267c87690f468596993921b6c2666ebc98a23ec5c3",
+      "license": "MIT",
+      "repository_blob_sha": "52dd3caa0eea46239357ab9432604b791b94af3e",
+      "recorded_source_available_in_repository": true,
+      "version_record": "matching_distributed_version"
+    },
+    {
+      "path": "docs/ROADMAP.md",
+      "sha256": "26d1658663ad4884171b66653682857fe81a3a7a75ec172b79542dbeb135609a",
+      "license": "MIT",
+      "repository_blob_sha": "6b24ecc6ec0fe284206a8f50cf9858a639599cef",
+      "recorded_source_available_in_repository": true,
+      "version_record": "matching_distributed_version"
+    },
+    {
+      "path": "docs/SHOWCASE.md",
+      "sha256": "ac8471e2de40b2036688210b67c5c78b083aad3299dccdec09c4d37ee15b6d74",
+      "license": "MIT",
+      "repository_blob_sha": "c99a059a79ce3d3ecb2c4e3b6026b3550c31d8e1",
+      "recorded_source_available_in_repository": true,
+      "version_record": "matching_distributed_version"
+    },
+    {
+      "path": "docs/TECHNICAL_ARCHITECTURE.md",
+      "sha256": "cd52522b28a8cb1356a4db5e12ed2694d37837f658b90773adbb2e13d2871ace",
+      "license": "MIT",
+      "repository_blob_sha": "2d2aba57e8d0d310b15f0545886848f7f3ac05d5",
+      "recorded_source_available_in_repository": true,
+      "version_record": "matching_distributed_version"
+    },
+    {
+      "path": "docs/VOICE_DIALOGUE_AND_MEMORY_PLAN.md",
+      "sha256": "5b6c86e9ef4dd6c819baf881eec196887e984e5b9291764329a04e73c9121746",
+      "license": "MIT",
+      "repository_blob_sha": "e46b387eb1e36e8cfbfcf9684f5f2d55f5e5e1c1",
+      "recorded_source_available_in_repository": true,
+      "version_record": "matching_distributed_version"
+    },
+    {
+      "path": "docs/WEB_MANAGEMENT_DESIGN.md",
+      "sha256": "d4e438a44d7dfc3b0d6c4ce6c04396793b82bf78366f19551848d19d6f4ab7e2",
+      "license": "MIT",
+      "repository_blob_sha": "d46a00247707567473d9a192e278ef9a7051a54e",
+      "recorded_source_available_in_repository": true,
+      "version_record": "matching_distributed_version"
+    },
+    {
+      "path": "examples/lan_switch/CMakeLists.txt",
+      "sha256": "bf7236df7c0c89bed6f6b804d5a536cd0ee0af7c214de2a2d264d7f3ecddeb93",
+      "license": "MIT",
+      "repository_blob_sha": null,
+      "recorded_source_available_in_repository": false,
+      "version_record": "source_not_distributed_here"
+    },
+    {
+      "path": "examples/lan_switch/main/CMakeLists.txt",
+      "sha256": "fa8bb31387ae8cfdb64aefb8298cdf0c711c681b0b766afc08e211c3949a6797",
+      "license": "MIT",
+      "repository_blob_sha": null,
+      "recorded_source_available_in_repository": false,
+      "version_record": "source_not_distributed_here"
+    },
+    {
+      "path": "examples/lan_switch/main/Kconfig.projbuild",
+      "sha256": "92b0a2469f4cdb8293b205b91f2d6d4ac5aec990e3db981f378a021a33b0ec60",
+      "license": "MIT",
+      "repository_blob_sha": null,
+      "recorded_source_available_in_repository": false,
+      "version_record": "source_not_distributed_here"
+    },
+    {
+      "path": "examples/lan_switch/main/idf_component.yml",
+      "sha256": "ab5c7f8b2472d059111dac3e5336b2bf13c2d225ee6945909e8b0ccf8970588d",
+      "license": "MIT",
+      "repository_blob_sha": null,
+      "recorded_source_available_in_repository": false,
+      "version_record": "source_not_distributed_here"
+    },
+    {
+      "path": "examples/lan_switch/main/main.c",
+      "sha256": "a0b651cbd6913a08dcfe76f021deaa2fd0ca1d81cfb9e091523a3843770393a4",
+      "license": "MIT",
+      "repository_blob_sha": null,
+      "recorded_source_available_in_repository": false,
+      "version_record": "source_not_distributed_here"
+    },
+    {
+      "path": "firmware/.clangd",
+      "sha256": "779cb0f49f3ef80e7574d8de600fd797fcb563e2a478e336d53f89a4d017d02c",
+      "license": "MIT",
+      "repository_blob_sha": "437f25545b79cc3e551869a3fdd4b9dcfbf57093",
+      "recorded_source_available_in_repository": true,
+      "version_record": "matching_distributed_version"
+    },
+    {
+      "path": "firmware/CMakeLists.txt",
+      "sha256": "5f176fd5c4f0a243a46af3404075ee27c6fa1305f928e24a8811f3a5c33ef2c6",
+      "license": "MIT",
+      "repository_blob_sha": "b6e265c0ca8f5ff2a77ac94c4e8cafeb25d9f455",
+      "recorded_source_available_in_repository": true,
+      "version_record": "matching_distributed_version"
+    },
+    {
+      "path": "firmware/dependencies.lock",
+      "sha256": "2eb091da59bf2e994a03cb0989e7a6c9446f17bbab222fbc7fdf558503b9bb1a",
+      "license": "MIT",
+      "repository_blob_sha": "38ece505bf6ce76a968bb1e7d6081cc28fcc8f44",
+      "recorded_source_available_in_repository": false,
+      "version_record": "different_recorded_version"
+    },
+    {
+      "path": "firmware/main/CMakeLists.txt",
+      "sha256": "de4b7cf04d5ff4af5cdf0243b48fe4a13d75a9a4781fd1c48e7e9bb102a050d2",
+      "license": "MIT",
+      "repository_blob_sha": "f0f7f7f27b5f87beb74493cf6f8a0a5a11c63bc2",
+      "recorded_source_available_in_repository": false,
+      "version_record": "different_recorded_version"
+    },
+    {
+      "path": "firmware/main/Kconfig.projbuild",
+      "sha256": "740208ef2556bb46c9e4d3092a32dd3e04bb0d09d36cdf264f06645c743832a8",
+      "license": "MIT",
+      "repository_blob_sha": null,
+      "recorded_source_available_in_repository": false,
+      "version_record": "source_not_distributed_here"
+    },
+    {
+      "path": "firmware/main/app_acoustic.c",
+      "sha256": "055ab85e345664a4e1089a0af6948e31dc939394b429d6b5e9004dc5f77ce121",
+      "license": "MIT",
+      "repository_blob_sha": null,
+      "recorded_source_available_in_repository": false,
+      "version_record": "source_not_distributed_here"
+    },
+    {
+      "path": "firmware/main/app_acoustic.h",
+      "sha256": "bc7f693e6215ec8d261b9ed4e4f555f4487ae9930723efed59c8fc1684ebef5b",
+      "license": "MIT",
+      "repository_blob_sha": null,
+      "recorded_source_available_in_repository": false,
+      "version_record": "source_not_distributed_here"
+    },
+    {
+      "path": "firmware/main/app_agent.c",
+      "sha256": "5b5d0c02d7efb1b81f4f4bf993af50852fbc2382b0198847d4ca0259faece678",
+      "license": "MIT",
+      "repository_blob_sha": null,
+      "recorded_source_available_in_repository": false,
+      "version_record": "source_not_distributed_here"
+    },
+    {
+      "path": "firmware/main/app_agent.h",
+      "sha256": "31b46c97f65b4d2ff12307415fc6f16a210ab7164860f7091746bcbf36b341d9",
+      "license": "MIT",
+      "repository_blob_sha": null,
+      "recorded_source_available_in_repository": false,
+      "version_record": "source_not_distributed_here"
+    },
+    {
+      "path": "firmware/main/app_audio.c",
+      "sha256": "b594b61daba4ccb94cd0a3b47a595c312350bf83535a4fe4c374cb9e0d3dd17e",
+      "license": "MIT",
+      "repository_blob_sha": "c1294bc8606ee71ddf42fec15a004683f53441b0",
+      "recorded_source_available_in_repository": false,
+      "version_record": "different_recorded_version"
+    },
+    {
+      "path": "firmware/main/app_audio.h",
+      "sha256": "8971f0826af6b85b8235670bd2a7aeca7025f71d608d4a2bc4d438b9e5d14b7e",
+      "license": "MIT",
+      "repository_blob_sha": "6cbf7597a94cf47e3751989e4bfd99e3c490eee6",
+      "recorded_source_available_in_repository": false,
+      "version_record": "different_recorded_version"
+    },
+    {
+      "path": "firmware/main/app_barge_diagnostic.c",
+      "sha256": "a99f74fe86e3b74bcae194dd674a7633c1de48135b3078c76843c1a28becff28",
+      "license": "MIT",
+      "repository_blob_sha": null,
+      "recorded_source_available_in_repository": false,
+      "version_record": "source_not_distributed_here"
+    },
+    {
+      "path": "firmware/main/app_barge_diagnostic.h",
+      "sha256": "0fc46899eb80eda367291cbc5ef38dbf833b190eb74ec258a1c38229aee0050b",
+      "license": "MIT",
+      "repository_blob_sha": null,
+      "recorded_source_available_in_repository": false,
+      "version_record": "source_not_distributed_here"
+    },
+    {
+      "path": "firmware/main/app_button.c",
+      "sha256": "489d17e0a533edaa3a4e077f6b69de8514c020b9c49e8febfc1826707879788f",
+      "license": "MIT",
+      "repository_blob_sha": "d5ad36814d461675402dcaf8016014433769e81d",
+      "recorded_source_available_in_repository": false,
+      "version_record": "different_recorded_version"
+    },
+    {
+      "path": "firmware/main/app_button.h",
+      "sha256": "a6b2a86f7183c15d2954778383221adeb5b4f70a13697f25b1d196d20458713f",
+      "license": "MIT",
+      "repository_blob_sha": "b0abd03d16f21ffbe6b63418c835a2f9deeb8264",
+      "recorded_source_available_in_repository": false,
+      "version_record": "different_recorded_version"
+    },
+    {
+      "path": "firmware/main/app_cloud.c",
+      "sha256": "718bafffb4e33a297f542617e4a965cd83ad2468b071b12c9ba21d5e3aef08dc",
+      "license": "MIT",
+      "repository_blob_sha": null,
+      "recorded_source_available_in_repository": false,
+      "version_record": "source_not_distributed_here"
+    },
+    {
+      "path": "firmware/main/app_cloud.h",
+      "sha256": "adff874afccd4c3cf9f7433e3aa7ea2f43945e3ea91ca8a630977733a0438609",
+      "license": "MIT",
+      "repository_blob_sha": null,
+      "recorded_source_available_in_repository": false,
+      "version_record": "source_not_distributed_here"
+    },
+    {
+      "path": "firmware/main/app_cloud_asr.c",
+      "sha256": "68253a3f7fbd1f015d7fa6855f1de37a3cfe406ba51ff943f15e8bf23f47b69f",
+      "license": "MIT",
+      "repository_blob_sha": null,
+      "recorded_source_available_in_repository": false,
+      "version_record": "source_not_distributed_here"
+    },
+    {
+      "path": "firmware/main/app_cloud_http.c",
+      "sha256": "3a4a2350ae27b2389e3bf0c2bd4d8619fb9b33020848420c19cb9842acc2f732",
+      "license": "MIT",
+      "repository_blob_sha": null,
+      "recorded_source_available_in_repository": false,
+      "version_record": "source_not_distributed_here"
+    },
+    {
+      "path": "firmware/main/app_cloud_http.h",
+      "sha256": "e69cb234b021be64bb3ed0b39ed6b421d502c07492991a99709e765c044b0cc9",
+      "license": "MIT",
+      "repository_blob_sha": null,
+      "recorded_source_available_in_repository": false,
+      "version_record": "source_not_distributed_here"
+    },
+    {
+      "path": "firmware/main/app_cloud_tts.c",
+      "sha256": "fa0ec4f4b9db5fbeb2871d8414391f25891c961db5bf4ed7e3db7f0de455ea3b",
+      "license": "MIT",
+      "repository_blob_sha": null,
+      "recorded_source_available_in_repository": false,
+      "version_record": "source_not_distributed_here"
+    },
+    {
+      "path": "firmware/main/app_cloud_wire.h",
+      "sha256": "31aea2d98c9b3b28f4ef19fb2a9d298777b654af0086049fa9c85831a2edcd83",
+      "license": "MIT",
+      "repository_blob_sha": null,
+      "recorded_source_available_in_repository": false,
+      "version_record": "source_not_distributed_here"
+    },
+    {
+      "path": "firmware/main/app_control.c",
+      "sha256": "d2711ac178e236de65494f54c079ac4d4160c528c320dc9d8cead37d0c4712ad",
+      "license": "MIT",
+      "repository_blob_sha": null,
+      "recorded_source_available_in_repository": false,
+      "version_record": "source_not_distributed_here"
+    },
+    {
+      "path": "firmware/main/app_control.h",
+      "sha256": "be43e4b061e61fbd338f6cbc95fe58da6ab8daf87c6af6502a8b574fcaf9a020",
+      "license": "MIT",
+      "repository_blob_sha": null,
+      "recorded_source_available_in_repository": false,
+      "version_record": "source_not_distributed_here"
+    },
+    {
+      "path": "firmware/main/app_conversation.c",
+      "sha256": "64b02a4110f4378bce9bc98dbfde14f543597b6c1f157ed7680752ad4af68668",
+      "license": "MIT",
+      "repository_blob_sha": null,
+      "recorded_source_available_in_repository": false,
+      "version_record": "source_not_distributed_here"
+    },
+    {
+      "path": "firmware/main/app_conversation.h",
+      "sha256": "75d1b06bfe942cc85b3449c25c084568b70601f8cad9cc04b0a0f6cf3332fe12",
+      "license": "MIT",
+      "repository_blob_sha": null,
+      "recorded_source_available_in_repository": false,
+      "version_record": "source_not_distributed_here"
+    },
+    {
+      "path": "firmware/main/app_desktop.c",
+      "sha256": "fcb27c05ac4d14d43d1a2da1546f0eae365d1cdd5ed0b0207dd9e3229c143410",
+      "license": "MIT",
+      "repository_blob_sha": null,
+      "recorded_source_available_in_repository": false,
+      "version_record": "source_not_distributed_here"
+    },
+    {
+      "path": "firmware/main/app_desktop.h",
+      "sha256": "47e02412e40857231c247b991d7832a5310d7b38a9cd72784e95e1ea00be770f",
+      "license": "MIT",
+      "repository_blob_sha": null,
+      "recorded_source_available_in_repository": false,
+      "version_record": "source_not_distributed_here"
+    },
+    {
+      "path": "firmware/main/app_devices.c",
+      "sha256": "f4e6899f9ef55188f8c9d0a29e433a0e18088acfc265d945d152c1295bb02e85",
+      "license": "MIT",
+      "repository_blob_sha": null,
+      "recorded_source_available_in_repository": false,
+      "version_record": "source_not_distributed_here"
+    },
+    {
+      "path": "firmware/main/app_devices.h",
+      "sha256": "48050f7bb64ab0a969a8573a61eaf9ff81b0db5dc214edf4a729219316f6280d",
+      "license": "MIT",
+      "repository_blob_sha": null,
+      "recorded_source_available_in_repository": false,
+      "version_record": "source_not_distributed_here"
+    },
+    {
+      "path": "firmware/main/app_display.c",
+      "sha256": "1a8068fc60e445cdad04e45be4de2bc83872ef2288742b7b45028026335d4619",
+      "license": "MIT",
+      "repository_blob_sha": "447125b99eed553d10570969d327350c57b8b8a9",
+      "recorded_source_available_in_repository": false,
+      "version_record": "different_recorded_version"
+    },
+    {
+      "path": "firmware/main/app_display.h",
+      "sha256": "3f4b1ff0338b41d10860e28a2eead5fe4801d8805096e77fc6551f504004a1fc",
+      "license": "MIT",
+      "repository_blob_sha": "33fbd14beca23c1baa09024f1a6e1455a3807233",
+      "recorded_source_available_in_repository": false,
+      "version_record": "different_recorded_version"
+    },
+    {
+      "path": "firmware/main/app_focus.c",
+      "sha256": "e6eecaaa273185ddb376e479c541c9efe52f883a02e66ec76778222308a8b85f",
+      "license": "MIT",
+      "repository_blob_sha": null,
+      "recorded_source_available_in_repository": false,
+      "version_record": "source_not_distributed_here"
+    },
+    {
+      "path": "firmware/main/app_focus.h",
+      "sha256": "f1b4974f3834f3cbbc63e082924964725f9f971aa3328faa08236f355c205e9b",
+      "license": "MIT",
+      "repository_blob_sha": null,
+      "recorded_source_available_in_repository": false,
+      "version_record": "source_not_distributed_here"
+    },
+    {
+      "path": "firmware/main/app_games.c",
+      "sha256": "ce596d710106a440e1c849f064ee44a256d8092ca970041897e333b8381b7691",
+      "license": "MIT",
+      "repository_blob_sha": null,
+      "recorded_source_available_in_repository": false,
+      "version_record": "source_not_distributed_here"
+    },
+    {
+      "path": "firmware/main/app_games.h",
+      "sha256": "5f0358f80d3ab679cec799ad1192239c74cbbc26bc6e717d1c084ff3ae23ffd8",
+      "license": "MIT",
+      "repository_blob_sha": null,
+      "recorded_source_available_in_repository": false,
+      "version_record": "source_not_distributed_here"
+    },
+    {
+      "path": "firmware/main/app_games_core.c",
+      "sha256": "3e8a989cda2f3f434adc024eabe2b43650ca3b08f53f4f9c4ce592102c4b7024",
+      "license": "MIT",
+      "repository_blob_sha": null,
+      "recorded_source_available_in_repository": false,
+      "version_record": "source_not_distributed_here"
+    },
+    {
+      "path": "firmware/main/app_games_core.h",
+      "sha256": "ed351e9543018603d427b94b3b304162e5ce41162fec997b98a6bf4775c6a42b",
+      "license": "MIT",
+      "repository_blob_sha": null,
+      "recorded_source_available_in_repository": false,
+      "version_record": "source_not_distributed_here"
+    },
+    {
+      "path": "firmware/main/app_history_store.c",
+      "sha256": "ed101e6d6a9a8fd97d4d25680c5ea1d4ebebd026e90ff60f01f5571ddfc256f9",
+      "license": "MIT",
+      "repository_blob_sha": null,
+      "recorded_source_available_in_repository": false,
+      "version_record": "source_not_distributed_here"
+    },
+    {
+      "path": "firmware/main/app_history_store.h",
+      "sha256": "779a671383721d1c904850b88197877d9d9a77ea0d2d6ade89a85d1c48ce0503",
+      "license": "MIT",
+      "repository_blob_sha": null,
+      "recorded_source_available_in_repository": false,
+      "version_record": "source_not_distributed_here"
+    },
+    {
+      "path": "firmware/main/app_http_range.h",
+      "sha256": "b1c5194b18d746f6cb7cdc37836be83d355b78cd206576a014dfef5227febac3",
+      "license": "MIT",
+      "repository_blob_sha": null,
+      "recorded_source_available_in_repository": false,
+      "version_record": "source_not_distributed_here"
+    },
+    {
+      "path": "firmware/main/app_log.h",
+      "sha256": "49de9bd10259dae1325341e7e5fe86be20dbac3ded9387402efa6d71790836d9",
+      "license": "MIT",
+      "repository_blob_sha": null,
+      "recorded_source_available_in_repository": false,
+      "version_record": "source_not_distributed_here"
+    },
+    {
+      "path": "firmware/main/app_media.c",
+      "sha256": "c84cb3d817978d485fc91b8dd17fd05d9184d9156a16a841525b08d9084c5035",
+      "license": "MIT",
+      "repository_blob_sha": null,
+      "recorded_source_available_in_repository": false,
+      "version_record": "source_not_distributed_here"
+    },
+    {
+      "path": "firmware/main/app_media.h",
+      "sha256": "99a620dfb193a8eaf311363eb7ffdb1a420441018b53d060d68e3df9165df6da",
+      "license": "MIT",
+      "repository_blob_sha": null,
+      "recorded_source_available_in_repository": false,
+      "version_record": "source_not_distributed_here"
+    },
+    {
+      "path": "firmware/main/app_media_web.c",
+      "sha256": "5cdbf99198f98d5ede462076ddbd9fa30a7e952ebab10428be861c03ac311484",
+      "license": "MIT",
+      "repository_blob_sha": null,
+      "recorded_source_available_in_repository": false,
+      "version_record": "source_not_distributed_here"
+    },
+    {
+      "path": "firmware/main/app_media_web.h",
+      "sha256": "c25a31af0f06264991d24c7bbe3169592af140d25602a4e93aa8b93bd7a648a5",
+      "license": "MIT",
+      "repository_blob_sha": null,
+      "recorded_source_available_in_repository": false,
+      "version_record": "source_not_distributed_here"
+    },
+    {
+      "path": "firmware/main/app_memory_alloc.h",
+      "sha256": "f6befb0ee2ba302f5ad70c5689ee012f798472f660787e3c5a7077f484877948",
+      "license": "MIT",
+      "repository_blob_sha": null,
+      "recorded_source_available_in_repository": false,
+      "version_record": "source_not_distributed_here"
+    },
+    {
+      "path": "firmware/main/app_menu_grid.h",
+      "sha256": "26b735860166ba1b3f67d984cf95d4ebbd9400f3c09ff16b72be93707d69a21e",
+      "license": "MIT",
+      "repository_blob_sha": null,
+      "recorded_source_available_in_repository": false,
+      "version_record": "source_not_distributed_here"
+    },
+    {
+      "path": "firmware/main/app_motion.c",
+      "sha256": "49afa68e28c844a3749358c4ba89ffba8a3a49001a2c0103a9e5d0ec5386710f",
+      "license": "MIT",
+      "repository_blob_sha": null,
+      "recorded_source_available_in_repository": false,
+      "version_record": "source_not_distributed_here"
+    },
+    {
+      "path": "firmware/main/app_motion.h",
+      "sha256": "3ce98afe805259ed169918c92ca202df5661e4d15e03cfa40132014e172ebc67",
+      "license": "MIT",
+      "repository_blob_sha": null,
+      "recorded_source_available_in_repository": false,
+      "version_record": "source_not_distributed_here"
+    },
+    {
+      "path": "firmware/main/app_motion_gesture.h",
+      "sha256": "e893c5f98d233c92baab5282f77e85590ed8f926c558e46e0149a394e4d4069a",
+      "license": "MIT",
+      "repository_blob_sha": null,
+      "recorded_source_available_in_repository": false,
+      "version_record": "source_not_distributed_here"
+    },
+    {
+      "path": "firmware/main/app_network.c",
+      "sha256": "371fe08d7c41e67025b7f50f33f88818954db2c1c8cb98fc43af859edda692d8",
+      "license": "MIT",
+      "repository_blob_sha": "4883da97cafe1f1fcbb3265cfba4f5d527efb2fb",
+      "recorded_source_available_in_repository": false,
+      "version_record": "different_recorded_version"
+    },
+    {
+      "path": "firmware/main/app_network.h",
+      "sha256": "7e09f4945f08e4c76d818697a3564d93db530f0168c2d4a550909f15bfc36a19",
+      "license": "MIT",
+      "repository_blob_sha": "165c90c9b5b39798b551d046f1b0e808f2f708a7",
+      "recorded_source_available_in_repository": false,
+      "version_record": "different_recorded_version"
+    },
+    {
+      "path": "firmware/main/app_speech.c",
+      "sha256": "4d960c7551d3872ff8f92ab6a5bc5a3d3fbbfc7098823edb125f80bd175386d0",
+      "license": "MIT",
+      "repository_blob_sha": null,
+      "recorded_source_available_in_repository": false,
+      "version_record": "source_not_distributed_here"
+    },
+    {
+      "path": "firmware/main/app_speech.h",
+      "sha256": "3eec3a13a19629b51bb2d427f182e67cb1480fc4f1f147e2c10b71bf8136baa0",
+      "license": "MIT",
+      "repository_blob_sha": null,
+      "recorded_source_available_in_repository": false,
+      "version_record": "source_not_distributed_here"
+    },
+    {
+      "path": "firmware/main/app_sse.c",
+      "sha256": "1112606849a4f3b32967f807f439f119aa230011eb00c62b4e2e009b7de0a00f",
+      "license": "MIT",
+      "repository_blob_sha": null,
+      "recorded_source_available_in_repository": false,
+      "version_record": "source_not_distributed_here"
+    },
+    {
+      "path": "firmware/main/app_sse.h",
+      "sha256": "7cd9a8faf9fa34e7a7c7b326516357cf1786fb1eca631b512d7d9eb344157de3",
+      "license": "MIT",
+      "repository_blob_sha": null,
+      "recorded_source_available_in_repository": false,
+      "version_record": "source_not_distributed_here"
+    },
+    {
+      "path": "firmware/main/app_storage.c",
+      "sha256": "05a399a7c06db50fe58f8479eccfe8aefdb7e30345bd3d0dfafeab614cecb4f7",
+      "license": "MIT",
+      "repository_blob_sha": "d893da78a4c46f55a37c978eb4dd2b3f0f0f6864",
+      "recorded_source_available_in_repository": false,
+      "version_record": "different_recorded_version"
+    },
+    {
+      "path": "firmware/main/app_storage.h",
+      "sha256": "6b8a01c428a2e5453714bcb30ac1911f00404c64933a8d0de809f3c10de96d5b",
+      "license": "MIT",
+      "repository_blob_sha": "fb016b308444d30eef1c1ae4f19dbbe66e5894e8",
+      "recorded_source_available_in_repository": false,
+      "version_record": "different_recorded_version"
+    },
+    {
+      "path": "firmware/main/app_tts_options.h",
+      "sha256": "2d8bf5034271ef7a2ccf6d8bbb923529acda616dece71bc572cb6199f031815d",
+      "license": "MIT",
+      "repository_blob_sha": null,
+      "recorded_source_available_in_repository": false,
+      "version_record": "source_not_distributed_here"
+    },
+    {
+      "path": "firmware/main/app_turn.c",
+      "sha256": "f35af2f08a4f578ac82b29afc7fad5fa742adade83fca50edf7b5d796b7b651e",
+      "license": "MIT",
+      "repository_blob_sha": null,
+      "recorded_source_available_in_repository": false,
+      "version_record": "source_not_distributed_here"
+    },
+    {
+      "path": "firmware/main/app_turn.h",
+      "sha256": "d1a644ef5c477964199615745306c49b622a1eb14e967bd57ede8bdc168aeecf",
+      "license": "MIT",
+      "repository_blob_sha": null,
+      "recorded_source_available_in_repository": false,
+      "version_record": "source_not_distributed_here"
+    },
+    {
+      "path": "firmware/main/app_turn_log.c",
+      "sha256": "4af41c189477150b75656d938cd1a5d9150f9abe05e1f99472a5a079da728462",
+      "license": "MIT",
+      "repository_blob_sha": null,
+      "recorded_source_available_in_repository": false,
+      "version_record": "source_not_distributed_here"
+    },
+    {
+      "path": "firmware/main/app_ui.c",
+      "sha256": "81b56f2c08d8681793478f50050133aead6596aa3ec900d07a1af283409fe6d0",
+      "license": "MIT",
+      "repository_blob_sha": "db31d6e0968419acf3a77e16872944d0b356ecf9",
+      "recorded_source_available_in_repository": false,
+      "version_record": "different_recorded_version"
+    },
+    {
+      "path": "firmware/main/app_ui.h",
+      "sha256": "253b591bdc9f63812b0056fe49ec2ffed6c6ac91183163874680bccf563b5b06",
+      "license": "MIT",
+      "repository_blob_sha": "5c81c7b1ce315cc028a19003d421d93a43ba1d89",
+      "recorded_source_available_in_repository": false,
+      "version_record": "different_recorded_version"
+    },
+    {
+      "path": "firmware/main/app_ui_theme.h",
+      "sha256": "fb8f58b0b4469765ec1b9fa2f53b99421561fdedd4d722d8a20e0e8abf29d2dd",
+      "license": "MIT",
+      "repository_blob_sha": null,
+      "recorded_source_available_in_repository": false,
+      "version_record": "source_not_distributed_here"
+    },
+    {
+      "path": "firmware/main/app_wake.c",
+      "sha256": "939c548357abbb82b55d37dabb16cf3b8387e64c4364fbaed36902d2443d2553",
+      "license": "MIT",
+      "repository_blob_sha": null,
+      "recorded_source_available_in_repository": false,
+      "version_record": "source_not_distributed_here"
+    },
+    {
+      "path": "firmware/main/app_wake.h",
+      "sha256": "298cb6c1295a155315e0a079b2e7dedd0550b0105017defc67b09ff24868afd5",
+      "license": "MIT",
+      "repository_blob_sha": null,
+      "recorded_source_available_in_repository": false,
+      "version_record": "source_not_distributed_here"
+    },
+    {
+      "path": "firmware/main/app_wake_diagnostic.c",
+      "sha256": "178305b7ed700cd8c909cd2d3fa444d08f83b048445f14793b9af27def6c9cc1",
+      "license": "MIT",
+      "repository_blob_sha": null,
+      "recorded_source_available_in_repository": false,
+      "version_record": "source_not_distributed_here"
+    },
+    {
+      "path": "firmware/main/app_wake_diagnostic.h",
+      "sha256": "b202be5577455fb427848f90c959890d24ef2d1491fdc369d146ba2b1398cb3a",
+      "license": "MIT",
+      "repository_blob_sha": null,
+      "recorded_source_available_in_repository": false,
+      "version_record": "source_not_distributed_here"
+    },
+    {
+      "path": "firmware/main/app_weather.c",
+      "sha256": "f1cd1f1b02a3741e90e548d2f91868ef7b5792e97bb6462188dd39d2c99409f9",
+      "license": "MIT",
+      "repository_blob_sha": null,
+      "recorded_source_available_in_repository": false,
+      "version_record": "source_not_distributed_here"
+    },
+    {
+      "path": "firmware/main/app_weather.h",
+      "sha256": "7c57bfe7f3194b636412ad8150b013b690aa53b25da6683194ead19fddb28127",
+      "license": "MIT",
+      "repository_blob_sha": null,
+      "recorded_source_available_in_repository": false,
+      "version_record": "source_not_distributed_here"
+    },
+    {
+      "path": "firmware/main/app_words.c",
+      "sha256": "8706743e7417dde84a4b70c36e8f6b13ee31615b958a776fddd63175d00b7573",
+      "license": "MIT",
+      "repository_blob_sha": null,
+      "recorded_source_available_in_repository": false,
+      "version_record": "source_not_distributed_here"
+    },
+    {
+      "path": "firmware/main/app_words.h",
+      "sha256": "8694cdde8eb4d87be61f49b9eff633a3cb586014016069d2215b11f3f2a1754c",
+      "license": "MIT",
+      "repository_blob_sha": null,
+      "recorded_source_available_in_repository": false,
+      "version_record": "source_not_distributed_here"
+    },
+    {
+      "path": "firmware/main/cloud_credentials.example.h",
+      "sha256": "87cfc246bdf7c52d78890b71bb395580be8498e22db51bbac22a2628d5258b4e",
+      "license": "MIT",
+      "repository_blob_sha": null,
+      "recorded_source_available_in_repository": false,
+      "version_record": "source_not_distributed_here"
+    },
+    {
+      "path": "firmware/main/device_registry.example.h",
+      "sha256": "376152d8d0189a5d32ab61094afbdb1a2c179e39451935b2b0efcc09df9f3373",
+      "license": "MIT",
+      "repository_blob_sha": null,
+      "recorded_source_available_in_repository": false,
+      "version_record": "source_not_distributed_here"
+    },
+    {
+      "path": "firmware/main/idf_component.yml",
+      "sha256": "09f30d5de2e819fd8b016dd980e8be3ab822d1d315d80a2b77516a45d5741a80",
+      "license": "MIT",
+      "repository_blob_sha": "949c61751cd91dc0423d5b20f07ed7fc48cdffbb",
+      "recorded_source_available_in_repository": false,
+      "version_record": "different_recorded_version"
+    },
+    {
+      "path": "firmware/main/lvgl_psram.lf",
+      "sha256": "669ab95d309c45c2f5976f2649e00a2197f478a7805ef8cdc42ff8988358f1d7",
+      "license": "MIT",
+      "repository_blob_sha": null,
+      "recorded_source_available_in_repository": false,
+      "version_record": "source_not_distributed_here"
+    },
+    {
+      "path": "firmware/main/main.c",
+      "sha256": "48ff97b345b79d5bdd22884ac996e4edb7f71b09e3d51a26b6a5c4c661917f9f",
+      "license": "MIT",
+      "repository_blob_sha": "f59133bf771e56a1554980c462724184a85eac35",
+      "recorded_source_available_in_repository": false,
+      "version_record": "different_recorded_version"
+    },
+    {
+      "path": "firmware/main/media_web.html",
+      "sha256": "b1873dde5c51bcb2234ac6cf683439a14286e282ef8e8ca58259fcdd1caf151c",
+      "license": "MIT",
+      "repository_blob_sha": null,
+      "recorded_source_available_in_repository": false,
+      "version_record": "source_not_distributed_here"
+    },
+    {
+      "path": "firmware/main/wifi_credentials.example.h",
+      "sha256": "38e78a58db79890012919faa8bb48e850310493bc7585a74c77c20fe745c6e53",
+      "license": "MIT",
+      "repository_blob_sha": "d3522f085dcd636d7ed20fff9a987c6d44a3dc01",
+      "recorded_source_available_in_repository": true,
+      "version_record": "matching_distributed_version"
+    },
+    {
+      "path": "firmware/partitions.csv",
+      "sha256": "90ca4d73bce6df39471c5a4a4b793576ba027100261e55c809bc9846b68cbbb2",
+      "license": "MIT",
+      "repository_blob_sha": "b6c42e2d6fe3af748facf7b3365a6f55e39373ef",
+      "recorded_source_available_in_repository": true,
+      "version_record": "matching_distributed_version"
+    },
+    {
+      "path": "firmware/partitions_wake.csv",
+      "sha256": "f9848bcfbb313c2ffae02d51fdc0e61e698e0dd371b8a4618a7002e15d1fb255",
+      "license": "MIT",
+      "repository_blob_sha": null,
+      "recorded_source_available_in_repository": false,
+      "version_record": "source_not_distributed_here"
+    },
+    {
+      "path": "firmware/sdkconfig",
+      "sha256": "d8183be66a274c0d21582b506dd859eade9b1cef5592dfd5d2853b67ad0ea283",
+      "license": "MIT",
+      "repository_blob_sha": "5535a6c8839b460aa9a58e2df1465d070d08fcb5",
+      "recorded_source_available_in_repository": false,
+      "version_record": "different_recorded_version"
+    },
+    {
+      "path": "server/.env.example",
+      "sha256": "9b863080d1c101afe16efe6ab3084847fe1ad4ea65f98f64687fdaa2230ab0a0",
+      "license": "MIT",
+      "repository_blob_sha": "0cddd6aab21317a64ed532420d22e48b23c7b17a",
+      "recorded_source_available_in_repository": true,
+      "version_record": "matching_distributed_version"
+    },
+    {
+      "path": "server/app.py",
+      "sha256": "85b3fb71e03d7e281b7df0a9c972a9785291444b18c39e6ddb8e462742fe83e4",
+      "license": "MIT",
+      "repository_blob_sha": "f02ba33cc03066934b73ad121e193d17df818926",
+      "recorded_source_available_in_repository": true,
+      "version_record": "matching_distributed_version"
+    },
+    {
+      "path": "server/asr_client.py",
+      "sha256": "5410d38872127e306fd818498022c1d295ad7be0ec4edd3940c6a10388b7ebcf",
+      "license": "MIT",
+      "repository_blob_sha": "b228ae42a8abe165b47a2978db9760bf9444f1c8",
+      "recorded_source_available_in_repository": true,
+      "version_record": "matching_distributed_version"
+    },
+    {
+      "path": "server/conversation_store.py",
+      "sha256": "7f82b36fd56a633a76d17090888d524f5f1a8225e5a96b356a45d2dd243bb0e2",
+      "license": "MIT",
+      "repository_blob_sha": "da9adaa32d58027559d41359c7b7ff5a1d4f107b",
+      "recorded_source_available_in_repository": true,
+      "version_record": "matching_distributed_version"
+    },
+    {
+      "path": "server/deepseek_client.py",
+      "sha256": "e166483fa3e0147bf84e04ce0ce65ae89d880b29c6077c9437defe6b296b13eb",
+      "license": "MIT",
+      "repository_blob_sha": "d108b4cf9602d1218224d1627da41c53018a3615",
+      "recorded_source_available_in_repository": false,
+      "version_record": "different_recorded_version"
+    },
+    {
+      "path": "server/requirements.txt",
+      "sha256": "f1a10bc738bbcd7cb5c48a3ad4f51e5c1d5227c7215e051f85d30ba10a80b7a2",
+      "license": "MIT",
+      "repository_blob_sha": "fac23a1aacb0019f34df1d2fb941067da9a04762",
+      "recorded_source_available_in_repository": true,
+      "version_record": "matching_distributed_version"
+    },
+    {
+      "path": "server/tts_client.py",
+      "sha256": "bb642b1ea0e778aeda2448dc2f4d7861e41395ee0d32efa7bf76395b70676d01",
+      "license": "MIT",
+      "repository_blob_sha": "1f6445f00aac0ab55730332252d70e8ac2bac0f0",
+      "recorded_source_available_in_repository": true,
+      "version_record": "matching_distributed_version"
+    },
+    {
+      "path": "server/tts_realtime_test.py",
+      "sha256": "1b345bb7dfe9b4125da796ec15d2095334e52a81595134e3354e44a1191f7460",
+      "license": "MIT",
+      "repository_blob_sha": "857deb1141237892589ae458baf89f2f04e614eb",
+      "recorded_source_available_in_repository": true,
+      "version_record": "matching_distributed_version"
+    },
+    {
+      "path": "server/weather_client.py",
+      "sha256": "b9a6ddc5b9f5c48114e774f7b66dd980e8af5dd7b9773c70c0fd249746547a28",
+      "license": "MIT",
+      "repository_blob_sha": "769ecd4de79ceccdc4bda414186b8f1e58ee64df",
+      "recorded_source_available_in_repository": true,
+      "version_record": "matching_distributed_version"
+    },
+    {
+      "path": "tests/button_stubs/driver/gpio.h",
+      "sha256": "31b2850b9cf30238acecdb3d74af5ca72d460d1ad770a5c6d84ef12e836f2767",
+      "license": "MIT",
+      "repository_blob_sha": null,
+      "recorded_source_available_in_repository": false,
+      "version_record": "source_not_distributed_here"
+    },
+    {
+      "path": "tests/button_stubs/esp_err.h",
+      "sha256": "42e626bd5ecce94d5d19bc8155f33fec8e30a551b8c0d5c6351e861ae1187adc",
+      "license": "MIT",
+      "repository_blob_sha": null,
+      "recorded_source_available_in_repository": false,
+      "version_record": "source_not_distributed_here"
+    },
+    {
+      "path": "tests/button_stubs/esp_log.h",
+      "sha256": "8c272646dd132a250c4b06b681387781911c2ea5f8ee5c7016cfc6b8f7d16bd3",
+      "license": "MIT",
+      "repository_blob_sha": null,
+      "recorded_source_available_in_repository": false,
+      "version_record": "source_not_distributed_here"
+    },
+    {
+      "path": "tests/button_stubs/esp_timer.h",
+      "sha256": "82a7c14acf5d1cdcbea1b23bab880c69562da88013adc34ff5f2ae2115fb08d1",
+      "license": "MIT",
+      "repository_blob_sha": null,
+      "recorded_source_available_in_repository": false,
+      "version_record": "source_not_distributed_here"
+    },
+    {
+      "path": "tests/button_stubs/freertos/FreeRTOS.h",
+      "sha256": "0329fb504a45e2abd3562734d6fedf23d265c8d655172fbe2f8b9a027d41c5a8",
+      "license": "MIT",
+      "repository_blob_sha": null,
+      "recorded_source_available_in_repository": false,
+      "version_record": "source_not_distributed_here"
+    },
+    {
+      "path": "tests/button_stubs/freertos/task.h",
+      "sha256": "3573a02a7e7bc1fa624b2d26571db896a047307bb8231739dbdb811b333a96e4",
+      "license": "MIT",
+      "repository_blob_sha": null,
+      "recorded_source_available_in_repository": false,
+      "version_record": "source_not_distributed_here"
+    },
+    {
+      "path": "tests/http_stubs/esp_http_client.h",
+      "sha256": "37dd5cf0f4a441df712a2d22e16f0cac1fc68e89261e2abd20825c1686266f6f",
+      "license": "MIT",
+      "repository_blob_sha": null,
+      "recorded_source_available_in_repository": false,
+      "version_record": "source_not_distributed_here"
+    },
+    {
+      "path": "tests/run_cloud_checks.sh",
+      "sha256": "e8ad86407d748095bee5c0e3625d70bb58bd1095f38e6badb8f84f7fbf52ecc7",
+      "license": "MIT",
+      "repository_blob_sha": null,
+      "recorded_source_available_in_repository": false,
+      "version_record": "source_not_distributed_here"
+    },
+    {
+      "path": "tests/speech_stubs/esp_err.h",
+      "sha256": "d8332b37f41f50b70b22defb4a903ac9daf39e2c98f158083a6d4f4cfa8abcb6",
+      "license": "MIT",
+      "repository_blob_sha": null,
+      "recorded_source_available_in_repository": false,
+      "version_record": "source_not_distributed_here"
+    },
+    {
+      "path": "tests/speech_stubs/freertos/FreeRTOS.h",
+      "sha256": "34483683468ca7e52132d47a37c15bb52978be8ee9f9512ce345dfda85ebfbad",
+      "license": "MIT",
+      "repository_blob_sha": null,
+      "recorded_source_available_in_repository": false,
+      "version_record": "source_not_distributed_here"
+    },
+    {
+      "path": "tests/speech_stubs/freertos/task.h",
+      "sha256": "276f2a395a1601f267ad7ea33aee4ae2ed5c60ea35f026ba76790731eb5c6e25",
+      "license": "MIT",
+      "repository_blob_sha": null,
+      "recorded_source_available_in_repository": false,
+      "version_record": "source_not_distributed_here"
+    },
+    {
+      "path": "tests/stubs/esp_err.h",
+      "sha256": "b659e5e2f875eb1bb5c06f374a8a735c1379671d8860ef394f0958b39307f50f",
+      "license": "MIT",
+      "repository_blob_sha": null,
+      "recorded_source_available_in_repository": false,
+      "version_record": "source_not_distributed_here"
+    },
+    {
+      "path": "tests/stubs/esp_random.h",
+      "sha256": "8fe8d167b1dac059c8febc7de0235c7eae8599033b44bcb6556df6cb444b9288",
+      "license": "MIT",
+      "repository_blob_sha": null,
+      "recorded_source_available_in_repository": false,
+      "version_record": "source_not_distributed_here"
+    },
+    {
+      "path": "tests/stubs/esp_timer.h",
+      "sha256": "82a7c14acf5d1cdcbea1b23bab880c69562da88013adc34ff5f2ae2115fb08d1",
+      "license": "MIT",
+      "repository_blob_sha": null,
+      "recorded_source_available_in_repository": false,
+      "version_record": "source_not_distributed_here"
+    },
+    {
+      "path": "tests/test_agent.c",
+      "sha256": "c2c68e10c5d49fa53642f014ebbaa6bb49f95b38f9de93c04132b3b839c1244e",
+      "license": "MIT",
+      "repository_blob_sha": null,
+      "recorded_source_available_in_repository": false,
+      "version_record": "source_not_distributed_here"
+    },
+    {
+      "path": "tests/test_air_quality_recovery.py",
+      "sha256": "4536db004957fee37b7e88914a4949e7960c677881cad31087b7925916b5b16f",
+      "license": "MIT",
+      "repository_blob_sha": null,
+      "recorded_source_available_in_repository": false,
+      "version_record": "source_not_distributed_here"
+    },
+    {
+      "path": "tests/test_auto_voice_source.py",
+      "sha256": "75bd0a692fcd28b96d6d223b3b348650d1cbe8a3635e8af3674e1fc1aa21c686",
+      "license": "MIT",
+      "repository_blob_sha": null,
+      "recorded_source_available_in_repository": false,
+      "version_record": "source_not_distributed_here"
+    },
+    {
+      "path": "tests/test_barge_diagnostic.py",
+      "sha256": "52ed1985f54f72ac251466793635ef3405d41b5d3bab3cb423b9d94a6f0e830e",
+      "license": "MIT",
+      "repository_blob_sha": null,
+      "recorded_source_available_in_repository": false,
+      "version_record": "source_not_distributed_here"
+    },
+    {
+      "path": "tests/test_barge_in_source.py",
+      "sha256": "9a6ec69b15f41ec108f1f0636551936025dea1814355a7423c4db69706752207",
+      "license": "MIT",
+      "repository_blob_sha": null,
+      "recorded_source_available_in_repository": false,
+      "version_record": "source_not_distributed_here"
+    },
+    {
+      "path": "tests/test_board_pins.py",
+      "sha256": "aa824e0642e2b3ae3f2168b8d6affcfd8849d0f97ea94eba3e9f2001c1b9a160",
+      "license": "MIT",
+      "repository_blob_sha": null,
+      "recorded_source_available_in_repository": false,
+      "version_record": "source_not_distributed_here"
+    },
+    {
+      "path": "tests/test_button.c",
+      "sha256": "11c155e7fb2c2d71fdb701c5e3f3ef549725431ef854642fcb3dfcd593bf028b",
+      "license": "MIT",
+      "repository_blob_sha": null,
+      "recorded_source_available_in_repository": false,
+      "version_record": "source_not_distributed_here"
+    },
+    {
+      "path": "tests/test_clock_weather_wake.py",
+      "sha256": "9fb43cb81141dd962957423eddc93d2e5349a7722dea1c170d332e0a15c4ccda",
+      "license": "MIT",
+      "repository_blob_sha": null,
+      "recorded_source_available_in_repository": false,
+      "version_record": "source_not_distributed_here"
+    },
+    {
+      "path": "tests/test_cloud_http.c",
+      "sha256": "221ed2b14e682deca9cb8ea2e76900e0526c82a1f2c3f657fe9686710f1ab280",
+      "license": "MIT",
+      "repository_blob_sha": null,
+      "recorded_source_available_in_repository": false,
+      "version_record": "source_not_distributed_here"
+    },
+    {
+      "path": "tests/test_cloud_protocol.c",
+      "sha256": "0f221591413a46ec21b0f1904e4aabba73ec96ad1ae99dc237f35513bf056bba",
+      "license": "MIT",
+      "repository_blob_sha": null,
+      "recorded_source_available_in_repository": false,
+      "version_record": "source_not_distributed_here"
+    },
+    {
+      "path": "tests/test_config_latency_source.py",
+      "sha256": "b48c24b533fdbd2edd928ba2a862398b6bf830408ba2e2a4d8a7c0883d7c1501",
+      "license": "MIT",
+      "repository_blob_sha": null,
+      "recorded_source_available_in_repository": false,
+      "version_record": "source_not_distributed_here"
+    },
+    {
+      "path": "tests/test_desktop_assets.py",
+      "sha256": "7af4e8cc79b7c0628062672e78091c878ed863303ca16b3da5160ee46804ee29",
+      "license": "MIT",
+      "repository_blob_sha": null,
+      "recorded_source_available_in_repository": false,
+      "version_record": "source_not_distributed_here"
+    },
+    {
+      "path": "tests/test_display_memory.py",
+      "sha256": "3974244cce8bac7a664ba6e0f1d65e6601c1ed2ba79bd82d23d22c485858a1e2",
+      "license": "MIT",
+      "repository_blob_sha": null,
+      "recorded_source_available_in_repository": false,
+      "version_record": "source_not_distributed_here"
+    },
+    {
+      "path": "tests/test_focus.c",
+      "sha256": "5f3f8f39c5af0e3edadc678379e6b02c3078ba5eee7729b0399311569399f26e",
+      "license": "MIT",
+      "repository_blob_sha": null,
+      "recorded_source_available_in_repository": false,
+      "version_record": "source_not_distributed_here"
+    },
+    {
+      "path": "tests/test_followup_alarm_source.py",
+      "sha256": "81a6ffd61d1281df592788da99833ca142c8417a78aa426d1d61038075d7967b",
+      "license": "MIT",
+      "repository_blob_sha": null,
+      "recorded_source_available_in_repository": false,
+      "version_record": "source_not_distributed_here"
+    },
+    {
+      "path": "tests/test_games.c",
+      "sha256": "607908ba699f873cad1835b966686337ace082cb8b780db4a258d74c90e0e80f",
+      "license": "MIT",
+      "repository_blob_sha": null,
+      "recorded_source_available_in_repository": false,
+      "version_record": "source_not_distributed_here"
+    },
+    {
+      "path": "tests/test_games_source.py",
+      "sha256": "f84ece4c96bb1c75fb2ee7f33c70e3599a0a48117e4c2e7023e3fa798335bb0a",
+      "license": "MIT",
+      "repository_blob_sha": null,
+      "recorded_source_available_in_repository": false,
+      "version_record": "source_not_distributed_here"
+    },
+    {
+      "path": "tests/test_history_store.c",
+      "sha256": "9f469d7749c9d7863e499e5913564dfcfcec60d7449fdf53e1eedc38ee05f82a",
+      "license": "MIT",
+      "repository_blob_sha": null,
+      "recorded_source_available_in_repository": false,
+      "version_record": "source_not_distributed_here"
+    },
+    {
+      "path": "tests/test_holo_rework.py",
+      "sha256": "66ce5ffd9e6e8cc6cb36c0107c08dbe1f6566f2ceb4c1e6cb8f61db584a6ae8b",
+      "license": "MIT",
+      "repository_blob_sha": null,
+      "recorded_source_available_in_repository": false,
+      "version_record": "source_not_distributed_here"
+    },
+    {
+      "path": "tests/test_holo_ui.py",
+      "sha256": "fb182a3b081a8bdea9a6013746714cc6b67f13a723593de85a8f398617be6d1b",
+      "license": "MIT",
+      "repository_blob_sha": null,
+      "recorded_source_available_in_repository": false,
+      "version_record": "source_not_distributed_here"
+    },
+    {
+      "path": "tests/test_home_idle_source.py",
+      "sha256": "72c2f4c92cc6151d25d6139da9120986b7de2173b1654776dcaa06d8d3c34451",
+      "license": "MIT",
+      "repository_blob_sha": null,
+      "recorded_source_available_in_repository": false,
+      "version_record": "source_not_distributed_here"
+    },
+    {
+      "path": "tests/test_http_range.c",
+      "sha256": "d7eeeffcff85c654b7d67f3977b9890fcc03b62d3d1287fe3868c0b9ee96fbd9",
+      "license": "MIT",
+      "repository_blob_sha": null,
+      "recorded_source_available_in_repository": false,
+      "version_record": "source_not_distributed_here"
+    },
+    {
+      "path": "tests/test_input_navigation.py",
+      "sha256": "1930df47167fac6efb6e89151ffb72ea4a420b16ab8be0df123381c490555dda",
+      "license": "MIT",
+      "repository_blob_sha": null,
+      "recorded_source_available_in_repository": false,
+      "version_record": "source_not_distributed_here"
+    },
+    {
+      "path": "tests/test_interrupt_question_gate.py",
+      "sha256": "e26d4423345fe25b0621cdb4690d7e5ed874e7ff17e77ef6f7b1108d0232ab60",
+      "license": "MIT",
+      "repository_blob_sha": null,
+      "recorded_source_available_in_repository": false,
+      "version_record": "source_not_distributed_here"
+    },
+    {
+      "path": "tests/test_media_core_source.py",
+      "sha256": "a3ed7d31ab22145bee7e865746efc1c6f4738fe999e2c33fcbd9aac3103de5ea",
+      "license": "MIT",
+      "repository_blob_sha": null,
+      "recorded_source_available_in_repository": false,
+      "version_record": "source_not_distributed_here"
+    },
+    {
+      "path": "tests/test_media_integration.py",
+      "sha256": "fc11d6eb05d046a30de9d9eb7c74575298403f9b3d7d027dd25a930176dccdc9",
+      "license": "MIT",
+      "repository_blob_sha": null,
+      "recorded_source_available_in_repository": false,
+      "version_record": "source_not_distributed_here"
+    },
+    {
+      "path": "tests/test_media_pack.py",
+      "sha256": "0a13445c89a8b7f282fffff528c96b8b2f6988d8f09808bdf5275c2294cac112",
+      "license": "MIT",
+      "repository_blob_sha": null,
+      "recorded_source_available_in_repository": false,
+      "version_record": "source_not_distributed_here"
+    },
+    {
+      "path": "tests/test_media_ui.py",
+      "sha256": "0f4501d81b260b14d862bc7b932ce5b4e00c27c923200426a764ff2a17c3897c",
+      "license": "MIT",
+      "repository_blob_sha": null,
+      "recorded_source_available_in_repository": false,
+      "version_record": "source_not_distributed_here"
+    },
+    {
+      "path": "tests/test_media_web.py",
+      "sha256": "d2fdd411f524f9cb73ecb26dc68e695f94f37e5750d0929ea3fe33f22083630a",
+      "license": "MIT",
+      "repository_blob_sha": null,
+      "recorded_source_available_in_repository": false,
+      "version_record": "source_not_distributed_here"
+    },
+    {
+      "path": "tests/test_memory_voice_cleanup.py",
+      "sha256": "e737c9b1d6b406e97fe54e5b859bca68313184f49b9eee5089316c39db384a17",
+      "license": "MIT",
+      "repository_blob_sha": null,
+      "recorded_source_available_in_repository": false,
+      "version_record": "source_not_distributed_here"
+    },
+    {
+      "path": "tests/test_motion.c",
+      "sha256": "74604d4a1b6faad2299cbdb714c29dbd0e026b31f6e01f1776df85d28eacad75",
+      "license": "MIT",
+      "repository_blob_sha": null,
+      "recorded_source_available_in_repository": false,
+      "version_record": "source_not_distributed_here"
+    },
+    {
+      "path": "tests/test_navigation_editors_source.py",
+      "sha256": "143782f559f4710802788668861b7d2fdab28a77529219b4e438d218d030f959",
+      "license": "MIT",
+      "repository_blob_sha": null,
+      "recorded_source_available_in_repository": false,
+      "version_record": "source_not_distributed_here"
+    },
+    {
+      "path": "tests/test_network_recovery.py",
+      "sha256": "146a4d37756105b2f42f7220cbd57d3b663cb7a5c083d3cb1621abc9bc0ae2e0",
+      "license": "MIT",
+      "repository_blob_sha": null,
+      "recorded_source_available_in_repository": false,
+      "version_record": "source_not_distributed_here"
+    },
+    {
+      "path": "tests/test_reminder_font.py",
+      "sha256": "eda261cbe54d7f310fe7edc119d7bf6149d08a0d24be2e1a95d679c149aa61ca",
+      "license": "MIT",
+      "repository_blob_sha": null,
+      "recorded_source_available_in_repository": false,
+      "version_record": "source_not_distributed_here"
+    },
+    {
+      "path": "tests/test_sd_backup.py",
+      "sha256": "fee8601a46a42499f42c6780b1e29d5675f2c16db905d1152412f262a2822874",
+      "license": "MIT",
+      "repository_blob_sha": null,
+      "recorded_source_available_in_repository": false,
+      "version_record": "source_not_distributed_here"
+    },
+    {
+      "path": "tests/test_semantic_agent_source.py",
+      "sha256": "0e8679ff1d592dacdc608cda0ad7a7127d860335bd5fe539fe5fb56b557f5a49",
+      "license": "MIT",
+      "repository_blob_sha": null,
+      "recorded_source_available_in_repository": false,
+      "version_record": "source_not_distributed_here"
+    },
+    {
+      "path": "tests/test_serial_logs.py",
+      "sha256": "cee9715926bf86407baf23d8f3aa594461d308022c15fc09a2ab3c5da88837f4",
+      "license": "MIT",
+      "repository_blob_sha": null,
+      "recorded_source_available_in_repository": false,
+      "version_record": "source_not_distributed_here"
+    },
+    {
+      "path": "tests/test_speech.c",
+      "sha256": "be04c0d0d132d36a070671773a59498c204e8786b2615ef7410d30af0b989549",
+      "license": "MIT",
+      "repository_blob_sha": null,
+      "recorded_source_available_in_repository": false,
+      "version_record": "source_not_distributed_here"
+    },
+    {
+      "path": "tests/test_sse.c",
+      "sha256": "94e46124a180052899d4cd8a0adaa9db2a5f4857faabe895f0f7141d06dc0631",
+      "license": "MIT",
+      "repository_blob_sha": null,
+      "recorded_source_available_in_repository": false,
+      "version_record": "source_not_distributed_here"
+    },
+    {
+      "path": "tests/test_stable_voice_diagnostic.py",
+      "sha256": "42dac0cf28fd6bd97042512a0b91fa59a3eee896d34dceee14ff8ef96dced76d",
+      "license": "MIT",
+      "repository_blob_sha": null,
+      "recorded_source_available_in_repository": false,
+      "version_record": "source_not_distributed_here"
+    },
+    {
+      "path": "tests/test_tools_grid_source.py",
+      "sha256": "d31648ac06f9e57b32c99fb27ed6ab70e859a3e82dac8c29ae61fbd29ba4ac83",
+      "license": "MIT",
+      "repository_blob_sha": null,
+      "recorded_source_available_in_repository": false,
+      "version_record": "source_not_distributed_here"
+    },
+    {
+      "path": "tests/test_tts.c",
+      "sha256": "0238c75bfa52d31375e5ab25f6f0bb846cec6122866c0e1215088876a0672f10",
+      "license": "MIT",
+      "repository_blob_sha": null,
+      "recorded_source_available_in_repository": false,
+      "version_record": "source_not_distributed_here"
+    },
+    {
+      "path": "tests/test_tts_preferences.py",
+      "sha256": "4636e82be76d2da11c06d19f316218290a9230fa184d6a405356f97c96221d27",
+      "license": "MIT",
+      "repository_blob_sha": null,
+      "recorded_source_available_in_repository": false,
+      "version_record": "source_not_distributed_here"
+    },
+    {
+      "path": "tests/test_turn.c",
+      "sha256": "ad38216e93c32fda4cac50accbdc268f8a3c50fb04bbbf1262ae3243a05875d8",
+      "license": "MIT",
+      "repository_blob_sha": null,
+      "recorded_source_available_in_repository": false,
+      "version_record": "source_not_distributed_here"
+    },
+    {
+      "path": "tests/test_voice_controls_source.py",
+      "sha256": "0ee3c979a3d6d7e36397e82064b5de51e0eafb95a4d8134edaeea28366313f0c",
+      "license": "MIT",
+      "repository_blob_sha": null,
+      "recorded_source_available_in_repository": false,
+      "version_record": "source_not_distributed_here"
+    },
+    {
+      "path": "tests/test_voice_exit_output.py",
+      "sha256": "d71bf37149ccdd371cae1b1b31dde9a7d91c204f3e515e407b7bf5bc7aa90cf5",
+      "license": "MIT",
+      "repository_blob_sha": null,
+      "recorded_source_available_in_repository": false,
+      "version_record": "source_not_distributed_here"
+    },
+    {
+      "path": "tests/test_voice_memory_order.py",
+      "sha256": "9170c19487abcf59564afcaa56af0c84cae6640b0973f34d435c300b56bb6b3b",
+      "license": "MIT",
+      "repository_blob_sha": null,
+      "recorded_source_available_in_repository": false,
+      "version_record": "source_not_distributed_here"
+    },
+    {
+      "path": "tests/test_voice_repair_source.py",
+      "sha256": "20c059d1cc299d183de2c1e3b3aabbbd9bb83944ef3a67b1533b588fa809ee6f",
+      "license": "MIT",
+      "repository_blob_sha": null,
+      "recorded_source_available_in_repository": false,
+      "version_record": "source_not_distributed_here"
+    },
+    {
+      "path": "tests/test_voice_setting_outcome.py",
+      "sha256": "30303af15e07b7a958271d731b52acf5f69a457b94c8ff0000d8774fe5529f5f",
+      "license": "MIT",
+      "repository_blob_sha": null,
+      "recorded_source_available_in_repository": false,
+      "version_record": "source_not_distributed_here"
+    },
+    {
+      "path": "tests/test_voice_source_guards.py",
+      "sha256": "d7ec312fed4b76de97b0333275dcc15df87e3ee2c4d9d2654b7810df2fe59a33",
+      "license": "MIT",
+      "repository_blob_sha": null,
+      "recorded_source_available_in_repository": false,
+      "version_record": "source_not_distributed_here"
+    },
+    {
+      "path": "tests/test_wake_handoff_source.py",
+      "sha256": "44fd5214097a3dad0e85c6b75b3f35359d9333f326ff1a8c974419d0b532eb16",
+      "license": "MIT",
+      "repository_blob_sha": null,
+      "recorded_source_available_in_repository": false,
+      "version_record": "source_not_distributed_here"
+    },
+    {
+      "path": "tests/test_wake_network_reset.py",
+      "sha256": "b8da9f9ffcc6cca689203d2e4c71d6b93662ac858acc0a785af245c7ed0859a0",
+      "license": "MIT",
+      "repository_blob_sha": null,
+      "recorded_source_available_in_repository": false,
+      "version_record": "source_not_distributed_here"
+    },
+    {
+      "path": "tests/test_weather.c",
+      "sha256": "2f21999877d8d4e240f6b1912d66899d264023546ba96806fd216dfb48681eb7",
+      "license": "MIT",
+      "repository_blob_sha": null,
+      "recorded_source_available_in_repository": false,
+      "version_record": "source_not_distributed_here"
+    },
+    {
+      "path": "tests/test_weather_home_source.py",
+      "sha256": "858709d26052382d54c3c078aefe26b595610c187e6961b6dbc6fc64281ec206",
+      "license": "MIT",
+      "repository_blob_sha": null,
+      "recorded_source_available_in_repository": false,
+      "version_record": "source_not_distributed_here"
+    },
+    {
+      "path": "tests/test_weather_scroll_source.py",
+      "sha256": "5073a937e0901c5ef34599b0880882f0b063032abd4ef2919f00c2301d2ca945",
+      "license": "MIT",
+      "repository_blob_sha": null,
+      "recorded_source_available_in_repository": false,
+      "version_record": "source_not_distributed_here"
+    },
+    {
+      "path": "tests/test_words.c",
+      "sha256": "b4a7426ff3549b127b932b7ae4fc8bf43e1457078c481f3feef2a88be8adf14f",
+      "license": "MIT",
+      "repository_blob_sha": null,
+      "recorded_source_available_in_repository": false,
+      "version_record": "source_not_distributed_here"
+    },
+    {
+      "path": "tests/tts_stubs/cloud_credentials.h",
+      "sha256": "7f70fe170d37d6d81d7de9b25f2e380dd744c3ac8a9d3ff4d4c51895c857c37a",
+      "license": "MIT",
+      "repository_blob_sha": null,
+      "recorded_source_available_in_repository": false,
+      "version_record": "source_not_distributed_here"
+    },
+    {
+      "path": "tests/tts_stubs/esp_crt_bundle.h",
+      "sha256": "ace58c952316743c621b2fb91add1163ab5373623c43c1a2147001149db3194c",
+      "license": "MIT",
+      "repository_blob_sha": null,
+      "recorded_source_available_in_repository": false,
+      "version_record": "source_not_distributed_here"
+    },
+    {
+      "path": "tests/tts_stubs/esp_err.h",
+      "sha256": "9c4940fcba182aa89321f5afe506f4fa64f254a9c1a623ac7f0c93e8bf5abf42",
+      "license": "MIT",
+      "repository_blob_sha": null,
+      "recorded_source_available_in_repository": false,
+      "version_record": "source_not_distributed_here"
+    },
+    {
+      "path": "tests/tts_stubs/esp_heap_caps.h",
+      "sha256": "f84b578287b8b4b0d16ae5df47907e3d6dde0f4beca5563f0bfda97ed2228af1",
+      "license": "MIT",
+      "repository_blob_sha": null,
+      "recorded_source_available_in_repository": false,
+      "version_record": "source_not_distributed_here"
+    },
+    {
+      "path": "tests/tts_stubs/esp_log.h",
+      "sha256": "18fee4004e237bc4aeccecbd00b55fd385280f5fd24b6a422a370b3720f1ebca",
+      "license": "MIT",
+      "repository_blob_sha": null,
+      "recorded_source_available_in_repository": false,
+      "version_record": "source_not_distributed_here"
+    },
+    {
+      "path": "tests/tts_stubs/esp_websocket_client.h",
+      "sha256": "0203a9297f1b6cc6c49fc2a81464b8fae595ba77cb94615c6d869edc094fa845",
+      "license": "MIT",
+      "repository_blob_sha": null,
+      "recorded_source_available_in_repository": false,
+      "version_record": "source_not_distributed_here"
+    },
+    {
+      "path": "tests/tts_stubs/freertos/event_groups.h",
+      "sha256": "221fc7685d8e1e8ebb06d3c80b585196aeb1d6e88a82c4b56f87588881ad8642",
+      "license": "MIT",
+      "repository_blob_sha": null,
+      "recorded_source_available_in_repository": false,
+      "version_record": "source_not_distributed_here"
+    },
+    {
+      "path": "tests/tts_stubs/freertos/stream_buffer.h",
+      "sha256": "b00bdaeea5a71cc64093262648878733b7bde758a41a47905c979e7918e766c5",
+      "license": "MIT",
+      "repository_blob_sha": null,
+      "recorded_source_available_in_repository": false,
+      "version_record": "source_not_distributed_here"
+    },
+    {
+      "path": "tests/tts_stubs/mbedtls/base64.h",
+      "sha256": "3c12cd09ebad74c9defcc4f85db945ff9464fe137729b3cae449f5e40fbde93d",
+      "license": "MIT",
+      "repository_blob_sha": null,
+      "recorded_source_available_in_repository": false,
+      "version_record": "source_not_distributed_here"
+    },
+    {
+      "path": "tools/backup_sd.py",
+      "sha256": "76d8f5619ea085f61551c8b17f396d409827bc7409e8874a974c9c8d16951f81",
+      "license": "MIT",
+      "repository_blob_sha": null,
+      "recorded_source_available_in_repository": false,
+      "version_record": "source_not_distributed_here"
+    },
+    {
+      "path": "tools/export_dialogue.py",
+      "sha256": "5b64e4096ddd6e480a52d86f904bd3ce4af9e310ee3403568033ed1aaf677b2f",
+      "license": "MIT",
+      "repository_blob_sha": null,
+      "recorded_source_available_in_repository": false,
+      "version_record": "source_not_distributed_here"
+    },
+    {
+      "path": "tools/generate_desktop_assets.mjs",
+      "sha256": "75f1f177e7eb98f86f10900ee139321c2612eb32b0f00d70471f0fb86ed07eee",
+      "license": "MIT",
+      "repository_blob_sha": null,
+      "recorded_source_available_in_repository": false,
+      "version_record": "source_not_distributed_here"
+    },
+    {
+      "path": "tools/import_cloud_config.py",
+      "sha256": "381c45cfaf5d388723e620ac95456a5ad39eb9dabbf68b70a6143b0e70e1d613",
+      "license": "MIT",
+      "repository_blob_sha": null,
+      "recorded_source_available_in_repository": false,
+      "version_record": "source_not_distributed_here"
+    },
+    {
+      "path": "tools/prepare_media_pack.py",
+      "sha256": "b1a27a69932788db5167564d7748482ab30d608f2bd4d0708b63f5f4e34002f1",
+      "license": "MIT",
+      "repository_blob_sha": null,
+      "recorded_source_available_in_repository": false,
+      "version_record": "source_not_distributed_here"
+    }
+  ],
+  "exceptions": [
+    {
+      "path": "LICENSE",
+      "reason": "existing project license replaced only in candidate; legacy scope preserved separately"
+    },
+    {
+      "path": "assets/media-pack.zip",
+      "reason": "media/data/asset boundary; no new MIT grant"
+    },
+    {
+      "path": "assets/media-pack/ATTRIBUTION.txt",
+      "reason": "media/data/asset boundary; no new MIT grant"
+    },
+    {
+      "path": "assets/media-pack/catalog.json",
+      "reason": "media/data/asset boundary; no new MIT grant"
+    },
+    {
+      "path": "assets/media-pack/checksums.json",
+      "reason": "media/data/asset boundary; no new MIT grant"
+    },
+    {
+      "path": "assets/media-pack/generated-images/exec-3ae57194-021a-47ff-a8f8-b3fc7115d980.png",
+      "reason": "media/data/asset boundary; no new MIT grant"
+    },
+    {
+      "path": "assets/media-pack/generated-images/exec-43460e9e-3a18-49a5-a0cb-ade41602b6ed.png",
+      "reason": "media/data/asset boundary; no new MIT grant"
+    },
+    {
+      "path": "assets/media-pack/generated-images/exec-55ded8d5-f19a-4b4a-b7ee-60ff38f86527.png",
+      "reason": "media/data/asset boundary; no new MIT grant"
+    },
+    {
+      "path": "assets/media-pack/generated-images/exec-734ca99e-2aa4-487b-bbcd-40a8ea690e87.png",
+      "reason": "media/data/asset boundary; no new MIT grant"
+    },
+    {
+      "path": "assets/media-pack/generated-images/exec-cfc49f2e-4cce-40c7-9679-428b3486bb61.png",
+      "reason": "media/data/asset boundary; no new MIT grant"
+    },
+    {
+      "path": "assets/media-pack/generated-images/exec-dcfbe8a6-59aa-422b-8fc7-1eb21c1cb06f.png",
+      "reason": "media/data/asset boundary; no new MIT grant"
+    },
+    {
+      "path": "assets/media-pack/previews/wall_01_jade.png",
+      "reason": "media/data/asset boundary; no new MIT grant"
+    },
+    {
+      "path": "assets/media-pack/previews/wall_02_aurora.png",
+      "reason": "media/data/asset boundary; no new MIT grant"
+    },
+    {
+      "path": "assets/media-pack/previews/wall_03_orbit.png",
+      "reason": "media/data/asset boundary; no new MIT grant"
+    },
+    {
+      "path": "assets/media-pack/previews/wall_04_dunes.png",
+      "reason": "media/data/asset boundary; no new MIT grant"
+    },
+    {
+      "path": "assets/media-pack/previews/wall_05_lunar.png",
+      "reason": "media/data/asset boundary; no new MIT grant"
+    },
+    {
+      "path": "assets/media-pack/previews/wall_06_jelly.png",
+      "reason": "media/data/asset boundary; no new MIT grant"
+    },
+    {
+      "path": "assets/media-pack/sdcard/media/audio/env_01_rain.wav",
+      "reason": "media/data/asset boundary; no new MIT grant"
+    },
+    {
+      "path": "assets/media-pack/sdcard/media/audio/env_02_ocean.wav",
+      "reason": "media/data/asset boundary; no new MIT grant"
+    },
+    {
+      "path": "assets/media-pack/sdcard/media/audio/env_03_wind.wav",
+      "reason": "media/data/asset boundary; no new MIT grant"
+    },
+    {
+      "path": "assets/media-pack/sdcard/media/audio/env_04_stream.wav",
+      "reason": "media/data/asset boundary; no new MIT grant"
+    },
+    {
+      "path": "assets/media-pack/sdcard/media/audio/env_05_fire.wav",
+      "reason": "media/data/asset boundary; no new MIT grant"
+    },
+    {
+      "path": "assets/media-pack/sdcard/media/audio/env_06_white.wav",
+      "reason": "media/data/asset boundary; no new MIT grant"
+    },
+    {
+      "path": "assets/media-pack/sdcard/media/audio/env_07_pink.wav",
+      "reason": "media/data/asset boundary; no new MIT grant"
+    },
+    {
+      "path": "assets/media-pack/sdcard/media/audio/env_08_brown.wav",
+      "reason": "media/data/asset boundary; no new MIT grant"
+    },
+    {
+      "path": "assets/media-pack/sdcard/media/audio/music_01_carefree.wav",
+      "reason": "media/data/asset boundary; no new MIT grant"
+    },
+    {
+      "path": "assets/media-pack/sdcard/media/audio/music_02_easy_lemon.wav",
+      "reason": "media/data/asset boundary; no new MIT grant"
+    },
+    {
+      "path": "assets/media-pack/sdcard/media/audio/music_03_dream_culture.wav",
+      "reason": "media/data/asset boundary; no new MIT grant"
+    },
+    {
+      "path": "assets/media-pack/sdcard/media/audio/music_04_evening.wav",
+      "reason": "media/data/asset boundary; no new MIT grant"
+    },
+    {
+      "path": "assets/media-pack/sdcard/media/audio/music_05_gymnopedie_1.wav",
+      "reason": "media/data/asset boundary; no new MIT grant"
+    },
+    {
+      "path": "assets/media-pack/sdcard/media/audio/music_06_gymnopedie_2.wav",
+      "reason": "media/data/asset boundary; no new MIT grant"
+    },
+    {
+      "path": "assets/media-pack/sdcard/media/audio/music_07_gymnopedie_3.wav",
+      "reason": "media/data/asset boundary; no new MIT grant"
+    },
+    {
+      "path": "assets/media-pack/sdcard/media/audio/music_08_meditation_1.wav",
+      "reason": "media/data/asset boundary; no new MIT grant"
+    },
+    {
+      "path": "assets/media-pack/sdcard/media/audio/music_09_meditation_2.wav",
+      "reason": "media/data/asset boundary; no new MIT grant"
+    },
+    {
+      "path": "assets/media-pack/sdcard/media/audio/music_10_meditation_3.wav",
+      "reason": "media/data/asset boundary; no new MIT grant"
+    },
+    {
+      "path": "assets/media-pack/sdcard/media/images/wall_01_jade.rgb565",
+      "reason": "media/data/asset boundary; no new MIT grant"
+    },
+    {
+      "path": "assets/media-pack/sdcard/media/images/wall_02_aurora.rgb565",
+      "reason": "media/data/asset boundary; no new MIT grant"
+    },
+    {
+      "path": "assets/media-pack/sdcard/media/images/wall_03_orbit.rgb565",
+      "reason": "media/data/asset boundary; no new MIT grant"
+    },
+    {
+      "path": "assets/media-pack/sdcard/media/images/wall_04_dunes.rgb565",
+      "reason": "media/data/asset boundary; no new MIT grant"
+    },
+    {
+      "path": "assets/media-pack/sdcard/media/images/wall_05_lunar.rgb565",
+      "reason": "media/data/asset boundary; no new MIT grant"
+    },
+    {
+      "path": "assets/media-pack/sdcard/media/images/wall_06_jelly.rgb565",
+      "reason": "media/data/asset boundary; no new MIT grant"
+    },
+    {
+      "path": "assets/wallpapers-20261005.zip",
+      "reason": "media/data/asset boundary; no new MIT grant"
+    },
+    {
+      "path": "docs/BOM.csv",
+      "reason": "outside selected software/original technical documentation scope"
+    },
+    {
+      "path": "docs/images/2026-10-10/alarm-edit-hour.jpg",
+      "reason": "media/data/asset boundary; no new MIT grant"
+    },
+    {
+      "path": "docs/images/2026-10-10/assembly-parts-overview.jpg",
+      "reason": "media/data/asset boundary; no new MIT grant"
+    },
+    {
+      "path": "docs/images/2026-10-10/demo-time-weather-cover.jpg",
+      "reason": "media/data/asset boundary; no new MIT grant"
+    },
+    {
+      "path": "docs/images/2026-10-10/demo-volume-cover.jpg",
+      "reason": "media/data/asset boundary; no new MIT grant"
+    },
+    {
+      "path": "docs/images/2026-10-10/desktop-menu.jpg",
+      "reason": "media/data/asset boundary; no new MIT grant"
+    },
+    {
+      "path": "docs/images/2026-10-10/device-clock-front.jpg",
+      "reason": "media/data/asset boundary; no new MIT grant"
+    },
+    {
+      "path": "docs/images/2026-10-10/device-rear.jpg",
+      "reason": "media/data/asset boundary; no new MIT grant"
+    },
+    {
+      "path": "docs/images/2026-10-10/device-side.jpg",
+      "reason": "media/data/asset boundary; no new MIT grant"
+    },
+    {
+      "path": "docs/images/2026-10-10/manifest.json",
+      "reason": "media/data/asset boundary; no new MIT grant"
+    },
+    {
+      "path": "docs/images/2026-10-10/pcb-assembled.jpg",
+      "reason": "media/data/asset boundary; no new MIT grant"
+    },
+    {
+      "path": "docs/images/2026-10-10/pcb-bare-detail.jpg",
+      "reason": "media/data/asset boundary; no new MIT grant"
+    },
+    {
+      "path": "docs/images/2026-10-10/settings-grid.jpg",
+      "reason": "media/data/asset boundary; no new MIT grant"
+    },
+    {
+      "path": "docs/images/2026-10-10/voice-listening.jpg",
+      "reason": "media/data/asset boundary; no new MIT grant"
+    },
+    {
+      "path": "docs/images/2026-10-10/voice-processing.jpg",
+      "reason": "media/data/asset boundary; no new MIT grant"
+    },
+    {
+      "path": "docs/images/2026-10-10/voice-speaking.jpg",
+      "reason": "media/data/asset boundary; no new MIT grant"
+    },
+    {
+      "path": "docs/images/2026-10-10/weather-current.jpg",
+      "reason": "media/data/asset boundary; no new MIT grant"
+    },
+    {
+      "path": "docs/images/2026-10-10/weather-hourly.jpg",
+      "reason": "media/data/asset boundary; no new MIT grant"
+    },
+    {
+      "path": "docs/images/2026-10-10/weather-metrics.jpg",
+      "reason": "media/data/asset boundary; no new MIT grant"
+    },
+    {
+      "path": "docs/images/2026-10-11/alarm-edit-hour.jpg",
+      "reason": "media/data/asset boundary; no new MIT grant"
+    },
+    {
+      "path": "docs/images/2026-10-11/alarm-edit-minute.jpg",
+      "reason": "media/data/asset boundary; no new MIT grant"
+    },
+    {
+      "path": "docs/images/2026-10-11/assembly-parts-angle.jpg",
+      "reason": "media/data/asset boundary; no new MIT grant"
+    },
+    {
+      "path": "docs/images/2026-10-11/assembly-parts-overview.jpg",
+      "reason": "media/data/asset boundary; no new MIT grant"
+    },
+    {
+      "path": "docs/images/2026-10-11/desktop-menu.jpg",
+      "reason": "media/data/asset boundary; no new MIT grant"
+    },
+    {
+      "path": "docs/images/2026-10-11/device-clock-front.jpg",
+      "reason": "media/data/asset boundary; no new MIT grant"
+    },
+    {
+      "path": "docs/images/2026-10-11/device-front.jpg",
+      "reason": "media/data/asset boundary; no new MIT grant"
+    },
+    {
+      "path": "docs/images/2026-10-11/device-rear.jpg",
+      "reason": "media/data/asset boundary; no new MIT grant"
+    },
+    {
+      "path": "docs/images/2026-10-11/device-side-slot.jpg",
+      "reason": "media/data/asset boundary; no new MIT grant"
+    },
+    {
+      "path": "docs/images/2026-10-11/device-side.jpg",
+      "reason": "media/data/asset boundary; no new MIT grant"
+    },
+    {
+      "path": "docs/images/2026-10-11/manifest.json",
+      "reason": "media/data/asset boundary; no new MIT grant"
+    },
+    {
+      "path": "docs/images/2026-10-11/part-base.jpg",
+      "reason": "media/data/asset boundary; no new MIT grant"
+    },
+    {
+      "path": "docs/images/2026-10-11/part-beamsplitter-prism.jpg",
+      "reason": "media/data/asset boundary; no new MIT grant"
+    },
+    {
+      "path": "docs/images/2026-10-11/part-button.jpg",
+      "reason": "media/data/asset boundary; no new MIT grant"
+    },
+    {
+      "path": "docs/images/2026-10-11/part-display.jpg",
+      "reason": "media/data/asset boundary; no new MIT grant"
+    },
+    {
+      "path": "docs/images/2026-10-11/part-enclosure.jpg",
+      "reason": "media/data/asset boundary; no new MIT grant"
+    },
+    {
+      "path": "docs/images/2026-10-11/part-mainboard.jpg",
+      "reason": "media/data/asset boundary; no new MIT grant"
+    },
+    {
+      "path": "docs/images/2026-10-11/part-prism-carrier.jpg",
+      "reason": "media/data/asset boundary; no new MIT grant"
+    },
+    {
+      "path": "docs/images/2026-10-11/part-screen-frame.jpg",
+      "reason": "media/data/asset boundary; no new MIT grant"
+    },
+    {
+      "path": "docs/images/2026-10-11/part-speaker.jpg",
+      "reason": "media/data/asset boundary; no new MIT grant"
+    },
+    {
+      "path": "docs/images/2026-10-11/pcb-assembled.jpg",
+      "reason": "media/data/asset boundary; no new MIT grant"
+    },
+    {
+      "path": "docs/images/2026-10-11/pcb-bare-batch.jpg",
+      "reason": "media/data/asset boundary; no new MIT grant"
+    },
+    {
+      "path": "docs/images/2026-10-11/pcb-bare-detail.jpg",
+      "reason": "media/data/asset boundary; no new MIT grant"
+    },
+    {
+      "path": "docs/images/2026-10-11/pcb-layout-back.svg",
+      "reason": "media/data/asset boundary; no new MIT grant"
+    },
+    {
+      "path": "docs/images/2026-10-11/pcb-layout-front.svg",
+      "reason": "media/data/asset boundary; no new MIT grant"
+    },
+    {
+      "path": "docs/images/2026-10-11/schematic-main.svg",
+      "reason": "media/data/asset boundary; no new MIT grant"
+    },
+    {
+      "path": "docs/images/2026-10-11/settings-grid.jpg",
+      "reason": "media/data/asset boundary; no new MIT grant"
+    },
+    {
+      "path": "docs/images/2026-10-11/voice-listening.jpg",
+      "reason": "media/data/asset boundary; no new MIT grant"
+    },
+    {
+      "path": "docs/images/2026-10-11/voice-processing.jpg",
+      "reason": "media/data/asset boundary; no new MIT grant"
+    },
+    {
+      "path": "docs/images/2026-10-11/voice-speaking.jpg",
+      "reason": "media/data/asset boundary; no new MIT grant"
+    },
+    {
+      "path": "docs/images/2026-10-11/weather-current.jpg",
+      "reason": "media/data/asset boundary; no new MIT grant"
+    },
+    {
+      "path": "docs/images/2026-10-11/weather-hourly.jpg",
+      "reason": "media/data/asset boundary; no new MIT grant"
+    },
+    {
+      "path": "docs/images/2026-10-11/weather-metrics.jpg",
+      "reason": "media/data/asset boundary; no new MIT grant"
+    },
+    {
+      "path": "docs/images/2026-10-11/web-appearance-desktop.jpg",
+      "reason": "media/data/asset boundary; no new MIT grant"
+    },
+    {
+      "path": "docs/images/2026-10-11/web-overview-desktop.jpg",
+      "reason": "media/data/asset boundary; no new MIT grant"
+    },
+    {
+      "path": "docs/images/2026-10-11/web-overview-mobile.jpg",
+      "reason": "media/data/asset boundary; no new MIT grant"
+    },
+    {
+      "path": "docs/images/2026-10-11/web-tasks-desktop.jpg",
+      "reason": "media/data/asset boundary; no new MIT grant"
+    },
+    {
+      "path": "docs/images/2026-10-11/web-voice-settings-desktop.jpg",
+      "reason": "media/data/asset boundary; no new MIT grant"
+    },
+    {
+      "path": "docs/images/2026-10-11/web-voice-settings-mobile.jpg",
+      "reason": "media/data/asset boundary; no new MIT grant"
+    },
+    {
+      "path": "docs/images/README.md",
+      "reason": "media/data/asset boundary; no new MIT grant"
+    },
+    {
+      "path": "docs/images/context-dialog-turns-1-2.png",
+      "reason": "media/data/asset boundary; no new MIT grant"
+    },
+    {
+      "path": "docs/images/context-dialog-turns-3-4.png",
+      "reason": "media/data/asset boundary; no new MIT grant"
+    },
+    {
+      "path": "docs/images/home-page.jpg",
+      "reason": "media/data/asset boundary; no new MIT grant"
+    },
+    {
+      "path": "docs/images/voice-listening.jpg",
+      "reason": "media/data/asset boundary; no new MIT grant"
+    },
+    {
+      "path": "docs/images/voice-ready.jpg",
+      "reason": "media/data/asset boundary; no new MIT grant"
+    },
+    {
+      "path": "docs/images/voice-speaking.jpg",
+      "reason": "media/data/asset boundary; no new MIT grant"
+    },
+    {
+      "path": "docs/images/voice-thinking.jpg",
+      "reason": "media/data/asset boundary; no new MIT grant"
+    },
+    {
+      "path": "docs/images/voxconductor-prototype.jpg",
+      "reason": "media/data/asset boundary; no new MIT grant"
+    },
+    {
+      "path": "docs/images/weather-page.jpg",
+      "reason": "media/data/asset boundary; no new MIT grant"
+    },
+    {
+      "path": "docs/videos/2026-10-10/README.md",
+      "reason": "media/data/asset boundary; no new MIT grant"
+    },
+    {
+      "path": "docs/videos/2026-10-10/audio-processing.json",
+      "reason": "media/data/asset boundary; no new MIT grant"
+    },
+    {
+      "path": "docs/videos/2026-10-10/voice-volume-answer-clip.mp4",
+      "reason": "media/data/asset boundary; no new MIT grant"
+    },
+    {
+      "path": "docs/videos/2026-10-10/voice-volume-control.mp4",
+      "reason": "media/data/asset boundary; no new MIT grant"
+    },
+    {
+      "path": "docs/videos/2026-10-10/wake-time-weather-answer-clip.mp4",
+      "reason": "media/data/asset boundary; no new MIT grant"
+    },
+    {
+      "path": "docs/videos/2026-10-10/wake-time-weather.mp4",
+      "reason": "media/data/asset boundary; no new MIT grant"
+    },
+    {
+      "path": "firmware/log.voxconductor_firmware.20260927130635.txt",
+      "reason": "outside selected software/original technical documentation scope"
+    },
+    {
+      "path": "firmware/main/app_ui_font_14.c",
+      "reason": "font derivative; original OFL/third-party notices"
+    },
+    {
+      "path": "firmware/main/app_ui_font_16.c",
+      "reason": "font derivative; original OFL/third-party notices"
+    },
+    {
+      "path": "firmware/main/app_ui_font_20.c",
+      "reason": "font derivative; original OFL/third-party notices"
+    },
+    {
+      "path": "firmware/main/app_ui_font_digits_56.c",
+      "reason": "font derivative; original OFL/third-party notices"
+    },
+    {
+      "path": "firmware/main/app_ui_font_weather_24.c",
+      "reason": "font derivative; original OFL/third-party notices"
+    },
+    {
+      "path": "firmware/main/reminder.pcm",
+      "reason": "existing synthesized voice; no new MIT grant"
+    },
+    {
+      "path": "hardware/.gitignore",
+      "reason": "hardware/vendor boundary; no new MIT grant"
+    },
+    {
+      "path": "hardware/BOM.md",
+      "reason": "hardware/vendor boundary; no new MIT grant"
+    },
+    {
+      "path": "hardware/README.md",
+      "reason": "hardware/vendor boundary; no new MIT grant"
+    },
+    {
+      "path": "hardware/VoxConductor.kicad_pcb",
+      "reason": "hardware/vendor boundary; no new MIT grant"
+    },
+    {
+      "path": "hardware/VoxConductor.kicad_pro",
+      "reason": "hardware/vendor boundary; no new MIT grant"
+    },
+    {
+      "path": "hardware/VoxConductor.kicad_sch",
+      "reason": "hardware/vendor boundary; no new MIT grant"
+    },
+    {
+      "path": "hardware/checks/README.md",
+      "reason": "hardware/vendor boundary; no new MIT grant"
+    },
+    {
+      "path": "hardware/checks/drc.json",
+      "reason": "hardware/vendor boundary; no new MIT grant"
+    },
+    {
+      "path": "hardware/checks/erc.json",
+      "reason": "hardware/vendor boundary; no new MIT grant"
+    },
+    {
+      "path": "hardware/docs/audio/3020腔体..3瓦.docx",
+      "reason": "hardware/vendor boundary; no new MIT grant"
+    },
+    {
+      "path": "hardware/docs/audio/README.md",
+      "reason": "hardware/vendor boundary; no new MIT grant"
+    },
+    {
+      "path": "hardware/docs/display/FH12-SVA-EDC3-159266-03.pdf",
+      "reason": "hardware/vendor boundary; no new MIT grant"
+    },
+    {
+      "path": "hardware/docs/display/Hirose-FH12-official-catalog.pdf",
+      "reason": "hardware/vendor boundary; no new MIT grant"
+    },
+    {
+      "path": "hardware/docs/display/README.md",
+      "reason": "hardware/vendor boundary; no new MIT grant"
+    },
+    {
+      "path": "hardware/docs/display/T154H7-C12-01-V2/T154H7-C12-01-V2-产品规格书.pdf",
+      "reason": "hardware/vendor boundary; no new MIT grant"
+    },
+    {
+      "path": "hardware/docs/display/T154H7-C12-01-V2/T154H7-C12-01-V2-结构图.pdf",
+      "reason": "hardware/vendor boundary; no new MIT grant"
+    },
+    {
+      "path": "hardware/docs/display/T154H7-C12-01-V2/产品正反图.png",
+      "reason": "hardware/vendor boundary; no new MIT grant"
+    },
+    {
+      "path": "hardware/exports/VoxConductor-schematic.pdf",
+      "reason": "hardware/vendor boundary; no new MIT grant"
+    },
+    {
+      "path": "hardware/exports/board-bom-detailed.csv",
+      "reason": "hardware/vendor boundary; no new MIT grant"
+    },
+    {
+      "path": "hardware/exports/board-bom.csv",
+      "reason": "hardware/vendor boundary; no new MIT grant"
+    },
+    {
+      "path": "hardware/exports/pcb-top.svg",
+      "reason": "hardware/vendor boundary; no new MIT grant"
+    },
+    {
+      "path": "hardware/fabrication/2026-09-16/README.md",
+      "reason": "hardware/vendor boundary; no new MIT grant"
+    },
+    {
+      "path": "hardware/fabrication/2026-09-16/VoxConductor-B_Cu.gbl",
+      "reason": "hardware/vendor boundary; no new MIT grant"
+    },
+    {
+      "path": "hardware/fabrication/2026-09-16/VoxConductor-B_Mask.gbs",
+      "reason": "hardware/vendor boundary; no new MIT grant"
+    },
+    {
+      "path": "hardware/fabrication/2026-09-16/VoxConductor-B_Silkscreen.gbo",
+      "reason": "hardware/vendor boundary; no new MIT grant"
+    },
+    {
+      "path": "hardware/fabrication/2026-09-16/VoxConductor-Edge_Cuts.gm1",
+      "reason": "hardware/vendor boundary; no new MIT grant"
+    },
+    {
+      "path": "hardware/fabrication/2026-09-16/VoxConductor-F_Cu.gtl",
+      "reason": "hardware/vendor boundary; no new MIT grant"
+    },
+    {
+      "path": "hardware/fabrication/2026-09-16/VoxConductor-F_Mask.gts",
+      "reason": "hardware/vendor boundary; no new MIT grant"
+    },
+    {
+      "path": "hardware/fabrication/2026-09-16/VoxConductor-F_Paste.gtp",
+      "reason": "hardware/vendor boundary; no new MIT grant"
+    },
+    {
+      "path": "hardware/fabrication/2026-09-16/VoxConductor-F_Silkscreen.gto",
+      "reason": "hardware/vendor boundary; no new MIT grant"
+    },
+    {
+      "path": "hardware/fabrication/2026-09-16/VoxConductor-In1_Cu.g1",
+      "reason": "hardware/vendor boundary; no new MIT grant"
+    },
+    {
+      "path": "hardware/fabrication/2026-09-16/VoxConductor-In2_Cu.g2",
+      "reason": "hardware/vendor boundary; no new MIT grant"
+    },
+    {
+      "path": "hardware/fabrication/2026-09-16/VoxConductor-NPTH.drl",
+      "reason": "hardware/vendor boundary; no new MIT grant"
+    },
+    {
+      "path": "hardware/fabrication/2026-09-16/VoxConductor-PTH.drl",
+      "reason": "hardware/vendor boundary; no new MIT grant"
+    },
+    {
+      "path": "hardware/fabrication/2026-09-16/VoxConductor-drill.rpt",
+      "reason": "hardware/vendor boundary; no new MIT grant"
+    },
+    {
+      "path": "hardware/fabrication/2026-09-16/VoxConductor-job.gbrjob",
+      "reason": "hardware/vendor boundary; no new MIT grant"
+    },
+    {
+      "path": "hardware/fabrication/2026-09-16/placement.csv",
+      "reason": "hardware/vendor boundary; no new MIT grant"
+    },
+    {
+      "path": "hardware/fabrication/2026-09-16/制造说明.txt",
+      "reason": "hardware/vendor boundary; no new MIT grant"
+    },
+    {
+      "path": "hardware/fp-lib-table",
+      "reason": "hardware/vendor boundary; no new MIT grant"
+    },
+    {
+      "path": "hardware/lib/VoxConductor_Footprints.pretty/ESP32-S3-WROOM-1_Thermal_0p3.kicad_mod",
+      "reason": "hardware/vendor boundary; no new MIT grant"
+    },
+    {
+      "path": "hardware/lib/VoxConductor_Footprints.pretty/Hirose_FH12-12S-0.5SVA_Vertical.kicad_mod",
+      "reason": "hardware/vendor boundary; no new MIT grant"
+    },
+    {
+      "path": "hardware/lib/VoxConductor_Footprints.pretty/INMP441ACEZ-R7.kicad_mod",
+      "reason": "hardware/vendor boundary; no new MIT grant"
+    },
+    {
+      "path": "hardware/lib/VoxConductor_Symbols.kicad_sym",
+      "reason": "hardware/vendor boundary; no new MIT grant"
+    },
+    {
+      "path": "hardware/manifest.json",
+      "reason": "hardware/vendor boundary; no new MIT grant"
+    },
+    {
+      "path": "hardware/mechanical/V3-SLA/README.md",
+      "reason": "hardware/vendor boundary; no new MIT grant"
+    },
+    {
+      "path": "hardware/mechanical/V3-SLA/assembly/V3_assembly.FCStd",
+      "reason": "hardware/vendor boundary; no new MIT grant"
+    },
+    {
+      "path": "hardware/mechanical/V3-SLA/assembly/V3_assembly_DO_NOT_PRINT.step",
+      "reason": "hardware/vendor boundary; no new MIT grant"
+    },
+    {
+      "path": "hardware/mechanical/V3-SLA/checks/delivery_validation.json",
+      "reason": "hardware/vendor boundary; no new MIT grant"
+    },
+    {
+      "path": "hardware/mechanical/V3-SLA/checks/optical_speaker_validation.json",
+      "reason": "hardware/vendor boundary; no new MIT grant"
+    },
+    {
+      "path": "hardware/mechanical/V3-SLA/checks/validation.json",
+      "reason": "hardware/vendor boundary; no new MIT grant"
+    },
+    {
+      "path": "hardware/mechanical/V3-SLA/manifest.json",
+      "reason": "hardware/vendor boundary; no new MIT grant"
+    },
+    {
+      "path": "hardware/mechanical/V3-SLA/parts/01_main_shell.step",
+      "reason": "hardware/vendor boundary; no new MIT grant"
+    },
+    {
+      "path": "hardware/mechanical/V3-SLA/parts/02_base.step",
+      "reason": "hardware/vendor boundary; no new MIT grant"
+    },
+    {
+      "path": "hardware/mechanical/V3-SLA/parts/03_LCD_retainer.step",
+      "reason": "hardware/vendor boundary; no new MIT grant"
+    },
+    {
+      "path": "hardware/mechanical/V3-SLA/parts/04_speaker_cradle.step",
+      "reason": "hardware/vendor boundary; no new MIT grant"
+    },
+    {
+      "path": "hardware/mechanical/V3-SLA/parts/05_speaker_retainer.step",
+      "reason": "hardware/vendor boundary; no new MIT grant"
+    },
+    {
+      "path": "hardware/mechanical/V3-SLA/parts/06_prism_carrier.step",
+      "reason": "hardware/vendor boundary; no new MIT grant"
+    },
+    {
+      "path": "hardware/mechanical/V3-SLA/presentation/V3-SLA_装配与修正说明.pptx",
+      "reason": "hardware/vendor boundary; no new MIT grant"
+    },
+    {
+      "path": "hardware/mechanical/V3-SLA/preview/01_shell.png",
+      "reason": "hardware/vendor boundary; no new MIT grant"
+    },
+    {
+      "path": "hardware/mechanical/V3-SLA/preview/02_internal_exploded.png",
+      "reason": "hardware/vendor boundary; no new MIT grant"
+    },
+    {
+      "path": "hardware/mechanical/V3-SLA/preview/03_board_and_bosses.png",
+      "reason": "hardware/vendor boundary; no new MIT grant"
+    },
+    {
+      "path": "hardware/mechanical/V3-SLA/preview/scene.json",
+      "reason": "hardware/vendor boundary; no new MIT grant"
+    },
+    {
+      "path": "hardware/mechanical/V3-SLA/print/01_main_shell.stl",
+      "reason": "hardware/vendor boundary; no new MIT grant"
+    },
+    {
+      "path": "hardware/mechanical/V3-SLA/print/02_base.stl",
+      "reason": "hardware/vendor boundary; no new MIT grant"
+    },
+    {
+      "path": "hardware/mechanical/V3-SLA/print/03_LCD_retainer.stl",
+      "reason": "hardware/vendor boundary; no new MIT grant"
+    },
+    {
+      "path": "hardware/mechanical/V3-SLA/print/04_speaker_cradle.stl",
+      "reason": "hardware/vendor boundary; no new MIT grant"
+    },
+    {
+      "path": "hardware/mechanical/V3-SLA/print/05_speaker_retainer.stl",
+      "reason": "hardware/vendor boundary; no new MIT grant"
+    },
+    {
+      "path": "hardware/mechanical/V3-SLA/print/06_prism_carrier.stl",
+      "reason": "hardware/vendor boundary; no new MIT grant"
+    },
+    {
+      "path": "hardware/mechanical/V3-SLA/source/build.py",
+      "reason": "hardware/vendor boundary; no new MIT grant"
+    },
+    {
+      "path": "hardware/mechanical/V3-SLA/source/complete_assembly.py",
+      "reason": "hardware/vendor boundary; no new MIT grant"
+    },
+    {
+      "path": "hardware/mechanical/V3-SLA/source/extract_pcb.py",
+      "reason": "hardware/vendor boundary; no new MIT grant"
+    },
+    {
+      "path": "hardware/mechanical/V3-SLA/source/frozen_v2/01_main_shell.step",
+      "reason": "hardware/vendor boundary; no new MIT grant"
+    },
+    {
+      "path": "hardware/mechanical/V3-SLA/source/frozen_v2/02_base.step",
+      "reason": "hardware/vendor boundary; no new MIT grant"
+    },
+    {
+      "path": "hardware/mechanical/V3-SLA/source/frozen_v2/03_LCD_retainer.step",
+      "reason": "hardware/vendor boundary; no new MIT grant"
+    },
+    {
+      "path": "hardware/mechanical/V3-SLA/source/frozen_v2/04_speaker_cradle.step",
+      "reason": "hardware/vendor boundary; no new MIT grant"
+    },
+    {
+      "path": "hardware/mechanical/V3-SLA/source/frozen_v2/05_speaker_retainer.step",
+      "reason": "hardware/vendor boundary; no new MIT grant"
+    },
+    {
+      "path": "hardware/mechanical/V3-SLA/source/frozen_v2/06_prism_carrier.step",
+      "reason": "hardware/vendor boundary; no new MIT grant"
+    },
+    {
+      "path": "hardware/mechanical/V3-SLA/source/make_presentation.py",
+      "reason": "hardware/vendor boundary; no new MIT grant"
+    },
+    {
+      "path": "hardware/mechanical/V3-SLA/source/package.py",
+      "reason": "hardware/vendor boundary; no new MIT grant"
+    },
+    {
+      "path": "hardware/mechanical/V3-SLA/source/pcb_actual.json",
+      "reason": "hardware/vendor boundary; no new MIT grant"
+    },
+    {
+      "path": "hardware/mechanical/V3-SLA/source/render.py",
+      "reason": "hardware/vendor boundary; no new MIT grant"
+    },
+    {
+      "path": "hardware/mechanical/V3-SLA/source/render_3d.py",
+      "reason": "hardware/vendor boundary; no new MIT grant"
+    },
+    {
+      "path": "hardware/mechanical/V3-SLA/source/verify_delivery.py",
+      "reason": "hardware/vendor boundary; no new MIT grant"
+    },
+    {
+      "path": "hardware/mechanical/V3-SLA/trial/07_entry_frame_first_print.step",
+      "reason": "hardware/vendor boundary; no new MIT grant"
+    },
+    {
+      "path": "hardware/mechanical/V3-SLA/trial/07_entry_frame_first_print.stl",
+      "reason": "hardware/vendor boundary; no new MIT grant"
+    },
+    {
+      "path": "hardware/mechanical/V3-SLA/trial/08_pilot_coupon_1p5_1p6_1p7.step",
+      "reason": "hardware/vendor boundary; no new MIT grant"
+    },
+    {
+      "path": "hardware/mechanical/V3-SLA/trial/08_pilot_coupon_1p5_1p6_1p7.stl",
+      "reason": "hardware/vendor boundary; no new MIT grant"
+    },
+    {
+      "path": "hardware/sym-lib-table",
+      "reason": "hardware/vendor boundary; no new MIT grant"
+    }
+  ],
+  "private_data_exceptions": [
+    "backups/**",
+    "docs/logs/**",
+    "server/.env",
+    "firmware/main/{wifi_credentials,cloud_credentials,device_registry}.h",
+    "databases",
+    "real dialogue/SD records",
+    "firmware/build/**"
+  ],
+  "dependency_exceptions": [
+    "firmware/managed_components/**",
+    "ESP-IDF",
+    "external dependencies and model binaries"
+  ],
+  "new_original_license_documents": [
+    "LICENSE_SCOPE.md",
+    "THIRD_PARTY_NOTICES.md",
+    "license-scope.json"
+  ],
+  "repository_reference_commit": "ad5a67575b3ceac12e64bcd3b04ebc5117de6228",
+  "inventory_note": "The root MIT grant covers project-authored software and original technical documentation distributed in this repository, subject to the listed asset/third-party exclusions. SHA256 records may also identify other authored source versions. An entry marked recorded_source_available_in_repository=false does not mean this repository distributes that exact source; it is not a required file link or a build prerequisite. The inventory does not add restrictions to the MIT terms."
+}

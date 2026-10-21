@@ -88,4 +88,4 @@ Issues and pull requests are useful for reproducible firmware or documentation p
 
 ## License
 
-The repository currently uses the [PolyForm Noncommercial License 1.0.0](LICENSE). It permits use only within the terms of that license and is not an OSI-approved open-source license. Third-party libraries, fonts, vendor materials, photos, audio, and video remain subject to their own licenses and terms. Review the applicable notices before reuse.
+The project-authored software and original technical documentation listed for this version are licensed under the [MIT License](LICENSE). MIT permits commercial use, modification, and redistribution subject to retaining the copyright and permission notice. See [License scope](LICENSE_SCOPE.md) for the exact paths and current-file records. Hardware, dependencies, fonts, vendor materials, photos, audio, video, and data are excluded from this project MIT grant and retain their own copyrights, licenses, or existing terms. See [Third-party notices](THIRD_PARTY_NOTICES.md) before reuse.

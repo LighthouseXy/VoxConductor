@@ -119,6 +119,6 @@
 
 ## 许可与致谢
 
-项目采用 [PolyForm Noncommercial License 1.0.0](LICENSE)。这是源码可见项目，不以 OSI 开源项目名义发布；使用范围以许可证为准。
+本版本中列明的项目原创软件代码与原创技术文档采用 [MIT License](LICENSE)，允许依照许可进行商业使用、修改与再分发，并须保留版权和许可声明。具体路径与当前文件记录见 [许可范围](LICENSE_SCOPE.md)。硬件、字体、依赖、图片、影音和数据不包含在项目 MIT 授权中，保留各自的版权、许可或原有使用条件。
 
 ESP-IDF、LVGL、ESP-SR 及云端服务各有自己的许可或使用条款。天气和空气质量使用 Open-Meteo 数据，空气质量来源包括 CAMS；相关来源与归属见 [数据服务说明](https://open-meteo.com/en/docs/air-quality-api)。第三方音乐的原始作者、许可和修改说明随媒体资源包保留，不作为我的原创作品展示。
