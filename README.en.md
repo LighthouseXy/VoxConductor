@@ -2,6 +2,8 @@
 
 [简体中文](README.md) | [English](README.en.md)
 
+[Development and maintenance history](DEVELOPMENT_HISTORY.en.md)
+
 VoxConductor is an ESP32-S3 desktop voice assistant that combines a custom PCB, a prism display, audio input and output, physical controls, motion interaction, and cloud voice services. The device handles its interface, audio capture and playback, local tools, and local records. Speech recognition, language-model responses, and speech synthesis run in the cloud.
 
 The display appears to float inside the prism, but it is a two-dimensional image. The firmware interface is currently Chinese-only; the repository does not provide an English UI or a language switch.
