@@ -1,6 +1,6 @@
 # VoxConductor｜棱镜显示桌面语音助手
 
-[English](README.md) | [简体中文](README.zh-CN.md)
+[English](README.en.md) | [简体中文](README.md)
 
 [开发与维护记录](DEVELOPMENT_HISTORY.md)
 
