@@ -1,4 +1,4 @@
-"""Non-compiling source guards and AQ cache state fixtures; no network/device I/O."""
+"""Air-quality cache source guards and local Python state fixtures. Native cache and device acceptance run separately."""
 from pathlib import Path
 import json
 
@@ -51,7 +51,7 @@ assert 'weather.air = s_weather_cache.air' in source
 assert 's_weather_cache.air_cached = s_weather_cache.air.available' in fetch
 assert 'same_day = air->available' in ui and 'US AQI 缓存' in ui
 
-# State fixtures for the intended cache semantics; not execution of C/NVS code.
+# Python state fixtures cover cache semantics; C/NVS execution is a separate check.
 payload = {
     'current_units': {'us_aqi': 'USAQI', 'pm2_5': 'μg/m³'},
     'current': {'time': '2026-10-06T20:00', 'us_aqi': 94, 'pm2_5': 107.6},
@@ -81,11 +81,11 @@ class Cache:
         self.air, self.cached = air.copy(), False
 
 first = Cache()
-first.update()  # first boot + connection timeout must not invent AQI=0
+first.update()  # first boot + connection timeout keep AQI unavailable
 assert first.air is None and not first.cached and first.writes == 0
 first.update(payload)
 assert first.air['us_aqi'] == 94 and not first.cached and first.writes == 1
-first.update(payload)  # unchanged hourly observation does not wear flash
+first.update(payload)  # unchanged hourly observation preserves the flash write count
 assert first.writes == 1
 reboot = Cache(first.flash)
 assert reboot.cached and reboot.air['us_aqi'] == 94 and not reboot.forecast_valid
@@ -99,4 +99,4 @@ assert Cache({'air': 'truncated JSON'}).air is None
 bad = json.loads(json.dumps(payload))
 bad['current_units']['us_aqi'] = 'China AQI'
 assert Cache({'air': json.dumps(bad)}).air is None
-print('PASS: AQ IPv4/TLS diagnostics, cache restore/save/failure/reboot fixtures; C/API/device NOT run')
+print('PASS: AQ IPv4/TLS diagnostics, cache restore/save/failure/reboot fixtures; scope=offline checks; pending=C/API/device validation')

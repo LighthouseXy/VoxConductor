@@ -272,7 +272,7 @@ void app_acoustic_feed(const int16_t *pcm, size_t count) {
         if (vad_used == VAD_SAMPLES) {
           vad_used = 0;
           bool speech = vad_process_with_trigger(vad, vad_frame) == VAD_SPEECH;
-          // Pre-roll and the old speaker tail are not evidence of a new question.
+          // New-question evidence comes from fresh post-playback speech.
           // Keep their audio until real post-playback speech is confirmed.
           if (!echoing) {
             pending_voice_run = speech ? pending_voice_run + VAD_SAMPLES : 0;

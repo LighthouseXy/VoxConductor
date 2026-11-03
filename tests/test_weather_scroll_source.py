@@ -1,7 +1,6 @@
-"""No compilation: source guards plus a model of the tilt/time/window policy.
+"""Source guards and a Python tilt/time/window model.
 
-The model is not execution of C/LVGL or verification of device frame timing.
-"""
+C/LVGL execution and physical device frame timing require separate validation."""
 from pathlib import Path
 import re
 
@@ -107,4 +106,4 @@ assert f"PM2.5 {49.0:.0f}" == "PM2.5 49"
 assert 'set_textf(s_aqi_updated, "ug/m3 %.5s"' in metrics
 assert f"{12.0:.0f} km/h" == "12 km/h"
 assert "xTaskCreate" not in main.split("static void dispatch_motion", 1)[1].split("static void update_mic_level", 1)[0]
-print("PASS: tilt-speed/deadzone/time clamp/window model, delta rendering and numeric/UV-card source guards; C/LVGL/device NOT run")
+print('PASS: tilt-speed/deadzone/time clamp/window model, delta rendering and numeric/UV-card source guards; scope=offline checks; pending=C/LVGL/device validation')

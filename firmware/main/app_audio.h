@@ -32,7 +32,7 @@ esp_err_t app_audio_capture_progress(int16_t *recording, size_t *samples,
                                      void *context, bool wait_for_speech);
 esp_err_t app_audio_play_mono_pcm(const int16_t *mono_samples,
                                   size_t sample_count);
-// Local media shares the PCM conversion/volume path but not cloud cancellation.
+// Local media shares PCM conversion and volume processing; cancellation is separate.
 // Only the media worker may call this; priority callers suspend that worker
 // first.
 esp_err_t app_audio_play_media_pcm(const int16_t *mono_samples,

@@ -1,4 +1,4 @@
-"""Local exit and DMA policy regression checks; no firmware compilation."""
+"""Local exit and DMA policy regression checks; firmware compilation runs separately."""
 from pathlib import Path
 import re
 
@@ -57,4 +57,4 @@ assert 'ref_write += app_audio_reference_extra_samples();' in acoustic
 assert 200 * 16 + (descs * frames - 640) * 16000 // rate < 8192
 assert 'SPEAKER_DMA_DESC_COUNT * SPEAKER_DMA_FRAME_COUNT * 2' in audio
 assert tts.index('app_audio_playback_diagnostics(false)') < tts.index('while (!atomic_load(&stream->input_done))')
-print('PASS: strict local exit, cancellation path, bounded aligned DMA and ISR diagnostics; device NOT tested')
+print('PASS: strict local exit, cancellation path, bounded aligned DMA and ISR diagnostics; scope=offline checks; pending=device validation')

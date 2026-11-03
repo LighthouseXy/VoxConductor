@@ -1,11 +1,9 @@
-"""Source/schema checks plus optional real-model routing checks; never run device tools.
+"""Source/schema checks with optional real-model routing evaluation.
 
-Default: offline checks only, no C compilation. --live uses the configured
-DeepSeek API with synthetic state/questions, incurs normal API usage, and only
-inspects proposed calls. It does not execute firmware, write an SD card or prove
-that the microphone/UI works. The Python schema reconstruction is checked
-against C construction sites, not a substitute for a native build.
-"""
+Default scope: offline source and schema checks. --live calls the configured
+DeepSeek API with synthetic state/questions, incurs normal API usage and inspects
+proposed calls. Firmware execution, SD writes and microphone/UI acceptance
+require separate tests. Native builds validate C schema construction."""
 import argparse
 import concurrent.futures
 import json
@@ -172,7 +170,7 @@ def offline():
         else:
             raise AssertionError("invalid write schema accepted")
     assert len(CASES) == 36
-    print("PASS: semantic routing source guards, 14 reconstructed schemas, provenance/confirmation/budget bounds; 36 model cases defined but NOT run offline")
+    print('PASS: semantic routing source guards, 14 reconstructed schemas, provenance/confirmation/budget bounds; scope=offline source/schema checks; 36 model cases await live evaluation')
     return tools, conversation
 
 
@@ -209,7 +207,7 @@ def live(tools, conversation, credentials, limit):
             with urllib.request.urlopen(request, timeout=45) as response:
                 message = json.load(response)["choices"][0]["message"]
         except (urllib.error.URLError, TimeoutError):
-            return index, False, "API connection failed (credentials not printed)"
+            return index, False, "API connection failed; credentials stay private"
         calls = message.get("tool_calls") or []
         try:
             assert bool(calls) == bool(allowed), "unexpected tool/no-tool decision"

@@ -295,7 +295,7 @@ static esp_err_t text_http_event_handler(esp_http_client_event_t *event) {
 }
 
 // The maintenance owner alone accesses this small, validated JSON cache.
-// Save only changed hourly data, not every retry or ten-minute refresh.
+// Persist hourly data when the observation changes.
 static void save_air_quality_cache(void) {
   nvs_handle_t handle;
   esp_err_t result = nvs_open("weather", NVS_READWRITE, &handle);
@@ -321,7 +321,7 @@ static void restore_air_quality_cache(void) {
   s_weather_cache.air_cached = true;
   portEXIT_CRITICAL(&s_weather_lock);
   // A restored AQ value never marks the forecast or wall clock as valid.
-  ESP_LOGI(TAG, "AQ cache restored: US AQI=%d, time=%s (cached, not live)",
+  ESP_LOGI(TAG, "AQ cache restored: US AQI=%d, time=%s (cached observation)",
            air.us_aqi, air.updated_at);
 }
 
@@ -346,7 +346,7 @@ static esp_err_t fetch_air_quality(void) {
       .data = response_data, .capacity = sizeof(response_data)};
   const esp_http_client_config_t config = {
       .url = APP_AIR_QUALITY_URL, .method = HTTP_METHOD_GET, .timeout_ms = 15000,
-      // This STA receives IPv4; do not select an unroutable IPv6 DNS result.
+      // Select routable IPv4 DNS results for this STA.
       .addr_type = HTTP_ADDR_TYPE_INET,
       .crt_bundle_attach = esp_crt_bundle_attach, .disable_auto_redirect = true,
       .user_agent = "VoxConductor/1.0", .event_handler = text_http_event_handler,
@@ -549,7 +549,7 @@ static void weather_update_task(void *argument)
           syncing = false;
           time_due = 0;
           // SNTP may have made the time valid during the preceding HTTP fetch.
-          // Do not immediately duplicate a successful forecast/AQ request.
+          // Retain the successful forecast/AQ result until its next scheduled refresh.
           if (weather_error != ESP_OK) weather_due = 0;
           time_t local = time(NULL);
           struct tm local_time;

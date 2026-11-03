@@ -216,4 +216,4 @@ program=mock+"\nvm.runInContext("+json.dumps(script)+",context);\n"+r"""
 })().catch(e=>{console.error(e);process.exitCode=1;});
 """
 subprocess.run([node],input=program,text=True,check=True)
-print("PASS: bounded session-gated coordinator, NVS/media receipts, wallpaper readback, four animations and pure-black asset margins; C/device NOT tested")
+print('PASS: bounded session-gated coordinator, NVS/media receipts, wallpaper readback, four animations and pure-black asset margins; scope=offline checks; pending=C/device validation')

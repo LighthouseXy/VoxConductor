@@ -1,0 +1,132 @@
+{
+  "baseline": "ced2f5ba9898b75a9c31f845738920e2eeb8b6fc",
+  "host_native": [
+    {
+      "name": "agent-gate",
+      "command": [
+        "python3",
+        "tests/agent_safety/run_checks.py"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "task-reconcile",
+      "command": [
+        "python3",
+        "tests/agent_safety/run_task_reconcile.py"
+      ],
+      "exit_code": 0
+    }
+  ],
+  "source_ui": [
+    {
+      "name": "test_holo_rework.py",
+      "exit_code": 1
+    },
+    {
+      "name": "test_media_web.py",
+      "exit_code": 0
+    },
+    {
+      "name": "test_serial_logs.py",
+      "exit_code": 1
+    },
+    {
+      "name": "test_stable_voice_diagnostic.py",
+      "exit_code": 0
+    },
+    {
+      "name": "test_config_latency_source.py",
+      "exit_code": 0
+    },
+    {
+      "name": "test_followup_alarm_source.py",
+      "exit_code": 0
+    },
+    {
+      "name": "test_semantic_agent_source.py",
+      "exit_code": 0
+    },
+    {
+      "name": "test_tts_preferences.py",
+      "exit_code": 0
+    },
+    {
+      "name": "test_voice_memory_order.py",
+      "exit_code": 0
+    },
+    {
+      "name": "test_voice_controls_source.py",
+      "exit_code": 0
+    },
+    {
+      "name": "test_voice_exit_output.py",
+      "exit_code": 1
+    }
+  ],
+  "baseline_failure_reproduction": [
+    {
+      "test": "test_holo_rework.py",
+      "baseline_exit_code": 1,
+      "baseline_commit": "ced2f5ba9898b75a9c31f845738920e2eeb8b6fc",
+      "temporary_copy_cleaned": true
+    },
+    {
+      "test": "test_serial_logs.py",
+      "baseline_exit_code": 1,
+      "baseline_commit": "ced2f5ba9898b75a9c31f845738920e2eeb8b6fc",
+      "temporary_copy_cleaned": true
+    },
+    {
+      "test": "test_voice_exit_output.py",
+      "baseline_exit_code": 1,
+      "baseline_commit": "ced2f5ba9898b75a9c31f845738920e2eeb8b6fc",
+      "temporary_copy_cleaned": true
+    }
+  ],
+  "source_ui_passed": 8,
+  "source_ui_failed": 3,
+  "failures": [
+    {
+      "test": "tests/test_holo_rework.py",
+      "line": 18,
+      "failure": "ValueError: substring not found",
+      "expected_literal": "app_control_service() / app_desktop_service() in reminder_worker source slice",
+      "baseline_same_failure": true,
+      "remaining": "既有源码守卫仍按直接调用形状定位；当前辅助调用边界需在功能维护中更新验证。"
+    },
+    {
+      "test": "tests/test_serial_logs.py",
+      "line": 75,
+      "failure": "AssertionError",
+      "expected_literal": "APP_LOG_DETAIL(TAG, \"上下文快照已保存",
+      "baseline_same_failure": true,
+      "remaining": "既有守卫匹配旧保存日志，当前源码采用新提交结果路径。"
+    },
+    {
+      "test": "tests/test_voice_exit_output.py",
+      "line": 38,
+      "failure": "AssertionError",
+      "expected_literal": "if (!end_session)",
+      "baseline_same_failure": true,
+      "remaining": "既有守卫匹配旧条件文本；当前条件包含deadline。"
+    }
+  ],
+  "final_validation": {
+    "structural_invariants": 98,
+    "python_syntax_files": 66,
+    "printf_formats_preserved": true,
+    "interruption_prefix_within_original_byte_budget": true
+  },
+  "timing": "Native and source/UI checks ran after primary text edits. Final changes affect comments/docstrings and the semantic-test PASS summary and three project-prose refinements only; that semantic check was rerun after the summary edit. Final structure/syntax comparisons cover all final edits. No unrelated complete suite rerun.",
+  "unperformed": [
+    "ESP-IDF final firmware build",
+    "browser visual inspection",
+    "paid/live model evaluation",
+    "real home-device control",
+    "flashing",
+    "acoustic tests",
+    "power-cut tests",
+    "hardware generator execution/CAD regeneration"
+  ]
+}

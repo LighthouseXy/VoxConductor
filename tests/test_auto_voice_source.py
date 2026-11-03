@@ -1,7 +1,4 @@
-"""Source guards and injected-VAD boundary model; no C build or hardware access.
-
-The installed native classifier's speech accuracy still needs device testing.
-"""
+"""Automatic voice-capture source guards and local decision models. Native VAD and physical audio acceptance run separately."""
 from pathlib import Path
 import json
 import re
@@ -95,4 +92,4 @@ for code in (audio, asr, main):
         elif char in ")}]":
             assert stack and stack.pop() == {")": "(", "}": "{", "]": "["}[char]
     assert not stack
-print("PASS: auto capture source/order/lifetime guards and injected-VAD boundary model; C/native VAD/device NOT run")
+print('PASS: auto capture source/order/lifetime guards and injected-VAD boundary model; scope=offline checks; pending=C/native VAD/device validation')

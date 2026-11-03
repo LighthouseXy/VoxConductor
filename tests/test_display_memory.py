@@ -1,4 +1,4 @@
-"""Read-only LVGL pool capacity/rollback guards; no compiler or device access."""
+"""Display allocation source guards. Native memory behavior and hardware acceptance run separately."""
 from pathlib import Path
 import re
 
@@ -17,14 +17,14 @@ pool_count = int(re.search(r"LCD_WIDGET_POOL_COUNT\s+(\d+)U", display).group(1))
 configured_bytes = (setting("CONFIG_LV_MEM_SIZE_KILOBYTES") +
                     setting("CONFIG_LV_MEM_POOL_EXPAND_SIZE_KILOBYTES")) * 1024
 assert "CONFIG_LV_USE_BUILTIN_MALLOC=y" in config
-# The original 64 KiB pool must not compete with internal FreeRTOS stacks.
+# Keep the original 64 KiB pool separate from internal FreeRTOS stacks.
 assert "CONFIG_SPIRAM_ALLOW_BSS_SEG_EXTERNAL_MEMORY=y" in config
 assert "CONFIG_SPIRAM_USE_CAPS_ALLOC=y" in config
 assert "LDFRAGMENTS \"lvgl_psram.lf\"" in cmake
 assert "archive: liblvgl__lvgl.a" in linker
 assert "if SPIRAM_ALLOW_BSS_SEG_EXTERNAL_MEMORY = y:" in linker
 assert "lv_mem_core_builtin (extram_bss)" in linker
-assert "* (extram_bss)" not in linker  # Do not move every LVGL object.
+assert "* (extram_bss)" not in linker  # Keep general LVGL objects under their existing allocation rules.
 assert "#define TLSF_MAX_POOL_SIZE (LV_MEM_SIZE + LV_MEM_POOL_EXPAND_SIZE)" in tlsf
 assert "FL_INDEX_MAX = TLSF_LOG2_CEIL(TLSF_MAX_POOL_SIZE)" in tlsf
 limit = 1 << (configured_bytes - 1).bit_length()
@@ -46,4 +46,4 @@ assert "heap_caps_get_free_size(MALLOC_CAP_SPIRAM | MALLOC_CAP_8BIT)" in display
 assert "heap_caps_get_largest_free_block(MALLOC_CAP_SPIRAM | MALLOC_CAP_8BIT)" in display
 assert display.index("LVGL界面内存池就绪") < display.index("lvgl_port_add_disp")
 assert display.index("lvgl_port_add_disp") < display.index("app_display_set_brightness(100)")
-print("PASS: primary LVGL pool mapped to PSRAM; three extra 64 KiB pools, rollback and diagnostics source guards; C/device NOT run")
+print('PASS: primary LVGL pool mapped to PSRAM; three extra 64 KiB pools, rollback and diagnostics source guards; scope=offline checks; pending=C/device validation')

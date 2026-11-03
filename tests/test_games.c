@@ -73,7 +73,7 @@ static void space(void) {
   g.elapsed=19990; app_game_step(&g,10,0,0,true); assert(g.level==2);
   g.elapsed=39990; app_game_step(&g,10,0,0,true); assert(g.level==3);
   g.elapsed=59990; app_game_step(&g,10,0,0,true); assert(g.phase==GAME_RESULT);
-  // 固定时间步使不同显示帧率产生相同运动，而非每帧固定移动。
+  // 固定时间步使不同显示帧率产生相同运动。
   app_game_t a,b;
   app_game_init(&a,GAME_SPACE,17); app_game_start(&a,0); b=a;
   for(int i=0;i<99;++i) app_game_step(&a,10,80,-40,true);

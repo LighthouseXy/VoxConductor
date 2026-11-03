@@ -139,7 +139,7 @@ esp_err_t app_cloud_listen(int16_t *pcm, size_t *samples, char **text,
   esp_err_t result = capturing ? ESP_OK : ESP_ERR_NO_MEM;
   const char *stage = followup ? "followup_wait" : "connect";
   app_cloud_summary_interrupt();
-  // Capture is already running. Do not overlap two cloud TLS sessions with a summary job.
+  // Capture is already running; finish the summary TLS session before ASR TLS.
   int64_t summary_wait_start = esp_timer_get_time();
   int64_t summary_deadline = esp_timer_get_time() + 15000000;
   while (capturing && app_cloud_summary_busy() && !app_cloud_is_cancelled()) {

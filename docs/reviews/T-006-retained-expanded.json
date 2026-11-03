@@ -1,0 +1,681 @@
+[
+  {
+    "file": "firmware/main/Kconfig.projbuild",
+    "line": 42,
+    "kind": "help_or_literal",
+    "text": "        Start at 1 (no amplification). Use wake_diag raw/processed",
+    "reason": "参数为1时的增益含义/阈值与增益的独立关系，属于具体配置事实。"
+  },
+  {
+    "file": "firmware/main/Kconfig.projbuild",
+    "line": 82,
+    "kind": "help_or_literal",
+    "text": "        without changing microphone gain or wake-word sensitivity. Increase",
+    "reason": "参数为1时的增益含义/阈值与增益的独立关系，属于具体配置事实。"
+  },
+  {
+    "file": "firmware/main/app_acoustic.h",
+    "line": 6,
+    "kind": "comment",
+    "text": "// Allocate DSP after ASR, without accepting noise during answer generation.",
+    "reason": "直接定义资源所有权、安全限制、数据布局或时序/渲染行为；保留可核对的功能事实。"
+  },
+  {
+    "file": "firmware/main/app_audio.c",
+    "line": 664,
+    "kind": "literal",
+    "text": "\"Local VAD found no speech; submitting recorded audio to ASR\"",
+    "reason": "日志直接记录VAD空语音或续听静默超时状态；保留运行状态与诊断匹配。"
+  },
+  {
+    "file": "firmware/main/app_cloud_asr.c",
+    "line": 153,
+    "kind": "comment",
+    "text": "// The same capture/VAD task keeps local pre-roll. No idle cloud connection,",
+    "reason": "直接定义资源所有权、安全限制、数据布局或时序/渲染行为；保留可核对的功能事实。"
+  },
+  {
+    "file": "firmware/main/app_cloud_asr.c",
+    "line": 247,
+    "kind": "literal",
+    "text": "\"Follow-up idle expiry: no cloud request sent\"",
+    "reason": "日志直接记录VAD空语音或续听静默超时状态；保留运行状态与诊断匹配。"
+  },
+  {
+    "file": "firmware/main/app_cloud_tts.c",
+    "line": 272,
+    "kind": "comment",
+    "text": "// original hostname and certificate verification; no pinned IP or HTTP fallback.",
+    "reason": "直接定义资源所有权、安全限制、数据布局或时序/渲染行为；保留可核对的功能事实。"
+  },
+  {
+    "file": "firmware/main/app_cloud_tts.c",
+    "line": 411,
+    "kind": "comment",
+    "text": "// Blocking I2S/queue waits still let those tasks run; no extra DMA latency.",
+    "reason": "直接定义资源所有权、安全限制、数据布局或时序/渲染行为；保留可核对的功能事实。"
+  },
+  {
+    "file": "firmware/main/app_control.c",
+    "line": 504,
+    "kind": "comment",
+    "text": "// Cached/configuration-only snapshot: no SD catalogue, HTTP or task creation.",
+    "reason": "直接定义资源所有权、安全限制、数据布局或时序/渲染行为；保留可核对的功能事实。"
+  },
+  {
+    "file": "firmware/main/app_control.c",
+    "line": 850,
+    "kind": "comment",
+    "text": "// Chinese ASR may attach the following question without punctuation.",
+    "reason": "ASR缺标点的输入条件，保留解析前提。"
+  },
+  {
+    "file": "firmware/main/app_control.h",
+    "line": 12,
+    "kind": "comment",
+    "text": "// Read-only RAM snapshot: no task/history SD reads and no queued mutation.",
+    "reason": "直接定义资源所有权、安全限制、数据布局或时序/渲染行为；保留可核对的功能事实。"
+  },
+  {
+    "file": "firmware/main/app_conversation.c",
+    "line": 368,
+    "kind": "literal",
+    "text": "\"追问再小一点、改成每天可承接最近明确目标，但本轮须有新的修改要求，目标不唯一先澄清。选择讨论方案不等于授权设备执行。\"",
+    "reason": "模型系统策略的执行授权、历史来源/播放状态及配对隐私边界；原措辞保留，改动需额外模型行为评估。"
+  },
+  {
+    "file": "firmware/main/app_conversation.c",
+    "line": 378,
+    "kind": "literal",
+    "text": "\"search_history仅找回用户或助手旧原文，不查百科；仅在旧对话未命中确实影响问题时说明。查询只覆盖当前卷，封存卷未搜索不声称查遍，生成不等于已播放。\"",
+    "reason": "模型系统策略的执行授权、历史来源/播放状态及配对隐私边界；原措辞保留，改动需额外模型行为评估。"
+  },
+  {
+    "file": "firmware/main/app_conversation.c",
+    "line": 386,
+    "kind": "literal",
+    "text": "\"control_desktop管理页面/专注，无游戏功能；manage_anniversary先查4槽，不猜年份，删除/覆盖/停止计时/校准需下一轮确认。网页二维码回答后显示，不读配对密钥，不承诺外部设备已配置。\"",
+    "reason": "模型系统策略的执行授权、历史来源/播放状态及配对隐私边界；原措辞保留，改动需额外模型行为评估。"
+  },
+  {
+    "file": "firmware/main/app_desktop.c",
+    "line": 76,
+    "kind": "comment",
+    "text": "// Preserve historical NVS layout, without active game state.",
+    "reason": "直接定义资源所有权、安全限制、数据布局或时序/渲染行为；保留可核对的功能事实。"
+  },
+  {
+    "file": "firmware/main/app_desktop.c",
+    "line": 1045,
+    "kind": "comment",
+    "text": "// No erase, SD rewrite, or API request. Unknown preference blobs stay intact.",
+    "reason": "具体运行条件或资源约束，保留技术含义；该行未使用A/B撇清式结论。"
+  },
+  {
+    "file": "firmware/main/app_desktop.c",
+    "line": 1511,
+    "kind": "comment",
+    "text": "// Normal menus consume holds without saving. Only the explicit, session-",
+    "reason": "直接定义资源所有权、安全限制、数据布局或时序/渲染行为；保留可核对的功能事实。"
+  },
+  {
+    "file": "firmware/main/app_desktop.h",
+    "line": 69,
+    "kind": "comment",
+    "text": "// Caller holds LVGL lock; no SD/network/audio waits inside these operations.",
+    "reason": "直接定义资源所有权、安全限制、数据布局或时序/渲染行为；保留可核对的功能事实。"
+  },
+  {
+    "file": "firmware/main/app_media.c",
+    "line": 937,
+    "kind": "comment",
+    "text": "// Latest selection wins, without blocking STOP behind a foreground",
+    "reason": "直接定义资源所有权、安全限制、数据布局或时序/渲染行为；保留可核对的功能事实。"
+  },
+  {
+    "file": "firmware/main/app_media.c",
+    "line": 1063,
+    "kind": "comment",
+    "text": "// Periodic ambience rewinds the open WAV without draining/resetting DMA.",
+    "reason": "直接定义资源所有权、安全限制、数据布局或时序/渲染行为；保留可核对的功能事实。"
+  },
+  {
+    "file": "firmware/main/app_media_web.c",
+    "line": 7,
+    "kind": "comment",
+    "text": "// bounded jobs; no credentials or arbitrary SD paths are exposed.",
+    "reason": "直接定义资源所有权、安全限制、数据布局或时序/渲染行为；保留可核对的功能事实。"
+  },
+  {
+    "file": "firmware/main/app_media_web.c",
+    "line": 96,
+    "kind": "literal",
+    "text": "\"no-store\"",
+    "reason": "HTTP Cache-Control指令；按标准协议保留。"
+  },
+  {
+    "file": "firmware/main/app_media_web.c",
+    "line": 115,
+    "kind": "literal",
+    "text": "\"no-store\"",
+    "reason": "HTTP Cache-Control指令；按标准协议保留。"
+  },
+  {
+    "file": "firmware/main/app_media_web.c",
+    "line": 123,
+    "kind": "literal",
+    "text": "\"no-store\"",
+    "reason": "HTTP Cache-Control指令；按标准协议保留。"
+  },
+  {
+    "file": "firmware/main/app_media_web.c",
+    "line": 140,
+    "kind": "comment",
+    "text": "// Fixed duration, no request body or arbitrary audio paths.",
+    "reason": "直接定义资源所有权、安全限制、数据布局或时序/渲染行为；保留可核对的功能事实。"
+  },
+  {
+    "file": "firmware/main/app_media_web.c",
+    "line": 259,
+    "kind": "literal",
+    "text": "\"no-store\"",
+    "reason": "HTTP Cache-Control指令；按标准协议保留。"
+  },
+  {
+    "file": "firmware/main/app_media_web.c",
+    "line": 306,
+    "kind": "literal",
+    "text": "\"no-store\"",
+    "reason": "HTTP Cache-Control指令；按标准协议保留。"
+  },
+  {
+    "file": "firmware/main/app_media_web.c",
+    "line": 656,
+    "kind": "literal",
+    "text": "\"no-store\"",
+    "reason": "HTTP Cache-Control指令；按标准协议保留。"
+  },
+  {
+    "file": "firmware/main/app_network.h",
+    "line": 24,
+    "kind": "comment",
+    "text": "// No service-IP pinning, certificate bypass, or replay of completed requests.",
+    "reason": "直接定义资源所有权、安全限制、数据布局或时序/渲染行为；保留可核对的功能事实。"
+  },
+  {
+    "file": "firmware/main/app_turn.h",
+    "line": 72,
+    "kind": "comment",
+    "text": "// Initial total budget reuses the former Agent limit; no per-stage renewal.",
+    "reason": "直接定义资源所有权、安全限制、数据布局或时序/渲染行为；保留可核对的功能事实。"
+  },
+  {
+    "file": "firmware/main/app_ui.c",
+    "line": 180,
+    "kind": "comment",
+    "text": "// Stable star positions, staggered twinkle; no background haze.",
+    "reason": "直接定义资源所有权、安全限制、数据布局或时序/渲染行为；保留可核对的功能事实。"
+  },
+  {
+    "file": "firmware/main/app_ui.c",
+    "line": 544,
+    "kind": "comment",
+    "text": "// No hide/show cycle, label churn or icon reconstruction every second.",
+    "reason": "直接定义资源所有权、安全限制、数据布局或时序/渲染行为；保留可核对的功能事实。"
+  },
+  {
+    "file": "firmware/main/app_ui.c",
+    "line": 689,
+    "kind": "comment",
+    "text": "// With no fresh motion sample, single-click cycles; hold confirms the page.",
+    "reason": "缺少传感器/音频帧时的明确条件分支，保留回退与诊断行为。"
+  },
+  {
+    "file": "firmware/main/app_ui.c",
+    "line": 898,
+    "kind": "comment",
+    "text": "// Clock and weather content identify themselves without a duplicate title.",
+    "reason": "直接定义资源所有权、安全限制、数据布局或时序/渲染行为；保留可核对的功能事实。"
+  },
+  {
+    "file": "firmware/main/app_ui.c",
+    "line": 1036,
+    "kind": "comment",
+    "text": "// Real microphone level only; no random/synthetic voice waveform.",
+    "reason": "直接定义资源所有权、安全限制、数据布局或时序/渲染行为；保留可核对的功能事实。"
+  },
+  {
+    "file": "firmware/main/app_ui.c",
+    "line": 1128,
+    "kind": "comment",
+    "text": "// Native, aligned RGB565 is drawn directly, without a full-frame decoder",
+    "reason": "直接定义资源所有权、安全限制、数据布局或时序/渲染行为；保留可核对的功能事实。"
+  },
+  {
+    "file": "firmware/main/app_wake.c",
+    "line": 145,
+    "kind": "comment",
+    "text": "// Bounded diagnostics also run when enabled but no microphone frames arrive.",
+    "reason": "缺少传感器/音频帧时的明确条件分支，保留回退与诊断行为。"
+  },
+  {
+    "file": "firmware/main/app_wake.c",
+    "line": 169,
+    "kind": "comment",
+    "text": "// A fresh instance needs no reset before its first detect().",
+    "reason": "直接定义资源所有权、安全限制、数据布局或时序/渲染行为；保留可核对的功能事实。"
+  },
+  {
+    "file": "firmware/main/app_wake_diagnostic.c",
+    "line": 65,
+    "kind": "comment",
+    "text": "// Reuse the previous bounded buffer; normal wake/voice allocates no capture.",
+    "reason": "直接定义资源所有权、安全限制、数据布局或时序/渲染行为；保留可核对的功能事实。"
+  },
+  {
+    "file": "firmware/main/app_weather.c",
+    "line": 278,
+    "kind": "comment",
+    "text": "// The endpoint and device TZ both use Beijing time (no daylight saving).",
+    "reason": "时区无夏令时的固定事实，保持时间计算前提。"
+  },
+  {
+    "file": "firmware/main/main.c",
+    "line": 54,
+    "kind": "comment",
+    "text": "// Zero means empty. A deadline coalesces duplicates without renewing a stale",
+    "reason": "直接定义资源所有权、安全限制、数据布局或时序/渲染行为；保留可核对的功能事实。"
+  },
+  {
+    "file": "firmware/main/main.c",
+    "line": 174,
+    "kind": "comment",
+    "text": "// Background indexing may briefly own the coordinator without owning audio.",
+    "reason": "直接定义资源所有权、安全限制、数据布局或时序/渲染行为；保留可核对的功能事实。"
+  },
+  {
+    "file": "tests/agent_safety/run_reliability_checks.py",
+    "line": 2,
+    "kind": "python_string",
+    "text": "\"\"\"Targeted sanitizer tests; no network or real device/storage access.\"\"\"",
+    "reason": "具体列明离线检查的执行范围；保留宿主检查与设备验收之间的边界。"
+  },
+  {
+    "file": "tests/agent_safety/test_agent_receipts.c",
+    "line": 79,
+    "kind": "literal",
+    "text": "\"PASS legacy unfinished intent recovers to visible unknown without restoring authority\"",
+    "reason": "离线测试结果或固定匹配文本；记录被阻止的操作/待验收范围，保留测试语义。"
+  },
+  {
+    "file": "tests/agent_safety/test_agent_semantics.c",
+    "line": 1,
+    "kind": "comment",
+    "text": "/* Executes the repository's app_agent.c; all I/O is replaced by existing host\n * fixtures plus the two fault-injection stubs below. No device/network calls. */",
+    "reason": "直接记录受测条件、负向断言或资源/取消边界；属于具体行为说明，保留其技术条件。"
+  },
+  {
+    "file": "tests/agent_safety/test_agent_semantics.c",
+    "line": 154,
+    "kind": "literal",
+    "text": "\"PASS fresh_process_retains_saved_task_without_confirmation_replay\"",
+    "reason": "离线测试结果或固定匹配文本；记录被阻止的操作/待验收范围，保留测试语义。"
+  },
+  {
+    "file": "tests/agent_safety/test_agent_semantics.c",
+    "line": 160,
+    "kind": "literal",
+    "text": "\"PASS targeted task confirmation; real Agent C, synthetic storage, no network/device/model\"",
+    "reason": "离线测试结果或固定匹配文本；记录被阻止的操作/待验收范围，保留测试语义。"
+  },
+  {
+    "file": "tests/agent_safety/test_agent_semantics.c",
+    "line": 176,
+    "kind": "literal",
+    "text": "\"OBSERVED provenance_accepts_ambiguous_source_%u; no dispatch without exact confirmation\\n\"",
+    "reason": "离线测试结果或固定匹配文本；记录被阻止的操作/待验收范围，保留测试语义。"
+  },
+  {
+    "file": "tests/agent_safety/test_agent_semantics.c",
+    "line": 281,
+    "kind": "literal",
+    "text": "\"no\"",
+    "reason": "否定输入测试样例；原值用于验证取消/拒绝分支。"
+  },
+  {
+    "file": "tests/agent_safety/test_device_transport.c",
+    "line": 54,
+    "kind": "literal",
+    "text": "\"PASS expired turn admits no device connection or write\"",
+    "reason": "离线测试结果或固定匹配文本；记录被阻止的操作/待验收范围，保留测试语义。"
+  },
+  {
+    "file": "tests/agent_safety/test_device_transport.c",
+    "line": 57,
+    "kind": "literal",
+    "text": "\"PASS budget consumed by connect prevents dispatch; no retry\"",
+    "reason": "离线测试结果或固定匹配文本；记录被阻止的操作/待验收范围，保留测试语义。"
+  },
+  {
+    "file": "tests/agent_safety/test_task_reconcile.c",
+    "line": 59,
+    "kind": "literal",
+    "text": "\"PASS fresh process reads durable task without replay authority\"",
+    "reason": "离线测试结果或固定匹配文本；记录被阻止的操作/待验收范围，保留测试语义。"
+  },
+  {
+    "file": "tests/agent_safety/test_task_reconcile.c",
+    "line": 107,
+    "kind": "literal",
+    "text": "\"PASS corrupt slot blocks reconciliation; real snapshot I/O, no network or device\"",
+    "reason": "离线测试结果或固定匹配文本；记录被阻止的操作/待验收范围，保留测试语义。"
+  },
+  {
+    "file": "tests/test_agent.c",
+    "line": 398,
+    "kind": "comment",
+    "text": "// Local task checkboxes can undo completion, without re-sounding old alarms.",
+    "reason": "直接记录受测条件、负向断言或资源/取消边界；属于具体行为说明，保留其技术条件。"
+  },
+  {
+    "file": "tests/test_agent.c",
+    "line": 465,
+    "kind": "comment",
+    "text": "// Native clock alarm creation: no LLM or additional confirmation round.",
+    "reason": "直接记录受测条件、负向断言或资源/取消边界；属于具体行为说明，保留其技术条件。"
+  },
+  {
+    "file": "tests/test_auto_voice_source.py",
+    "line": 27,
+    "kind": "python_string",
+    "text": "\"stopped_without_activity = true;\"",
+    "reason": "源码守卫匹配的C标识符与赋值语句；保留断言含义。"
+  },
+  {
+    "file": "tests/test_barge_in_source.py",
+    "line": 121,
+    "kind": "comment",
+    "text": "# by a voice handoff; without it, an accepted voice can resume exactly once.",
+    "reason": "直接记录受测条件、负向断言或资源/取消边界；属于具体行为说明，保留其技术条件。"
+  },
+  {
+    "file": "tests/test_barge_in_source.py",
+    "line": 188,
+    "kind": "comment",
+    "text": "# Raw producer, idle=False: return without touching used.",
+    "reason": "直接记录受测条件、负向断言或资源/取消边界；属于具体行为说明，保留其技术条件。"
+  },
+  {
+    "file": "tests/test_clock_weather_wake.py",
+    "line": 104,
+    "kind": "comment",
+    "text": "# No discrete jump or wrap to old hours.",
+    "reason": "直接记录受测条件、负向断言或资源/取消边界；属于具体行为说明，保留其技术条件。"
+  },
+  {
+    "file": "tests/test_clock_weather_wake.py",
+    "line": 116,
+    "kind": "comment",
+    "text": "# no first/unrelated model fallback",
+    "reason": "直接记录受测条件、负向断言或资源/取消边界；属于具体行为说明，保留其技术条件。"
+  },
+  {
+    "file": "tests/test_clock_weather_wake.py",
+    "line": 143,
+    "kind": "comment",
+    "text": "# Boot must open idle detection without requiring a first button conversation.",
+    "reason": "直接记录受测条件、负向断言或资源/取消边界；属于具体行为说明，保留其技术条件。"
+  },
+  {
+    "file": "tests/test_config_latency_source.py",
+    "line": 36,
+    "kind": "comment",
+    "text": "# Cancellation reaches header waits, body reads AND writes. No foreign task",
+    "reason": "直接记录受测条件、负向断言或资源/取消边界；属于具体行为说明，保留其技术条件。"
+  },
+  {
+    "file": "tests/test_config_latency_source.py",
+    "line": 126,
+    "kind": "comment",
+    "text": "# compatibility caller, no fake CAS guarantee",
+    "reason": "直接记录受测条件、负向断言或资源/取消边界；属于具体行为说明，保留其技术条件。"
+  },
+  {
+    "file": "tests/test_followup_alarm_source.py",
+    "line": 33,
+    "kind": "python_string",
+    "text": "\"Follow-up idle expiry: no cloud request sent\"",
+    "reason": "离线测试结果或固定匹配文本；记录被阻止的操作/待验收范围，保留测试语义。"
+  },
+  {
+    "file": "tests/test_followup_alarm_source.py",
+    "line": 49,
+    "kind": "comment",
+    "text": "# Inject 20ms VAD decisions. No idle samples are published; speaking capacity",
+    "reason": "直接记录受测条件、负向断言或资源/取消边界；属于具体行为说明，保留其技术条件。"
+  },
+  {
+    "file": "tests/test_games_source.py",
+    "line": 23,
+    "kind": "python_string",
+    "text": "'PASS: arcade input queue/lifetime/voice priority/no per-frame allocation and reaction timestamp wiring; scope=offline checks; pending=device timing validation'",
+    "reason": "离线测试结果或固定匹配文本；记录被阻止的操作/待验收范围，保留测试语义。"
+  },
+  {
+    "file": "tests/test_holo_rework.py",
+    "line": 1,
+    "kind": "python_string",
+    "text": "\"\"\"Read-only holographic/web coordinator checks; no C build or device calls.\"\"\"",
+    "reason": "具体列明离线检查的执行范围；保留宿主检查与设备验收之间的边界。"
+  },
+  {
+    "file": "tests/test_holo_rework.py",
+    "line": 103,
+    "kind": "python_string",
+    "text": "r\"\"\"\n(async()=>{\n await context.window.onload();\n for(let i=0;i<8;i++)await new Promise(setImmediate);\n assert.equal(byId('token').value,'');\n assert.equal(Number(byId('wallMode').value),2);\n assert.equal(Number(byId('ttsRate').value),100);assert.equal(Number(byId('ttsVoice').value),0);\n byId('ttsRate').value='125';byId('ttsVoice').value='3';\n await byId('refreshDevice').onclick();\n assert.equal(Number(byId('ttsRate').value),125);assert.equal(Number(byId('ttsVoice').value),3);\n await byId('saveDevice').onclick();\n assert.equal(state.config.tts_rate_percent,125);assert.equal(state.config.tts_voice_id,3);\n byId('ttsRate').value='50';byId('ttsVoice').value='2';byId('resetDevice').onclick();\n assert.equal(Number(byId('ttsRate').value),125);assert.equal(Number(byId('ttsVoice').value),3);\n let voiceSaves=calls.filter(c=>c.action==='configure').length;\n byId('ttsRate').value='201';await byId('saveDevice').onclick();\n assert.equal(calls.filter(c=>c.action==='configure').length,voiceSaves);\n byId('ttsRate').value='101';await byId('saveDevice').onclick();\n assert.equal(calls.filter(c=>c.action==='configure').length,voiceSaves);\n byId('ttsRate').value='125';byId('ttsVoice').value='99';await byId('saveDevice').onclick();\n assert.equal(calls.filter(c=>c.action==='configure').length,voiceSaves);\n byId('resetDevice').onclick();\n vm.runInContext('dateDrafts[0].label.value=\"草稿\"',context);\n catalog.anniversaries[0].label='设备新值';catalog.anniversaries[1].label='外部修改';\n await byId('connect').onclick();\n assert.equal(vm.runInContext('dateDrafts[0].label.value',context),'草稿');\n assert.equal(vm.runInContext('dateDrafts[1].label.value',context),'外部修改');\n byId('homeStyle').value='1';byId('wallMode').value='4';byId('volume').value='70';byId('brightness').value='80';byId('wakeEnabled').checked=false;\n await byId('saveDevice').onclick();\n assert(calls.some(c=>c.action==='configure'&&c.wallpaper_mode===4&&c.volume===70));\n // Switching back retains the chosen wallpaper and saves the explicit style.\n byId('homeStyle').value='0';await byId('saveDevice').onclick();\n assert.equal(state.config.home_style,0);assert.equal(state.config.wallpaper_mode,4);\n assert.equal(Number(byId('homeStyle').value),0);\n assert(!elements.has('wallpaperEnabled'));assert(!elements.has('idleAlbum'));\n byId('nightEnabled').checked=true;byId('nightStart').value='22:00';byId('nightEnd').value='07:00';\n byId('nightBrightness').value='15';byId('idleSeconds').value='30';\n await byId('saveAppearance').onclick();\n assert(calls.some(c=>c.action==='appearance'&&c.idle_seconds===30&&c.night_enabled&&\n    c.wallpaper_enabled===true&&c.idle_album===false));\n await byId('historySearch').onclick();assert.equal(byId('historyOlder').disabled,false);\n assert.equal(byId('history').children[0].children[1].textContent,'<img src=x onerror=alert(1)>');\n await byId('historyOlder').onclick();assert(calls.some(c=>c.action==='history'&&c.before===19));\n byId('taskTitle').value='喝水';byId('taskKind').value='alarm';byId('taskDue').value='2026-10-07T09:00';byId('taskRepeat').value='daily';\n await byId('addTask').onclick();\n assert(calls.some(c=>c.action==='task_create'&&c.due_utc===Date.UTC(2026,9,7,1,0)/1000&&c.repeat==='daily'));\n // Refresh keeps a dirty volume but adopts an externally changed brightness.\n byId('volume').value='42';state.config.brightness=33;\n await byId('refreshDevice').onclick();\n assert.equal(Number(byId('volume').value),42);\n assert.equal(Number(byId('brightness').value),33);\n // Save merges only our edited field with the latest device snapshot.\n state.config.brightness=28;await byId('saveDevice').onclick();\n assert.equal(state.config.volume,42);assert.equal(state.config.brightness,28);\n byId('volume').value='17';byId('resetDevice').onclick();\n assert.equal(Number(byId('volume').value),42);\n // Invalid values must not reach the backend.\n const before=calls.filter(c=>c.action==='configure').length;\n byId('volume').value='101';await byId('saveDevice').onclick();\n assert.equal(calls.filter(c=>c.action==='configure').length,before);\n assert(byId('notice').textContent.includes('0–100'));\n await vm.runInContext(\"command('image',{index:0,wallpaper:true})\",context);\n assert.equal(state.config.home_style,1);assert.equal(state.config.wallpaper_mode,0);\n mediaSaved=false;\n await assert.rejects(vm.runInContext(\"command('pause',{value:0})\",context),/媒体保存失败/);\n assert.equal(vm.runInContext('pendingMediaJob',context),0);\n mediaSaved=true;fail=true;\n await assert.rejects(vm.runInContext(\"command('image',{index:0,wallpaper:true})\",context),/图片选择已完成，但主页切换未确认/);\n byId('volume').value='41';await byId('saveDevice').onclick();assert.equal(byId('notice').textContent,'NVS写入失败');\n fail=false;await byId('refreshDevice').onclick();byId('resetDevice').onclick();\n // A no-op must not create a job or rewrite NVS.\n let count=calls.filter(c=>c.action==='configure').length;\n await byId('saveDevice').onclick();assert.equal(calls.filter(c=>c.action==='configure').length,count);\n // Race after GET but before execution: reject, keep draft, refresh actual state.\n byId('volume').value='55';conflictNext=true;\n await byId('saveDevice').onclick();\n assert.equal(state.config.volume,41);assert.equal(state.config.brightness,19);\n assert.equal(Number(byId('volume').value),55);assert.equal(Number(byId('brightness').value),19);\n assert(byId('notice').textContent.includes('核对草稿'));\n assert.equal(calls.filter(c=>c.action==='configure').length,count+1); // no automatic retry\n const patch=calls.filter(c=>c.action==='configure').at(-1);\n assert.deepEqual(Object.keys(patch).sort(),['action','expected_revision','volume']);\n // User reviews and explicitly saves again; backend preserves unrelated value.\n await byId('saveDevice').onclick();assert.equal(state.config.volume,55);assert.equal(state.config.brightness,19);\n // Old firmware still allows ordinary configuration without synthesizing TTS=0.\n delete state.config_revision;delete state.config.tts_rate_percent;delete state.config.tts_voice_id;\n await byId('refreshDevice').onclick();assert(byId('ttsRate').disabled&&byId('ttsVoice').disabled);\n assert.equal(byId('deviceFields').disabled,false);\n byId('volume').value='35';await byId('saveDevice').onclick();\n const legacy=calls.filter(c=>c.action==='configure').at(-1);\n assert(!('expected_revision' in legacy)&&!('tts_rate_percent' in legacy)&&!('tts_voice_id' in legacy));\n assert.equal(state.config.volume,35);assert.equal(state.config.brightness,19);\n assert.equal(requestTimers.size,0);\n // Requests must time out before headers OR while consuming a stalled body.\n for(const phase of ['headers','body']){\n  let sent=0;\n  context.fetch=async(path,options)=>{\n   sent++;\n   const stall=()=>new Promise((_,reject)=>options.signal.addEventListener('abort',()=>reject(Error('aborted')),{once:true}));\n   return phase==='headers'?stall():{ok:true,json:stall};\n  };\n  const pending=vm.runInContext('guard(()=>request(\"/api/device\",{method:\"POST\"}))',context);\n  await new Promise(setImmediate);\n  assert.equal(requestTimers.size,1);assert(vm.runInContext('busy',context));\n  for(const expire of requestTimers.values())expire();\n  await pending;\n  assert.equal(sent,1);assert.equal(requestTimers.size,0);assert(!vm.runInContext('busy',context));\n  assert(byId('notice').textContent.includes('设备可能已执行'));\n }\n context.fetch=async()=>({ok:true,json:async()=>({job_id:0})});\n await assert.rejects(vm.runInContext('device(\"configure\",{volume:10})',context),/有效操作编号/);\n assert.equal(vm.runInContext('pendingJob',context),0);\n console.log('PASS: mocked browser QR/config/task/history, safe rendering, response timeouts and no automatic mutation replay');\n})().catch(e=>{console.error(e);process.exitCode=1;});\n\"\"\"",
+    "reason": "嵌入JavaScript测试程序；保持测试逻辑和输入原值。"
+  },
+  {
+    "file": "tests/test_holo_ui.py",
+    "line": 1,
+    "kind": "python_string",
+    "text": "\"\"\"Read-only V3 design/input/audio boundaries. No build, API or hardware access.\"\"\"",
+    "reason": "具体列明离线检查的执行范围；保留宿主检查与设备验收之间的边界。"
+  },
+  {
+    "file": "tests/test_home_idle_source.py",
+    "line": 62,
+    "kind": "comment",
+    "text": "# First two cells always exist, including a device without an SD card.",
+    "reason": "直接记录受测条件、负向断言或资源/取消边界；属于具体行为说明，保留其技术条件。"
+  },
+  {
+    "file": "tests/test_home_idle_source.py",
+    "line": 74,
+    "kind": "comment",
+    "text": "# No media object exists on the idle screen, so old NVS flags cannot add one.",
+    "reason": "直接记录受测条件、负向断言或资源/取消边界；属于具体行为说明，保留其技术条件。"
+  },
+  {
+    "file": "tests/test_input_navigation.py",
+    "line": 80,
+    "kind": "comment",
+    "text": "# Check edited C/header/test delimiters without invoking a compiler.",
+    "reason": "直接记录受测条件、负向断言或资源/取消边界；属于具体行为说明，保留其技术条件。"
+  },
+  {
+    "file": "tests/test_media_web.py",
+    "line": 108,
+    "kind": "comment",
+    "text": "# Idle expiry and manual shutdown cannot renew it, even without pairing.",
+    "reason": "直接记录受测条件、负向断言或资源/取消边界；属于具体行为说明，保留其技术条件。"
+  },
+  {
+    "file": "tests/test_media_web.py",
+    "line": 121,
+    "kind": "comment",
+    "text": "# open LAN access needs no token",
+    "reason": "直接记录受测条件、负向断言或资源/取消边界；属于具体行为说明，保留其技术条件。"
+  },
+  {
+    "file": "tests/test_network_recovery.py",
+    "line": 86,
+    "kind": "comment",
+    "text": "# No fake wall clock, weakened TLS or background LVGL lock wait.",
+    "reason": "直接记录受测条件、负向断言或资源/取消边界；属于具体行为说明，保留其技术条件。"
+  },
+  {
+    "file": "tests/test_network_recovery.py",
+    "line": 97,
+    "kind": "comment",
+    "text": "# Catch malformed edits without trying to compile firmware.",
+    "reason": "直接记录受测条件、负向断言或资源/取消边界；属于具体行为说明，保留其技术条件。"
+  },
+  {
+    "file": "tests/test_semantic_agent_source.py",
+    "line": 126,
+    "kind": "comment",
+    "text": "# No configured peers in this synthetic snapshot.",
+    "reason": "直接记录受测条件、负向断言或资源/取消边界；属于具体行为说明，保留其技术条件。"
+  },
+  {
+    "file": "tests/test_semantic_agent_source.py",
+    "line": 150,
+    "kind": "python_string",
+    "text": "\"no SD catalogue, HTTP\"",
+    "reason": "配套源码注释定位锚点，守卫据此截取受测分支；原注释与锚点一起保留。"
+  },
+  {
+    "file": "tests/test_semantic_agent_source.py",
+    "line": 213,
+    "kind": "python_string",
+    "text": "\"unexpected tool/no-tool decision\"",
+    "reason": "离线测试结果或固定匹配文本；记录被阻止的操作/待验收范围，保留测试语义。"
+  },
+  {
+    "file": "tests/test_tts_preferences.py",
+    "line": 8,
+    "kind": "python_string",
+    "text": "'// Preserve historical NVS layout, without active game state.'",
+    "reason": "配套源码注释定位锚点，守卫据此截取受测分支；原注释与锚点一起保留。"
+  },
+  {
+    "file": "tests/test_turn.c",
+    "line": 54,
+    "kind": "comment",
+    "text": "// boot ID distinguishes reset without wall clock",
+    "reason": "直接记录受测条件、负向断言或资源/取消边界；属于具体行为说明，保留其技术条件。"
+  },
+  {
+    "file": "tests/test_voice_memory_order.py",
+    "line": 42,
+    "kind": "comment",
+    "text": "# but no single block large enough. More PSRAM cannot satisfy this stack.",
+    "reason": "直接记录受测条件、负向断言或资源/取消边界；属于具体行为说明，保留其技术条件。"
+  },
+  {
+    "file": "tests/test_voice_memory_order.py",
+    "line": 82,
+    "kind": "comment",
+    "text": "# no use-after-free when a reserved sender was never released",
+    "reason": "直接记录受测条件、负向断言或资源/取消边界；属于具体行为说明，保留其技术条件。"
+  },
+  {
+    "file": "tests/test_voice_repair_source.py",
+    "line": 70,
+    "kind": "comment",
+    "text": "# no fabricated DONE",
+    "reason": "直接记录受测条件、负向断言或资源/取消边界；属于具体行为说明，保留其技术条件。"
+  },
+  {
+    "file": "tests/test_voice_setting_outcome.py",
+    "line": 75,
+    "kind": "comment",
+    "text": "# no fake rollback",
+    "reason": "直接记录受测条件、负向断言或资源/取消边界；属于具体行为说明，保留其技术条件。"
+  },
+  {
+    "file": "tests/test_wake_network_reset.py",
+    "line": 155,
+    "kind": "comment",
+    "text": "# first detection has no vendor clean",
+    "reason": "直接记录受测条件、负向断言或资源/取消边界；属于具体行为说明，保留其技术条件。"
+  },
+  {
+    "file": "tests/test_wake_network_reset.py",
+    "line": 165,
+    "kind": "comment",
+    "text": "# no duplicate live models",
+    "reason": "直接记录受测条件、负向断言或资源/取消边界；属于具体行为说明，保留其技术条件。"
+  },
+  {
+    "file": "tests/tts_stubs/cloud_credentials.h",
+    "line": 2,
+    "kind": "literal",
+    "text": "\"test-only-no-network\"",
+    "reason": "测试隔离占位值；保留模拟网络/凭据边界和样例。"
+  },
+  {
+    "file": "tools/backup_sd.py",
+    "line": 60,
+    "kind": "python_string",
+    "text": "\"No managed files found; nothing retired\"",
+    "reason": "空目录操作结果，准确报告发现文件数和退役文件数均为零。"
+  },
+  {
+    "file": "tools/export_dialogue.py",
+    "line": 1,
+    "kind": "python_string",
+    "text": "\"\"\"Read a copied SD journal without changing it. Never contacts a network service.\"\"\"",
+    "reason": "本地生成/只读导出的具体I/O范围和依赖，保留离线工具的操作边界。"
+  },
+  {
+    "file": "tools/generate_desktop_assets.mjs",
+    "line": 1,
+    "kind": "comment",
+    "text": "// Local-only asset generation, no firmware compilation and no network/API calls.",
+    "reason": "本地生成/只读导出的具体I/O范围和依赖，保留离线工具的操作边界。"
+  },
+  {
+    "file": "tools/generate_desktop_assets.mjs",
+    "line": 42,
+    "kind": "literal",
+    "text": "'--no-compress'",
+    "reason": "外部工具命令行参数；保留原执行行为。"
+  },
+  {
+    "file": "tools/generate_desktop_assets.mjs",
+    "line": 42,
+    "kind": "literal",
+    "text": "'--no-prefilter'",
+    "reason": "外部工具命令行参数；保留原执行行为。"
+  },
+  {
+    "file": "tools/generate_desktop_assets.mjs",
+    "line": 46,
+    "kind": "literal",
+    "text": "'--no-compress'",
+    "reason": "外部工具命令行参数；保留原执行行为。"
+  },
+  {
+    "file": "tools/generate_desktop_assets.mjs",
+    "line": 46,
+    "kind": "literal",
+    "text": "'--no-prefilter'",
+    "reason": "外部工具命令行参数；保留原执行行为。"
+  },
+  {
+    "file": "tools/prepare_media_pack.py",
+    "line": 2,
+    "kind": "python_string",
+    "text": "\"\"\"Prepare SD-ready licensed music, synthesized ambience and generated wallpapers.\n\nNo firmware compilation, API key, serial access or device/SD writes. Outputs\nonly to assets/media-pack; downloads only when --download-music is requested.\nRequires the bundled Pillow/NumPy runtime, and macOS afconvert for MP3.\n\"\"\"",
+    "reason": "本地生成/只读导出的具体I/O范围和依赖，保留离线工具的操作边界。"
+  },
+  {
+    "file": "tools/prepare_media_pack.py",
+    "line": 130,
+    "kind": "comment",
+    "text": "# RGB565 has no alpha: empty pixels must be true black for the prism.",
+    "reason": "RGB565格式特性及光学黑色像素要求，保持资源规格事实。"
+  }
+]

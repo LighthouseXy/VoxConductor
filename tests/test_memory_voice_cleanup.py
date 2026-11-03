@@ -1,7 +1,7 @@
-"""Legacy game removal, bounded replacement, memory/voice guards. No C build or I/O.
+"""Legacy game lifetime, bounded replacement and memory/voice source guards.
 
-Policy fixtures do not measure SRAM, recognition, DNS latency or speaker output.
-"""
+Scope: local policy fixtures. SRAM, recognition, DNS latency and speaker output
+require device or native-runtime measurements."""
 import json
 import re
 from pathlib import Path
@@ -91,4 +91,4 @@ for phase in ("recording", "thinking", "speaking", "cleanup"):
     button_cancels = True  # physical cancellation remains independent of VAD phase
     assert button_cancels
 
-print("PASS: bounded game lifetime, PSRAM placement, serial voice phases and DNS-before-TTS guards; C/runtime/hardware NOT run")
+print('PASS: bounded game lifetime, PSRAM placement, serial voice phases and DNS-before-TTS guards; scope=offline checks; pending=C/runtime/hardware validation')

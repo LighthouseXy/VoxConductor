@@ -1,4 +1,4 @@
-"""Device integration guards; not a substitute for optical/input latency testing."""
+"""Device integration source guards; optical/input latency requires device measurement."""
 from pathlib import Path
 root=Path(__file__).resolve().parents[1]/"firmware/main"
 view=(root/"app_games.c").read_text()
@@ -20,4 +20,4 @@ assert "lv_obj_create" not in tick and "malloc(" not in tick
 assert "app_audio_" not in view and "app_cloud_" not in view
 assert button.index("s_press_edge_ms =") < button.index("s_press_consumed = emit_event(APP_BUTTON_EVENT_PRESS_DOWN)")
 assert "commit_text(title,title_text)" in view
-print("PASS: arcade input queue/lifetime/voice priority/no per-frame allocation and reaction timestamp wiring; device timing NOT measured")
+print('PASS: arcade input queue/lifetime/voice priority/no per-frame allocation and reaction timestamp wiring; scope=offline checks; pending=device timing validation')

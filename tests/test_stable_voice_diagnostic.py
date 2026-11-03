@@ -1,8 +1,7 @@
 """Stable-mode source guards and mocked browser diagnostics.
 
-No firmware compile, native WakeNet/AEC, physical microphone or network test.
-Real recognition accuracy requires the exported device recordings.
-"""
+Native WakeNet/AEC, physical microphone and network acceptance require dedicated
+measurements; recognition accuracy uses exported device recordings."""
 import json
 import re
 import shutil
@@ -134,4 +133,4 @@ checks = r'''
 '''
 subprocess.run([node], input=mock + "\nvm.runInContext(" + json.dumps(script) + ",context);\n" + checks,
                text=True, check=True)
-print("PASS: stable configuration and bounded/private paired-capture source guards; firmware/native/device NOT tested")
+print('PASS: stable configuration and bounded/private paired-capture source guards; scope=offline checks; pending=firmware/native/device validation')

@@ -31,7 +31,7 @@ typedef struct {
 
 typedef struct {
   bool available;
-  int us_aqi; // U.S. AQI, not China's AQI standard.
+  int us_aqi; // Air quality uses the U.S. AQI standard.
   float pm25;
   char updated_at[17];
 } app_air_quality_t;
@@ -65,6 +65,6 @@ const char *app_weather_condition(int code);
 unsigned app_weather_future_hours(const app_weather_t *weather, const char *now,
                                   unsigned indices[24]);
 const char *app_weather_uv_level(float uv);
-// 输出当天严格UV>3的逐时区间；等于3不计入，不代表分钟级实测。
+// 输出当天严格UV>3的逐时预报区间；等于3排除，分钟级实测需独立来源。
 void app_weather_uv_periods(const app_weather_t *weather, const char *day,
                             char *out, size_t bytes);

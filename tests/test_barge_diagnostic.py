@@ -1,4 +1,4 @@
-"""Source and browser-mock checks only; no C build, native DSP or device tests."""
+"""Playback diagnostic source guards and mocked browser handlers. Firmware and physical capture validation run separately."""
 from pathlib import Path
 import json
 import re
@@ -68,7 +68,7 @@ assert c.read(7, 3, 383998) and not c.read(7, 3, 384000)
 assert not c.read(6, 3, 0) and not c.read(7, 4, 0)
 c = Capture(); c.state = 3; assert not c.read(7, 0, 0)
 
-# Real browser handlers, with mocked HTTP and downloads, not a browser/device run.
+# Execute browser handlers with mocked HTTP and downloads; device acceptance is separate.
 script = html.split('function saveDiagnosticBlob', 1)[1].split('let wakeDiagnostic=null;', 1)[0]
 script = 'function saveDiagnosticBlob' + script
 node = shutil.which('node')
@@ -128,4 +128,4 @@ for source in (diag, header, acoustic, wake, web):
         if ch in '({[': stack.append(ch)
         elif ch in ')}]': assert stack and stack.pop() == {')':'(', '}':'{', ']':'['}[ch]
     assert not stack
-print('PASS: bounded consent-only playback diagnostics and source instrumentation; C/native/device NOT run')
+print('PASS: bounded consent-only playback diagnostics and source instrumentation; scope=offline checks; pending=C/native/device validation')

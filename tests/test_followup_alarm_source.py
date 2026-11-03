@@ -1,7 +1,7 @@
-"""Follow-up/alarm source guards and boundary models; no firmware build.
+"""Follow-up/alarm source guards and boundary models.
 
-Injected speech decisions do not validate the native VAD or physical sensor.
-"""
+Scope: injected speech decisions and source contracts. Native VAD and physical
+sensor behavior require separate validation."""
 from pathlib import Path
 import re
 
@@ -20,7 +20,7 @@ assert "bool waiting = wait_for_speech && !had_speech;" in audio
 assert audio.index("memmove(recording, recording + recorded_samples - keep,") < audio.index("if (progress && !waiting)")
 assert "if (!wait_for_speech && !had_speech && recorded_samples >=" in audio
 assert "waiting_samples >=" in audio and "MIC_SAMPLE_RATE_HZ * APP_AUDIO_FOLLOWUP_WAIT_SECONDS" in audio
-assert "Follow-up window closed: no speech, audio not published" in audio
+assert "Follow-up window closed: quiet expiry; capture kept local" in audio
 
 gate = asr[asr.index("while (followup &&"):asr.index("char header[280]")]
 assert "memory_order_acquire" in gate and "app_cloud_is_cancelled()" in gate
@@ -131,4 +131,4 @@ for maximum, modulus in ((constant("ALARM_HOUR_MAX_SPEED"), 24), (constant("ALAR
     assert adjust(0, -121, maximum, modulus, [100] * 10) == modulus - 1
     assert adjust(0, 600, maximum, modulus, [100] * 10) == maximum
     assert adjust(0, 600, maximum, modulus, [5000]) <= 2  # UI stall cannot fast-forward
-print("PASS: follow-up quiet/late speech/cancel/pre-roll and alarm speed/wrap source models; C/device NOT run")
+print('PASS: follow-up quiet/late speech/cancel/pre-roll and alarm speed/wrap source models; scope=offline checks; pending=C/device validation')

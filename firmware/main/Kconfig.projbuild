@@ -8,7 +8,7 @@ config VOX_LOG_VERBOSE
         is printed every 15 seconds instead of every 2 seconds.
         Enable for per-phase heap/timing, full dialogue text (if permitted by
         APP_TURN_LOG_TEXT), model/tool internals and vendor INFO logs.
-        This affects console output only, not SD records or device behavior.
+        Console verbosity changes here; SD records and device behavior stay unchanged.
 config VOX_WAKE_WORD
     bool "Build experimental local idle wake-word recognition"
     default n
@@ -16,8 +16,8 @@ config VOX_WAKE_WORD
     help
         Select the bundled Chinese 小冰小冰 model (wn9_xiaobinxiaobin_tts) in
         ESP Speech Recognition and use partitions_wake.csv. Flash the model
-        partition as well as firmware. No external model path is needed.
-        A text string cannot change a trained wake word.
+        partition as well as firmware, using the bundled model path.
+        Select a trained model for the desired wake word.
         Runtime opt-in is also required in the device Settings menu.
         Idle microphone audio stays on the device. After wake, wait for
         the Listening screen before speaking. Recording ends on silence.
@@ -30,7 +30,7 @@ config VOX_WAKE_MODEL_NAME
         Use the real model name provided with a replacement trained model.
         Empty or missing names keep wake-word recognition unavailable. Never choose
         wn9_customword as a placeholder: that bundled model means Xiao Ai
-        Tong Xue, not an arbitrary custom phrase.
+        Tong Xue; a custom phrase requires a matching trained model.
 config VOX_WAKE_GAIN
     int "Wake-only microphone PCM gain"
     depends on VOX_WAKE_WORD
@@ -38,7 +38,7 @@ config VOX_WAKE_GAIN
     default 1
     help
         Linear gain after DC removal, applied only to local WakeNet input.
-        Does not change cloud recordings, speaker volume or model threshold.
+        Cloud recording, speaker volume and model threshold keep their own settings.
         Start at 1 (no amplification). Use wake_diag raw/processed
         peaks and clip counts to calibrate; too much gain also boosts noise.
         A value of 1 disables amplification but keeps DC removal.
@@ -54,7 +54,7 @@ config VOX_WAKE_THRESHOLD_PERCENT
         Lower values can help missed wakes but also increase false wakes.
         Higher values reject more audio but may miss real wake words.
         Verify both quiet-room and background-speech behavior before use.
-        Does not change microphone gain or cloud speech recognition.
+        Microphone gain and cloud recognition keep their separate settings.
 config VOX_ACOUSTIC_BARGE_IN
     bool "小冰小冰 wake-word interruption during assistant playback"
     default y
@@ -64,7 +64,7 @@ config VOX_ACOUSTIC_BARGE_IN
         Only a detected wake word cancels playback; generic speech/noise never
         pauses an answer. Preserve recent audio and the following question in
         PSRAM while the old TTS connection is released, then start the next ASR.
-        No second model, extra cloud listener, or idle audio upload is used.
+        Reuse the existing model and keep idle audio processing local.
         Speaker playback remains 24 kHz; the echo reference uses 16 kHz.
         Button cancellation remains available and takes priority.
         Echo delay and recognition must be checked on the assembled device.

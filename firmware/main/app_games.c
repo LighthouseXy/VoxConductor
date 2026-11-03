@@ -44,7 +44,7 @@ static uint32_t now_ms(void) { return (uint32_t)(esp_timer_get_time() / 1000); }
 static void flush_started(lv_event_t *event) {
   const lv_area_t *area = lv_event_get_param(event);
   // 提示中心所在分块开始交给SPI时记时，不把下一帧等待算进成绩。
-  // 这不是光学测量：LCD扫描/像素响应仍存在误差，结果只显示到10ms。
+  // 计时含LCD扫描/像素响应误差，结果显示到10ms；光学延迟另行测量。
   if (active && area && area->y1 <= 125 && area->y2 >= 125 &&
       area->x1 <= 120 && area->x2 >= 120)
     app_game_cue_submitted(&game, now_ms());

@@ -1,4 +1,4 @@
-"""Source integration guards, not firmware compilation or hardware validation."""
+"""Source integration guards; compilation and hardware validation run separately."""
 from pathlib import Path
 import re
 
@@ -54,4 +54,4 @@ for name in ("app_media.c", "app_media.h", "app_media_web.c", "app_media_web.h",
         elif char in ")}]":
             assert stack and stack.pop() == {")": "(", "}": "{", "]": "["}[char], name
     assert not stack, name
-print("PASS: media integration, priority leases and independent cancel source guards; C/runtime/hardware NOT run")
+print('PASS: media integration, priority leases and independent cancel source guards; scope=offline checks; pending=C/runtime/hardware validation')

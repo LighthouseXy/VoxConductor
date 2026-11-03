@@ -1,9 +1,8 @@
 #!/usr/bin/env python3
-"""Offline target contracts: execute current production functions with mocks.
+"""Offline target contracts execute current production functions with mocks.
 
-No production writes, network, credentials, RTOS, or physical device access.
-Virtual-clock tests cover software control flow, not physical acceptance.
-"""
+Side effects use synthetic local fixtures and a virtual clock.
+Physical acceptance and RTOS/device behavior require separate validation."""
 from pathlib import Path
 import argparse
 import hashlib

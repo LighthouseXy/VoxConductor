@@ -1,8 +1,7 @@
-"""Menu/editor state and text geometry checks; no C build or device access.
+"""Menu/editor source guards and Python policy models.
 
-The Python models check the proposed policy, not native LVGL rendering or the
-physical tilt detector. Source guards tie that policy to the edited functions.
-"""
+Native LVGL rendering and the physical tilt detector require device validation.
+Source guards tie the models to the relevant functions."""
 from pathlib import Path
 import re
 
@@ -157,4 +156,4 @@ assert '"PM2.5 %.0f", (double)air->pm25' in metrics
 assert '"ug/m3 %.5s", air->updated_at + 11' in metrics
 assert 'set_text(s_aqi_info, "暂无空气数据")' in metrics
 assert 'set_text(s_aqi_updated, "")' in metrics
-print("PASS: setting drafts, latched button fallback, alarm select/edit/cancel/save, weather carousel and bounded AQI rows; C/LVGL/device NOT run")
+print('PASS: setting drafts, latched button fallback, alarm select/edit/cancel/save, weather carousel and bounded AQI rows; scope=offline checks; pending=C/LVGL/device validation')

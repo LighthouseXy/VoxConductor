@@ -2,7 +2,7 @@
 #include "lvgl.h"
 #include <stdbool.h>
 
-// V3: sparse warm objects on unlit pixels, not a translucent LCD panel.
+// V3: sparse warm objects with the remaining pixels unlit.
 #define HOLO_INK 0x000000
 #define HOLO_CREAM 0xFFF1C9
 #define HOLO_APRICOT 0xFFC66E

@@ -19,7 +19,7 @@ enum {
 unsigned app_agent_tool_mask(void);
 bool app_agent_tool_allowed(unsigned mask, const char *name);
 bool app_agent_write_tool(const char *name);
-// Provenance only, not proof of semantic consent. Destructive writes still confirm.
+// Provenance binds source text; destructive writes require explicit confirmation.
 bool app_agent_request_matches(const cJSON *args, const char *current_user);
 char *app_agent_runtime_context(void);
 cJSON *app_agent_select_tools(unsigned mask);

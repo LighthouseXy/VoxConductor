@@ -1,6 +1,6 @@
 /*
  * LVGL页面导航/展示：时钟、天气、语音状态与桌面工具层。
- * 动画不代表业务成功；对象由UI锁保护，慢I/O不进绘图回调。
+ * 业务结果按设备回执核验；对象由UI锁保护，慢I/O由后台处理。
  */
 #include "esp_attr.h"
 #include "app_ui.h"
@@ -610,7 +610,7 @@ bool app_ui_detail_motion(int direction) {
           (s_weather_uv_group + groups + (direction < 0 ? -1 : 1)) % groups;
     }
   } else
-    // The 33-ms timer consumes continuous tilt, not one discrete page event.
+    // The 33-ms timer consumes continuous tilt input.
     return true;
   s_weather_detail_dirty = true;
   refresh_page_details();
@@ -779,7 +779,7 @@ bool app_ui_wake_voice(void) {
       s_active_voice_state != APP_UI_VOICE_ERROR &&
       s_active_voice_state != APP_UI_VOICE_CANCELLED)
     return false;
-  // A completed failure/cancel screen is not an active audio owner. The
+  // A completed failure/cancel screen leaves audio ownership idle. The
   // coordinator checks ownership before calling this under the LVGL lock.
   hide_overlay_locked();
   s_retry_requested = false;
@@ -835,7 +835,7 @@ bool app_ui_handle_long_press(void) {
 }
 static void create_clock(lv_obj_t *screen, ui_clock_t *clock) {
   // Reference design: luminous sparse ring, four cardinal markers and
-  // warm hands. Every unpainted pixel remains black, not a lit panel.
+  // warm hands. Every unpainted pixel remains black.
   clock->group = holo_rect(screen, 0, 0, 240, 232, HOLO_INK, 0, false, 0);
   screen = clock->group;
   holo_rect(screen, 20, 27, 200, 200, HOLO_APRICOT, LV_RADIUS_CIRCLE, false, 3);
@@ -855,7 +855,7 @@ static void create_clock(lv_obj_t *screen, ui_clock_t *clock) {
   lv_arc_set_bg_angles(clock->arc, 0, 360);
   lv_arc_set_angles(clock->arc, 0, 45);
   // Keep the numeric plane behind the hands, but fully lit for daylight.
-  // Small opposite-motion parallax is a depth cue, not true optical depth.
+  // Small opposite-motion parallax creates a visual depth cue.
   clock->depth = holo_rect(screen, 0, 0, 240, 232, HOLO_INK, 0, false, 0);
   clock->time = holo_label(clock->depth, "--:--", &lv_font_montserrat_40,
                            0xFFFFFF, 28, 65, 184, LV_TEXT_ALIGN_CENTER);
@@ -1317,7 +1317,7 @@ static void create_weather_metrics(void) {
   s_aqi_updated = holo_label(s_metrics_group, "", &app_ui_font_14,
                            HOLO_APRICOT, 14, 114, 96, LV_TEXT_ALIGN_CENTER);
   lv_obj_set_style_text_font(s_aqi_updated, &lv_font_montserrat_12, 0);
-  // Fixed single-line boxes: numeric text must not overlap the PM/update rows.
+  // Fixed single-line boxes keep numeric text clear of the PM/update rows.
   lv_obj_set_height(s_aqi_title, 17);
   lv_obj_set_height(s_aqi_value, 35);
   lv_obj_set_height(s_aqi_info, 17);
@@ -1365,8 +1365,8 @@ esp_err_t app_ui_init(void) {
   s_wallpaper_pixels = app_psram_zero(APP_MEDIA_IMAGE_BYTES);
   s_album_pixels = app_psram_zero(APP_MEDIA_IMAGE_BYTES);
   if (!s_wallpaper_pixels || !s_album_pixels)
-    discard_unpublished_images(); // Optional pictures must not disable
-                                  // clock/voice/tools.
+    discard_unpublished_images(); // Preserve clock/voice/tools
+                                  // when optional pictures fail.
   s_wallpaper_dsc.data = s_wallpaper_pixels;
   s_album_dsc.data = s_album_pixels;
   if (!lvgl_port_lock(0)) {

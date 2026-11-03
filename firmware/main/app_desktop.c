@@ -137,7 +137,7 @@ static bool s_render_dirty = true, s_rendered_sensor;
 static bool s_calibration_waiting, s_calibration_finished,
     s_preferences_writable = true;
 // Lock the emergency button-only mode for this menu session. A stale sensor
-// sample must not swap the meaning of short/long presses halfway through.
+// sample leaves this session's short/long-press mapping unchanged.
 static bool s_button_navigation;
 static char s_feedback[128], s_notice_title[128], s_task_pending_id[64];
 static _Atomic bool s_wait_release;

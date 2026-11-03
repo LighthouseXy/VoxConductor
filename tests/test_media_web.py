@@ -1,4 +1,4 @@
-"""Local media security/conversion source checks. No firmware build or board I/O."""
+"""Local media security/conversion source checks with mocked browser operations. Firmware and board acceptance run separately."""
 import re
 import shutil
 import subprocess
@@ -172,4 +172,4 @@ class XMLHttpRequest {
 })().catch(error=>{console.error(error);process.exitCode=1;});
 """
 subprocess.run([node], input=browser_check, text=True, check=True)
-print("PASS: media web idle-renewal source guards/policy model, browser upload/WAV checks and rollback/suspension guards; no firmware build or hardware test")
+print("PASS: media web idle-renewal source guards/policy model, browser upload/WAV checks and rollback/suspension guards; scope=source/mocked-browser checks; pending=firmware/hardware acceptance")

@@ -1,4 +1,4 @@
-"""Execute the real NVS-load branch with synthetic preference blobs; no device."""
+"""Execute the real NVS-load branch with synthetic preference blobs on the host."""
 import re
 import subprocess
 from pathlib import Path

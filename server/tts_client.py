@@ -224,7 +224,7 @@ def synthesize_speech(
         or wav_data[:4] != b"RIFF"
         or wav_data[8:12] != b"WAVE"
     ):
-        raise RuntimeError("下载结果不是有效的WAV文件")
+        raise RuntimeError("下载音频WAV格式校验失败")
 
     output_path.parent.mkdir(exist_ok=True)
     output_path.write_bytes(wav_data)

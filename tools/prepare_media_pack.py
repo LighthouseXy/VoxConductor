@@ -156,7 +156,7 @@ def main():
     credits = ["VoxConductor SD Media Pack", "", "Music attribution (retain this file when redistributing):"]
     for item in catalog["music"]:
         credits += [f'"{item["title"]}" Kevin MacLeod (incompetech.com)', "Licensed under Creative Commons: By Attribution 4.0 License", "https://creativecommons.org/licenses/by/4.0/", f'Source: https://incompetech.com/music/royalty-free/index.html?isrc={item["isrc"]}', "Changes: full-length MP3 converted to 24 kHz mono 16-bit PCM WAV; overall gain normalized; short edge fades.", ""]
-    credits += ["Environment sounds: original procedural synthesis; not field recordings.", "Wallpapers: generated for this project using built-in imagegen. Prompts: catalog.json.", "", "INSTALL: copy the contents of sdcard/ to your SD root, preserving existing unrelated files. Do not format the SD. Power down the device before removing the card. The result must be /media/audio and /media/images on the card.", "Files remain on SD; they are not embedded in firmware. Existing project audio, image, voice and task files need not be deleted."]
+    credits += ["Environment sounds: original procedural synthesis.", "Wallpapers: generated for this project using built-in imagegen. Prompts: catalog.json.", "", "INSTALL: copy the contents of sdcard/ to your SD root, preserving existing unrelated files. Do not format the SD. Power down the device before removing the card. The result must be /media/audio and /media/images on the card.", "Files are loaded from SD; preserve existing project audio, image, voice and task files."]
     (PACK / "ATTRIBUTION.txt").write_text("\n".join(credits) + "\n")
     records = []
     for path in sorted(list(audio.glob("*")) + list(images.glob("*"))):

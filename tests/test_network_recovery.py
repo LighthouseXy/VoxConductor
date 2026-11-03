@@ -1,4 +1,4 @@
-"""Read-only source guards; no compiler, serial port, NTP or weather API access."""
+"""Local network recovery source guards and policy models. Compiler, serial, NTP and weather-API execution run separately."""
 from pathlib import Path
 import re
 
@@ -20,7 +20,7 @@ request_sync = network.split("esp_err_t app_network_sync_time(void)", 1)[1].spli
 fetch = network.split("esp_err_t app_network_fetch_weather(void)", 1)[1].split(
     "static void weather_update_task", 1)[0]
 
-# Local startup does not wait for an access point or a time server.
+# Local startup proceeds independently of access-point and time-server readiness.
 assert "xEventGroupWaitBits" not in init and "portMAX_DELAY" not in init
 assert "esp_netif_sntp" not in init
 assert "app_network_sync_time()" not in main
@@ -105,4 +105,4 @@ for source in (network, header, main):
             assert stack and stack.pop() == {")": "(", "}": "{", "]": "["}[char]
     assert not stack
 
-print("PASS: network recovery source guards; C build, API and hardware NOT run")
+print('PASS: network recovery source guards; scope=offline checks; pending=C build, API and hardware validation')

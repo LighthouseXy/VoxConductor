@@ -1115,7 +1115,7 @@ esp_err_t app_media_init(bool sd_ready, void (*audio_activity)(bool)) {
       s_preferences = value;
       unlock();
     } else if (result != ESP_ERR_NVS_NOT_FOUND) {
-      // Do not overwrite an unknown/corrupt future blob with defaults.
+      // Preserve an unknown/corrupt future blob for recovery.
       s_preferences_writable = false;
       message("媒体配置未识别，使用默认值");
     }

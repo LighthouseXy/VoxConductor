@@ -17,7 +17,7 @@ void app_cloud_begin_turn(const app_turn_t *turn);
 // Voice interruption may resume; explicit user cancellation always wins.
 bool app_cloud_barge_in(void);
 bool app_cloud_resume_barge_in(void);
-// Follow-up idle waiting stays local; NOT_FOUND means quiet expiry, not an ASR error.
+// Follow-up idle waiting stays local; NOT_FOUND reports quiet-window expiry.
 // pcm由调用者分配并持有；函数返回前已结束采集任务和WSS回调。
 // 成功时text是独立分配的UTF-8字符串，调用者free；失败时不转移PCM所有权。
 esp_err_t app_cloud_listen(int16_t *pcm, size_t *samples, char **text,

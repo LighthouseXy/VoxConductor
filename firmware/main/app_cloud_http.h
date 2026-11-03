@@ -13,7 +13,7 @@ esp_err_t app_cloud_http_open(const char *url, const char *key, size_t length,
 bool app_cloud_http_cancelled(const _Atomic bool *abort);
 esp_err_t app_cloud_http_write(esp_http_client_handle_t client, const void *data,
                               size_t length, const _Atomic bool *abort);
-// 等待HTTP响应头时也可取消；成功不代表HTTP状态为200，由业务层检查。
+// 等待HTTP响应头时可取消；返回成功后由业务层核对HTTP状态。
 esp_err_t app_cloud_http_headers(esp_http_client_handle_t client,
                                 const _Atomic bool *abort, int *status);
 // SSE结束后收完HTTP尾部才允许复用；false时调用者关闭连接，保留已完成回答。

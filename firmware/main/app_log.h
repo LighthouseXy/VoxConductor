@@ -11,7 +11,7 @@
 #endif
 
 // Detail is INFO in opt-in builds: the normal SDK max level is only INFO.
-// Do not raise the global level or hide warning/error diagnostics.
+// Preserve the global level and warning/error diagnostics.
 #if CONFIG_VOX_LOG_VERBOSE
 #define APP_LOG_DETAIL(...) ESP_LOGI(__VA_ARGS__)
 #else

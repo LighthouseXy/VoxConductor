@@ -1,4 +1,4 @@
-"""Applied home settings survive failed speech; source + policy, no C/device I/O."""
+"""Applied-home source guards and local policy models for failed-speech outcomes. Native/device acceptance runs separately."""
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -12,7 +12,7 @@ failed = finish.split("if (!success) {", 1)[1].split("if (!finish)", 1)[0]
 assert settings.index("bool applied = readback") < settings.index("s_after.home_applied = true")
 assert 'if (applied && (!strcmp(s, "home_style") || !strcmp(s, "wallpaper_mode")))' in settings
 assert cancel.index("bool home_applied = s_after.home_applied") < cancel.index("memset(&s_after")
-assert "s_after.home_applied = home_applied" in cancel  # receipt, not authorization
+assert "s_after.home_applied = home_applied" in cancel  # readback receipt; authorization remains separately managed
 assert "s_after.home_applied && !app_cloud_is_cancelled()" in failed
 assert failed.index("memset(&s_after") < failed.index('"home"')
 assert "app_desktop_game_control" not in failed and "app_media_" not in failed
@@ -85,4 +85,4 @@ o = Outcome()
 o.setting(0)
 assert o.finish(True) and o.page == "home" and o.history_commits == 1
 
-print("PASS: applied-home vs reply result, cancel/unapplied/deferred-action boundaries; native/device NOT run")
+print('PASS: applied-home vs reply result, cancel/unapplied/deferred-action boundaries; scope=offline checks; pending=native/device validation')

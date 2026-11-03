@@ -46,7 +46,7 @@ typedef struct {
   int64_t times[TURN_EVENT_COUNT]; // -1=未发生；非流式没有首token时间。
   int error;
   size_t history_turns, history_bytes, asr_request_bytes, llm_request_bytes;
-  size_t pcm_submitted_bytes; // I2S调用成功提交的字节，不是声学已听字节。
+  size_t pcm_submitted_bytes; // I2S调用成功提交的字节；实际听到的内容需声学确认。
   unsigned tts_batches, agent_requests, agent_tools;
   unsigned tts_text_chunks, tts_starvations;
   int64_t tts_wait_us; // 起播后因PCM耗尽等待的累计时间，不含首次预缓冲。

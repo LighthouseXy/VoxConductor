@@ -22,7 +22,7 @@
 <div class="panel" id="panel-overview">
 <section class="card hero"><div><span class="eyebrow">A LITTLE SPACE, YOUR WAY</span><h2>让桌面，<br>多一点自己的样子。</h2><p id="homeSummary">连接后查看当前主页、音量和唤醒状态。</p><button class="primary" data-page="appearance">调整我的主页 ↗</button></div><div class="device-art" id="overviewPreview"><div class="clock-face"></div><small>主页样式示意 · 非实时画面</small></div></section>
 <div class="stats"><div class="stat"><small>当前音量</small><strong id="statVolume">—</strong></div><div class="stat"><small>屏幕亮度</small><strong id="statBrightness">—</strong></div><div class="stat"><small>本地唤醒</small><strong id="statWake">—</strong></div></div>
-<div class="grid"><section class="card"><h2>设备状态</h2><div class="list"><div><span>北京时间</span><b id="overviewTime">等待读取</b></div><div><span>持续运行</span><b id="overviewUptime">—</b></div><div><span>SD 存储</span><b id="overviewStorage">—</b></div><div><span>读取时间</span><b id="lastRead">—</b></div></div><p class="muted" style="margin:14px 0 0">这是手动刷新的状态快照，不持续轮询设备。</p></section><section class="card"><h2>常用入口</h2><div class="quick"><button data-page="media">媒体库<small>壁纸与音乐</small></button><button data-page="tasks">我的事项<small>闹钟与备忘</small></button><button data-page="history">对话记录<small>搜索与回看</small></button></div><p class="muted" style="margin:20px 0 0">语音对话由设备进行；这里负责设置、整理与诊断，不是在线聊天窗口。</p></section></div></div>
+<div class="grid"><section class="card"><h2>设备状态</h2><div class="list"><div><span>北京时间</span><b id="overviewTime">等待读取</b></div><div><span>持续运行</span><b id="overviewUptime">—</b></div><div><span>SD 存储</span><b id="overviewStorage">—</b></div><div><span>读取时间</span><b id="lastRead">—</b></div></div><p class="muted" style="margin:14px 0 0">点击刷新后读取一次设备状态。</p></section><section class="card"><h2>常用入口</h2><div class="quick"><button data-page="media">媒体库<small>壁纸与音乐</small></button><button data-page="tasks">我的事项<small>闹钟与备忘</small></button><button data-page="history">对话记录<small>搜索与回看</small></button></div><p class="muted" style="margin:20px 0 0">语音对话在设备上进行；网页用于设置、整理与诊断。</p></section></div></div>
 <div class="panel" id="panel-appearance" hidden>
 <section class="card">
 <div class="heading"><h2>主页与声音</h2><span id="draftStatus" class="badge">读取后可编辑</span></div>
@@ -71,7 +71,7 @@
 </section></div>
 <div class="panel" id="panel-history" hidden>
 <section class="card">
-<h2>语音对话记录</h2><p>仅显示当前对话卷的文字，每次最多3条。已生成的回答不代表完整播放过；较长回答可能分段保存。封存卷需离线导出查看。</p>
+<h2>语音对话记录</h2><p>当前对话卷每次读取最多3条文字；生成与完整播放状态分别记录，长回答可分段保存。封存卷需离线导出查看。</p>
 <input id="historyKeyword" type="text" maxlength="16" placeholder="关键词（留空看最近记录）">
 <button id="historySearch">查询最近 / 搜索</button><button id="historyOlder" disabled>更早记录</button>
 <div id="history"></div>
@@ -167,7 +167,7 @@ async function command(action,extra={}){
     try{
       const latest=await readDevice();await device('configure',configurationRequest(latest,{home_style:1,wallpaper_mode:0}));
       const saved=await readDevice();renderDevice(saved);
-      if(saved.config.home_style!==1||saved.config.wallpaper_mode!==0)throw Error('回读不是 SD 壁纸主页，请读取设置核对。');
+      if(saved.config.home_style!==1||saved.config.wallpaper_mode!==0)throw Error('SD 壁纸主页回读校验失败，请读取设置核对。');
     }catch(error){throw Error('图片选择已完成，但主页切换未确认：'+error.message);}
   }
   await refresh();notice(result.message||'设备已执行。');
@@ -269,7 +269,7 @@ async function refresh(){
   $('repeat').checked=state.repeat;
   $('playStatus').textContent=`${state.playing?'播放中':state.paused?'已暂停':'已停止'} · ${time(state.elapsed)} / ${time(state.duration)} · ${state.message||''}`;
   const a=state.appearance;syncField('nightEnabled',a.night_enabled,true);syncField('nightStart',fromMinute(a.night_start_minute));syncField('nightEnd',fromMinute(a.night_end_minute));syncField('nightBrightness',a.night_brightness);syncField('idleSeconds',a.idle_seconds);
-  // Media refreshes must not erase partially edited anniversary rows.
+  // Preserve partially edited anniversary rows during media refresh.
   renderDates(state.anniversaries);
   $('overviewStorage').textContent=state.free_bytes===undefined?'不可用':'已挂载';
 }
@@ -448,13 +448,13 @@ function renderHistory(result,append=false) {
 async function loadHistory(older) {
   const keyword=$('historyKeyword').value.trim();if(bytesLength(keyword)>48)throw Error('关键词最多48字节。');
   const r=await device('history',{before:older?historyBefore:0,keyword});renderHistory(r,older);
-  notice('当前对话卷记录已读取；封存卷不在查询范围。');
+  notice('当前对话卷记录已读取；封存卷需导出后查看。');
 }
 $('historySearch').onclick=()=>guard(()=>loadHistory(false));
 $('historyOlder').onclick=()=>guard(()=>loadHistory(true));
 // Drop legacy QR fragments; current QR codes contain only the device URL.
 if(location.hash)history.replaceState(null,'',location.pathname+location.search);
-window.onload=()=>guard(async()=>{await refresh();await refreshDevice();notice('配置与设备信息已读取，无需配对码。');});
+window.onload=()=>guard(async()=>{await refresh();await refreshDevice();notice('配置与设备信息已读取，同网管理已就绪。');});
 
 </script>
 </html>

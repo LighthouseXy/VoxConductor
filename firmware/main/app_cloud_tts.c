@@ -1,7 +1,7 @@
 /*
  * TTS适配：网络回调解码到有界PSRAM队列，播放任务消费PCM。
  * 一次会话只快照一次语速/音色，不中途改格式。首播预缓冲和断粮等待分开计量。
- * 取消后先结束任务/回调再释放缓冲；提交I2S不等于声学上已听到。
+ * 取消后先结束任务/回调再释放缓冲；I2S提交状态与声学听测分别记录。
  */
 #include "app_cloud.h"
 #include "app_log.h"
@@ -387,7 +387,7 @@ static esp_err_t speak(const char *text, app_tts_feed_t feed, void *context,
       ++turn->tts_starvations;
       if (CONFIG_VOX_LOG_VERBOSE || turn->tts_starvations == 1 ||
           turn->tts_starvations % 5 == 0)
-        ESP_LOGW(TAG, "[%s] PCM underrun: count=%u; buffering, not acoustic interruption",
+        ESP_LOGW(TAG, "[%s] PCM underrun: count=%u; buffering; acoustic continuity requires listening checks",
                  app_log_id(turn->id), turn->tts_starvations);
     }
     if (buffering) {
@@ -475,7 +475,7 @@ cleanup:
                (unsigned)heap_caps_get_free_size(MALLOC_CAP_INTERNAL | MALLOC_CAP_8BIT),
                (unsigned)heap_caps_get_largest_free_block(MALLOC_CAP_INTERNAL | MALLOC_CAP_8BIT),
                (unsigned)heap_caps_get_free_size(MALLOC_CAP_SPIRAM | MALLOC_CAP_8BIT));
-    // 在等待网络回调退出之前停止硬件；仅停止提交PCM不等于停止DMA。
+    // 等待网络回调退出之前先停止硬件DMA。
     atomic_store(&stream->error, result);
     esp_err_t stopped = app_audio_abort_playback();
     if (stopped != ESP_OK) ESP_LOGE(TAG, "停止音频输出失败：%s", esp_err_to_name(stopped));

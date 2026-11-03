@@ -1,4 +1,4 @@
-"""Home-picker bounds and clock-only idle policy; no C build or device execution."""
+"""Home-page selection and idle-policy source guards with local state models."""
 from itertools import product
 from pathlib import Path
 import re
@@ -94,4 +94,4 @@ assert 'id="wallpaperEnabled"' not in html and 'id="idleAlbum"' not in html
 assert "wallpaper_enabled:true" in html and "idle_album:false" in html
 assert '<option value="0">圆形时钟</option>' in html
 assert "屏保始终为纯时钟" in html
-print("PASS: explicit clock/digital picker, empty/full catalog bounds, preserved selection and clock-only idle; C/device NOT run")
+print('PASS: explicit clock/digital picker, empty/full catalog bounds, preserved selection and clock-only idle; scope=offline checks; pending=C/device validation')

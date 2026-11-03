@@ -96,7 +96,7 @@ static void current_parameter_checks(void) {
   cJSON_SetNumberValue(cJSON_GetObjectItem(current, "uv_index"), 0);
   json = cJSON_PrintUnformatted(root);
   assert(app_weather_parse(json, &weather));
-  assert(weather.current_uv_available && weather.current_uv == 0); // Night is not missing.
+  assert(weather.current_uv_available && weather.current_uv == 0); // Night has a valid zero UV value.
   cJSON_free(json);
   cJSON_ReplaceItemInObject(units, "wind_speed_10m", cJSON_CreateString("mph"));
   json = cJSON_PrintUnformatted(root);

@@ -1,4 +1,4 @@
-// Minimal ESP-IDF peer for an external low-voltage LED, not a mains relay.
+// Minimal ESP-IDF peer restricted to an external low-voltage LED.
 #include <ctype.h>
 #include <stdbool.h>
 #include <stdio.h>
@@ -73,7 +73,7 @@ static esp_err_t command_handler(httpd_req_t *req) {
     if (saved.value != next.value) return fail(req, "409 Conflict", "{\"error\":\"same_id_different_value\"}");
     return state_reply(req, true);
   }
-  // Persist a SET state (not a TOGGLE); retrying the last ID does not repeat an edge.
+  // Persist a SET state; the last ID returns its saved result on retry.
   if (nvs_set_blob(store, "last", &next, sizeof(next)) != ESP_OK || nvs_commit(store) != ESP_OK)
     return fail(req, "500 Internal Server Error", "{\"error\":\"storage\"}");
   if (gpio_set_level(CONFIG_VOX_PEER_GPIO, next.value) != ESP_OK) {

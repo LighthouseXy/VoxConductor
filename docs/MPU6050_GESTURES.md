@@ -69,6 +69,6 @@ MPU6050手势已启用：轴=1，默认中位=0mg；经过中间即可左右倾�
 
 传感器有效性按器件ID、读取结果和动作状态检查；逐次偏移/识别日志默认关闭。诊断时开启 APP_MOTION_DIAGNOSTICS，约每 500 ms 输出，采样仍约 20 ms。允许启用的器件ID为0x68或0x70；连续5次读取失败会停用本功能，检查接线后重启。
 
-`sh tests/run_cloud_checks.sh` 直接调用固件共用的采样处理入口，覆盖未校准启动、快速过中位、左右识别、短脉冲、持续倾斜、冷却、语音禁用、数据异常、计时回绕及后台校准。代表性实测读数用于构造测试，不等同于完整实机采样回放。新增逻辑已通过软件测试，尚未完成本版实机验证；软件测试不能验证实际安装方向、灵敏度或误触率。
+`sh tests/run_cloud_checks.sh` 直接调用固件共用的采样处理入口，覆盖未校准启动、快速过中位、左右识别、短脉冲、持续倾斜、冷却、语音禁用、数据异常、计时回绕及后台校准。测试使用代表性实测读数构造输入，完整实机采样回放待验证。新增逻辑已通过软件测试，尚未完成本版实机验证；软件测试不能验证实际安装方向、灵敏度或误触率。
 
 寄存器依据：[TDK MPU-6000/MPU-6050 Register Map](https://invensense.tdk.com/wp-content/uploads/2015/02/MPU-6000-Register-Map.pdf)、[TDK MPU-6500 Register Map](https://invensense.tdk.com/wp-content/uploads/2015/02/MPU-6500-Register-Map2.pdf)。驱动使用ESP-IDF原生I²C接口，不新增第三方传感器库。

@@ -1,0 +1,4042 @@
+{
+  "text_files": 326,
+  "rows": [
+    {
+      "file": ".gitignore",
+      "lines_read": 59,
+      "changed": true,
+      "retained_keyword_lines": [],
+      "sha256": "6d4e2d0028db5ef862bf995668d5e00998be862111cc6e37cf0156d59ed4dec0",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "DEVELOPMENT_HISTORY.en.md",
+      "lines_read": 47,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "f2f5719e0d2f4bc70bc2a47b2f61ea0a12cae13624b89dd5bb83b31cb83c01ee",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "DEVELOPMENT_HISTORY.md",
+      "lines_read": 47,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "e082944ae421f51f1e1461f2697930dc55ee8254fa3caabb8383859e87da2f92",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "LICENSE",
+      "lines_read": 21,
+      "changed": false,
+      "retained_keyword_lines": [
+        16
+      ],
+      "sha256": "5a369a55ef5535a2fa6bcd45dfe7047396433222a343f941d13bcc8e6af04cd5",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "LICENSE_SCOPE.md",
+      "lines_read": 29,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "cefa8b52102d1bf8c7eef3ae02b5c7f8d87d3054c44d2d77c17283522961b727",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "README.en.md",
+      "lines_read": 96,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "386ba129785debe9bd486fb34bf2d443813dcaf9fa5d1b4be0b7652cebf31a8f",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "README.md",
+      "lines_read": 96,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "cd86685958517999295b11472dc8ef47f0f259f72bc94c89a58f3a257fe29de5",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "README.zh-CN.md",
+      "lines_read": 96,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "cd86685958517999295b11472dc8ef47f0f259f72bc94c89a58f3a257fe29de5",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "THIRD_PARTY_NOTICES.md",
+      "lines_read": 35,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "6ca6205e5de5ef75a1f55ef9e498e7dbec70d5a7813f6bcbf0d450c59285ba45",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "docs/ARCHITECTURE.md",
+      "lines_read": 139,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "27a305582c8d3b87c4e9501a6225e3400ed8896b3f6e48142aa95b956120203d",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "docs/BOM.csv",
+      "lines_read": 14,
+      "changed": false,
+      "retained_keyword_lines": [
+        13,
+        14
+      ],
+      "sha256": "b9abbafab3164f1ec38e6998038fcad4db11338cc337a10665594fdb20116aef",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "docs/DEMO_AND_VERIFICATION.md",
+      "lines_read": 101,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "f8d7789eee99d87d979c65606315fd63fec832b722bca427fb9cd92cece2670b",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "docs/DESKTOP_TOOLS_AND_GAMES.md",
+      "lines_read": 47,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "64cfba501cf2b0fce3b66981c298b41121a20276288d0b3152cbd6adf4644f81",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "docs/DEVICE_CLOUD_VOICE.md",
+      "lines_read": 179,
+      "changed": true,
+      "retained_keyword_lines": [],
+      "sha256": "12f864b3e6807748764b6f9b144ba74bfc304524cdc6f4a386495cb91492b3c8",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "docs/FEATURES.md",
+      "lines_read": 82,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "b62dc071794687ea8ff3671b2c384b55ca08009946ac05a62e8ced191e83a953",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "docs/FEATURE_ANALYSIS_AND_EXPANSION.md",
+      "lines_read": 271,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "e24b99085cd35a707848a5685af88a8201aa01a2a1faec31637becb36f543a54",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "docs/GITHUB_FILE_MANIFEST.md",
+      "lines_read": 110,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "70ff27360d670e594dc46aceeac8f4fb390f439438a78c935d4df4419ac7249e",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "docs/GITHUB_PUBLICATION_CHECKLIST.md",
+      "lines_read": 82,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "6b677c76c0b7a84ae8f9e90c5180c1e2fb15d7a4d526c0f5ecf3675d4feb68eb",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "docs/HARDWARE_DESIGN.md",
+      "lines_read": 112,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "3929f6e39fe2f018c0e399f2e895818d91921d08bb2785b1b910ec89ed4a564a",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "docs/HARDWARE_V1.md",
+      "lines_read": 106,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "7f17763b60786f3efacd30e080310934747aeadbcb249c121444fa2650a0dc17",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "docs/LAN_DEVICE_PROTOCOL.md",
+      "lines_read": 68,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "678a6e62838b43a3a318203f15995010c71ec169de42037d46c7c21c28209274",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "docs/MPU6050_GESTURES.md",
+      "lines_read": 74,
+      "changed": true,
+      "retained_keyword_lines": [],
+      "sha256": "6a56b5bba1b25aa88d4f8a411e874e4b30c16060cf6c418bb6b57f6254c61bca",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "docs/PROGRESS.md",
+      "lines_read": 35,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "8f082cbfbc09c3242415baf975f20ac3d4784af603ed6c7eb20b360bc85894fc",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "docs/README.md",
+      "lines_read": 49,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "2de08259b757bde1ead323551167ed9373295d7cb828ec501b42d6f5f67a2cad",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "docs/ROADMAP.md",
+      "lines_read": 47,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "8325569d634363a2e8cee03a116fe0b43ba1a5e7f8daf4ca75384f41154f7082",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "docs/SHOWCASE.md",
+      "lines_read": 106,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "d2496a4b40ed04e5c5392b1f3d8dfe7ef73b595c13bfd8ad1c08255cc2522d57",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "docs/SOURCE_SYNC_MANIFEST.json",
+      "lines_read": 1171,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "26b092de709b511c15392d74cc8a595ad5e20369bfa3d5ba72bf97787725666d",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "docs/SYNC_VALIDATION.md",
+      "lines_read": 17,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "21a14d5aed351f7962c79e7bc37c9fa04d8fb805dc5f8707ab04d11fc48ae86d",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "docs/TECHNICAL_ARCHITECTURE.md",
+      "lines_read": 67,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "e78737446d444b66f04aa8633071338f817f2bb973143b5d8d6656a1fa9a675f",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "docs/VOICE_DIALOGUE_AND_MEMORY_PLAN.md",
+      "lines_read": 336,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "f0b4af19ed30bcbe8f2cbba003709fd30c81d86c63d0ff127fe4f0a01d8b4daa",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "docs/WEB_MANAGEMENT_DESIGN.md",
+      "lines_read": 128,
+      "changed": true,
+      "retained_keyword_lines": [],
+      "sha256": "61275035449425b39b0d71e83895a3959b9c17756d8519aef088518a92621564",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "docs/images/2026-10-10/manifest.json",
+      "lines_read": 268,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "be92c4f8bbb0878294b1bb32fd137f7afb1dc6d33afa33f2d9956a163d7b10a8",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "docs/images/2026-10-11/manifest.json",
+      "lines_read": 612,
+      "changed": false,
+      "retained_keyword_lines": [
+        3
+      ],
+      "sha256": "1d198fd9012ba3f837915c0ddd96d790cecb9e9e87d043b1903b859ada32fac6",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "docs/images/2026-10-11/pcb-layout-back.svg",
+      "lines_read": 5161,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "01a0a9f1b93b5fab6663e57c5410ae5f8a4c74dc3fbfe602b6745429fe8b3057",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "docs/images/2026-10-11/pcb-layout-front.svg",
+      "lines_read": 21580,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "5349f6256887ec7f17f092370c4c120fae2f0fd0f2b406eeb712ac71a49ac984",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "docs/images/2026-10-11/schematic-main.svg",
+      "lines_read": 84260,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "eda3bdad207c07f6c35c25caba73e74ac2f07319b9e0456e1ee83596071a244f",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "docs/images/README.md",
+      "lines_read": 28,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "0bccfd8800715341b089100f11faf9f0449e8131eaeb2bbeb168bb6d3da5f153",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "docs/reviews/T-004-final-wording-check.json",
+      "lines_read": 233,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "34c13476e363539a740b46622ed2862611cd64a186e42313881edd09cb4d8c46",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "docs/reviews/T-004-self-check-1.json",
+      "lines_read": 122,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "f13486564cd891def23d375384daf0cf4e050a7e3e3ccf98e9ea7852449585a9",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "docs/reviews/T-004-self-check-2.json",
+      "lines_read": 40,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "5a084a6e8de002e553f6ff9c088d1f31b769093b22901f1a679db3c748ea4928",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "docs/reviews/T-004.md",
+      "lines_read": 162,
+      "changed": false,
+      "retained_keyword_lines": [
+        24,
+        133,
+        135,
+        136,
+        140,
+        150,
+        151,
+        152,
+        153
+      ],
+      "sha256": "cfc4b133a409858137815340a91bb5359a96ab29403751e9f89aa41f01f7ffce",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "docs/reviews/T-006-self-check-1.json",
+      "lines_read": 641,
+      "changed": false,
+      "retained_keyword_lines": [
+        61
+      ],
+      "sha256": "602ab7d895a6c42f44f2fef339cc9be4d075381c33f951ba3938a81a7e2b9869",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "docs/reviews/T-006-self-check-2.json",
+      "lines_read": 427,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "a0fdb2a8958486e9149e65b1b62452ad3c2572e14443330b4d1f6f5d5c1fd8ac",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "docs/reviews/T-006-self-check-3.json",
+      "lines_read": 449,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "f39bfb5f193d93d65ea54b6e5505f6eadcd2b51f8eeabf4cd46c7d934630495e",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "docs/reviews/T-006.md",
+      "lines_read": 110,
+      "changed": false,
+      "retained_keyword_lines": [
+        7,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        45,
+        46,
+        47,
+        48
+      ],
+      "sha256": "7413cbf0379189e5d5621ebe67faa40cc4bf7d847280d4b249ac2d7329f8d293",
+      "frozen_baseline_review_record": true
+    },
+    {
+      "file": "docs/videos/2026-10-10/README.md",
+      "lines_read": 22,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "8e1895e669e53c673792ec1d8f0f09e1a538188acccde61363baa4933dd67d01",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "docs/videos/2026-10-10/audio-processing.json",
+      "lines_read": 44,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "25127d55e46a863486d6dcfda59e487c31b5197b52a077391da2c32c4965574b",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "examples/lan_switch/CMakeLists.txt",
+      "lines_read": 3,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "bf7236df7c0c89bed6f6b804d5a536cd0ee0af7c214de2a2d264d7f3ecddeb93",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "examples/lan_switch/main/CMakeLists.txt",
+      "lines_read": 2,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "fa8bb31387ae8cfdb64aefb8298cdf0c711c681b0b766afc08e211c3949a6797",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "examples/lan_switch/main/Kconfig.projbuild",
+      "lines_read": 15,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "92b0a2469f4cdb8293b205b91f2d6d4ac5aec990e3db981f378a021a33b0ec60",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "examples/lan_switch/main/idf_component.yml",
+      "lines_read": 2,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "ab5c7f8b2472d059111dac3e5336b2bf13c2d225ee6945909e8b0ccf8970588d",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "examples/lan_switch/main/main.c",
+      "lines_read": 124,
+      "changed": true,
+      "retained_keyword_lines": [],
+      "sha256": "2ccb1c43fcf03f042d640f2238771613f90aa6d3686d340680b81b110a723c88",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "firmware/.clangd",
+      "lines_read": 2,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "779cb0f49f3ef80e7574d8de600fd797fcb563e2a478e336d53f89a4d017d02c",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "firmware/CMakeLists.txt",
+      "lines_read": 6,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "5f176fd5c4f0a243a46af3404075ee27c6fa1305f928e24a8811f3a5c33ef2c6",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "firmware/dependencies.lock",
+      "lines_read": 148,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "2eb091da59bf2e994a03cb0989e7a6c9446f17bbab222fbc7fdf558503b9bb1a",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "firmware/main/CMakeLists.txt",
+      "lines_read": 66,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "de4b7cf04d5ff4af5cdf0243b48fe4a13d75a9a4781fd1c48e7e9bb102a050d2",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "firmware/main/Kconfig.projbuild",
+      "lines_read": 92,
+      "changed": true,
+      "retained_keyword_lines": [],
+      "sha256": "dcb63fc271e46fa6edc4673316a4e3869ba9443eba8ffe40133067700f326e89",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "firmware/main/app_acoustic.c",
+      "lines_read": 339,
+      "changed": true,
+      "retained_keyword_lines": [],
+      "sha256": "106d288b7c5482b7b0448a24bccc3299ebf7a8117408008e15a174ca452092a5",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "firmware/main/app_acoustic.h",
+      "lines_read": 23,
+      "changed": true,
+      "retained_keyword_lines": [],
+      "sha256": "6551e7574fe1b9ee00ffec56b5356c3ca7afbb94167d1f169f0992f4b2cdb12c",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "firmware/main/app_agent.c",
+      "lines_read": 1382,
+      "changed": true,
+      "retained_keyword_lines": [
+        298,
+        312,
+        313
+      ],
+      "sha256": "7a2e6f7ad01e6a058be8e83242a42d1f913252d08eefd113f630c3cce5bf7680",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "firmware/main/app_agent.h",
+      "lines_read": 55,
+      "changed": true,
+      "retained_keyword_lines": [],
+      "sha256": "001388dd2183699e832799024922ce62b7fddd0de325e5fede5ebe7c5a87fcd9",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "firmware/main/app_audio.c",
+      "lines_read": 790,
+      "changed": true,
+      "retained_keyword_lines": [],
+      "sha256": "ec68b5de3558939567056d00ef6fee534b90ecd85baedc179d94e6a844f1c087",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "firmware/main/app_audio.h",
+      "lines_read": 49,
+      "changed": true,
+      "retained_keyword_lines": [],
+      "sha256": "d71413eaea89b4ffaaffebbc9c6dc1a43f057114c67c7e7b614834bab7ab062b",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "firmware/main/app_barge_diagnostic.c",
+      "lines_read": 168,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "a99f74fe86e3b74bcae194dd674a7633c1de48135b3078c76843c1a28becff28",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "firmware/main/app_barge_diagnostic.h",
+      "lines_read": 36,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "0fc46899eb80eda367291cbc5ef38dbf833b190eb74ec258a1c38229aee0050b",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "firmware/main/app_button.c",
+      "lines_read": 185,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "489d17e0a533edaa3a4e077f6b69de8514c020b9c49e8febfc1826707879788f",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "firmware/main/app_button.h",
+      "lines_read": 29,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "a6b2a86f7183c15d2954778383221adeb5b4f70a13697f25b1d196d20458713f",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "firmware/main/app_cloud.c",
+      "lines_read": 643,
+      "changed": true,
+      "retained_keyword_lines": [],
+      "sha256": "8d67ad570b523ff3037f63e32f9bfb5d4a0295701a699acd97b7d4a9f78da0f5",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "firmware/main/app_cloud.h",
+      "lines_read": 46,
+      "changed": true,
+      "retained_keyword_lines": [],
+      "sha256": "a176ede50599eb2705f7a86b04e1cb76e2666f896ca9f625c9273a3e68de4b26",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "firmware/main/app_cloud_asr.c",
+      "lines_read": 265,
+      "changed": true,
+      "retained_keyword_lines": [],
+      "sha256": "367e35ecefe4b94303086b1173513e3a2c958f3421c649e1b79865c8fdc6eed3",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "firmware/main/app_cloud_http.c",
+      "lines_read": 145,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "71794935e67c6c42209cb79c38ed549b60917b2074e0ad8e3a2abeb88ea5ca63",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "firmware/main/app_cloud_http.h",
+      "lines_read": 28,
+      "changed": true,
+      "retained_keyword_lines": [],
+      "sha256": "f628c0bdca71df37f6afe0580710e0a054cbb2910c9de594779a3564a80a2ba9",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "firmware/main/app_cloud_tts.c",
+      "lines_read": 534,
+      "changed": true,
+      "retained_keyword_lines": [],
+      "sha256": "a3195749d1ea9757fca7d7373822c6839b21647f38ddbc547de65d4ae996d918",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "firmware/main/app_cloud_wire.h",
+      "lines_read": 74,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "31aea2d98c9b3b28f4ef19fb2a9d298777b654af0086049fa9c85831a2edcd83",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "firmware/main/app_control.c",
+      "lines_read": 1057,
+      "changed": true,
+      "retained_keyword_lines": [
+        360
+      ],
+      "sha256": "14c14393a3be4204df643a8284a88f63f5ac801378f103c5d2f9c2e15c043dff",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "firmware/main/app_control.h",
+      "lines_read": 34,
+      "changed": true,
+      "retained_keyword_lines": [],
+      "sha256": "bb1b473d056b7de7c55b95f6bfe50d59f5c09c9ba110d5110fc7d2f7a1330378",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "firmware/main/app_conversation.c",
+      "lines_read": 461,
+      "changed": true,
+      "retained_keyword_lines": [
+        371,
+        373,
+        377,
+        379,
+        384,
+        385
+      ],
+      "sha256": "0beef235e4fe088a3e1b46e7ca52885ce15f2aeefcff39d47473602e9bf1577e",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "firmware/main/app_conversation.h",
+      "lines_read": 46,
+      "changed": true,
+      "retained_keyword_lines": [],
+      "sha256": "f05fdca452f4892d90148f3a18a3f52b8e03a606fe8e84962a9f7d5d1200fba4",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "firmware/main/app_desktop.c",
+      "lines_read": 1986,
+      "changed": true,
+      "retained_keyword_lines": [],
+      "sha256": "7e328360c877b80ff5642b9a29f48c518c95785bd9b55ec122d9f36a36f5ff7d",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "firmware/main/app_desktop.h",
+      "lines_read": 71,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "47e02412e40857231c247b991d7832a5310d7b38a9cd72784e95e1ea00be770f",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "firmware/main/app_devices.c",
+      "lines_read": 110,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "8fd6b6e5be78b06e1150914f9f5397e7a950fefd9411010b6643dfea8dfec4db",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "firmware/main/app_devices.h",
+      "lines_read": 9,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "48050f7bb64ab0a969a8573a61eaf9ff81b0db5dc214edf4a729219316f6280d",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "firmware/main/app_display.c",
+      "lines_read": 262,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "1a8068fc60e445cdad04e45be4de2bc83872ef2288742b7b45028026335d4619",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "firmware/main/app_display.h",
+      "lines_read": 9,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "3f4b1ff0338b41d10860e28a2eead5fe4801d8805096e77fc6551f504004a1fc",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "firmware/main/app_focus.c",
+      "lines_read": 49,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "e6eecaaa273185ddb376e479c541c9efe52f883a02e66ec76778222308a8b85f",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "firmware/main/app_focus.h",
+      "lines_read": 14,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "f1b4974f3834f3cbbc63e082924964725f9f971aa3328faa08236f355c205e9b",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "firmware/main/app_games.c",
+      "lines_read": 216,
+      "changed": true,
+      "retained_keyword_lines": [],
+      "sha256": "0ab2a4717ad15e8865376851cfeef308b5e04a2b700cb0a6f903e477aa1b83bd",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "firmware/main/app_games.h",
+      "lines_read": 11,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "5f0358f80d3ab679cec799ad1192239c74cbbc26bc6e717d1c084ff3ae23ffd8",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "firmware/main/app_games_core.c",
+      "lines_read": 189,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "3e8a989cda2f3f434adc024eabe2b43650ca3b08f53f4f9c4ce592102c4b7024",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "firmware/main/app_games_core.h",
+      "lines_read": 31,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "ed351e9543018603d427b94b3b304162e5ce41162fec997b98a6bf4775c6a42b",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "firmware/main/app_history_store.c",
+      "lines_read": 769,
+      "changed": true,
+      "retained_keyword_lines": [],
+      "sha256": "d97562ae1870d4a20877d92a5190724877d28584e203b1ab48476d14a94afec5",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "firmware/main/app_history_store.h",
+      "lines_read": 41,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "f047ea424c000c560d2c573bd62386f00c275e8521b223fd42e8877e427364fb",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "firmware/main/app_http_range.h",
+      "lines_read": 39,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "b1c5194b18d746f6cb7cdc37836be83d355b78cd206576a014dfef5227febac3",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "firmware/main/app_log.h",
+      "lines_read": 26,
+      "changed": true,
+      "retained_keyword_lines": [],
+      "sha256": "e509e6526e13060e35b6167dfd76bec22c008b075800c58e91eef0747c897be8",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "firmware/main/app_media.c",
+      "lines_read": 1158,
+      "changed": true,
+      "retained_keyword_lines": [],
+      "sha256": "639a259c196cabc4350122457b1599b7acb5f3ced3ca65f79792c85b3a482309",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "firmware/main/app_media.h",
+      "lines_read": 82,
+      "changed": true,
+      "retained_keyword_lines": [],
+      "sha256": "3cc518ab842bee50801a14fc6d141044e2036c4563ac6ddffaba933e9e0f1766",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "firmware/main/app_media_web.c",
+      "lines_read": 1016,
+      "changed": true,
+      "retained_keyword_lines": [
+        545,
+        594,
+        624,
+        643,
+        826
+      ],
+      "sha256": "642017c27df8d31ccb47611cbbbedd8eb3c5aacc6f7797a4051283b6d908ecbe",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "firmware/main/app_media_web.h",
+      "lines_read": 12,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "c25a31af0f06264991d24c7bbe3169592af140d25602a4e93aa8b93bd7a648a5",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "firmware/main/app_memory_alloc.h",
+      "lines_read": 26,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "f6befb0ee2ba302f5ad70c5689ee012f798472f660787e3c5a7077f484877948",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "firmware/main/app_menu_grid.h",
+      "lines_read": 7,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "26b735860166ba1b3f67d984cf95d4ebbd9400f3c09ff16b72be93707d69a21e",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "firmware/main/app_motion.c",
+      "lines_read": 338,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "49afa68e28c844a3749358c4ba89ffba8a3a49001a2c0103a9e5d0ec5386710f",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "firmware/main/app_motion.h",
+      "lines_read": 31,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "3ce98afe805259ed169918c92ca202df5661e4d15e03cfa40132014e172ebc67",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "firmware/main/app_motion_gesture.h",
+      "lines_read": 236,
+      "changed": true,
+      "retained_keyword_lines": [],
+      "sha256": "dfa529b6ff8f091b18dcad9caca8597b36b1e04078d19da1818857db2295e563",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "firmware/main/app_network.c",
+      "lines_read": 831,
+      "changed": true,
+      "retained_keyword_lines": [],
+      "sha256": "b6b77456b4a0fa6b699c4ac6389e20a094f419cc3b2267d3e14b24f8da9d9b7f",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "firmware/main/app_network.h",
+      "lines_read": 38,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "7e09f4945f08e4c76d818697a3564d93db530f0168c2d4a550909f15bfc36a19",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "firmware/main/app_speech.c",
+      "lines_read": 156,
+      "changed": true,
+      "retained_keyword_lines": [],
+      "sha256": "f8b2239055b9b321ef90d79d89aa8e53359767b659342b835d09f1a828c75e3c",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "firmware/main/app_speech.h",
+      "lines_read": 14,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "3eec3a13a19629b51bb2d427f182e67cb1480fc4f1f147e2c10b71bf8136baa0",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "firmware/main/app_sse.c",
+      "lines_read": 86,
+      "changed": true,
+      "retained_keyword_lines": [],
+      "sha256": "726b61e8a7545de85b16806da9b0925c483b154644e22a9b978977282a092a57",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "firmware/main/app_sse.h",
+      "lines_read": 21,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "7cd9a8faf9fa34e7a7c7b326516357cf1786fb1eca631b512d7d9eb344157de3",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "firmware/main/app_storage.c",
+      "lines_read": 202,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "ed3d04248ed09eb78cc0c87c22ed9093535f72a7f03fc050f189763efe5b5aa0",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "firmware/main/app_storage.h",
+      "lines_read": 39,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "5cf29e61e86f71a6b840f1b15157bedee49920fdef3519945116d66bed0ea4a5",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "firmware/main/app_tts_options.h",
+      "lines_read": 24,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "2d8bf5034271ef7a2ccf6d8bbb923529acda616dece71bc572cb6199f031815d",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "firmware/main/app_turn.c",
+      "lines_read": 94,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "e4c2cfe4dc08bbaa7968639461631dfba2f877a137cb577fa2c07cdb457845c6",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "firmware/main/app_turn.h",
+      "lines_read": 82,
+      "changed": true,
+      "retained_keyword_lines": [],
+      "sha256": "ba26980e75cf1b106a82bbaf79de852252fdc066d8db5472108e30e2f019d59d",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "firmware/main/app_turn_log.c",
+      "lines_read": 189,
+      "changed": true,
+      "retained_keyword_lines": [],
+      "sha256": "d20c1873415f0c123b5a152a87687e2e57b8b93f41f6e5e165a92389f85981e7",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "firmware/main/app_ui.c",
+      "lines_read": 1462,
+      "changed": true,
+      "retained_keyword_lines": [],
+      "sha256": "1f37ce3c40121fedfb1e1f404d1649e3033140db121c034a053b2379343663a4",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "firmware/main/app_ui.h",
+      "lines_read": 51,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "253b591bdc9f63812b0056fe49ec2ffed6c6ac91183163874680bccf563b5b06",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "firmware/main/app_ui_font_14.c",
+      "lines_read": 13251,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "20fa4f5a2bf3be054fd7e522253968686c9bce60a071f0005ebf34b68c22f85a",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "firmware/main/app_ui_font_16.c",
+      "lines_read": 15486,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "5d99274fbf9a6652b5bedc1a84051550b13e53404d56fefa36e890ed1746c2fe",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "firmware/main/app_ui_font_20.c",
+      "lines_read": 22175,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "ebe785717d748833207d259403985a775625d9ee446535139f18f00ab86a8ccc",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "firmware/main/app_ui_font_digits_56.c",
+      "lines_read": 987,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "2e167051db15db371278d0c041a22aba757517d815060dc6c40a6f6db94a82a9",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "firmware/main/app_ui_font_weather_24.c",
+      "lines_read": 635,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "f2886d5042e47fb9a81ef225f0ba2a4ce9c718789e79fa922d700b91b6863c33",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "firmware/main/app_ui_theme.h",
+      "lines_read": 115,
+      "changed": true,
+      "retained_keyword_lines": [],
+      "sha256": "4dcfbd42b5d9916b08f28dce073ecb88071dcfd8fbb1e8b4bbcd0509f97f4366",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "firmware/main/app_wake.c",
+      "lines_read": 373,
+      "changed": true,
+      "retained_keyword_lines": [],
+      "sha256": "ab938b42e30d4d9952b170b71e507d763a05e938fef3705a2ffccd43f6640015",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "firmware/main/app_wake.h",
+      "lines_read": 18,
+      "changed": true,
+      "retained_keyword_lines": [],
+      "sha256": "dfa1b25cfbd7b098fdc0a115e5767a8cdbd7c5c36d42275789e20e33364a70d9",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "firmware/main/app_wake_diagnostic.c",
+      "lines_read": 173,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "178305b7ed700cd8c909cd2d3fa444d08f83b048445f14793b9af27def6c9cc1",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "firmware/main/app_wake_diagnostic.h",
+      "lines_read": 30,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "b202be5577455fb427848f90c959890d24ef2d1491fdc369d146ba2b1398cb3a",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "firmware/main/app_weather.c",
+      "lines_read": 354,
+      "changed": true,
+      "retained_keyword_lines": [],
+      "sha256": "9b5e5feba2b5b699e17dcfd00fb28b8a4d80bcf37c8668d12f74304060a003e3",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "firmware/main/app_weather.h",
+      "lines_read": 70,
+      "changed": true,
+      "retained_keyword_lines": [],
+      "sha256": "b4222f8da84ae108fe22a7ce34280f16baa187606ccc1a76292702fe1bbb5576",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "firmware/main/app_words.c",
+      "lines_read": 67,
+      "changed": true,
+      "retained_keyword_lines": [],
+      "sha256": "8d8b4cc6e993e44e69b54cbb5ac9c5f1b3c00c5b1b5dae70fa58e57c50a2b988",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "firmware/main/app_words.h",
+      "lines_read": 15,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "8694cdde8eb4d87be61f49b9eff633a3cb586014016069d2215b11f3f2a1754c",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "firmware/main/cloud_credentials.example.h",
+      "lines_read": 13,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "87cfc246bdf7c52d78890b71bb395580be8498e22db51bbac22a2628d5258b4e",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "firmware/main/device_registry.example.h",
+      "lines_read": 8,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "376152d8d0189a5d32ab61094afbdb1a2c179e39451935b2b0efcc09df9f3373",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "firmware/main/idf_component.yml",
+      "lines_read": 8,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "09f30d5de2e819fd8b016dd980e8be3ab822d1d315d80a2b77516a45d5741a80",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "firmware/main/lvgl_psram.lf",
+      "lines_read": 7,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "669ab95d309c45c2f5976f2649e00a2197f478a7805ef8cdc42ff8988358f1d7",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "firmware/main/main.c",
+      "lines_read": 774,
+      "changed": true,
+      "retained_keyword_lines": [],
+      "sha256": "d23ab22dd2bc3ae825e6f4e92fc92759dfbc8ccba9ba9533a8d425d1219fc9be",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "firmware/main/media_web.html",
+      "lines_read": 460,
+      "changed": true,
+      "retained_keyword_lines": [
+        7
+      ],
+      "sha256": "426a20d7ce660ea7c10530c10bd09b471500e37316303d243f5bdc3d38d1b5be",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "firmware/main/wifi_credentials.example.h",
+      "lines_read": 5,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "38e78a58db79890012919faa8bb48e850310493bc7585a74c77c20fe745c6e53",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "firmware/partitions.csv",
+      "lines_read": 4,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "90ca4d73bce6df39471c5a4a4b793576ba027100261e55c809bc9846b68cbbb2",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "firmware/partitions_wake.csv",
+      "lines_read": 6,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "f9848bcfbb313c2ffae02d51fdc0e61e698e0dd371b8a4618a7002e15d1fb255",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "firmware/sdkconfig",
+      "lines_read": 4910,
+      "changed": false,
+      "retained_keyword_lines": [
+        2,
+        664,
+        672,
+        674,
+        699,
+        712,
+        714,
+        724,
+        726,
+        728,
+        732,
+        734,
+        742,
+        764,
+        772,
+        774,
+        780,
+        784,
+        786,
+        788,
+        792,
+        803,
+        805,
+        807,
+        818,
+        820,
+        822,
+        894,
+        896,
+        898,
+        905,
+        907,
+        911,
+        913,
+        917,
+        923,
+        927,
+        929,
+        932,
+        933,
+        934,
+        935,
+        937,
+        938,
+        939,
+        943,
+        947,
+        953,
+        964,
+        966,
+        968,
+        970,
+        985,
+        1006,
+        1012,
+        1014,
+        1018,
+        1024,
+        1026,
+        1028,
+        1030,
+        1037,
+        1039,
+        1041,
+        1043,
+        1045,
+        1047,
+        1049,
+        1051,
+        1053,
+        1055,
+        1057,
+        1059,
+        1061,
+        1063,
+        1065,
+        1067,
+        1069,
+        1071,
+        1073,
+        1075,
+        1077,
+        1079,
+        1081,
+        1082,
+        1084,
+        1086,
+        1088,
+        1090,
+        1092,
+        1094,
+        1096,
+        1098,
+        1100,
+        1102,
+        1104,
+        1106,
+        1108,
+        1110,
+        1112,
+        1114,
+        1116,
+        1118,
+        1120,
+        1122,
+        1124,
+        1126,
+        1128,
+        1130,
+        1132,
+        1135,
+        1137,
+        1139,
+        1141,
+        1143,
+        1145,
+        1147,
+        1149,
+        1151,
+        1153,
+        1155,
+        1157,
+        1159,
+        1161,
+        1163,
+        1165,
+        1167,
+        1169,
+        1171,
+        1173,
+        1175,
+        1177,
+        1183,
+        1185,
+        1187,
+        1189,
+        1191,
+        1195,
+        1197,
+        1199,
+        1210,
+        1212,
+        1214,
+        1218,
+        1220,
+        1222,
+        1228,
+        1232,
+        1234,
+        1238,
+        1240,
+        1242,
+        1244,
+        1246,
+        1248,
+        1250,
+        1252,
+        1254,
+        1256,
+        1258,
+        1266,
+        1268,
+        1270,
+        1274,
+        1276,
+        1287,
+        1303,
+        1305,
+        1311,
+        1316,
+        1324,
+        1335,
+        1337,
+        1339,
+        1346,
+        1348,
+        1355,
+        1357,
+        1365,
+        1367,
+        1378,
+        1380,
+        1384,
+        1386,
+        1388,
+        1390,
+        1392,
+        1394,
+        1403,
+        1405,
+        1407,
+        1409,
+        1418,
+        1420,
+        1436,
+        1449,
+        1456,
+        1465,
+        1467,
+        1471,
+        1478,
+        1480,
+        1491,
+        1493,
+        1500,
+        1502,
+        1504,
+        1511,
+        1520,
+        1522,
+        1526,
+        1533,
+        1535,
+        1537,
+        1550,
+        1552,
+        1554,
+        1558,
+        1560,
+        1567,
+        1569,
+        1576,
+        1585,
+        1594,
+        1596,
+        1598,
+        1600,
+        1607,
+        1614,
+        1616,
+        1618,
+        1620,
+        1627,
+        1634,
+        1636,
+        1638,
+        1656,
+        1658,
+        1665,
+        1678,
+        1700,
+        1702,
+        1704,
+        1706,
+        1710,
+        1725,
+        1727,
+        1729,
+        1738,
+        1740,
+        1744,
+        1751,
+        1755,
+        1770,
+        1772,
+        1811,
+        1817,
+        1836,
+        1838,
+        1849,
+        1851,
+        1853,
+        1892,
+        1894,
+        1896,
+        1898,
+        1900,
+        1902,
+        1920,
+        1922,
+        1924,
+        1931,
+        1943,
+        1945,
+        1947,
+        1949,
+        1955,
+        1957,
+        1959,
+        1971,
+        1982,
+        1986,
+        1994,
+        1996,
+        1998,
+        2014,
+        2020,
+        2024,
+        2028,
+        2030,
+        2036,
+        2038,
+        2042,
+        2051,
+        2053,
+        2055,
+        2072,
+        2077,
+        2083,
+        2085,
+        2087,
+        2089,
+        2093,
+        2100,
+        2102,
+        2106,
+        2109,
+        2117,
+        2119,
+        2140,
+        2142,
+        2144,
+        2146,
+        2148,
+        2167,
+        2171,
+        2181,
+        2185,
+        2191,
+        2197,
+        2201,
+        2205,
+        2211,
+        2215,
+        2224,
+        2226,
+        2233,
+        2241,
+        2245,
+        2247,
+        2269,
+        2271,
+        2287,
+        2295,
+        2297,
+        2325,
+        2335,
+        2343,
+        2352,
+        2358,
+        2375,
+        2385,
+        2391,
+        2405,
+        2413,
+        2429,
+        2433,
+        2439,
+        2443,
+        2449,
+        2457,
+        2459,
+        2461,
+        2463,
+        2465,
+        2467,
+        2469,
+        2475,
+        2477,
+        2479,
+        2483,
+        2487,
+        2489,
+        2496,
+        2498,
+        2509,
+        2513,
+        2515,
+        2519,
+        2523,
+        2525,
+        2527,
+        2529,
+        2531,
+        2533,
+        2535,
+        2537,
+        2539,
+        2541,
+        2543,
+        2545,
+        2547,
+        2549,
+        2551,
+        2553,
+        2555,
+        2557,
+        2559,
+        2561,
+        2569,
+        2579,
+        2583,
+        2585,
+        2589,
+        2591,
+        2615,
+        2617,
+        2621,
+        2623,
+        2631,
+        2633,
+        2637,
+        2643,
+        2645,
+        2661,
+        2663,
+        2665,
+        2667,
+        2676,
+        2680,
+        2688,
+        2694,
+        2698,
+        2700,
+        2728,
+        2730,
+        2732,
+        2747,
+        2749,
+        2753,
+        2755,
+        2757,
+        2759,
+        2761,
+        2763,
+        2772,
+        2780,
+        2782,
+        2784,
+        2788,
+        2790,
+        2796,
+        2798,
+        2806,
+        2810,
+        2812,
+        2816,
+        2828,
+        2832,
+        2858,
+        2860,
+        2864,
+        2866,
+        2868,
+        2874,
+        2878,
+        2880,
+        2886,
+        2888,
+        2896,
+        2898,
+        2904,
+        2906,
+        2920,
+        2922,
+        2924,
+        2928,
+        2954,
+        2960,
+        2964,
+        2966,
+        2968,
+        3010,
+        3014,
+        3016,
+        3034,
+        3036,
+        3046,
+        3048,
+        3062,
+        3064,
+        3066,
+        3074,
+        3076,
+        3092,
+        3109,
+        3111,
+        3113,
+        3125,
+        3129,
+        3133,
+        3135,
+        3139,
+        3141,
+        3145,
+        3147,
+        3151,
+        3153,
+        3157,
+        3159,
+        3163,
+        3165,
+        3169,
+        3173,
+        3186,
+        3190,
+        3196,
+        3206,
+        3208,
+        3210,
+        3214,
+        3216,
+        3224,
+        3226,
+        3228,
+        3249,
+        3257,
+        3261,
+        3275,
+        3277,
+        3279,
+        3281,
+        3287,
+        3289,
+        3301,
+        3303,
+        3311,
+        3313,
+        3315,
+        3317,
+        3327,
+        3345,
+        3353,
+        3357,
+        3365,
+        3367,
+        3369,
+        3385,
+        3389,
+        3391,
+        3431,
+        3433,
+        3437,
+        3447,
+        3455,
+        3463,
+        3471,
+        3492,
+        3502,
+        3504,
+        3513,
+        3539,
+        3547,
+        3549,
+        3551,
+        3553,
+        3555,
+        3557,
+        3564,
+        3570,
+        3574,
+        3581,
+        3583,
+        3602,
+        3604,
+        3650,
+        3654,
+        3660,
+        3662,
+        3666,
+        3668,
+        3678,
+        3680,
+        3682,
+        3686,
+        3688,
+        3690,
+        3700,
+        3702,
+        3704,
+        3757,
+        3765,
+        3771,
+        3785,
+        3787,
+        3789,
+        3791,
+        3793,
+        3795,
+        3811,
+        3819,
+        3835,
+        3837,
+        3841,
+        3843,
+        3858,
+        3860,
+        3864,
+        3881,
+        3943,
+        3949,
+        3951,
+        3953,
+        3957,
+        3959,
+        3961,
+        3975,
+        3987,
+        3993,
+        3995,
+        3999,
+        4001,
+        4012,
+        4014,
+        4016,
+        4018,
+        4022,
+        4024,
+        4028,
+        4030,
+        4054,
+        4056,
+        4058,
+        4060,
+        4062,
+        4064,
+        4066,
+        4068,
+        4111,
+        4113,
+        4117,
+        4125,
+        4127,
+        4129,
+        4131,
+        4135,
+        4137,
+        4139,
+        4141,
+        4143,
+        4145,
+        4147,
+        4149,
+        4151,
+        4162,
+        4173,
+        4175,
+        4177,
+        4186,
+        4188,
+        4190,
+        4197,
+        4207,
+        4209,
+        4211,
+        4213,
+        4215,
+        4223,
+        4227,
+        4229,
+        4231,
+        4233,
+        4244,
+        4246,
+        4252,
+        4254,
+        4257,
+        4259,
+        4261,
+        4263,
+        4265,
+        4268,
+        4270,
+        4272,
+        4275,
+        4277,
+        4279,
+        4281,
+        4282,
+        4285,
+        4287,
+        4289,
+        4293,
+        4295,
+        4297,
+        4301,
+        4303,
+        4305,
+        4307,
+        4309,
+        4311,
+        4313,
+        4315,
+        4317,
+        4319,
+        4321,
+        4323,
+        4325,
+        4327,
+        4329,
+        4331,
+        4333,
+        4335,
+        4337,
+        4339,
+        4341,
+        4343,
+        4345,
+        4347,
+        4349,
+        4365,
+        4373,
+        4375,
+        4398,
+        4424,
+        4493,
+        4501,
+        4519,
+        4521,
+        4523,
+        4525,
+        4527,
+        4529,
+        4531,
+        4533,
+        4535,
+        4537,
+        4539,
+        4541,
+        4543,
+        4545,
+        4547,
+        4549,
+        4551,
+        4553,
+        4555,
+        4559,
+        4561,
+        4563,
+        4565,
+        4567,
+        4569,
+        4571,
+        4573,
+        4580,
+        4582,
+        4584,
+        4586,
+        4588,
+        4590,
+        4592,
+        4596,
+        4598,
+        4600,
+        4602,
+        4604,
+        4606,
+        4619,
+        4621,
+        4623,
+        4625,
+        4627,
+        4629,
+        4631,
+        4633,
+        4635,
+        4637,
+        4639,
+        4641,
+        4643,
+        4645,
+        4647,
+        4649,
+        4651,
+        4653,
+        4655,
+        4657,
+        4659,
+        4675,
+        4677,
+        4679,
+        4681,
+        4683,
+        4685,
+        4687,
+        4689,
+        4691,
+        4693,
+        4695,
+        4701,
+        4704,
+        4705,
+        4706,
+        4707,
+        4708,
+        4709,
+        4710,
+        4712,
+        4713,
+        4715,
+        4716,
+        4717,
+        4719,
+        4724,
+        4725,
+        4727,
+        4728,
+        4730,
+        4732,
+        4733,
+        4734,
+        4735,
+        4736,
+        4737,
+        4738,
+        4739,
+        4740,
+        4741,
+        4746,
+        4750,
+        4751,
+        4752,
+        4759,
+        4760,
+        4761,
+        4762,
+        4763,
+        4764,
+        4765,
+        4766,
+        4767,
+        4768,
+        4769,
+        4770,
+        4775,
+        4776,
+        4777,
+        4778,
+        4783,
+        4784,
+        4785,
+        4786,
+        4787,
+        4788,
+        4789,
+        4791,
+        4794,
+        4795,
+        4802,
+        4803,
+        4804,
+        4808,
+        4810,
+        4824,
+        4828,
+        4832,
+        4836,
+        4840,
+        4847,
+        4856,
+        4857,
+        4858,
+        4859,
+        4860,
+        4861,
+        4862,
+        4863,
+        4864,
+        4865,
+        4866,
+        4871,
+        4873,
+        4874,
+        4887,
+        4888,
+        4892,
+        4893,
+        4895,
+        4900,
+        4901,
+        4905,
+        4906,
+        4908
+      ],
+      "sha256": "d8183be66a274c0d21582b506dd859eade9b1cef5592dfd5d2853b67ad0ea283",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "hardware/.gitignore",
+      "lines_read": 13,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "2b6a5b4fb7e231e4b74eb050d4f48e8ba5f6ab00486a01b6dbfa5cf3b9d65da2",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "hardware/BOM.md",
+      "lines_read": 91,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "54fad4f799eea1751fdd6f800765f731289ccf8e1755c7b0699b204479f122c7",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "hardware/README.md",
+      "lines_read": 29,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "e5b1b29166140635d64d9e338b5c54ff49f715556f5141ac89aea96328f6b45c",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "hardware/VoxConductor.kicad_pcb",
+      "lines_read": 23989,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "aa969c4622226e21993787093240118a8f0222cf1b3dae50aa8d425ad1c36f35",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "hardware/VoxConductor.kicad_pro",
+      "lines_read": 805,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "b67dadd992e47e5f2ffc14a9d9168e48948558b9a4f8dfafdef47b46a9b6e811",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "hardware/VoxConductor.kicad_sch",
+      "lines_read": 19603,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "0a5b0097d0749a3d452802d7da6a4baa89146ff54c1364e40c7cd34d7f37d0c8",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "hardware/checks/README.md",
+      "lines_read": 12,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "e5acbfb222f40d89a0c53b0d128e2f4a83b1b6f188e2739398afa65544e2f948",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "hardware/checks/drc.json",
+      "lines_read": 36,
+      "changed": false,
+      "retained_keyword_lines": [
+        11
+      ],
+      "sha256": "135f5fa4d0dc3b199ba08e8bf622021bf50d80f14ca4c2548011a92a83ea0846",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "hardware/checks/erc.json",
+      "lines_read": 60,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "794b6751598e64dc9a95423cd5b4a77bfb078f0ef932856db76d415c492b69fc",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "hardware/docs/audio/README.md",
+      "lines_read": 11,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "d000f2000b61c6a7a3c2ddfcaabb900dddfc92ecb21464842883c3f9bb131a19",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "hardware/docs/display/README.md",
+      "lines_read": 13,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "7685d2c68f0b53d5528b539d36d3221098de47e2241094b24c17f67c93439528",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "hardware/exports/board-bom-detailed.csv",
+      "lines_read": 62,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "98d9522a8810c22176f213b4d667c794c8ff225fba7e8f2690c93391dce27ad1",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "hardware/exports/board-bom.csv",
+      "lines_read": 37,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "9ada76acee23d0deeb83896de008e70923e4290b13c9681146e20bb2f83beaab",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "hardware/exports/pcb-top.svg",
+      "lines_read": 21580,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "7d5c9778798db675f7204f708ac035ec20e4a75bd3506438e295cd818c6c9170",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "hardware/fabrication/2026-09-16/README.md",
+      "lines_read": 13,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "4fe33613d424fa7fc7ccef013664c8f4e38a5c7be90d5f850e3eeda9d0e7afdb",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "hardware/fabrication/2026-09-16/VoxConductor-B_Cu.gbl",
+      "lines_read": 2942,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "b3af9acad1b715da5841712162a8235fd5c64f5fd05aa65b2778ff8cd45bce9d",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "hardware/fabrication/2026-09-16/VoxConductor-B_Mask.gbs",
+      "lines_read": 65,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "3f6fc50df63498cce01811dbdf8d4f854d2612b39b544980c7a83b0b2d04ab2d",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "hardware/fabrication/2026-09-16/VoxConductor-B_Silkscreen.gbo",
+      "lines_read": 2050,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "c77c92169aad98352fe1c4d5feb66152677de8f53c28fdcf311f30ae92ff41da",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "hardware/fabrication/2026-09-16/VoxConductor-Edge_Cuts.gm1",
+      "lines_read": 34,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "3ddbbd1c8b87d7640fc53fb1b1820b1f519aa87094b1294f1ee110b62f307e9d",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "hardware/fabrication/2026-09-16/VoxConductor-F_Cu.gtl",
+      "lines_read": 13078,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "012fd427d11b1804e05b1b317dd539b5657f8eba89151595e5bfd717757d51c1",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "hardware/fabrication/2026-09-16/VoxConductor-F_Mask.gts",
+      "lines_read": 4832,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "3f942b3f6834f597a3051fc3b483ba38fd27894aa9d871e1491f7f9dd02ad154",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "hardware/fabrication/2026-09-16/VoxConductor-F_Paste.gtp",
+      "lines_read": 4883,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "dac54f63adc17f5f219f93fdc6d2f866c62bcab70bf53424b1f91a7da418bada",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "hardware/fabrication/2026-09-16/VoxConductor-F_Silkscreen.gto",
+      "lines_read": 5834,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "532e37347829031878f231c5700b2e99789d41247e5a34b38fb36ded7e092df8",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "hardware/fabrication/2026-09-16/VoxConductor-In1_Cu.g1",
+      "lines_read": 2942,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "db9b7344aec9034ef298f0cde1a4705d16afe362d0ca78733cb59e0eebaafcce",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "hardware/fabrication/2026-09-16/VoxConductor-In2_Cu.g2",
+      "lines_read": 4891,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "26056d211215ed613e65135d4196e846a08cdc4c5850081088dd8a759d3a95a8",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "hardware/fabrication/2026-09-16/VoxConductor-NPTH.drl",
+      "lines_read": 27,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "8138f72f47d856417cc83a6d81910333ab7c277b37b5af66b057efb0de052832",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "hardware/fabrication/2026-09-16/VoxConductor-PTH.drl",
+      "lines_read": 142,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "e2d9c0fb48cbb55feaecc6a1bd72131f6664787c0550eb939bc63ddb870c5dcc",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "hardware/fabrication/2026-09-16/VoxConductor-drill.rpt",
+      "lines_read": 30,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "96f9abe6f7adb2833c8b9f1eed88bc6004aaf2e123c2ad154b2854d5c9f4ed95",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "hardware/fabrication/2026-09-16/VoxConductor-job.gbrjob",
+      "lines_read": 166,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "bd6a2eb29b7636a0a2b97c7554abeece4b92fcdba99435b1a2d6300bb26b5371",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "hardware/fabrication/2026-09-16/placement.csv",
+      "lines_read": 60,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "6b44d6ada830f1d5caa2d8f7294cad7f96eee9ea6dcaaf7d3da040550f74e2bd",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "hardware/fabrication/2026-09-16/制造说明.txt",
+      "lines_read": 18,
+      "changed": false,
+      "retained_keyword_lines": [
+        10
+      ],
+      "sha256": "3cc323b73c07ca2e559eacbb81cf97746becc04ce704deb85ba41b15561e6c11",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "hardware/fp-lib-table",
+      "lines_read": 3,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "9d60b8dd37fc3aea3b55c063b5c68e7179888412cfb6c4b51ff4a2d2d87f2208",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "hardware/lib/VoxConductor_Footprints.pretty/ESP32-S3-WROOM-1_Thermal_0p3.kicad_mod",
+      "lines_read": 773,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "73eb34fc885f4142caa5c4229b7914f945d07545fb5c4fbeed1eca4f39f00d90",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "hardware/lib/VoxConductor_Footprints.pretty/Hirose_FH12-12S-0.5SVA_Vertical.kicad_mod",
+      "lines_read": 50,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "36c02eca90e7aa65354a494fe45bffcdb34c0b62f3ecd30b7dd14e3816577279",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "hardware/lib/VoxConductor_Footprints.pretty/INMP441ACEZ-R7.kicad_mod",
+      "lines_read": 300,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "c2123efd313139d5cbec145decb88727b73788ffc107f08db24019ab627c6801",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "hardware/lib/VoxConductor_Symbols.kicad_sym",
+      "lines_read": 96,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "aa823c1f96e4f115fede744623e87a425c9f3488e082d093654fc43ce7d8fa19",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "hardware/manifest.json",
+      "lines_read": 96,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "4fe23cd3a423c932341b1de65b754ef6112cb303ad411bb2e3c6a0e61087a0ab",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "hardware/mechanical/V3-SLA/README.md",
+      "lines_read": 86,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "498c6a225a8a3a5e3124c93b278b2c6582674543dcad0723b9973725fca56ff5",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "hardware/mechanical/V3-SLA/assembly/V3_assembly_DO_NOT_PRINT.step",
+      "lines_read": 28780,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "324b6c11c70d5b058c19025847467d7109a688da282115fe268c4cc114c50dec",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "hardware/mechanical/V3-SLA/checks/delivery_validation.json",
+      "lines_read": 92,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "6d3f57e415fd94ae38d49d9bfe21c27863354d5f6d54230e88f1fc7eaf3052ac",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "hardware/mechanical/V3-SLA/checks/optical_speaker_validation.json",
+      "lines_read": 20,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "7102db2bda22b1b069751edf2b05785bcc5dd5244c0db01c4a36b28c7ccf58be",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "hardware/mechanical/V3-SLA/checks/validation.json",
+      "lines_read": 742,
+      "changed": false,
+      "retained_keyword_lines": [
+        732,
+        734
+      ],
+      "sha256": "85e40a45f9ee4f029c4e62e429ee985f643e709a851dcedfe203a3e9163cb0c7",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "hardware/mechanical/V3-SLA/manifest.json",
+      "lines_read": 58,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "89f1c817a42b79c8564e72d2cf6f9d52f61335335d5e65c829111456a003adef",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "hardware/mechanical/V3-SLA/parts/01_main_shell.step",
+      "lines_read": 10236,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "af413b7a74820b6dd2f45d7fdbfaeae21aad2fb56db0574f1da41199fa98adbb",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "hardware/mechanical/V3-SLA/parts/02_base.step",
+      "lines_read": 1532,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "fa05578cdb67c75c067c530971e6246a8f40432b7008e7b078ddc6b93878e79c",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "hardware/mechanical/V3-SLA/parts/03_LCD_retainer.step",
+      "lines_read": 1432,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "b0fce3569a2406be5a69095c8c13983aed7782800aeddd82c34b47fad851328a",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "hardware/mechanical/V3-SLA/parts/04_speaker_cradle.step",
+      "lines_read": 2650,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "dabf44853eefa28b48addd5dd9d8a34a0858fd211df623937126b92e32a682a6",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "hardware/mechanical/V3-SLA/parts/05_speaker_retainer.step",
+      "lines_read": 480,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "93a72d2c740ab1539a2086332b5dc66da4aa5160bc7cc89040c2104f7f42525d",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "hardware/mechanical/V3-SLA/parts/06_prism_carrier.step",
+      "lines_read": 2587,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "a59cfcd1cc8ed0a7f421b4897e12ac0a55a4f6f89736680adf8a8c7921fef80d",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "hardware/mechanical/V3-SLA/preview/scene.json",
+      "lines_read": 1,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "ef1eb903ffd4adb465bc403d763edfb42d5bd7636cff8f786566da3ca38ab6d6",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "hardware/mechanical/V3-SLA/source/build.py",
+      "lines_read": 160,
+      "changed": true,
+      "retained_keyword_lines": [],
+      "sha256": "423f38198dabbed3187fa3c5cb24bf324901196d4261367dee0d64fb28c04207",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "hardware/mechanical/V3-SLA/source/complete_assembly.py",
+      "lines_read": 28,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "42344ae5874e8d7d6cb2ea40a7129770d58eaff75d1e048df41245b47f3c823f",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "hardware/mechanical/V3-SLA/source/extract_pcb.py",
+      "lines_read": 41,
+      "changed": true,
+      "retained_keyword_lines": [
+        32
+      ],
+      "sha256": "741b12af414e9de23a2934d0a10a21f9b0638556f39bed929833bbc4fb16e29a",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "hardware/mechanical/V3-SLA/source/frozen_v2/01_main_shell.step",
+      "lines_read": 22020,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "604bab16a404f60b2a897d0580110dc1e6f075008b03a970dcefd5fe11981383",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "hardware/mechanical/V3-SLA/source/frozen_v2/02_base.step",
+      "lines_read": 4048,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "88aca8a89e10dd7b435a6ae3c136d9aa23f40639addf3986057e8b2ead553750",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "hardware/mechanical/V3-SLA/source/frozen_v2/03_LCD_retainer.step",
+      "lines_read": 3896,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "38a388b1ee59c9e278bab40e5daab2fa244c5c6062ad58dfa4487625a0b90bde",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "hardware/mechanical/V3-SLA/source/frozen_v2/04_speaker_cradle.step",
+      "lines_read": 3952,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "e308313b19c368d1604501d8315ab4a143cc8e7b42e4bcae279956c595f561eb",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "hardware/mechanical/V3-SLA/source/frozen_v2/05_speaker_retainer.step",
+      "lines_read": 1165,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "32df56e0480addd4b992d9121a5d23d3d2476a30a2327f9310d84fc8eeeea9a0",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "hardware/mechanical/V3-SLA/source/frozen_v2/06_prism_carrier.step",
+      "lines_read": 6879,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "3dc61ca10ac7edc674b55183d4584609d7c520ca5fc63530047b4f7a6b1f072e",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "hardware/mechanical/V3-SLA/source/make_presentation.py",
+      "lines_read": 25,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "3af5ef094b9b66af461a243727a1228813e3d549ce3ead67aa2404ed3a4995e1",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "hardware/mechanical/V3-SLA/source/package.py",
+      "lines_read": 22,
+      "changed": false,
+      "retained_keyword_lines": [
+        9,
+        11
+      ],
+      "sha256": "d0b68f1c82439ac948b08bb1149f425382eca4de15a2435a26fac3f325256871",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "hardware/mechanical/V3-SLA/source/pcb_actual.json",
+      "lines_read": 4829,
+      "changed": false,
+      "retained_keyword_lines": [
+        4828
+      ],
+      "sha256": "3b77e5ffbf90274ec16d8ea1333b146a33925cfff38ff771f5e1a90225e38802",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "hardware/mechanical/V3-SLA/source/render.py",
+      "lines_read": 45,
+      "changed": true,
+      "retained_keyword_lines": [
+        32,
+        39
+      ],
+      "sha256": "0966976713d3abd049edd37bb4d53d8664875a762e305c2187458369575649d2",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "hardware/mechanical/V3-SLA/source/render_3d.py",
+      "lines_read": 35,
+      "changed": true,
+      "retained_keyword_lines": [
+        34
+      ],
+      "sha256": "500e7eb0705a1168d679824a6cd396fa628fe8cc225fee5da254a521d1b17d77",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "hardware/mechanical/V3-SLA/source/verify_delivery.py",
+      "lines_read": 28,
+      "changed": true,
+      "retained_keyword_lines": [],
+      "sha256": "1206522ed514c7ff33fbca738163293795e0797729a3ceed25fe87c7d5923338",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "hardware/mechanical/V3-SLA/trial/07_entry_frame_first_print.step",
+      "lines_read": 4196,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "f5f213db5ccdd126348c61b5b2ff5d5191c367e7ecdecd61d383e0f0f88c28a6",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "hardware/mechanical/V3-SLA/trial/08_pilot_coupon_1p5_1p6_1p7.step",
+      "lines_read": 323,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "704d63d621feaa4f281b3c73eb549e0d6f25f36eda0cf72694fa95fdbd05e978",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "hardware/sym-lib-table",
+      "lines_read": 3,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "e3808274112aeae116feeeb26939fc687fb1e2de8f94d218ee1a929349b5c50d",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "license-scope.json",
+      "lines_read": 2498,
+      "changed": false,
+      "retained_keyword_lines": [
+        2497
+      ],
+      "sha256": "824f4cd8a3af9f226cac1d4ccd0ab68990e79441317469e0f3663a92e0b9f43e",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "licenses/ESP-DL-MIT.txt",
+      "lines_read": 21,
+      "changed": false,
+      "retained_keyword_lines": [
+        16
+      ],
+      "sha256": "3513f1605ebcc227f7364956f6c30a303412597e232648cb3090e76697ca5aa3",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "licenses/ESP-SR-LICENSE.txt",
+      "lines_read": 20,
+      "changed": false,
+      "retained_keyword_lines": [
+        16
+      ],
+      "sha256": "7d916fb00bc0742c47cafb0d0144b67f826d76779730b1cb8796045ea6ba1b9a",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "licenses/LVGL-MIT.txt",
+      "lines_read": 8,
+      "changed": false,
+      "retained_keyword_lines": [
+        8
+      ],
+      "sha256": "27a80bd36832ab42d35ad60c08b2b230a807a9bc0d58e94ec1531543dc49cbe8",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "licenses/Montserrat-OFL.txt",
+      "lines_read": 93,
+      "changed": false,
+      "retained_keyword_lines": [
+        20,
+        23,
+        25,
+        69,
+        75,
+        77,
+        82,
+        86
+      ],
+      "sha256": "41f82bb4d24b304f30f7136bc47abdd083782e4265c984160f5649d1e78ea49c",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "licenses/PolyForm-Noncommercial-1.0.0.txt",
+      "lines_read": 75,
+      "changed": false,
+      "retained_keyword_lines": [
+        47,
+        51,
+        59,
+        63
+      ],
+      "sha256": "2bcec023400d9da31b8526fbabd5310b0a379f0a621665a2f674395a9f49ae4b",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "licenses/SourceHanSansSC-OFL.txt",
+      "lines_read": 96,
+      "changed": false,
+      "retained_keyword_lines": [
+        23,
+        26,
+        28,
+        72,
+        78,
+        80,
+        85,
+        89
+      ],
+      "sha256": "f55c2d43dd905011515f5e46ba78d180027e314ef8ccaaf53a9e88fe316767cd",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "licenses/cJSON-MIT.txt",
+      "lines_read": 20,
+      "changed": false,
+      "retained_keyword_lines": [
+        14
+      ],
+      "sha256": "a36dda207c36db5818729c54e7ad4e8b0c6fba847491ba64f372c1a2037b6d5c",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "licenses/esp_websocket_client-Apache-2.0.txt",
+      "lines_read": 202,
+      "changed": false,
+      "retained_keyword_lines": [
+        28,
+        33,
+        45,
+        56,
+        61,
+        104,
+        110,
+        118,
+        139,
+        161,
+        171,
+        193
+      ],
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "server/.env.example",
+      "lines_read": 19,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "9b863080d1c101afe16efe6ab3084847fe1ad4ea65f98f64687fdaa2230ab0a0",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "server/app.py",
+      "lines_read": 469,
+      "changed": false,
+      "retained_keyword_lines": [
+        160,
+        199
+      ],
+      "sha256": "85b3fb71e03d7e281b7df0a9c972a9785291444b18c39e6ddb8e462742fe83e4",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "server/asr_client.py",
+      "lines_read": 96,
+      "changed": false,
+      "retained_keyword_lines": [
+        18,
+        21,
+        24,
+        82
+      ],
+      "sha256": "5410d38872127e306fd818498022c1d295ad7be0ec4edd3940c6a10388b7ebcf",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "server/conversation_store.py",
+      "lines_read": 158,
+      "changed": false,
+      "retained_keyword_lines": [
+        19,
+        25,
+        27,
+        28,
+        29,
+        31,
+        32,
+        49,
+        141
+      ],
+      "sha256": "7f82b36fd56a633a76d17090888d524f5f1a8225e5a96b356a45d2dd243bb0e2",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "server/deepseek_client.py",
+      "lines_read": 114,
+      "changed": false,
+      "retained_keyword_lines": [
+        17
+      ],
+      "sha256": "882178a8ad5380f4875405cd4c51021ab567e0546c4e0f1e23c9e494be7bb3a4",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "server/requirements.txt",
+      "lines_read": 4,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "f1a10bc738bbcd7cb5c48a3ad4f51e5c1d5227c7215e051f85d30ba10a80b7a2",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "server/tts_client.py",
+      "lines_read": 256,
+      "changed": true,
+      "retained_keyword_lines": [
+        43,
+        49,
+        78,
+        81,
+        139,
+        144,
+        206
+      ],
+      "sha256": "d46bf8aa8a822b63fe74482370e3ab8c4c66e69c88fa4bab3b0c175ba6b111b7",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "server/tts_realtime_test.py",
+      "lines_read": 133,
+      "changed": false,
+      "retained_keyword_lines": [
+        38,
+        85,
+        118
+      ],
+      "sha256": "1b345bb7dfe9b4125da796ec15d2095334e52a81595134e3354e44a1191f7460",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "server/weather_client.py",
+      "lines_read": 99,
+      "changed": false,
+      "retained_keyword_lines": [
+        45
+      ],
+      "sha256": "b9a6ddc5b9f5c48114e774f7b66dd980e8af5dd7b9773c70c0fd249746547a28",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "tests/agent_safety/README.md",
+      "lines_read": 7,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "07b4a858755ae5c6558d68f131f9e4571c8d6889f07040f95f50178f4dd0d658",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "tests/agent_safety/run_checks.py",
+      "lines_read": 21,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "bcf53d744b7d817216523e95016a95a7738d674d47d7f0caa6f8e97ca5a5e33f",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "tests/agent_safety/run_reliability_checks.py",
+      "lines_read": 44,
+      "changed": false,
+      "retained_keyword_lines": [
+        30,
+        33,
+        42
+      ],
+      "sha256": "81f1be0ed26e496f9e171516e0ee654d2fa4d08aaa49e303dc4ebdbc89a18b91",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "tests/agent_safety/run_runtime_checks.py",
+      "lines_read": 77,
+      "changed": true,
+      "retained_keyword_lines": [],
+      "sha256": "9ce990633c0ca9a145caf07890d0971736c7d713d7a5fe9de115a0d23c20be27",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "tests/agent_safety/run_semantic_checks.sh",
+      "lines_read": 19,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "9945119275a6a657ad23407f5a6ed5c42291d306700baf73718778d878e07aee",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "tests/agent_safety/run_storage_fault_checks.py",
+      "lines_read": 22,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "c471cc172dc33af442f88be706dd9f100620991aa1f4cdf3e4ba015919bab963",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "tests/agent_safety/run_task_reconcile.py",
+      "lines_read": 8,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "e6410109bc3e1954badd69ba9737c0e36d24cbc3788ada297e3f2a51d40b9213",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "tests/agent_safety/run_transport_checks.py",
+      "lines_read": 47,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "47cbee101539e3772849fa7d495931a1085783f51f1299c7141dd2561b78d53b",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "tests/agent_safety/runtime-harness.c.in",
+      "lines_read": 250,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "03fa29de8f66671e25660b54839b429e1a22029ed4cbcf319f855666a5277cfc",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "tests/agent_safety/test_agent_receipts.c",
+      "lines_read": 81,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "cedf59063cf08ecee7f9016d0e881f32fa722db4301c22ae5e79130119177b66",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "tests/agent_safety/test_agent_semantics.c",
+      "lines_read": 290,
+      "changed": true,
+      "retained_keyword_lines": [],
+      "sha256": "a0a32644581dd8ef28acd495d94ae4442c75af53fdde2987da4375fb51e7a52c",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "tests/agent_safety/test_commit_failures.c",
+      "lines_read": 109,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "1593f620d8adaf18819b59bdab88e5962f06ce96a8b35983aaebf3d83c563161",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "tests/agent_safety/test_commit_result.c",
+      "lines_read": 36,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "cf9b7730dca56ec2957fa21700e54e1501bc0757c032e0771e74d3ac471d5ee5",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "tests/agent_safety/test_device_transport.c",
+      "lines_read": 73,
+      "changed": true,
+      "retained_keyword_lines": [],
+      "sha256": "da66efc673b968ad620c9d5a41a78e43a0417d192c353aec4bae6036267ea101",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "tests/agent_safety/test_task_reconcile.c",
+      "lines_read": 108,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "d597455a4296b1bc9f5efda6141755ca699c4a6340bb2459f00e64aed0843d2a",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "tests/button_stubs/driver/gpio.h",
+      "lines_read": 14,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "31b2850b9cf30238acecdb3d74af5ca72d460d1ad770a5c6d84ef12e836f2767",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "tests/button_stubs/esp_err.h",
+      "lines_read": 5,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "42e626bd5ecce94d5d19bc8155f33fec8e30a551b8c0d5c6351e861ae1187adc",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "tests/button_stubs/esp_log.h",
+      "lines_read": 2,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "8c272646dd132a250c4b06b681387781911c2ea5f8ee5c7016cfc6b8f7d16bd3",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "tests/button_stubs/esp_timer.h",
+      "lines_read": 3,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "82a7c14acf5d1cdcbea1b23bab880c69562da88013adc34ff5f2ae2115fb08d1",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "tests/button_stubs/freertos/FreeRTOS.h",
+      "lines_read": 6,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "0329fb504a45e2abd3562734d6fedf23d265c8d655172fbe2f8b9a027d41c5a8",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "tests/button_stubs/freertos/task.h",
+      "lines_read": 6,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "3573a02a7e7bc1fa624b2d26571db896a047307bb8231739dbdb811b333a96e4",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "tests/http_stubs/esp_http_client.h",
+      "lines_read": 25,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "37dd5cf0f4a441df712a2d22e16f0cac1fc68e89261e2abd20825c1686266f6f",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "tests/run_cloud_checks.sh",
+      "lines_read": 79,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "e8ad86407d748095bee5c0e3625d70bb58bd1095f38e6badb8f84f7fbf52ecc7",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "tests/speech_stubs/esp_err.h",
+      "lines_read": 9,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "d8332b37f41f50b70b22defb4a903ac9daf39e2c98f158083a6d4f4cfa8abcb6",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "tests/speech_stubs/freertos/FreeRTOS.h",
+      "lines_read": 7,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "34483683468ca7e52132d47a37c15bb52978be8ee9f9512ce345dfda85ebfbad",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "tests/speech_stubs/freertos/task.h",
+      "lines_read": 8,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "276f2a395a1601f267ad7ea33aee4ae2ed5c60ea35f026ba76790731eb5c6e25",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "tests/stubs/esp_err.h",
+      "lines_read": 2,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "b659e5e2f875eb1bb5c06f374a8a735c1379671d8860ef394f0958b39307f50f",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "tests/stubs/esp_random.h",
+      "lines_read": 3,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "8fe8d167b1dac059c8febc7de0235c7eae8599033b44bcb6556df6cb444b9288",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "tests/stubs/esp_timer.h",
+      "lines_read": 3,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "82a7c14acf5d1cdcbea1b23bab880c69562da88013adc34ff5f2ae2115fb08d1",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "tests/test_agent.c",
+      "lines_read": 489,
+      "changed": true,
+      "retained_keyword_lines": [],
+      "sha256": "1ca8d1d6bae60b2637e67de136ee9692c3b50379cf11ad068ddcfac6ec4c4368",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "tests/test_air_quality_recovery.py",
+      "lines_read": 102,
+      "changed": true,
+      "retained_keyword_lines": [
+        25,
+        30,
+        35,
+        47,
+        75,
+        85,
+        87,
+        91,
+        97
+      ],
+      "sha256": "e3f10212e324be65f05a4b89410284289bfc7ae13e990d080acdb21dcdb2feae",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "tests/test_auto_voice_source.py",
+      "lines_read": 95,
+      "changed": true,
+      "retained_keyword_lines": [
+        13,
+        14,
+        28,
+        32,
+        37,
+        68,
+        94
+      ],
+      "sha256": "65443475c083dd6259419801b176b3ef517a4c1601418f9ff6deeccce2b912de",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "tests/test_barge_diagnostic.py",
+      "lines_read": 131,
+      "changed": true,
+      "retained_keyword_lines": [
+        21,
+        32,
+        67,
+        68,
+        69,
+        130
+      ],
+      "sha256": "48710fd469febe728142178bad292cdd8fe78cb1dee42ca1db165d39ae472c4a",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "tests/test_barge_in_source.py",
+      "lines_read": 226,
+      "changed": true,
+      "retained_keyword_lines": [
+        31,
+        32,
+        34,
+        38,
+        39,
+        56,
+        62,
+        64,
+        65,
+        66,
+        78,
+        82,
+        99,
+        106,
+        170,
+        174,
+        176,
+        177,
+        178,
+        206,
+        225
+      ],
+      "sha256": "f5a3e46416350c70a31f1e35babbe14697f35fe7520f50233631db99e8793ede",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "tests/test_board_pins.py",
+      "lines_read": 99,
+      "changed": true,
+      "retained_keyword_lines": [
+        40,
+        41,
+        43,
+        49,
+        62,
+        67,
+        71,
+        97
+      ],
+      "sha256": "a37357808a6665eca4a3d15a581287b17f096571832cd6bea0bf0678864e23ee",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "tests/test_button.c",
+      "lines_read": 153,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "11c155e7fb2c2d71fdb701c5e3f3ef549725431ef854642fcb3dfcd593bf028b",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "tests/test_clock_weather_wake.py",
+      "lines_read": 188,
+      "changed": true,
+      "retained_keyword_lines": [
+        32,
+        41,
+        46,
+        66,
+        70,
+        78,
+        91,
+        92,
+        104,
+        105,
+        116,
+        127,
+        136,
+        147,
+        172,
+        187
+      ],
+      "sha256": "81404164d6138a3233f470de20f27c7a4b2446666fc11cddefecb29c6d797efb",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "tests/test_cloud_http.c",
+      "lines_read": 110,
+      "changed": true,
+      "retained_keyword_lines": [],
+      "sha256": "41183b29a4c311580893999ffa6aa11307b65c7d7723cc677b8ea03027959cbb",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "tests/test_cloud_protocol.c",
+      "lines_read": 175,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "0f221591413a46ec21b0f1904e4aabba73ec96ad1ae99dc237f35513bf056bba",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "tests/test_config_latency_source.py",
+      "lines_read": 128,
+      "changed": true,
+      "retained_keyword_lines": [
+        22,
+        80,
+        96,
+        107
+      ],
+      "sha256": "a450e8426af60349934adb8c614075e61abbf643bdb9298faef4816798e5c604",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "tests/test_desktop_assets.py",
+      "lines_read": 78,
+      "changed": true,
+      "retained_keyword_lines": [
+        22,
+        47,
+        50,
+        53,
+        56,
+        63,
+        65,
+        78
+      ],
+      "sha256": "8e6e6a6d87dece6404ce16ec87be4456f7e664d11dc74a21a27cc3a046ed1072",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "tests/test_display_memory.py",
+      "lines_read": 49,
+      "changed": true,
+      "retained_keyword_lines": [
+        27
+      ],
+      "sha256": "48c69736d59eeb14df97b8dd22c83f47f2cfcb80ccb0e32a2bc60f366bcde606",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "tests/test_focus.c",
+      "lines_read": 24,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "5f3f8f39c5af0e3edadc678379e6b02c3078ba5eee7729b0399311569399f26e",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "tests/test_followup_alarm_source.py",
+      "lines_read": 134,
+      "changed": true,
+      "retained_keyword_lines": [
+        38,
+        44,
+        65,
+        70,
+        86,
+        96,
+        102
+      ],
+      "sha256": "dcc19f89907b1504a65c92991c85b63edd025dcf9cd5049c1e0b8dee7fe08a07",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "tests/test_games.c",
+      "lines_read": 96,
+      "changed": true,
+      "retained_keyword_lines": [],
+      "sha256": "a5e38d4493509d84e4f162611f3a8861a28e9e5de31a518c3273b192d4650356",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "tests/test_games_source.py",
+      "lines_read": 23,
+      "changed": true,
+      "retained_keyword_lines": [
+        19,
+        20
+      ],
+      "sha256": "4961348599ed084bd34a16ff684372646b933ae978804cac948e3baba8e11bd7",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "tests/test_history_store.c",
+      "lines_read": 253,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "9f469d7749c9d7863e499e5913564dfcfcec60d7449fdf53e1eedc38ee05f82a",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "tests/test_holo_rework.py",
+      "lines_read": 219,
+      "changed": true,
+      "retained_keyword_lines": [
+        19,
+        27,
+        30,
+        35,
+        54,
+        159,
+        173
+      ],
+      "sha256": "efa4089e827cac6f01489e484870eff40d3e9065b9edc8d35b1e2bd20da1c04e",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "tests/test_holo_ui.py",
+      "lines_read": 65,
+      "changed": true,
+      "retained_keyword_lines": [
+        15,
+        16,
+        20,
+        25,
+        39,
+        48,
+        51,
+        53,
+        54
+      ],
+      "sha256": "d68e8ed6438f56f7eb5793632579f041b58c481d955e4dd1ebc6ec2e1d15fbf9",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "tests/test_home_idle_source.py",
+      "lines_read": 97,
+      "changed": true,
+      "retained_keyword_lines": [
+        33,
+        37,
+        59,
+        75,
+        76,
+        77,
+        82,
+        87,
+        90,
+        93
+      ],
+      "sha256": "82ccdee2c1e3523cc42cb379fd8ecac56478059786b71eaae5d371388d4d4d79",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "tests/test_http_range.c",
+      "lines_read": 15,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "d7eeeffcff85c654b7d67f3977b9890fcc03b62d3d1287fe3868c0b9ee96fbd9",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "tests/test_input_navigation.py",
+      "lines_read": 94,
+      "changed": true,
+      "retained_keyword_lines": [
+        16,
+        18,
+        20,
+        26,
+        28,
+        35,
+        38,
+        40,
+        52,
+        53,
+        55,
+        64,
+        66,
+        93
+      ],
+      "sha256": "f2d23e83e7646e0dbbd4342443f103d8ca471dcad5e1215dfcf90f57c153dbda",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "tests/test_interrupt_question_gate.py",
+      "lines_read": 39,
+      "changed": true,
+      "retained_keyword_lines": [
+        34,
+        35,
+        38
+      ],
+      "sha256": "dd85a3d8bb775ae036ea03d4d3e200e8cab9faebe124e0957eab120370c41798",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "tests/test_media_core_source.py",
+      "lines_read": 171,
+      "changed": true,
+      "retained_keyword_lines": [
+        20,
+        37,
+        38,
+        74,
+        98,
+        99,
+        100,
+        120,
+        122,
+        124,
+        132,
+        153,
+        166
+      ],
+      "sha256": "1ba52844ff02d7c96553a574845ec27f2e527eb0ae56a62f06aef33eb02899c5",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "tests/test_media_integration.py",
+      "lines_read": 57,
+      "changed": true,
+      "retained_keyword_lines": [
+        21,
+        34,
+        39,
+        56
+      ],
+      "sha256": "cb91101fd6c1ed040711e726ff578376fa6fef7ea04d5d336d5bab93b623b0b8",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "tests/test_media_pack.py",
+      "lines_read": 80,
+      "changed": true,
+      "retained_keyword_lines": [
+        27,
+        64,
+        74
+      ],
+      "sha256": "d1b61931cb81c3e449fd26a3070077f2acb41dcc7e51c4682eb8b451a5615089",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "tests/test_media_ui.py",
+      "lines_read": 127,
+      "changed": true,
+      "retained_keyword_lines": [
+        32,
+        58,
+        64,
+        66,
+        70,
+        71,
+        72,
+        76,
+        82,
+        104,
+        106,
+        107,
+        115
+      ],
+      "sha256": "4df90bbd3a4cb3222d718b8ef6a5e176cad53966d639153ef05d7f730ad83b7b",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "tests/test_media_web.py",
+      "lines_read": 175,
+      "changed": true,
+      "retained_keyword_lines": [
+        12,
+        13,
+        17,
+        18,
+        89,
+        90,
+        95,
+        97,
+        98,
+        101,
+        103,
+        114,
+        120
+      ],
+      "sha256": "85023b5e01ab9f513d83c2170a33e38619b6db77c164263c028083606f9c3222",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "tests/test_memory_voice_cleanup.py",
+      "lines_read": 94,
+      "changed": true,
+      "retained_keyword_lines": [
+        18,
+        19,
+        25,
+        52,
+        58,
+        60,
+        63,
+        73,
+        82,
+        85,
+        88,
+        90
+      ],
+      "sha256": "103c8166ebcf71794350ce2cfda338f3b93ec352f6b1309e8475989e905d8c81",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "tests/test_motion.c",
+      "lines_read": 372,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "74604d4a1b6faad2299cbdb714c29dbd0e026b31f6e01f1776df85d28eacad75",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "tests/test_navigation_editors_source.py",
+      "lines_read": 159,
+      "changed": true,
+      "retained_keyword_lines": [
+        19,
+        20,
+        21,
+        24,
+        25,
+        28,
+        45,
+        58,
+        69,
+        72,
+        106,
+        122,
+        123,
+        129,
+        134
+      ],
+      "sha256": "bfdb07f4a1346ed47f82657c38f1b230a13024ba0606b58f07469d8883b07ffb",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "tests/test_network_recovery.py",
+      "lines_read": 108,
+      "changed": true,
+      "retained_keyword_lines": [
+        24,
+        25,
+        26,
+        31,
+        32,
+        33,
+        46,
+        60,
+        81,
+        89,
+        90,
+        91,
+        106
+      ],
+      "sha256": "0656e6bbb553970965198eff0c51fb14e71d5ccf02f8050ef5f0c34e6670e15e",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "tests/test_reminder_font.py",
+      "lines_read": 21,
+      "changed": true,
+      "retained_keyword_lines": [
+        18,
+        19
+      ],
+      "sha256": "802800511d3859350a1a8a095c4a8480565de21af68a5daa6246e0e369845f6c",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "tests/test_sd_backup.py",
+      "lines_read": 69,
+      "changed": true,
+      "retained_keyword_lines": [
+        24,
+        42
+      ],
+      "sha256": "7252f8f84b5e87eedbcadf4abb62afd89cdbf2a574bace737f1e37bb85461ee7",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "tests/test_semantic_agent_source.py",
+      "lines_read": 250,
+      "changed": true,
+      "retained_keyword_lines": [
+        74,
+        138,
+        139,
+        140,
+        152,
+        160,
+        181
+      ],
+      "sha256": "984c9558fe0fdfbf2b16798ed94a775320cd039f7b2d671069f075a662d9acea",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "tests/test_serial_logs.py",
+      "lines_read": 76,
+      "changed": true,
+      "retained_keyword_lines": [
+        15,
+        19,
+        24,
+        25,
+        34,
+        52
+      ],
+      "sha256": "bb4ddad598836150a6e606a93c4d4c4a0bd23d50ac6f3cb8411a3fc5839749ff",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "tests/test_speech.c",
+      "lines_read": 143,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "be04c0d0d132d36a070671773a59498c204e8786b2615ef7410d30af0b989549",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "tests/test_sse.c",
+      "lines_read": 55,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "94e46124a180052899d4cd8a0adaa9db2a5f4857faabe895f0f7141d06dc0631",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "tests/test_stable_voice_diagnostic.py",
+      "lines_read": 136,
+      "changed": true,
+      "retained_keyword_lines": [
+        49
+      ],
+      "sha256": "76be5035a98f26a112b50770d492642066f0aec4399d340454f28eafd6dc9701",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "tests/test_tools_grid_source.py",
+      "lines_read": 27,
+      "changed": true,
+      "retained_keyword_lines": [
+        14
+      ],
+      "sha256": "384043690567fc79175176ef0a3a334bf798b58a485f66c004e473ff37d6439a",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "tests/test_tts.c",
+      "lines_read": 290,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "0238c75bfa52d31375e5ab25f6f0bb846cec6122866c0e1215088876a0672f10",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "tests/test_tts_preferences.py",
+      "lines_read": 96,
+      "changed": true,
+      "retained_keyword_lines": [],
+      "sha256": "e42a9e3a5d41121035be72370fefd35fd06b12431fcba99b535b2b5b62e13776",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "tests/test_turn.c",
+      "lines_read": 74,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "ad38216e93c32fda4cac50accbdc268f8a3c50fb04bbbf1262ae3243a05875d8",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "tests/test_voice_controls_source.py",
+      "lines_read": 176,
+      "changed": true,
+      "retained_keyword_lines": [
+        29,
+        41,
+        59,
+        60,
+        65,
+        101,
+        118,
+        122,
+        135,
+        151,
+        153,
+        154,
+        155,
+        160,
+        163,
+        166,
+        167,
+        168,
+        174
+      ],
+      "sha256": "ff915c4857ad1ba99860414f70c168848be96352b7b5e8160e1f1023ee024f74",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "tests/test_voice_exit_output.py",
+      "lines_read": 60,
+      "changed": true,
+      "retained_keyword_lines": [
+        14,
+        32,
+        55
+      ],
+      "sha256": "582bb2f5bf1436134247775dcb015ca4aa791d89b33b517ee00b4f99f699be97",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "tests/test_voice_memory_order.py",
+      "lines_read": 98,
+      "changed": true,
+      "retained_keyword_lines": [
+        27,
+        28,
+        36,
+        52,
+        56,
+        57,
+        70,
+        87,
+        96
+      ],
+      "sha256": "dd4149a56d3a560711b25991a7dd1e63e4c278136a1c8dada90e31f558d63a34",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "tests/test_voice_repair_source.py",
+      "lines_read": 101,
+      "changed": true,
+      "retained_keyword_lines": [
+        24,
+        30,
+        75,
+        79,
+        80,
+        100
+      ],
+      "sha256": "6190c3f74781cb365a3f997c5a1808998067f0f9380b659bbac1897020afd5a5",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "tests/test_voice_setting_outcome.py",
+      "lines_read": 88,
+      "changed": true,
+      "retained_keyword_lines": [
+        18,
+        48,
+        51,
+        63,
+        64,
+        70,
+        74,
+        79
+      ],
+      "sha256": "c2eac5b846cea94e5b4b8998cf32a40350a67d4055d530d0070114c437d7cbd5",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "tests/test_voice_source_guards.py",
+      "lines_read": 105,
+      "changed": true,
+      "retained_keyword_lines": [
+        30,
+        42,
+        53,
+        79,
+        92,
+        95
+      ],
+      "sha256": "ada3665d2bf153f9abe8e619ba091bfa4b1eaa730320afe4e37556107a9f3119",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "tests/test_wake_handoff_source.py",
+      "lines_read": 199,
+      "changed": true,
+      "retained_keyword_lines": [
+        24,
+        25,
+        34,
+        41,
+        51,
+        55,
+        61,
+        79,
+        88,
+        93,
+        96,
+        98,
+        104,
+        106,
+        109,
+        139
+      ],
+      "sha256": "1fc2c8d0780bfc26a4fcbd97edf0c0706907ca32a031301f36474e2a1dacc9ed",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "tests/test_wake_network_reset.py",
+      "lines_read": 245,
+      "changed": true,
+      "retained_keyword_lines": [
+        12,
+        18,
+        33,
+        34,
+        49,
+        54,
+        79,
+        81,
+        82,
+        85,
+        92,
+        134,
+        141,
+        148,
+        154,
+        156,
+        158,
+        159,
+        160,
+        164,
+        169,
+        170,
+        186,
+        192,
+        194,
+        195,
+        209
+      ],
+      "sha256": "821aa175a72260987316ca96ea4c8bd5ab182cee6054ca6f400b8dc4e40d938e",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "tests/test_weather.c",
+      "lines_read": 205,
+      "changed": true,
+      "retained_keyword_lines": [],
+      "sha256": "80c87dd78042a986520ec6dc1729f2fcdef3372ed0d88eb2aa7b5750ae8a0f17",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "tests/test_weather_home_source.py",
+      "lines_read": 85,
+      "changed": true,
+      "retained_keyword_lines": [
+        17,
+        60,
+        65,
+        77
+      ],
+      "sha256": "a0bc4b291bbc50edf1d7bb469c0ed5bf23d90a6c6bb157f0b30967a5abdcc4f5",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "tests/test_weather_scroll_source.py",
+      "lines_read": 109,
+      "changed": true,
+      "retained_keyword_lines": [
+        32,
+        79,
+        84,
+        92,
+        96,
+        102,
+        108
+      ],
+      "sha256": "18f8a25ceb7a595d91028153dd149e66ccaf904bf95049a92c2cde0dc7870d01",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "tests/test_words.c",
+      "lines_read": 50,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "b4a7426ff3549b127b932b7ae4fc8bf43e1457078c481f3feef2a88be8adf14f",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "tests/tts_stubs/cloud_credentials.h",
+      "lines_read": 4,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "7f70fe170d37d6d81d7de9b25f2e380dd744c3ac8a9d3ff4d4c51895c857c37a",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "tests/tts_stubs/esp_crt_bundle.h",
+      "lines_read": 2,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "ace58c952316743c621b2fb91add1163ab5373623c43c1a2147001149db3194c",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "tests/tts_stubs/esp_err.h",
+      "lines_read": 5,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "9c4940fcba182aa89321f5afe506f4fa64f254a9c1a623ac7f0c93e8bf5abf42",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "tests/tts_stubs/esp_heap_caps.h",
+      "lines_read": 8,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "f84b578287b8b4b0d16ae5df47907e3d6dde0f4beca5563f0bfda97ed2228af1",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "tests/tts_stubs/esp_log.h",
+      "lines_read": 6,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "18fee4004e237bc4aeccecbd00b55fd385280f5fd24b6a422a370b3720f1ebca",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "tests/tts_stubs/esp_websocket_client.h",
+      "lines_read": 25,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "0203a9297f1b6cc6c49fc2a81464b8fae595ba77cb94615c6d869edc094fa845",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "tests/tts_stubs/freertos/event_groups.h",
+      "lines_read": 12,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "221fc7685d8e1e8ebb06d3c80b585196aeb1d6e88a82c4b56f87588881ad8642",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "tests/tts_stubs/freertos/stream_buffer.h",
+      "lines_read": 16,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "b00bdaeea5a71cc64093262648878733b7bde758a41a47905c979e7918e766c5",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "tests/tts_stubs/mbedtls/base64.h",
+      "lines_read": 3,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "3c12cd09ebad74c9defcc4f85db945ff9464fe137729b3cae449f5e40fbde93d",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "tools/backup_sd.py",
+      "lines_read": 96,
+      "changed": false,
+      "retained_keyword_lines": [
+        36,
+        40,
+        49,
+        59
+      ],
+      "sha256": "76d8f5619ea085f61551c8b17f396d409827bc7409e8874a974c9c8d16951f81",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "tools/export_dialogue.py",
+      "lines_read": 41,
+      "changed": false,
+      "retained_keyword_lines": [
+        10
+      ],
+      "sha256": "5b64e4096ddd6e480a52d86f904bd3ce4af9e310ee3403568033ed1aaf677b2f",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "tools/generate_desktop_assets.mjs",
+      "lines_read": 48,
+      "changed": false,
+      "retained_keyword_lines": [],
+      "sha256": "75f1f177e7eb98f86f10900ee139321c2612eb32b0f00d70471f0fb86ed07eee",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "tools/import_cloud_config.py",
+      "lines_read": 53,
+      "changed": false,
+      "retained_keyword_lines": [
+        14,
+        26
+      ],
+      "sha256": "381c45cfaf5d388723e620ac95456a5ad39eb9dabbf68b70a6143b0e70e1d613",
+      "frozen_baseline_review_record": false
+    },
+    {
+      "file": "tools/prepare_media_pack.py",
+      "lines_read": 170,
+      "changed": true,
+      "retained_keyword_lines": [
+        32,
+        37,
+        45,
+        97,
+        141,
+        159
+      ],
+      "sha256": "9aa3eaaeda8ecd1e387afa9b58a0c9c0105ef3b0a7d023eb1d9fce5919e1586a",
+      "frozen_baseline_review_record": false
+    }
+  ]
+}
