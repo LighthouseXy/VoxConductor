@@ -1,4 +1,4 @@
-"""Exercise backup/export on synthetic temporary files only; no card access."""
+"""Exercise backup/export using synthetic temporary files; physical-card acceptance runs separately."""
 import importlib.util
 import json
 import subprocess

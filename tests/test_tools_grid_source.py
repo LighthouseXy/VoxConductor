@@ -24,4 +24,4 @@ service = source.split("void app_desktop_service(", 1)[1].split("unsigned app_de
 assert service.index("lvgl_port_unlock();") < service.index('nvs_set_u32(h, "words_mask"')
 assert "words_save_failed = result != ESP_OK" in service
 assert "if (words_save_failed)" in service and "s_words_dirty = true" in service
-print("PASS: four-cell menu order/hidden chrome/preserved wake, word persistence and focus confirmation wiring; LVGL/device NOT run")
+print('PASS: four-cell menu order/hidden chrome/preserved wake, word persistence and focus confirmation wiring; scope=offline checks; pending=LVGL/device validation')

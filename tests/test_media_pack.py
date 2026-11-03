@@ -1,4 +1,4 @@
-"""Verify real SD assets and source routing; no firmware build or device access."""
+"""Verify local SD assets and source routing. Firmware build and physical SD acceptance run separately."""
 import array
 import hashlib
 import json
@@ -44,7 +44,7 @@ for category in ("music", "ambient", "wallpapers"):
             else:
                 assert 120 * 24000 < frames < 660 * 24000
                 assert item["title"] in credits and item["isrc"] in credits
-            # Sample real PCM at start, middle and end. Not just header checks.
+            # Check real PCM at the start, middle and end alongside the headers.
             samples = array.array("h")
             for offset in (0, frames // 2, frames - 24000):
                 sound.setpos(offset)
@@ -77,4 +77,4 @@ assert "load_image(selected, true, false)" in CORE
 assert "load_image(index, s_pending_image.wallpaper, true)" in CORE
 assert "webkitdirectory multiple" in HTML and "packCompleted.add(file.name)" in HTML
 assert "await upload(kind,file.name,file)" in HTML
-print("PASS: 10 real songs, 8 synthesized ambience loops, 6 wallpapers, attribution, hashes, PCM samples, Wi-Fi/menu/loop guards; no C or hardware test")
+print("PASS: 10 real songs, 8 synthesized ambience loops, 6 wallpapers, attribution, hashes, PCM samples, Wi-Fi/menu/loop guards; scope=asset/source checks; pending=C/hardware acceptance")

@@ -1,4 +1,4 @@
-"""Independent export/fastener checks, no edits to model geometry."""
+"""Read-only export and fastener checks against model geometry."""
 import sys,json,collections,hashlib
 from pathlib import Path
 sys.path.append('/Applications/FreeCAD.app/Contents/Resources/lib')
@@ -19,7 +19,7 @@ for x,y in [(x,y) for y in (12,61.5) for x in (-25.5,25.5)]:
  screw=cyl(1.79,.21,x,y,.3).fuse(Part.makeCone(1.79,1,.79,V(x,y,.51))).fuse(cyl(1,3,x,y,1.3))
  v=parts['02_base'].common(screw).Volume;gap=pcb.distToShape(screw)[0];assert v<1e-5 and gap>.5,(v,gap)
  report['fasteners'].append({'center':[x,y],'2x4_tip_z':4.3,'base_overlap_mm3':v,'pcb_gap_mm':gap})
-# Connector opening/plug envelopes cross actual outer walls; no tabletop geometry guessing.
+# Check connector opening/plug envelopes against actual model outer walls.
 ux=next(c['xy'][0] for c in d['components'] if c['ref']=='J1')
 for n,env in [('USB_plug_overmould_14x8',box(ux-7,62,4.25,ux+7,85,12.25)),('SD_card_exit',box(-45,33,6.8,-28.5,45,8.2))]:
  vol=parts['01_main_shell'].common(env).Volume;assert vol<1e-5,(n,vol);report['ports'][n]=vol

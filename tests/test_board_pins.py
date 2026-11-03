@@ -1,4 +1,4 @@
-"""Check PCB GPIOs; optional argument: KiCad XML netlist exported from schematic."""
+"""Board pin and calibration source guards. Native driver and electrical acceptance run separately."""
 from pathlib import Path
 import re
 import sys
@@ -48,7 +48,7 @@ for filename, pins in PINS.items():
 print(f"PASS: {len(used)} PCB GPIOs match; no conflicts;" +
       (" KiCad netlist verified" if netlist is not None else " frozen mapping verified"))
 
-# Native backlight control must not change pins, optical compensation or buffers.
+# Backlight controls preserve pins, optical compensation and buffers.
 display = (ROOT / "firmware/main/app_display.c").read_text()
 assert '#include "driver/ledc.h"' in display
 assert re.search(r"LCD_BL_PWM_HZ\s+5000\b", display)
@@ -96,4 +96,4 @@ reset = gesture[gesture.index("static inline void motion_input_reset_calibration
 reset = reset[:reset.index("static inline int motion_input_step")]
 assert "require_stable_center = true" in reset and "s->neutral =" not in reset
 assert "MOTION_RECENTER_MS 1000" in gesture
-print("PASS: PWM range/startup/driver resources and fresh motion/manual stable calibration source guards; hardware/C not run")
+print('PASS: PWM range/startup/driver resources and fresh motion/manual stable calibration source guards; scope=offline checks; pending=hardware/C validation')

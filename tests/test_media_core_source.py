@@ -1,9 +1,8 @@
 #!/usr/bin/env python3
-"""Media contract/source guards plus Python boundary reference fixtures.
+"""Media contract/source guards and Python boundary reference fixtures.
 
-This deliberately does not compile firmware or claim C parser/device playback
-verification. It protects the important source invariants while the user builds.
-"""
+Scope: source invariants and Python models. C parser and device playback
+verification require their own execution checks."""
 from datetime import date, datetime, timezone, timedelta
 from pathlib import Path
 import re
@@ -165,7 +164,7 @@ def main():
                     wav(*(chunk(b"JUNK", b"") for _ in range(257)),
                         chunk(b"fmt ", FORMAT), chunk(b"data", b"\0\0"))):
         assert not wav_reference(invalid)
-    print("media core source guards and Python boundary fixtures: OK (not C/device runtime)")
+    print('media core source guards and Python boundary fixtures: OK (scope: source guards/Python fixtures; C/device validation pending)')
 
 
 if __name__ == "__main__":

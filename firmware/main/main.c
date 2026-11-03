@@ -1,7 +1,7 @@
 /*
  * 应用协调入口：初始化外设，组织UI输入，管理单一语音会话。
  * 语音按录音/ASR、语义工具/回答、TTS顺序执行；播完才提交成功上下文。
- * 后台控制与语音互斥，设置生效和播报完成分别处理，取消不等于回滚。
+ * 后台控制与语音互斥，设置生效和播报完成分别处理，取消后保留已提交的副作用，并按实际结果记录。
  */
 #include <stdatomic.h>
 #include <stdbool.h>
@@ -124,15 +124,15 @@ static bool start_voice(bool automatic) {
 static void handle_wake(void) {
   if (app_wake_diagnostic_active()) return;
   if (!app_network_is_connected() || time(NULL) < 1704067200) {
-    ESP_LOGW(TAG, "Wake ignored: network/time not ready");
+    ESP_LOGW(TAG, "Wake ignored: waiting for network/time readiness");
     return;
   }
   if (!atomic_load(&s_voice_ready) || !app_wake_is_enabled() ||
       atomic_load(&s_audio_active) || atomic_load(&s_media_audio_active)) {
-    ESP_LOGW(TAG, "Wake ignored: audio owner busy/not ready");
+    ESP_LOGW(TAG, "Wake ignored: audio owner busy or unavailable");
     return;
   }
-  // The recognizer must keep consuming microphone frames, not wait for LVGL,
+  // Keep the recognizer consuming microphone frames independently of LVGL,
   // SD maintenance or the speaker. The existing audio worker dispatches this.
   uint32_t until = (uint32_t)(esp_timer_get_time() / 1000) + WAKE_HANDOFF_MS;
   if (!until) until = 1;
@@ -143,7 +143,7 @@ static void handle_wake(void) {
 static bool dispatch_wake(void) {
   uint32_t until = atomic_load(&s_pending_wake_until);
   if (!until) return false;
-  // A detection queued just before manual calibration must not start ASR.
+  // Drop a detection queued before manual calibration before starting ASR.
   if (app_wake_diagnostic_active()) {
     atomic_store(&s_pending_wake_until, 0);
     return true;
@@ -151,7 +151,7 @@ static bool dispatch_wake(void) {
   uint32_t now = (uint32_t)(esp_timer_get_time() / 1000);
   if ((int32_t)(now - until) >= 0) {
     atomic_store(&s_pending_wake_until, 0);
-    ESP_LOGW(TAG, "Wake expired: not started within %ums; internal=%u B, largest=%u B",
+    ESP_LOGW(TAG, "Wake expired: start deadline=%ums; internal=%u B, largest=%u B",
         (unsigned)WAKE_HANDOFF_MS,
         (unsigned)heap_caps_get_free_size(MALLOC_CAP_INTERNAL | MALLOC_CAP_8BIT),
         (unsigned)heap_caps_get_largest_free_block(MALLOC_CAP_INTERNAL | MALLOC_CAP_8BIT));
@@ -167,12 +167,12 @@ static bool dispatch_wake(void) {
              (int)atomic_load(&s_audio_active), (int)atomic_load(&s_media_audio_active));
     return true;
   }
-  // Detection requests a model rebuild. Its brief ready=false is not a user
-  // disable: keep the accepted event, within the original bounded deadline.
+  // Detection briefly sets ready=false during its model rebuild; retain
+  // the accepted event within its original bounded deadline.
   if (!app_wake_available())
     return true;
   // Background indexing may briefly own the coordinator without owning audio.
-  // Retain this wake, but do not interrupt an actual voice/reminder/music owner.
+  // Retain this wake until the actual voice/reminder/music owner releases audio.
   if (atomic_load(&s_voice_turn_active) || !lvgl_port_lock(20))
     return true;
   // A button/setting/audio owner can change while this worker waits for LVGL.
@@ -263,7 +263,7 @@ static void service_background_boundary(bool in_session) {
                         NULL, result);
         ESP_LOGI(
             TAG,
-            "提醒语音：%s，PCM提交=%u B，缓冲等待=%u次/%.2fs（不代表声学确认）",
+            "提醒语音：%s，PCM提交=%u B，缓冲等待=%u次/%.2fs（声学结果待听测）",
             esp_err_to_name(result), (unsigned)turn.pcm_submitted_bytes,
             turn.tts_starvations, (double)turn.tts_wait_us / 1000000.0);
         if (result != ESP_OK && !app_cloud_is_cancelled())
@@ -295,7 +295,7 @@ static void reminder_task(void *argument) {
     app_cloud_reset_cancel();
     service_background_boundary(false);
     // Large SD indexing writes wait for a quiet speaker; due-task checks above
-    // still run each second, so a long song does not postpone reminders.
+    // still run each second while a long song is playing.
     if (!atomic_load(&s_media_audio_active)) {
       app_cloud_memory_tick();
       app_storage_index_tick();
@@ -307,8 +307,8 @@ static void reminder_task(void *argument) {
 
 static void handle_motion(int direction) {
   // Sampling must never wait for a slow LCD redraw; the LVGL timer navigates.
-  // ponytail: one-slot mailbox keeps the newest gesture, not a history of
-  // unseen pages; use a FIFO only if every rapid gesture must be retained.
+  // ponytail: one-slot mailbox retains the newest gesture; use a FIFO
+  // if every rapid gesture must be retained.
   if (app_button_click_pending() ||
       atomic_load_explicit(&s_audio_active, memory_order_acquire))
     return;
@@ -378,12 +378,12 @@ static bool handle_button_event(app_button_event_t event, void *user_data) {
 
   if (event == APP_BUTTON_EVENT_SHORT_PRESS) {
     // A reminder may have started during the double-click window. An old menu
-    // click must not cancel it; only a physical press/release requests a stop.
+    // click preserves it; a fresh physical press/release requests a stop.
     if (atomic_load_explicit(&s_audio_active, memory_order_acquire))
       return true;
     atomic_store(&s_pending_motion, 0);
-    // A confirmed click is not a lossy sensor sample: wait for the current
-    // frame rather than discarding it after 100 ms. Audio stops remain above
+    // Keep a confirmed click pending across frame waits, including 100 ms.
+    // Deliver it after the current frame. Audio stops remain above
     // this lock, and all speaker/network work stays outside it.
     if (!lvgl_port_lock(0))
       return false;
@@ -516,7 +516,7 @@ static esp_err_t run_voice_turn(bool automatic, bool followup, bool interrupted)
   heap_caps_free(recording);
   recording = NULL;
   if ((followup || interrupted) && result == ESP_ERR_NOT_FOUND && !app_cloud_is_cancelled()) {
-    // The waiting window is not a failed dialogue or a saved empty turn.
+    // Keep quiet-window expiry outside dialogue failure and history persistence.
     ESP_LOGI(TAG, "[%s] 结束: 继续聆听超时，无新语音", app_log_id(turn.id));
     app_ui_hide_voice_state();
     app_cloud_begin_turn(NULL);
@@ -525,7 +525,7 @@ static esp_err_t run_voice_turn(bool automatic, bool followup, bool interrupted)
 
   if (result == ESP_OK) {
     if (interrupted && app_control_strip_interrupt(transcript)) {
-      // Stop-only is a control utterance, not an empty LLM request/history turn.
+      // Handle stop-only input as a local control utterance.
       ESP_LOGI(TAG, "Interrupt phrase accepted; waiting for the next question");
       app_ui_show_voice_state(APP_UI_VOICE_LISTENING, "正在聆听");
       app_turn_emit(&turn, TURN_CANCEL, NULL, ESP_OK);
@@ -545,8 +545,8 @@ static esp_err_t run_voice_turn(bool automatic, bool followup, bool interrupted)
       goto finish;
     }
 #if CONFIG_VOX_ACOUSTIC_BARGE_IN
-    // Reserve DSP while memory is available, but do not classify processing
-    // noises as a new utterance. TTS arms it only when playback starts.
+    // Reserve DSP while memory is available; start classification with
+    // actual playback. TTS arms it when playback starts.
     if (app_wake_is_enabled() && !app_acoustic_prepare())
       ESP_LOGW(TAG, "本轮语音打断未就绪，请使用短按中断");
 #endif
@@ -653,9 +653,9 @@ static void voice_conversation_task(void *argument) {
     if (!continuous || result != ESP_OK || app_cloud_is_cancelled()) break;
     service_background_boundary(true);
     if (app_cloud_is_cancelled()) break;
-    // Same clean speaker handoff as leaving a turn: do not hear our own tail.
+    // Reuse the clean speaker handoff to clear the preceding playback tail.
     if (app_audio_abort_playback() != ESP_OK) {
-      ESP_LOGW(TAG, "Follow-up not started: speaker cleanup failed");
+      ESP_LOGW(TAG, "Follow-up skipped: speaker cleanup failed");
       break;
     }
     ESP_LOGI(TAG, "Follow-up ready: speak directly within %ds",
@@ -693,7 +693,7 @@ void app_main(void) {
   app_desktop_init();
   ESP_ERROR_CHECK(app_display_init());
   ESP_ERROR_CHECK(app_ui_init());
-  // One small UI timer, not another FreeRTOS task or a blocking sensor callback.
+  // Dispatch navigation through one small UI timer.
   if (!lvgl_port_lock(0))
     ESP_ERROR_CHECK(ESP_ERR_TIMEOUT);
   lv_timer_t *motion_ui_timer = lv_timer_create(dispatch_motion, 33, NULL);

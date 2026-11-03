@@ -66,7 +66,7 @@ bool app_media_anniversary_days(const app_media_anniversary_t *item,
 bool app_media_valid_name(const char *name, bool image);
 bool app_media_validate_file(const char *path, bool image);
 // env_*.wav is ambience; all other WAV files are music. Unknown titles retain
-// their filename, so uploaded files do not need a metadata database.
+// their filename as display metadata for uploaded files.
 bool app_media_audio_is_ambient(const char *name);
 const char *app_media_file_label(const char *name);
 typedef struct {
@@ -74,7 +74,7 @@ typedef struct {
   bool done, applied, saved;
   char message[96];
 } app_media_job_t;
-// Four bounded receipts; IDs identify a request, not a filename/index guess.
+// Four bounded receipts; IDs identify individual requests.
 uint32_t app_media_command_tracked(app_media_command_t command, unsigned value);
 uint32_t app_media_image_tracked(unsigned index, bool wallpaper);
 uint32_t app_media_appearance_tracked(const app_media_appearance_t *value);

@@ -22,7 +22,7 @@ typedef struct {
   unsigned summary_version;
   char notes[8192]; // JSON数组；长期条目不与最近六轮一起淘汰。
   char tasks[4096]; // 本地闹钟/待办，不直接注入普通对话。
-  char discussion[3072]; // 一个有界活动讨论；是数据，不是执行授权。
+  char discussion[3072]; // 有界活动讨论数据；执行授权由具体操作的确认流程管理。
 } app_conversation_t;
 
 typedef enum { APP_REPLY_SHORT, APP_REPLY_EXPLAIN, APP_REPLY_DETAIL } app_reply_mode_t;
@@ -31,7 +31,7 @@ unsigned app_conversation_reply_tokens(const char *text);
 bool app_conversation_followup(const char *text);
 const char *app_conversation_memory_key(const char *key);
 const char *app_conversation_memory_category(const char *key);
-// 明确来源或原文名称/值/别名命中；不是任意语义关联。
+// 按明确来源或原文名称/值/别名匹配关联。
 bool app_conversation_memory_matches(const cJSON *note, const char *text, const char *source);
 // 空闲摘要请求的结构化候选，只接收讨论字段，不保存任何执行授权。
 bool app_conversation_refine_discussion(app_conversation_t *history, const cJSON *candidate);

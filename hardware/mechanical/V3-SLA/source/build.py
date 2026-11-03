@@ -65,10 +65,10 @@ mx,my=d['mic'];base=base.fuse(cyl(2,2.95,mx,my,1.8)).cut(cyl(1,8,mx,my,-2))
 for x,y in centers:
  base=base.fuse(cyl(3,.2,x,y,1.8))
  base=base.cut(cyl(1.15,3,x,y,-.1)).cut(cyl(1.9,.5,x,y,-.1)).cut(Part.makeCone(1.9,1.15,.75,V(x,y,.4)))
-# SD sill stays below connector swept envelope and follows base, not shell.
+# SD sill stays below the connector swept envelope and follows the base.
 base=base.fuse(box(-32.2,31.55,1.8,-30.3,46.65,5.1))
 for x,y in [(-20,9),(20,9),(-20,64),(20,64)]:base=base.fuse(cyl(3,1.3,x,y,-1.3))
-# Correct XY board envelope, offset 0.5 mm on all sides. Sweep is continuous, not sampled only.
+# Correct XY board envelope, offset 0.5 mm on all sides. Evaluate the sweep continuously.
 board_face=Part.Face(wire([(x,y,0) for x,y in d['outline']]))
 off=board_face.makeOffset2D(.5,0,False,False,False)
 if off.Area<board_face.Area:off=board_face.makeOffset2D(-.5,0,False,False,False)
@@ -82,7 +82,7 @@ for c in d['components']:
  electronics[n]=box(x0,y0,ztop,x1,y1,ztop+h)
  # 0.5 lateral, 0.3 vertical allowance for placement/solder; pad bounding boxes conservative.
  sweeps[n]=box(x0-.5,y0-.5,-40,x1+.5,y1+.5,ztop+h+.3)
-# Mated connectors and wire-turn reserves; no claim on actual cable/flex bending.
+# Mated connectors and wire-turn reserves; actual cable/flex bending needs physical verification.
 electronics['J3_mated']=box(20.5,28,ztop,26.4,36.4,ztop+3.4)
 electronics['J7_mated']=box(16.8,40,ztop,26.4,46,ztop+4.8)
 for n in ['J3_mated','J7_mated']:
@@ -105,7 +105,7 @@ parts['04_speaker_cradle']=tray.removeSplitter()
 # Short full-perimeter fit frame retains actual screw bosses and entry geometry.
 trial=shell.common(box(-80,-20,1.9,80,100,12)).removeSplitter()
 print('geometry built; exporting',cutlog,flush=True)
-report={'coordinate_mapping':d['coordinate_mapping'],'pcb_sha256':d['sha256'],'board_mm':[52,50,th],'clearance_mm':{'board_xy':.5,'component_xy':.5,'component_top':.3},'new_bottom_screw_centers':centers,'sweep_relief_mm3':cutlog,'tray_relief_mm3':tray_relief,'parts':{},'sweep_collisions_mm3':{},'final_collisions_mm3':{},'limits':['Component heights are envelope estimates, not measured assemblies.','Physical resin shrinkage, thread strength, flex length and cable bends require fit test.','03/05/06 reused unchanged; optical fit unchanged and not newly qualified.']}
+report={'coordinate_mapping':d['coordinate_mapping'],'pcb_sha256':d['sha256'],'board_mm':[52,50,th],'clearance_mm':{'board_xy':.5,'component_xy':.5,'component_top':.3},'new_bottom_screw_centers':centers,'sweep_relief_mm3':cutlog,'tray_relief_mm3':tray_relief,'parts':{},'sweep_collisions_mm3':{},'final_collisions_mm3':{},'limits':['Component heights use conservative envelopes; assembled heights await measurement.','Physical resin shrinkage, thread strength, flex length and cable bends require fit test.','03/05/06 retain existing geometry; optical fit awaits physical qualification.']}
 def export(n,s,folder='parts'):
  assert s.isValid() and len(s.Solids)==1,(n,'invalid solid',len(s.Solids))
  path=ROOT/folder/f'{n}.step';s.exportStep(str(path));r=Part.read(str(path))

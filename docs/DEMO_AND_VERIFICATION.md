@@ -1,9 +1,9 @@
 # VoxConductor V1 验收与验证
 
-> 历史文档：以下 V1 服务端模式的架构/实测保留原口径，不代表 2026-10-10 开发版直连固件。当前说明见 [设备直连](DEVICE_CLOUD_VOICE.md)、[语音实施](VOICE_DIALOGUE_AND_MEMORY_PLAN.md)；当前实物和视频见 [展示图集](SHOWCASE.md)。
+> 历史文档：以下保留 V1 服务端模式的架构与当时实测口径；2026-10-10 开发版采用设备直连路线。当前说明见 [设备直连](DEVICE_CLOUD_VOICE.md)、[语音实施](VOICE_DIALOGUE_AND_MEMORY_PLAN.md)；当前实物和视频见 [展示图集](SHOWCASE.md)。
 
 
-> 本文对应原V1服务端模式。当前固件的功能验证见 [语音对话实施方案](VOICE_DIALOGUE_AND_MEMORY_PLAN.md)，配置与启动见 [设备直连说明](DEVICE_CLOUD_VOICE.md)。旧版截图不表示最新直连、记忆与提醒改动已通过实机测试。
+> 本文对应原V1服务端模式。当前固件的功能验证见 [语音对话实施方案](VOICE_DIALOGUE_AND_MEMORY_PLAN.md)，配置与启动见 [设备直连说明](DEVICE_CLOUD_VOICE.md)。最新直连、记忆与提醒改动需按对应版本完成实机测试。
 
 最后更新：2026-08-27
 
@@ -30,7 +30,7 @@
 ### A. 信息页面
 
 - 展示主页中的当前时间、Wi-Fi 图标、天气和温度。
-- 短按切换到天气页，说明天气来自 Open-Meteo，不是板载传感器。
+- 短按切换到天气页，核对 Open-Meteo 网络天气数据。
 - 再次短按进入语音页。
 
 通过标准：页面切换完成，时间持续更新，天气页显示城市、温度、天气、体感温度和更新时间。

@@ -7,7 +7,7 @@ void app_acoustic_init(void);
 bool app_acoustic_prepare(void);
 // Playback owner arms only when actual audio starts; coordinator disarms on exit.
 // Disarming preserves an already captured interruption until take().
-// false means DSP could not arm; never advertise successful voice interruption.
+// false reports DSP arming failure; expose that failure to the coordinator.
 bool app_acoustic_listen(bool active);
 // Explicit button/session exit: invalidate pending voice, never auto-resume it.
 void app_acoustic_discard(void);

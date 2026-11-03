@@ -749,8 +749,8 @@ static esp_err_t upload_file(httpd_req_t *req) {
   bool exists = stat(path, &info) == 0;
   if (!exists && file_count(image) >= APP_MEDIA_MAX_FILES)
     return fail(req, "409 Conflict", "每类最多32个文件，请先删除旧文件");
-  // An earlier interrupted transfer is disposable; the valid destination is
-  // not.
+  // Discard an earlier interrupted transfer while preserving the valid
+  // destination.
   if (access(part, F_OK) == 0 && unlink(part) != 0)
     return fail(req, "503 Service Unavailable", "无法清理未完成的上传");
   uint64_t total, free_bytes;
@@ -849,7 +849,7 @@ static esp_err_t delete_handler(httpd_req_t *req) {
   return mutate_file(req, false);
 }
 
-// FAT rename is not power-loss atomic. A valid .old is never discarded unless
+// FAT rename can be interrupted by power loss. Retain a valid .old until
 // the installed final file has been validated. Limit work in handoff priority.
 static bool recover_directory(bool image, int64_t deadline_us) {
   const char *directory =
@@ -891,8 +891,8 @@ static bool recover_directory(bool image, int64_t deadline_us) {
       if (unlink(old) != 0)
         clean = false;
     } else {
-      // Both names remain available for manual inspection; do not silently
-      // replace an unknown file from removable media.
+      // Keep both names for manual inspection and preserve the unknown
+      // file from removable media.
       clean = false;
     }
   }

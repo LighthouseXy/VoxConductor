@@ -1,6 +1,6 @@
 /*
  * 独立文本分段组件，当前CMake未启用，保留测试/实验用途。
- * 不代表生产路径并行运行LLM/TTS；生产编排以main/app_cloud为准。
+ * 生产路径按main/app_cloud编排LLM与TTS的串行连接。
  */
 #include "app_speech.h"
 #include "app_cloud.h"

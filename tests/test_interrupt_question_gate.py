@@ -1,4 +1,4 @@
-"""Post-interruption question gate and output timing guards; no C/device run."""
+"""Post-interruption question-gate source guards and local output timing models. C/device acceptance runs separately."""
 from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 MAIN = ROOT / 'firmware/main'
@@ -36,4 +36,4 @@ assert not gate([(False, True)] * 4 + [(False, False)] * 60)
 assert gate([(True, True)] * 20 + [(False, True)] * 10)
 assert gate([(False, True)] * 10 + [(False, False)] * 60)
 assert not gate([(False, True), (False, False)] * 50)
-print('PASS: post-playback speech required, quiet interruption waits locally, output timing guards; C/device NOT run')
+print('PASS: post-playback speech required, quiet interruption waits locally, output timing guards; scope=offline checks; pending=C/device validation')

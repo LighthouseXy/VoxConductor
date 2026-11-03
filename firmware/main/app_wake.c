@@ -97,13 +97,13 @@ static bool configure_model(void) {
                    actual, expected);
   }
   // The bundled WakeNet9l setter derives a lower internal threshold (0.992x).
-  // Its public getter reads that derived value, not the requested argument.
-  // Setter success and a valid probability suffice; do not reject a good model.
+  // Its public getter returns the derived internal threshold.
+  // Accept setter success with a valid returned probability.
   return true;
 }
 // Only this worker owns the model after startup. The bundled WakeNet9 clean()
 // dereferences an invalid convolution queue before the first detect(); use its
-// public destroy/create lifecycle rather than accessing private model fields.
+// public destroy/create lifecycle to keep model internals encapsulated.
 static bool recreate_model(void) {
   atomic_store(&ready, false);
   wn->destroy(model);
@@ -193,7 +193,7 @@ static void worker(void *unused) {
       sum += magnitude;
       if (magnitude > peak_max)
         peak_max = magnitude;
-      // A continuous ~10 Hz DC blocker, not a separate mean per DMA block.
+      // Apply continuous ~10 Hz DC blocking across DMA blocks.
       // Q8 state preserves small signals. This modifies only the worker copy:
       // normal recording and the acoustic interruption path keep their input.
       if (!dc_initialized) {
@@ -238,12 +238,12 @@ static void worker(void *unused) {
         !atomic_load(&reset) && atomic_load(&enabled) &&
         (work->playback ? atomic_load(&barge) : atomic_load(&idle))) {
       ++hits;
-      // An explicitly requested calibration must not open cloud recording.
+      // An explicit calibration keeps cloud recording closed.
       if (diagnostic_id || app_wake_diagnostic_active()) {
-        ESP_LOGI("wake", "Diagnostic detected: %s; conversation not started", APP_WAKE_PHRASE);
+        ESP_LOGI("wake", "Diagnostic detected: %s; calibration-only event", APP_WAKE_PHRASE);
         continue;
       }
-      // Debounce duplicate notifications, not the audio stream. Throwing away
+      // Keep audio continuous while debouncing notifications. Discarding
       // three seconds of frames after an ignored wake loses repeated attempts.
       now = esp_timer_get_time();
       if (now < cooldown) {
@@ -269,7 +269,7 @@ void app_wake_init(void (*callback)(void)) {
   wakeup = callback;
   app_wake_diagnostic_init();
   models = esp_srmodel_init("model");
-  // A wake word is trained into the model, not configured by a text string.
+  // A wake word comes from the trained model; configuration selects that model.
   // Never silently activate an unrelated bundled wake word.
   char *name = NULL;
   if (models && CONFIG_VOX_WAKE_MODEL_NAME[0])
@@ -321,7 +321,7 @@ fail:
 static void feed_pcm(const int16_t *pcm, size_t count, bool playback, unsigned epoch) {
   // One microphone producer. Drop a newest frame on overload, never rebuild
   // the model here: repeated overflow/reset would prevent continuous detection.
-  // An ineligible raw feed must not erase a partial echo-cleaned frame.
+  // Preserve the partial echo-cleaned frame across ineligible raw feeds.
   if (!app_wake_available() || !app_wake_is_enabled() ||
       !(playback ? atomic_load(&barge) : atomic_load(&idle))) {
     if (playback) app_barge_diagnostic_add(epoch, BD_DISABLED, 1);

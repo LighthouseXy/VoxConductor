@@ -1,9 +1,8 @@
-"""Offline structure and policy regression; no compiler, cloud or device access.
+"""Offline source structure and Python policy models.
 
-Source guards bind the policy models to implementation sites. The models do not
-execute C and cannot establish real DNS/TLS duration, VAD accuracy or sound quality.
-The separate test_holo_rework.py executes the actual embedded JS in a mocked DOM.
-"""
+Source guards bind policy models to implementation sites. Real DNS/TLS duration,
+VAD accuracy and sound quality require dedicated measurements.
+The separate test_holo_rework.py executes embedded JS with a mocked DOM."""
 import re
 from copy import deepcopy
 from pathlib import Path
@@ -57,7 +56,7 @@ assert "CONFIG_VOX_AUTO_END_SILENCE_MS=800" in (ROOT / "firmware/sdkconfig").rea
 assert "#define CONFIG_VOX_AUTO_END_SILENCE_MS 800" in audio
 assert "stage = \"回答生成\"" in turn
 
-# V5 reuses two unsigned slots, not a new serialized structure. Compare the
+# V5 reuses two unsigned slots in the existing serialized structure. Compare the
 # declaration footprint to the preserved V3/V4 layout, including the shared
 # tail. C _Static_assert checks actual size/offsets on the next authorized build.
 layout = re.search(r"typedef struct \{\s*unsigned version, volume,\s*"
@@ -81,7 +80,7 @@ assert "loaded.tts_rate_percent = 100" in loader and "loaded.tts_voice_id = 0" i
 assert "s_preferences_writable = false" in loader and "nvs_flash_erase" not in loader
 
 # Every compiled business module has a responsibility comment; generated font
-# assets deliberately stay out of this coverage. Bracket checks are not a build.
+# assets retain separate checks. Bracket checks cover source structure; builds run separately.
 cmake = read("CMakeLists.txt")
 token = re.compile(r'"(?:\\.|[^"\\])*"|\'(?:\\.|[^\'\\])*\'|//[^\n]*|/\*.*?\*/', re.S)
 for filename in re.findall(r'"([^"/]+\.c)"', cmake):
@@ -96,7 +95,7 @@ for filename in re.findall(r'"([^"/]+\.c)"', cmake):
             assert stack and stack.pop() == {")": "(", "}": "{", "]": "["}[char], filename
     assert not stack, filename
 
-# Model the CAS/partial-save contract, explicitly not native firmware execution.
+# Model the CAS/partial-save contract in Python; native firmware execution is separate.
 class Config:
     def __init__(self):
         self.values = dict(volume=35, brightness=80, tts_rate_percent=100, tts_voice_id=0)
@@ -126,4 +125,4 @@ assert c.apply({"volume": 20}, c.revision, save=False) == "partial"
 assert c.values["volume"] == 20 and c.disk["volume"] == 50
 assert c.apply({"brightness": 90}) == "saved"  # compatibility caller, no fake CAS guarantee
 assert c.values["tts_voice_id"] == 3 and c.values["tts_rate_percent"] == 125
-print("PASS: config CAS/partial-save, shared voice fields, abort-aware summary, 800 ms tail, business-module comments; C/device NOT run")
+print('PASS: config CAS/partial-save, shared voice fields, abort-aware summary, 800 ms tail, business-module comments; scope=offline checks; pending=C/device validation')

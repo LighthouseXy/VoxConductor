@@ -366,8 +366,8 @@ bool app_control_voice_pending(void) {
 }
 void app_control_voice_cancel(void) {
   s_voice_deadline = 0;
-  // Cancel unexecuted operations, not the receipt for an already applied
-  // setting. The voice coordinator consumes that receipt once at turn end.
+  // Cancel pending operations and retain receipts for applied settings.
+  // The voice coordinator consumes each receipt once at turn end.
   bool home_applied = s_after.home_applied;
   memset(&s_after, 0, sizeof(s_after));
   s_after.home_applied = home_applied;
@@ -732,7 +732,7 @@ static cJSON *control_desktop(cJSON *args, const char *text, bool confirmed, con
       snprintf(s_after.target, sizeof(s_after.target), "%s", "web");
       s_after.end_session = true;
     }
-    return r; // Do not expose web.token/url to model or TTS.
+    return r; // Keep web.token/url inside the local management interface.
   }
   if (strcmp(action, "open") || !destination(target)) return result(false, "不支持的页面");
   if (s_after.action[0]) return result(false, "本轮已安排页面操作，请下一轮再切换");
@@ -863,7 +863,7 @@ bool app_control_strip_interrupt(char *text) {
     if (!*p) return true;
   }
   // Short ambiguous phrases are stop-only controls only as whole utterances.
-  // Keep "等一下会不会下雨" intact for semantic handling, not a keyword gate.
+  // Pass the complete "等一下会不会下雨" utterance to semantic handling.
   const char *stops[] = {"停一下", "等一下", "先别说了"};
   for (unsigned i = 0; i < sizeof(stops) / sizeof(*stops); ++i)
     if (phrase(p, stops[i])) { text[0] = '\0'; return true; }
@@ -970,7 +970,7 @@ char *app_control_voice_command(const char *text) {
     }
   }
   // Common unambiguous controls have a verified local receipt in one hop.
-  // Everything else still uses semantic tool selection, not keyword gating.
+  // Other requests use semantic tool selection.
   const char *direct = command_start(text);
   const char *clock[] = {"恢复钟表主页", "恢复成钟表样式", "恢复钟表样式", "恢复时钟主页",
       "切回钟表", "切回时钟", "切回钟表样式", "恢复原来的钟表", "恢复原来的钟表主页",
@@ -1045,7 +1045,7 @@ bool app_control_voice_finish(bool success) {
     if (!lvgl_port_lock(300)) ok = false;
     else {
       // LVGL's existing lock is recursive. Clear the overlay and switch the
-      // page atomically after this bounded acquisition, not in two lock gaps.
+      // page together within this bounded lock acquisition.
       app_ui_hide_voice_state();
       ok = app_ui_open_destination(s_after.target);
       lvgl_port_unlock();

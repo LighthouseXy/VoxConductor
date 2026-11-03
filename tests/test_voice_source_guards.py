@@ -1,4 +1,4 @@
-"""No compiler or device access: structural guards, not C/runtime validation."""
+"""Structural guards and synthetic fixtures; C/runtime validation runs separately."""
 import json
 import re
 import subprocess
@@ -102,4 +102,4 @@ with tempfile.TemporaryDirectory(prefix="vox-voice-export-") as folder:
     path.write_text(json.dumps(row, ensure_ascii=False) + "\n{broken}\n", encoding="utf-8")
     result = subprocess.run([sys.executable, str(ROOT / "tools/export_dialogue.py"), str(path)], check=True, capture_output=True, text=True)
     assert json.loads(result.stdout) == row
-print("PASS: voice structural guards and synthetic export; C tests/build/hardware NOT run")
+print('PASS: voice structural guards and synthetic export; scope=offline checks; pending=C tests/build/hardware validation')

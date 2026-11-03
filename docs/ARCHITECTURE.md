@@ -1,6 +1,6 @@
 # VoxConductor V1 系统架构
 
-> 历史文档：以下 V1 服务端模式的架构/实测保留原口径，不代表 2026-10-10 开发版直连固件。当前说明见 [设备直连](DEVICE_CLOUD_VOICE.md)、[语音实施](VOICE_DIALOGUE_AND_MEMORY_PLAN.md)；当前实物和视频见 [展示图集](SHOWCASE.md)。
+> 历史文档：以下保留 V1 服务端模式的架构与当时实测口径；2026-10-10 开发版采用设备直连路线。当前说明见 [设备直连](DEVICE_CLOUD_VOICE.md)、[语音实施](VOICE_DIALOGUE_AND_MEMORY_PLAN.md)；当前实物和视频见 [展示图集](SHOWCASE.md)。
 当前整体技术路线见 [技术架构](TECHNICAL_ARCHITECTURE.md)。以下继续保留 V1 当时的设计与验证口径。
 
 最后更新：2026-08-26
@@ -68,7 +68,7 @@ sequenceDiagram
     E->>SD: 追加 conversations.txt
 ```
 
-上行不是流式 ASR：用户松开按键后，设备才提交完整 PCM。DeepSeek 也不是文本流：服务端取得完整回答后才启动实时 TTS。当前“流式”专指 TTS 音频块边生成、边下发、边播放。
+用户松开按键后，设备提交完整 PCM 进行 ASR；服务端取得 DeepSeek 完整回答后启动实时 TTS。此阶段采用 TTS 音频块边生成、边下发、边播放的流式方式。
 
 ## 4. 状态与页面
 
@@ -136,4 +136,4 @@ sequenceDiagram
 - 没有播放取消、迟到任务主动取消、语音打断、VAD、唤醒词或 AEC。
 - 没有持续运行、网络弱化、SD 卡满和掉电写入的系统化测试报告。
 
-这些限制是后续工程化入口，当前仓库不将其记录为已实现能力。
+后续工程化需逐项实现并验收以上限制对应的能力。

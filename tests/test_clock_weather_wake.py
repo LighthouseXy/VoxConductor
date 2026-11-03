@@ -1,8 +1,7 @@
 """Read-only source/asset guards for clock, alarm, forecast and wake integration.
 
-Does not compile or execute C. Behavioral C fixtures are in test_weather.c and
-test_agent.c for a separately authorized host build.
-"""
+Scope: source and Python models. Behavioral C fixtures in test_weather.c and
+test_agent.c provide separately runnable host checks."""
 import array
 import csv
 import hashlib
@@ -62,7 +61,7 @@ assert "visible(s_clocks[0].group, !digital_home)" in ui
 assert "lv_obj_set_style_translate_x(clock->depth, 3 + dx" in ui
 footer = ui.split("static void page_footer(", 1)[1].split("static void error_selection", 1)[0]
 assert "90 + i * 18, 235, i == page ? 12 : 5, 5" in footer
-assert 235 + 5 == 240  # Bottom row is visible, not below the panel.
+assert 235 + 5 == 240  # Bottom row stays within the visible panel.
 assert "app_desktop_open_clock()" in ui
 assert "MENU_ALARM" in desktop and "MENU_CLOCK_TASKS" not in desktop
 assert '"once", "daily", "weekdays"' in desktop
@@ -186,4 +185,4 @@ for file in ("app_ui.c", "app_desktop.c", "app_weather.c", "app_agent.c", "app_w
         elif char in ")}]":
             assert stack and stack.pop() == {")": "(", "}": "{", "]": "["}[char], file
     assert not stack, file
-print("PASS: clock backup hashes, alarm/forecast/wake source guards, black wallpaper export; C/build/device NOT run")
+print('PASS: clock backup hashes, alarm/forecast/wake source guards, black wallpaper export; scope=offline checks; pending=C/build/device validation')

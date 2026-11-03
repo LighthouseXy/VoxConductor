@@ -1,4 +1,4 @@
-// Execute the production transport with a deterministic SDK fake, not cloud I/O.
+// Execute the production transport with deterministic local SDK fixtures.
 #include <assert.h>
 #include <stdio.h>
 #include <stdlib.h>

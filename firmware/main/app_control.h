@@ -27,7 +27,7 @@ bool app_control_end_session(const char *text);
 char *app_control_voice_pending_context(void);
 bool app_control_voice_pending(void);
 void app_control_voice_cancel(void);
-// Actual readback receipt, not the model's success claim; consumed at turn end.
+// Device readback receipt, consumed once at turn end.
 bool app_control_voice_home_applied(void);
 // Called after each voice result. Failed replies may reveal an already applied
 // home setting, but never run deferred actions or override explicit cancellation.

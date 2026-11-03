@@ -1,7 +1,6 @@
-"""Computer interruption source/policy models; no C build or hardware test.
+"""Computer interruption source/policy models with injected detections.
 
-Injected detections do not verify native WakeNet/AEC or physical echo timing.
-"""
+Native WakeNet/AEC accuracy and physical echo timing require device validation."""
 from itertools import permutations
 from pathlib import Path
 import re
@@ -82,7 +81,7 @@ assert "ref_write - ref_read + count > REF_CAP" in acoustic
 assert "CONFIG_VOX_AEC_DELAY_MS * (RATE / 1000)" in acoustic
 assert "app_cloud_resume_barge_in" not in acoustic  # only the coordinator resumes
 
-# Changing only the reference rate must not alter TTS/music pitch or duration.
+# TTS/music pitch and duration stay unchanged when the reference rate changes.
 assert "#define SPEAKER_SAMPLE_RATE_HZ 24000" in audio
 assert ".clk_cfg = I2S_STD_CLK_DEFAULT_CONFIG(SPEAKER_SAMPLE_RATE_HZ)" in audio
 assert "stereo_samples[i * 2] = (int16_t)scaled;" in audio
@@ -178,7 +177,7 @@ for flag in ("blocked", "pending", "cancelled"):
 assert not request(7, playing=False)
 assert not request(7, enabled=False)
 
-# A disabled raw feed does not erase a partly assembled playback frame.
+# Preserve the partly assembled playback frame while raw feed is disabled.
 used, queued = [], []
 for part in ([1, 2, 3], [], [4, 5]):
     if part:
@@ -224,4 +223,4 @@ for code in (acoustic, header, audio, cloud, main, ui):
         elif char in ")}]":
             assert stack and stack.pop() == {")": "(", "}": "{", "]": "["}[char]
     assert not stack
-print("PASS: interruption ownership/cancel/pre-roll/reference/endpoint source models; C/native AEC/device NOT run")
+print('PASS: interruption ownership/cancel/pre-roll/reference/endpoint source models; scope=offline checks; pending=C/native AEC/device validation')

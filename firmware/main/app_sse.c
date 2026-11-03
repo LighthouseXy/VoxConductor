@@ -8,7 +8,7 @@
 
 bool app_sse_speech_ready(const app_sse_t *s, bool tools_enabled) {
   // A short preamble may be followed by tool calls. Buffer just the first
-  // ~32 Chinese characters (or a completed short answer), not the whole reply.
+  // ~32 Chinese characters, or a completed short answer.
   return s && !s->tool_count && s->text[0] &&
       (!tools_enabled || s->stopped || strlen(s->text) >= 96);
 }

@@ -1,6 +1,6 @@
 /*
  * 语义工具边界：能力声明、参数检查、本轮连续原话授权和工具预算。
- * 危险动作先准备，下一轮明确确认才执行；模型提议不等于操作完成。
+ * 危险动作先准备，下一轮明确确认才执行；动作结果按实际执行与持久化回执核验。
  * 结果以真实保存/应用回执为准，任务/设备ID不能由模型猜测。
  */
 #include "app_agent.h"
@@ -1249,7 +1249,7 @@ long long app_agent_next_repeat(long long due, long long now,
 }
 bool app_agent_task_change(const char *id, const char *action, int seconds,
                            const char *title, const char *repeat) {
-  // Local checkbox undo is not added to the model's authorized tool actions.
+  // Local checkbox undo stays within the desktop UI action set.
   bool reopen = action && !strcmp(action, "reopen");
   if (!s_history || !id || (!action_valid(action) && !reopen) || seconds < 0 ||
       seconds > 2592000 || (title && strlen(title) >= 128) ||

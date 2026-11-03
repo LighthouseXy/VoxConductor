@@ -28,7 +28,7 @@
 | [桌面交互与工具](DESKTOP_TOOLS_AND_GAMES.md) | 主页、闹钟、天气、媒体、设置；游戏已移除 |
 | [姿态手势](MPU6050_GESTURES.md) | 翻页、轴向、校准与调试 |
 | [网页管理](WEB_MANAGEMENT_DESIGN.md) | 六区布局、实际接口、已实现改版和设备验收 |
-| [局域网设备协议](LAN_DEVICE_PROTOCOL.md) | 受限外部设备示例，不是通用远程控制平台 |
+| [局域网设备协议](LAN_DEVICE_PROTOCOL.md) | 有固定设备范围和参数白名单的外部设备示例 |
 
 ## 3. 查看验证与发布
 
@@ -38,12 +38,12 @@
 - [图片索引](images/README.md)、[视频说明](videos/2026-10-10/README.md)：原图、裁切图、演示和预览的区别。
 - [原始素材清单](images/2026-10-10/manifest.json)、[裁切与预览清单](images/2026-10-11/manifest.json)、[硬件文件校验](../hardware/manifest.json)。
 
-主机检查、编译、烧录和实机验收分别记录。网页模拟预览不是设备运行截图，CAD 校验不是打印试装；图片与单次演示也不替代可靠性统计。
+主机检查、编译、烧录和实机验收分别记录。网页预览采用模拟接口，CAD报告记录几何校验；设备运行、打印试装和可靠性统计分别依据专项验收。
 
 ## 4. 历史参考
 
 - [V1 服务端架构](ARCHITECTURE.md)、[V1 验证](DEMO_AND_VERIFICATION.md)：原 FastAPI/SQLite 阶段的真实实现与结果。
-- [原型 BOM](BOM.csv)：旧模块阶段物料，不是定制 PCB 的采购表。
+- [原型 BOM](BOM.csv)：旧模块阶段物料；定制 PCB 采购依据电子 BOM 和采购规格核对。
 - [功能分析与历史方案](FEATURE_ANALYSIS_AND_EXPANSION.md)：旧方案按日期保留，当前取舍以最新说明为准。
 
 项目文档独立维护，不采用社交博文的连载格式。小红书稿暂时不在本轮整理范围内。

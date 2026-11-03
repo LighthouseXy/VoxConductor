@@ -1,0 +1,398 @@
+{
+  "files": [
+    {
+      "file": ".gitignore",
+      "executable_structure_unchanged_after_approved_text_normalization": true
+    },
+    {
+      "file": "docs/DEVICE_CLOUD_VOICE.md",
+      "executable_structure_unchanged_after_approved_text_normalization": true
+    },
+    {
+      "file": "docs/MPU6050_GESTURES.md",
+      "executable_structure_unchanged_after_approved_text_normalization": true
+    },
+    {
+      "file": "docs/WEB_MANAGEMENT_DESIGN.md",
+      "executable_structure_unchanged_after_approved_text_normalization": true
+    },
+    {
+      "file": "examples/lan_switch/main/main.c",
+      "executable_structure_unchanged_after_approved_text_normalization": true
+    },
+    {
+      "file": "firmware/main/Kconfig.projbuild",
+      "executable_structure_unchanged_after_approved_text_normalization": true
+    },
+    {
+      "file": "firmware/main/app_acoustic.c",
+      "executable_structure_unchanged_after_approved_text_normalization": true
+    },
+    {
+      "file": "firmware/main/app_acoustic.h",
+      "executable_structure_unchanged_after_approved_text_normalization": true
+    },
+    {
+      "file": "firmware/main/app_agent.c",
+      "executable_structure_unchanged_after_approved_text_normalization": true
+    },
+    {
+      "file": "firmware/main/app_agent.h",
+      "executable_structure_unchanged_after_approved_text_normalization": true
+    },
+    {
+      "file": "firmware/main/app_audio.c",
+      "executable_structure_unchanged_after_approved_text_normalization": true
+    },
+    {
+      "file": "firmware/main/app_audio.h",
+      "executable_structure_unchanged_after_approved_text_normalization": true
+    },
+    {
+      "file": "firmware/main/app_cloud.c",
+      "executable_structure_unchanged_after_approved_text_normalization": true
+    },
+    {
+      "file": "firmware/main/app_cloud.h",
+      "executable_structure_unchanged_after_approved_text_normalization": true
+    },
+    {
+      "file": "firmware/main/app_cloud_asr.c",
+      "executable_structure_unchanged_after_approved_text_normalization": true
+    },
+    {
+      "file": "firmware/main/app_cloud_http.h",
+      "executable_structure_unchanged_after_approved_text_normalization": true
+    },
+    {
+      "file": "firmware/main/app_cloud_tts.c",
+      "executable_structure_unchanged_after_approved_text_normalization": true
+    },
+    {
+      "file": "firmware/main/app_control.c",
+      "executable_structure_unchanged_after_approved_text_normalization": true
+    },
+    {
+      "file": "firmware/main/app_control.h",
+      "executable_structure_unchanged_after_approved_text_normalization": true
+    },
+    {
+      "file": "firmware/main/app_conversation.c",
+      "executable_structure_unchanged_after_approved_text_normalization": true
+    },
+    {
+      "file": "firmware/main/app_conversation.h",
+      "executable_structure_unchanged_after_approved_text_normalization": true
+    },
+    {
+      "file": "firmware/main/app_desktop.c",
+      "executable_structure_unchanged_after_approved_text_normalization": true
+    },
+    {
+      "file": "firmware/main/app_games.c",
+      "executable_structure_unchanged_after_approved_text_normalization": true
+    },
+    {
+      "file": "firmware/main/app_history_store.c",
+      "executable_structure_unchanged_after_approved_text_normalization": true
+    },
+    {
+      "file": "firmware/main/app_log.h",
+      "executable_structure_unchanged_after_approved_text_normalization": true
+    },
+    {
+      "file": "firmware/main/app_media.c",
+      "executable_structure_unchanged_after_approved_text_normalization": true
+    },
+    {
+      "file": "firmware/main/app_media.h",
+      "executable_structure_unchanged_after_approved_text_normalization": true
+    },
+    {
+      "file": "firmware/main/app_media_web.c",
+      "executable_structure_unchanged_after_approved_text_normalization": true
+    },
+    {
+      "file": "firmware/main/app_motion_gesture.h",
+      "executable_structure_unchanged_after_approved_text_normalization": true
+    },
+    {
+      "file": "firmware/main/app_network.c",
+      "executable_structure_unchanged_after_approved_text_normalization": true
+    },
+    {
+      "file": "firmware/main/app_speech.c",
+      "executable_structure_unchanged_after_approved_text_normalization": true
+    },
+    {
+      "file": "firmware/main/app_sse.c",
+      "executable_structure_unchanged_after_approved_text_normalization": true
+    },
+    {
+      "file": "firmware/main/app_turn.h",
+      "executable_structure_unchanged_after_approved_text_normalization": true
+    },
+    {
+      "file": "firmware/main/app_turn_log.c",
+      "executable_structure_unchanged_after_approved_text_normalization": true
+    },
+    {
+      "file": "firmware/main/app_ui.c",
+      "executable_structure_unchanged_after_approved_text_normalization": true
+    },
+    {
+      "file": "firmware/main/app_ui_theme.h",
+      "executable_structure_unchanged_after_approved_text_normalization": true
+    },
+    {
+      "file": "firmware/main/app_wake.c",
+      "executable_structure_unchanged_after_approved_text_normalization": true
+    },
+    {
+      "file": "firmware/main/app_wake.h",
+      "executable_structure_unchanged_after_approved_text_normalization": true
+    },
+    {
+      "file": "firmware/main/app_weather.c",
+      "executable_structure_unchanged_after_approved_text_normalization": true
+    },
+    {
+      "file": "firmware/main/app_weather.h",
+      "executable_structure_unchanged_after_approved_text_normalization": true
+    },
+    {
+      "file": "firmware/main/app_words.c",
+      "executable_structure_unchanged_after_approved_text_normalization": true
+    },
+    {
+      "file": "firmware/main/main.c",
+      "executable_structure_unchanged_after_approved_text_normalization": true
+    },
+    {
+      "file": "firmware/main/media_web.html",
+      "executable_structure_unchanged_after_approved_text_normalization": true
+    },
+    {
+      "file": "hardware/mechanical/V3-SLA/source/build.py",
+      "executable_structure_unchanged_after_approved_text_normalization": true
+    },
+    {
+      "file": "hardware/mechanical/V3-SLA/source/extract_pcb.py",
+      "executable_structure_unchanged_after_approved_text_normalization": true
+    },
+    {
+      "file": "hardware/mechanical/V3-SLA/source/render.py",
+      "executable_structure_unchanged_after_approved_text_normalization": true
+    },
+    {
+      "file": "hardware/mechanical/V3-SLA/source/render_3d.py",
+      "executable_structure_unchanged_after_approved_text_normalization": true
+    },
+    {
+      "file": "hardware/mechanical/V3-SLA/source/verify_delivery.py",
+      "executable_structure_unchanged_after_approved_text_normalization": true
+    },
+    {
+      "file": "server/tts_client.py",
+      "executable_structure_unchanged_after_approved_text_normalization": true
+    },
+    {
+      "file": "tests/agent_safety/run_runtime_checks.py",
+      "executable_structure_unchanged_after_approved_text_normalization": true
+    },
+    {
+      "file": "tests/agent_safety/test_agent_semantics.c",
+      "executable_structure_unchanged_after_approved_text_normalization": true
+    },
+    {
+      "file": "tests/agent_safety/test_device_transport.c",
+      "executable_structure_unchanged_after_approved_text_normalization": true
+    },
+    {
+      "file": "tests/test_agent.c",
+      "executable_structure_unchanged_after_approved_text_normalization": true
+    },
+    {
+      "file": "tests/test_air_quality_recovery.py",
+      "executable_structure_unchanged_after_approved_text_normalization": true
+    },
+    {
+      "file": "tests/test_auto_voice_source.py",
+      "executable_structure_unchanged_after_approved_text_normalization": true
+    },
+    {
+      "file": "tests/test_barge_diagnostic.py",
+      "executable_structure_unchanged_after_approved_text_normalization": true
+    },
+    {
+      "file": "tests/test_barge_in_source.py",
+      "executable_structure_unchanged_after_approved_text_normalization": true
+    },
+    {
+      "file": "tests/test_board_pins.py",
+      "executable_structure_unchanged_after_approved_text_normalization": true
+    },
+    {
+      "file": "tests/test_clock_weather_wake.py",
+      "executable_structure_unchanged_after_approved_text_normalization": true
+    },
+    {
+      "file": "tests/test_cloud_http.c",
+      "executable_structure_unchanged_after_approved_text_normalization": true
+    },
+    {
+      "file": "tests/test_config_latency_source.py",
+      "executable_structure_unchanged_after_approved_text_normalization": true
+    },
+    {
+      "file": "tests/test_desktop_assets.py",
+      "executable_structure_unchanged_after_approved_text_normalization": true
+    },
+    {
+      "file": "tests/test_display_memory.py",
+      "executable_structure_unchanged_after_approved_text_normalization": true
+    },
+    {
+      "file": "tests/test_followup_alarm_source.py",
+      "executable_structure_unchanged_after_approved_text_normalization": true
+    },
+    {
+      "file": "tests/test_games.c",
+      "executable_structure_unchanged_after_approved_text_normalization": true
+    },
+    {
+      "file": "tests/test_games_source.py",
+      "executable_structure_unchanged_after_approved_text_normalization": true
+    },
+    {
+      "file": "tests/test_holo_rework.py",
+      "executable_structure_unchanged_after_approved_text_normalization": true
+    },
+    {
+      "file": "tests/test_holo_ui.py",
+      "executable_structure_unchanged_after_approved_text_normalization": true
+    },
+    {
+      "file": "tests/test_home_idle_source.py",
+      "executable_structure_unchanged_after_approved_text_normalization": true
+    },
+    {
+      "file": "tests/test_input_navigation.py",
+      "executable_structure_unchanged_after_approved_text_normalization": true
+    },
+    {
+      "file": "tests/test_interrupt_question_gate.py",
+      "executable_structure_unchanged_after_approved_text_normalization": true
+    },
+    {
+      "file": "tests/test_media_core_source.py",
+      "executable_structure_unchanged_after_approved_text_normalization": true
+    },
+    {
+      "file": "tests/test_media_integration.py",
+      "executable_structure_unchanged_after_approved_text_normalization": true
+    },
+    {
+      "file": "tests/test_media_pack.py",
+      "executable_structure_unchanged_after_approved_text_normalization": true
+    },
+    {
+      "file": "tests/test_media_ui.py",
+      "executable_structure_unchanged_after_approved_text_normalization": true
+    },
+    {
+      "file": "tests/test_media_web.py",
+      "executable_structure_unchanged_after_approved_text_normalization": true
+    },
+    {
+      "file": "tests/test_memory_voice_cleanup.py",
+      "executable_structure_unchanged_after_approved_text_normalization": true
+    },
+    {
+      "file": "tests/test_navigation_editors_source.py",
+      "executable_structure_unchanged_after_approved_text_normalization": true
+    },
+    {
+      "file": "tests/test_network_recovery.py",
+      "executable_structure_unchanged_after_approved_text_normalization": true
+    },
+    {
+      "file": "tests/test_reminder_font.py",
+      "executable_structure_unchanged_after_approved_text_normalization": true
+    },
+    {
+      "file": "tests/test_sd_backup.py",
+      "executable_structure_unchanged_after_approved_text_normalization": true
+    },
+    {
+      "file": "tests/test_semantic_agent_source.py",
+      "executable_structure_unchanged_after_approved_text_normalization": true
+    },
+    {
+      "file": "tests/test_serial_logs.py",
+      "executable_structure_unchanged_after_approved_text_normalization": true
+    },
+    {
+      "file": "tests/test_stable_voice_diagnostic.py",
+      "executable_structure_unchanged_after_approved_text_normalization": true
+    },
+    {
+      "file": "tests/test_tools_grid_source.py",
+      "executable_structure_unchanged_after_approved_text_normalization": true
+    },
+    {
+      "file": "tests/test_tts_preferences.py",
+      "executable_structure_unchanged_after_approved_text_normalization": true
+    },
+    {
+      "file": "tests/test_voice_controls_source.py",
+      "executable_structure_unchanged_after_approved_text_normalization": true
+    },
+    {
+      "file": "tests/test_voice_exit_output.py",
+      "executable_structure_unchanged_after_approved_text_normalization": true
+    },
+    {
+      "file": "tests/test_voice_memory_order.py",
+      "executable_structure_unchanged_after_approved_text_normalization": true
+    },
+    {
+      "file": "tests/test_voice_repair_source.py",
+      "executable_structure_unchanged_after_approved_text_normalization": true
+    },
+    {
+      "file": "tests/test_voice_setting_outcome.py",
+      "executable_structure_unchanged_after_approved_text_normalization": true
+    },
+    {
+      "file": "tests/test_voice_source_guards.py",
+      "executable_structure_unchanged_after_approved_text_normalization": true
+    },
+    {
+      "file": "tests/test_wake_handoff_source.py",
+      "executable_structure_unchanged_after_approved_text_normalization": true
+    },
+    {
+      "file": "tests/test_wake_network_reset.py",
+      "executable_structure_unchanged_after_approved_text_normalization": true
+    },
+    {
+      "file": "tests/test_weather.c",
+      "executable_structure_unchanged_after_approved_text_normalization": true
+    },
+    {
+      "file": "tests/test_weather_home_source.py",
+      "executable_structure_unchanged_after_approved_text_normalization": true
+    },
+    {
+      "file": "tests/test_weather_scroll_source.py",
+      "executable_structure_unchanged_after_approved_text_normalization": true
+    },
+    {
+      "file": "tools/prepare_media_pack.py",
+      "executable_structure_unchanged_after_approved_text_normalization": true
+    }
+  ],
+  "C_format_specifiers_preserved": true,
+  "interruption_prefix_within_original_budget": true
+}

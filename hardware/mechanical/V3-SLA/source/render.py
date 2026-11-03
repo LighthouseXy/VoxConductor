@@ -26,7 +26,7 @@ def fig3(name,names,title,explode=False):
  ax.add_collection3d(Poly3DCollection(np.concatenate(ax._all_triangles),facecolors=np.concatenate(ax._all_colors),edgecolors='none',zsort='average'))
  ax.set(xlim=(-39,39),ylim=(0,78),zlim=(-3,102 if explode else 52));ax.set_box_aspect((78,78,88 if explode else 55));ax.view_init(elev=43,azim=110)
  ax.set_xlabel('X / mm');ax.set_ylabel('Y / mm');ax.set_zlabel('Z / mm');ax.set_title(title,fontsize=16,pad=15)
- fig.text(.07,.03,'从 USB 后侧看：USB 在左、SD 在右。电子器件为包络参考，不是厂家精细模型。',fontsize=11)
+ fig.text(.07,.03,'从 USB 后侧看：USB 在左、SD 在右。电子器件采用参考包络，精细几何待厂家模型补齐。',fontsize=11)
  fig.savefig(ROOT/'preview'/name,dpi=170,bbox_inches='tight');plt.close(fig)
 fig3('01_shell.png',['01_main_shell','02_base'],'V3 修正版：USB 口移到正确侧，底部螺丝柱外移')
 fig3('02_internal_exploded.png',[n for n in scene if n not in ['01_main_shell','entry_frame']],'内部装配分解示意（外壳隐藏）',True)

@@ -1,4 +1,4 @@
-"""Source guards for media UI ownership/navigation; no ESP-IDF or hardware needed."""
+"""Source guards for media UI ownership and navigation. Native LVGL and device acceptance run separately."""
 from pathlib import Path
 import re
 
@@ -41,7 +41,7 @@ for child, parent in (("MENU_MEDIA", "MENU_ROOT"),
     assert "enter(" + parent + ")" in branch, (child, parent)
 assert "enter(s_wallpaper_from_media ? MENU_MEDIA : MENU_APPEARANCE)" in back
 
-# Large catalogs/pixels are not task-stack or LVGL-pool allocations.
+# Large catalogs/pixels use their dedicated allocations.
 assert "static EXT_RAM_BSS_ATTR app_media_snapshot_t s_ui_media;" in UI
 assert "static EXT_RAM_BSS_ATTR app_media_snapshot_t s_media;" in DESKTOP
 assert UI.count("app_psram_zero(APP_MEDIA_IMAGE_BYTES)") == 2
@@ -75,7 +75,7 @@ assert "holo_surface(s_idle_screen)" in idle_init
 assert "create_clock(s_idle_screen, &s_clocks[1])" in idle_init
 assert "lv_image_create" not in idle_init and "create_animated_wall" not in idle_init
 
-# Manual album input does not advance on the first half of a double click.
+# Manual album input keeps position during the first half of a double click.
 enter = function(UI, "app_ui_enter_page")
 album_branch = enter.split("if (s_album_open", 1)[1].split("return;", 1)[0]
 assert "s_album_info_visible = !s_album_info_visible" in album_branch

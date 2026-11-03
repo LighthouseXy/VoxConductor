@@ -1,4 +1,4 @@
-"""Source guards plus a small state model; no C compilation or device execution."""
+"""Source guards and a local state model; native C and device acceptance run separately."""
 from pathlib import Path
 from collections import deque
 import math
@@ -63,7 +63,7 @@ assert "range 40 95" in threshold_config and "default 60" in threshold_config
 assert "#define CONFIG_VOX_WAKE_THRESHOLD_PERCENT 60" in wake
 sdkconfig = (ROOT / "firmware/sdkconfig").read_text()
 assert "CONFIG_VOX_WAKE_THRESHOLD_PERCENT=60" in sdkconfig.splitlines()
-assert "false wakes" in threshold_config  # this is calibration, not a guaranteed fix
+assert "false wakes" in threshold_config  # calibration still requires device acceptance
 
 # The bundled WakeNet9l public setter reports success and derives 0.992x for
 # its internal threshold, which its getter returns. The old exact-match gate
@@ -175,7 +175,7 @@ w.step(0)  # consume the initial reset on the fresh instance
 queue, drops = deque(), 0
 for tick in range(300):
     w.allow(True)  # periodic restore of the unchanged state must be harmless
-    w.enable(True)  # saving other settings must not reset the recognizer
+    w.enable(True)  # saving other settings preserves the recognizer generation
     if len(queue) == 16:
         drops += 1
     else:
@@ -188,7 +188,7 @@ assert w.step(queue.popleft(), detected=True)  # still able to wake after overfl
 w.allow(False)
 before = w.generation
 w.allow(False)
-assert w.generation == before  # repeated audio-owner hold is not another reset
+assert w.generation == before  # repeated audio-owner hold preserves the generation
 assert not w.step(w.generation)  # real owner transition resets used state once
 w.allow(True)
 assert not w.step(w.generation)
@@ -234,7 +234,7 @@ for gain in (1, 2, 4, 16):
     if gain > 1:
         assert pcm.clips > 0 and 32767 in loud and -32768 in loud
 
-# Independent AQ deadline: weather success must not suppress the 30 s AQ retry.
+# Independent AQ deadline: preserve the 30 s AQ retry after weather success.
 weather_due, air_due = 600, 30
 assert 30 < weather_due and 30 >= air_due
 air_due = 30 + 600  # successful retry resumes normal ten-minute polling
@@ -242,4 +242,4 @@ assert air_due == 630
 # Wi-Fi failures back off quickly, cap at 30 s, and reset on a new connection.
 delays = [2 << n if n < 4 else 30 for n in range(8)]
 assert delays == [2, 4, 8, 16, 30, 30, 30, 30]
-print("PASS: wake threshold 60/config consistency, PCM DC/gain/clipping/continuity, overflow/owner/reset and AQ/Wi-Fi guards; C and hardware NOT run")
+print('PASS: wake threshold 60/config consistency, PCM DC/gain/clipping/continuity, overflow/owner/reset and AQ/Wi-Fi guards; scope=offline checks; pending=C and hardware validation')

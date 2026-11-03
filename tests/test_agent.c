@@ -96,7 +96,7 @@ static void contains(char *s, const char *needle) {
   assert(s && strstr(s, needle));
   free(s);
 }
-// Native fixtures exercise argument validation, not the model's intent choice.
+// Native fixtures exercise argument validation; model intent choice needs separate evaluation.
 static char *execute(const char *name, const char *arguments, const char *text, const app_turn_t *turn) {
   cJSON *args = cJSON_Parse(arguments);
   if (app_agent_write_tool(name)) cJSON_AddStringToObject(args, "request", text);

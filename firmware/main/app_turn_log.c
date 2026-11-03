@@ -1,7 +1,7 @@
 /*
  * 轮次ESP适配：先记录历史，再输出简洁日志和按需资源诊断。
  * 串口缩短ID/正文只影响显示，不修改存储的来源或原文。
- * 阶段时间是软件时间点，不等同于声学首声测量。
+ * 阶段时间记录软件事件，声学首声需独立测量。
  */
 #include "app_turn.h"
 #include "app_storage.h"
@@ -138,8 +138,8 @@ void app_turn_report(const app_turn_t *t) {
   ESP_LOGI(TAG, "[%s] 统计: 模型=%u 工具=%u 补缓冲=%u次/%.2fs PCM=%u B",
            app_log_id(t->id), t->agent_requests, t->agent_tools,
            t->tts_starvations, t->tts_wait_us / 1e6, (unsigned)t->pcm_submitted_bytes);
-  // 日常日志只增加一行关键阶段。不是声学首声测量；ASR连接与录音可
-  // 重叠，不能把后台等待简单相加当作整个端到端延迟。
+  // 日常日志增加一行关键阶段。声学首声需另测；ASR连接与录音可
+  // 重叠，端到端延迟按实际起止时刻测量。
   char generation[32], startup[32];
   duration(generation, sizeof(generation), t->times[TURN_GENERATE_START], t->times[TURN_ASSISTANT_TEXT]);
   duration(startup, sizeof(startup), t->times[TURN_TTS_START], t->times[TURN_PLAY_START]);

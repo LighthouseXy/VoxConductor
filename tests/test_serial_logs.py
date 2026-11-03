@@ -1,4 +1,4 @@
-"""Serial-log source guards/policy models; no C compile or hardware calls."""
+"""Serial-log source guards and local policy models. C compilation and hardware acceptance run separately."""
 import json
 import re
 from pathlib import Path
@@ -24,7 +24,7 @@ assert boot.index("esp_log_level_set") < boot.index("app_control_init()")
 assert not re.search(r'esp_log_level_set\(\s*"\*"', main)
 assert "esp_log_set_vprintf" not in main + header
 
-# Console changes must not abbreviate stored IDs or persisted dialogue text.
+# Console changes preserve full stored IDs and persisted dialogue text.
 emit = turn.split("static void emit(", 1)[1].split("void app_turn_emit(", 1)[0]
 assert emit.index("app_storage_record_event(t, &event)") < emit.index("log_text(t, type, text)")
 assert 'snprintf(s_source_turn, sizeof(s_source_turn), "%s", turn ? turn->id : "")' in cloud
@@ -33,7 +33,7 @@ logs = re.compile(r'(?:ESP_LOG[EWIDV]|APP_LOG_DETAIL)\((?:[^;"]|"(?:\\.|[^"\\])*
 for path in MAIN.glob("*.c"):
     assert "app_log_id(" not in logs.sub("", path.read_text()), path.name
 
-# Model the preview's explicit UTF-8 boundary/escaping policy, not native execution.
+# Model the preview's UTF-8 boundary/escaping policy; native execution is separate.
 text_log = turn.split("static void log_text(", 1)[1].split("static void emit(", 1)[0]
 compact = text_log.split("#if !CONFIG_VOX_LOG_VERBOSE", 1)[1].split("#else", 1)[0]
 assert "if (type == TURN_ASSISTANT_TEXT)" in compact and "return;" in compact
@@ -73,4 +73,4 @@ assert "AQ connect: IPv4, socket_errno=%d, tls=%s" in read("app_network.c")
 assert "WSS错误：握手HTTP=%d，TLS=0x%x" in tts
 assert 'APP_LOG_DETAIL(TAG, "显示语音状态:' in read("app_ui.c")
 assert 'APP_LOG_DETAIL(TAG, "上下文快照已保存' in read("app_storage.c")
-print("PASS: serial-log policy, UTF-8/escaping models, errors and full SD IDs; C/hardware NOT run")
+print('PASS: serial-log policy, UTF-8/escaping models, errors and full SD IDs; scope=offline checks; pending=C/hardware validation')

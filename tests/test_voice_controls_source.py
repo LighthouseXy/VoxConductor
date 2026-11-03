@@ -1,8 +1,7 @@
-"""Voice tool schemas/source invariants and policy fixtures; no C build/device I/O.
+"""Voice tool source/schema guards and Python policy fixtures.
 
-The policy fixtures model boundaries. They do not execute the native firmware,
-verify a microphone, or prove that an SD write or physical page switch succeeds.
-"""
+Microphone behavior, durable SD writes and physical page changes require
+separate native or device acceptance tests."""
 import json
 import re
 from pathlib import Path
@@ -131,7 +130,7 @@ assert "app_weather_future_hours" in weather and "if (count > 12) count = 12" in
 assert "air_observed_at" in weather and "clock_not_synchronized" in weather
 assert "pending_confirmation" in conversation and "saved=false" in conversation
 
-# Policy boundaries mirror validated ranges, not execution of the C functions.
+# Policy models follow validated ranges; C execution is checked separately.
 def setting_valid(name, value):
     if not isinstance(value, int) or isinstance(value, bool):
         return False
@@ -174,4 +173,4 @@ for done, applied, saved, expected in [
 ]:
     actual = "pending" if not done else "applied" if applied and saved else "partial" if applied else "failed"
     assert actual == expected
-print("PASS: 5 voice tool schemas, authorization/confirmation, queue receipts, deferred UI, weather fields and policy fixtures; no C build or hardware verification")
+print("PASS: 5 voice tool schemas, authorization/confirmation, queue receipts, deferred UI, weather fields and policy fixtures; scope=source/policy fixtures; pending=C/hardware acceptance")

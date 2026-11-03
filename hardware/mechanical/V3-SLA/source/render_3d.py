@@ -1,4 +1,4 @@
-"""Orthographic CAD triangle render with per-pixel depth (no invented geometry)."""
+"""Orthographic render of source CAD triangles with per-pixel depth."""
 from pathlib import Path
 import json,math
 import numpy as np

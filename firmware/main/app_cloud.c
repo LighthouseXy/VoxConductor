@@ -118,7 +118,7 @@ static esp_err_t read_text(esp_http_client_handle_t client, char **out, app_turn
   size_t used = 0;
   esp_err_t result = ESP_OK;
   // 摘要非流式响应可能长时间没有正文。按1秒读取轮询取消，但允许模型
-  // 合计30秒完成；超时/EAGAIN不等于一个完整JSON响应。
+  // 合计30秒完成；响应须完整解析校验，超时按失败处理，EAGAIN为暂时无数据。
   // 即使headers阶段已接收到整个响应，也必须先读完HTTP客户端缓存的正文。
   while (true) {
     if (app_cloud_http_cancelled(abort)) { result = ESP_ERR_INVALID_STATE; break; }
@@ -268,7 +268,7 @@ static esp_err_t read_stream(esp_http_client_handle_t client, char **out,
     if (!remaining) { result = ESP_ERR_TIMEOUT; break; }
     esp_http_client_set_timeout_ms(client, remaining);
     int n = esp_http_client_read(client, block, sizeof(block));
-    // IDF reports a temporary empty socket as EAGAIN, not a completed stream.
+    // IDF uses EAGAIN for a temporary empty socket; keep the stream open.
     // Polling also bounds cancellation latency while the server is thinking.
     if (n == -ESP_ERR_HTTP_EAGAIN) continue;
     if (n <= 0) {
@@ -532,7 +532,7 @@ void app_cloud_remember_interrupted(const char *user, const char *answer, size_t
     size_t n = strlen(answer); if (n > played) n = played;
     if (n > APP_CONTEXT_TEXT_BYTES - 160) n = APP_CONTEXT_TEXT_BYTES - 160;
     while (n && ((unsigned char)answer[n] & 0xc0) == 0x80) --n;
-    snprintf(notice, APP_CONTEXT_TEXT_BYTES, "[回答被打断；以下仅为完整提交过I2S的句段，不代表用户听清。未播放部分不可引用。]%.*s", (int)n, answer);
+    snprintf(notice, APP_CONTEXT_TEXT_BYTES, "[回答被打断；以下为完整提交过I2S的句段。实际听感待确认；引用限此范围。]%.*s", (int)n, answer);
   }
   if (app_conversation_add_source(s_history, user, notice, s_source_turn)) {
     app_commit_result_t commit = app_storage_save_context(s_history);

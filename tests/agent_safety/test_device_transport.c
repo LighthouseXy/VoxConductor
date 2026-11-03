@@ -69,5 +69,5 @@ int main(void) {
   payload = "{\"command_id\":\"action-1\",\"value\":true}";
   deadline = 0; drip = true; int64_t started = now_us;
   expect("unknown"); assert(now_us - started <= 3000000 && cleanups == 5 && writes == 4);
-  puts("PASS slow response consumes one total device budget, not a renewed budget per byte");
+  puts("PASS slow response consumes one shared total device budget across all received bytes");
 }

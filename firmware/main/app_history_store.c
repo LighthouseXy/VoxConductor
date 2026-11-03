@@ -1,6 +1,6 @@
 /*
  * 历史文件/索引：按稳定ID、偏移、时间/角色检索有界原文片段。
- * 当前卷与封存卷边界明确，生成过文本不代表完整播报过。
+ * 当前卷与封存卷分别管理，生成文本和播放终态分别记录。
  * 损坏/超长文件输入不能导致越界或无限扫描。
  */
 #include "app_history_store.h"
@@ -474,7 +474,7 @@ static const char *find_text(const char *text, const char *keyword) {
     while (i < n && tolower((unsigned char)p[i]) == tolower((unsigned char)keyword[i])) ++i;
     if (i == n) return p;
   }
-  // 有限中文别名，返回原文中的真实位置，而不是生成替代文本。
+  // 按有限中文别名匹配，返回原文中的实际位置。
   const char *power[] = {"供电", "电池", "电源"};
   for (unsigned i = 0; i < 3; ++i) if (!strcmp(keyword, power[i])) {
     for (unsigned j = 0; j < 3; ++j) { const char *p = strstr(text, power[j]); if (p) return p; }

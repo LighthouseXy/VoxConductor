@@ -62,4 +62,4 @@ assert 'due_value(item) > time(NULL)' in reopen
 font = (MAIN / "app_ui_font_digits_56.c").read_text()
 glyphs = {int(x, 16) for x in re.findall(r"/\* U\+([0-9a-fA-F]+)", font)}
 assert {ord(c) for c in "0123456789:-°"} <= glyphs
-print("PASS: transparent UI, bounded arcade catalog, parent/input/audio boundaries, fonts and migration guards; C/runtime/hardware NOT run")
+print('PASS: transparent UI, bounded arcade catalog, parent/input/audio boundaries, fonts and migration guards; scope=offline checks; pending=C/runtime/hardware validation')

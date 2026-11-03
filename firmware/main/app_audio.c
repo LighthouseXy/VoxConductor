@@ -1,7 +1,7 @@
 /*
  * 音频硬件层：16 kHz采集、VAD句尾检测、24 kHz扬声器输出。
  * 发布已写好的连续采样；ASR消费原始PCM，检测使用独立增益/DC副本。
- * 互斥锁保护硬件所有权，取消播放须清理DMA，而非只取消云端请求。
+ * 互斥锁保护硬件所有权，取消播放须结束云端请求并清理DMA。
  */
 #include "app_audio.h"
 #include "app_acoustic.h"
@@ -212,8 +212,8 @@ esp_err_t app_audio_abort_playback(void) {
     s_silence_loaded = 0;
     s_speaker_dma_clean = false;
   }
-  // A failed preload may be retried while TX is already disabled. Do not
-  // acknowledge an audio handoff merely because the disable step succeeded.
+  // A failed preload may be retried while TX is already disabled. Acknowledge
+  // the audio handoff after both disabling and preloading succeed.
   // Size follows the DMA configuration, including stereo expansion.
   static const int16_t silence[SPEAKER_DMA_DESC_COUNT * SPEAKER_DMA_FRAME_COUNT * 2] = {0};
   size_t loaded = 0;
@@ -438,7 +438,7 @@ esp_err_t app_audio_capture_progress(int16_t *recording,
     ESP_LOGE(TAG, "Automatic recording: insufficient heap for VAD");
     return ESP_ERR_NO_MEM;
   }
-  // Reuse the installed ESP-SR voice detector, not an absolute loudness gate.
+  // Use the installed ESP-SR voice detector for local speech decisions.
   // Only this private VAD copy is DC-filtered/amplified; ASR PCM is unchanged.
   vad_handle_t vad = automatic ? vad_create_with_param(
       (vad_mode_t)CONFIG_VOX_AUTO_END_VAD_MODE, MIC_SAMPLE_RATE_HZ,
@@ -586,7 +586,7 @@ esp_err_t app_audio_capture_progress(int16_t *recording,
         waiting_samples += frames_in_block;
         if (had_speech) {
           // Nothing was published while waiting, so compaction is safe.
-          // Retain the start of the utterance, not the preceding idle window.
+          // Retain audio from the start of the utterance.
           size_t keep = recorded_samples < FOLLOWUP_PREROLL_SAMPLES
                             ? recorded_samples : FOLLOWUP_PREROLL_SAMPLES;
           memmove(recording, recording + recorded_samples - keep,
@@ -614,7 +614,7 @@ esp_err_t app_audio_capture_progress(int16_t *recording,
       }
       if (!wait_for_speech && !had_speech && recorded_samples >=
                              MIC_SAMPLE_RATE_HZ * AUTO_START_WAIT_SECONDS) {
-        // A local false negative must not discard audio the cloud can hear.
+        // Cloud ASR may recover audio despite a local VAD false negative.
         // Submit the captured window; only a truly empty ASR result fails.
         stopped_without_activity = true;
         break;
@@ -634,7 +634,7 @@ esp_err_t app_audio_capture_progress(int16_t *recording,
 
   *recorded_sample_count = recorded_samples;
   if (wait_for_speech && result == ESP_ERR_NOT_FOUND) {
-    APP_LOG_DETAIL(TAG, "Follow-up window closed: no speech, audio not published");
+    APP_LOG_DETAIL(TAG, "Follow-up window closed: quiet expiry; capture kept local");
     return result;
   }
   if (result != ESP_OK) {

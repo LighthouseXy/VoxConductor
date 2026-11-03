@@ -1,7 +1,6 @@
-"""Heap/order/handshake policy checks; no C build, network request or device I/O.
+"""Heap/order/handshake source guards and Python policy fixtures.
 
-These models do not execute FreeRTOS, TLS, the native VAD, or a microphone.
-"""
+FreeRTOS, TLS, native VAD and microphone behavior require separate execution tests."""
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -35,7 +34,7 @@ main = (MAIN / "main.c").read_text()
 turn = main.split("static esp_err_t run_voice_turn(", 1)[1].split("static void voice_conversation_task(void *argument) {", 1)[0]
 assert turn.index("app_cloud_ask(") < turn.index("TURN_ASSISTANT_TEXT") < turn.index("app_cloud_speak(")
 assert '"app_speech.c"' not in (MAIN / "CMakeLists.txt").read_text()
-assert asr.index('xTaskCreate(capture_task, "asr_capture"') < asr.index("esp_websocket_client_start(client)")  # ASR network setup does not delay recording
+assert asr.index('xTaskCreate(capture_task, "asr_capture"') < asr.index("esp_websocket_client_start(client)")  # recording starts before ASR network setup
 assert "if (speech_run_ms >= AUTO_START_CONFIRM_MS) had_speech = true" in audio
 assert "if (waiting && !speech_run_ms && waiting_samples >=" in audio
 
@@ -96,4 +95,4 @@ for error, cancelled in ((True, False), (False, True)):
     g.free()
     assert not g.sends
 
-print("PASS: TTS internal-stack reservation/gated sender/serial TLS ordering and pressure policies; C/runtime/VAD NOT run")
+print('PASS: TTS internal-stack reservation/gated sender/serial TLS ordering and pressure policies; scope=offline checks; pending=C/runtime/VAD validation')

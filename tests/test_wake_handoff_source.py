@@ -1,7 +1,6 @@
-"""Wake handoff source/logic models; no firmware compile or real recognition.
+"""Wake handoff source guards and injected-detection models.
 
-Injected detections cannot establish WakeNet accuracy or real UI lock latency.
-"""
+Native WakeNet accuracy and physical UI-lock latency require device measurements."""
 from pathlib import Path
 import re
 
@@ -114,7 +113,7 @@ class Handoff:
         return "started"
 
 # The screenshot's first detection survives a >100 ms lock hold; only one
-# conversation starts. Duplicates do not extend the two-second deadline.
+# conversation starts; duplicates retain the original two-second deadline.
 h = Handoff()
 h.detected(25109)
 initial = h.until
@@ -131,7 +130,7 @@ assert h.dispatch(350, start_ok=False) == "retained"
 assert h.dispatch(450) == "started"
 
 # Screenshot regression: the detector's own rebuild takes ready low before
-# the UI coordinator runs. This must not be interpreted as switch-off.
+# the UI coordinator runs; the accepted wake stays enabled during that rebuild.
 for detected_at, dispatched_at in ((48409, 48449), (52489, 52569)):
     h = Handoff()
     h.detected(detected_at)
@@ -173,8 +172,8 @@ for overlay in ("idle", "error", "cancelled", "listening", "thinking", "speaking
     expected = "started" if overlay in ("idle", "error", "cancelled") else "blocked"
     assert h.dispatch(150, overlay=overlay) == expected
 
-# Uptime rollover must not turn a recent wake into an expired event, and a
-# zero-valued deadline gets a one-millisecond sentinel adjustment, not lost.
+# Preserve recent wakes across uptime rollover, including deadlines at zero.
+# Use a one-millisecond sentinel adjustment for that boundary.
 for now in (MASK - 1000, MASK - ttl + 1, MASK - 10, 0, 100):
     h = Handoff()
     h.detected(now)
@@ -182,7 +181,7 @@ for now in (MASK - 1000, MASK - ttl + 1, MASK - 10, 0, 100):
     assert h.dispatch((now + 500) & MASK, ui_lock=False) == "retained"
     assert h.dispatch((now + ttl + 1) & MASK) == "expired"
 
-# Inject positive classifier outputs, not audio: all eligible frames are
+# Inject positive classifier outputs: all eligible frames are
 # inferred during duplicate debounce; a repeat after 800 ms can notify.
 processed = notified = suppressed = 0
 cooldown = 0
@@ -197,4 +196,4 @@ for now in range(0, 1601, 32):
             cooldown = now + debounce_us // 1000
 assert processed == 51 and notified == 3 and suppressed == 3
 
-print("PASS: queued wake/UI retry/owner/button/expiry/wrap/debounce models; native accuracy/device NOT run")
+print('PASS: queued wake/UI retry/owner/button/expiry/wrap/debounce models; scope=offline checks; pending=native accuracy/device validation')

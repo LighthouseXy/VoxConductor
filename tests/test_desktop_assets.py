@@ -1,4 +1,4 @@
-"""Non-compiling source/asset checks. Not firmware or hardware validation."""
+"""Source and asset checks; firmware and hardware acceptance are separate tasks."""
 import json
 import re
 import struct

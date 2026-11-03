@@ -1,4 +1,4 @@
-"""Regression/source policies only. No C build, hardware, or paid API calls."""
+"""Local source guards and regression policy fixtures. Native hardware and paid API evaluation run separately."""
 import json
 import re
 from pathlib import Path
@@ -14,7 +14,7 @@ acoustic = (MAIN / "app_acoustic.c").read_text()
 sse = (MAIN / "app_sse.c").read_text()
 network = (MAIN / "app_network.c").read_text()
 
-# Receipts use readback, not a copy of the requested value, and retain failures.
+# Receipts use actual readback and retain failures.
 settings = control.split("static cJSON *set_setting(", 1)[1].split("static cJSON *control_media", 1)[0]
 assert "app_desktop_configuration(&actual, NULL)" in settings
 assert "bool applied = readback && desktop_setting_value(&actual, s) == value" in settings
@@ -98,4 +98,4 @@ for source in (control, desktop, main, cloud, asr, acoustic, sse, network):
         if c in "({[": stack.append(c)
         elif c in ")}]": assert stack and stack.pop() == {")": "(", "}": "{", "]": "["}[c]
     assert not stack
-print("PASS: setting readback/home handoff/barge phrase/stream wait regression guards; device/native NOT run")
+print('PASS: setting readback/home handoff/barge phrase/stream wait regression guards; scope=offline checks; pending=device/native validation')

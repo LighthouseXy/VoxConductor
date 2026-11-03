@@ -82,4 +82,4 @@ assert "visible(s_animated.group, digital_home && dynamic)" in refresh
 for images, toggle in ((0, False), (0, True), (3, False)):
     digital_home, dynamic = True, True
     assert digital_home and dynamic
-print("PASS: daylight clock, restored shared motion, all 12 forecast hours, current UV/air/wind cards and applied home preview; C/device NOT run")
+print('PASS: daylight clock, restored shared motion, all 12 forecast hours, current UV/air/wind cards and applied home preview; scope=offline checks; pending=C/device validation')

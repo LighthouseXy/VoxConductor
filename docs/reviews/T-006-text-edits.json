@@ -1,0 +1,1472 @@
+[
+  {
+    "file": "examples/lan_switch/main/main.c",
+    "kind": "comment",
+    "before": "Minimal ESP-IDF peer for an external low-voltage LED, not a mains relay.",
+    "after": "Minimal ESP-IDF peer restricted to an external low-voltage LED."
+  },
+  {
+    "file": "examples/lan_switch/main/main.c",
+    "kind": "comment",
+    "before": "Persist a SET state (not a TOGGLE); retrying the last ID does not repeat an edge.",
+    "after": "Persist a SET state; the last ID returns its saved result on retry."
+  },
+  {
+    "file": "firmware/main/app_acoustic.c",
+    "kind": "comment",
+    "before": "Pre-roll and the old speaker tail are not evidence of a new question.",
+    "after": "New-question evidence comes from fresh post-playback speech."
+  },
+  {
+    "file": "firmware/main/app_acoustic.h",
+    "kind": "comment",
+    "before": "false means DSP could not arm; never advertise successful voice interruption.",
+    "after": "false reports DSP arming failure; expose that failure to the coordinator."
+  },
+  {
+    "file": "firmware/main/app_agent.c",
+    "kind": "comment",
+    "before": "Local checkbox undo is not added to the model's authorized tool actions.",
+    "after": "Local checkbox undo stays within the desktop UI action set."
+  },
+  {
+    "file": "firmware/main/app_agent.h",
+    "kind": "comment",
+    "before": "Provenance only, not proof of semantic consent. Destructive writes still confirm.",
+    "after": "Provenance binds source text; destructive writes require explicit confirmation."
+  },
+  {
+    "file": "firmware/main/app_audio.c",
+    "kind": "comment",
+    "before": "A failed preload may be retried while TX is already disabled. Do not\n  // acknowledge an audio handoff merely because the disable step succeeded.",
+    "after": "A failed preload may be retried while TX is already disabled. Acknowledge\n  // the audio handoff after both disabling and preloading succeed."
+  },
+  {
+    "file": "firmware/main/app_audio.c",
+    "kind": "comment",
+    "before": "Reuse the installed ESP-SR voice detector, not an absolute loudness gate.",
+    "after": "Use the installed ESP-SR voice detector for local speech decisions."
+  },
+  {
+    "file": "firmware/main/app_audio.c",
+    "kind": "comment",
+    "before": "Retain the start of the utterance, not the preceding idle window.",
+    "after": "Retain audio from the start of the utterance."
+  },
+  {
+    "file": "firmware/main/app_audio.c",
+    "kind": "comment",
+    "before": "A local false negative must not discard audio the cloud can hear.",
+    "after": "Cloud ASR may recover audio despite a local VAD false negative."
+  },
+  {
+    "file": "firmware/main/app_audio.h",
+    "kind": "comment",
+    "before": "Local media shares the PCM conversion/volume path but not cloud cancellation.",
+    "after": "Local media shares PCM conversion and volume processing; cancellation is separate."
+  },
+  {
+    "file": "firmware/main/app_cloud.c",
+    "kind": "comment",
+    "before": "IDF reports a temporary empty socket as EAGAIN, not a completed stream.",
+    "after": "IDF uses EAGAIN for a temporary empty socket; keep the stream open."
+  },
+  {
+    "file": "firmware/main/app_cloud.h",
+    "kind": "comment",
+    "before": "Follow-up idle waiting stays local; NOT_FOUND means quiet expiry, not an ASR error.",
+    "after": "Follow-up idle waiting stays local; NOT_FOUND reports quiet-window expiry."
+  },
+  {
+    "file": "firmware/main/app_cloud_asr.c",
+    "kind": "comment",
+    "before": "Capture is already running. Do not overlap two cloud TLS sessions with a summary job.",
+    "after": "Capture is already running; finish the summary TLS session before ASR TLS."
+  },
+  {
+    "file": "firmware/main/app_cloud_http.h",
+    "kind": "comment",
+    "before": "等待HTTP响应头时也可取消；成功不代表HTTP状态为200，由业务层检查。",
+    "after": "等待HTTP响应头时可取消；返回成功后由业务层核对HTTP状态。"
+  },
+  {
+    "file": "firmware/main/app_control.c",
+    "kind": "comment",
+    "before": "Cancel unexecuted operations, not the receipt for an already applied\n  // setting. The voice coordinator consumes that receipt once at turn end.",
+    "after": "Cancel pending operations and retain receipts for applied settings.\n  // The voice coordinator consumes each receipt once at turn end."
+  },
+  {
+    "file": "firmware/main/app_control.c",
+    "kind": "comment",
+    "before": "Do not expose web.token/url to model or TTS.",
+    "after": "Keep web.token/url inside the local management interface."
+  },
+  {
+    "file": "firmware/main/app_control.c",
+    "kind": "comment",
+    "before": "Keep \"等一下会不会下雨\" intact for semantic handling, not a keyword gate.",
+    "after": "Pass the complete \"等一下会不会下雨\" utterance to semantic handling."
+  },
+  {
+    "file": "firmware/main/app_control.c",
+    "kind": "comment",
+    "before": "Everything else still uses semantic tool selection, not keyword gating.",
+    "after": "Other requests use semantic tool selection."
+  },
+  {
+    "file": "firmware/main/app_control.c",
+    "kind": "comment",
+    "before": "page atomically after this bounded acquisition, not in two lock gaps.",
+    "after": "page together within this bounded lock acquisition."
+  },
+  {
+    "file": "firmware/main/app_control.h",
+    "kind": "comment",
+    "before": "Actual readback receipt, not the model's success claim; consumed at turn end.",
+    "after": "Device readback receipt, consumed once at turn end."
+  },
+  {
+    "file": "firmware/main/app_conversation.h",
+    "kind": "comment",
+    "before": "一个有界活动讨论；是数据，不是执行授权。",
+    "after": "有界活动讨论数据；执行授权由具体操作的确认流程管理。"
+  },
+  {
+    "file": "firmware/main/app_conversation.h",
+    "kind": "comment",
+    "before": "明确来源或原文名称/值/别名命中；不是任意语义关联。",
+    "after": "按明确来源或原文名称/值/别名匹配关联。"
+  },
+  {
+    "file": "firmware/main/app_desktop.c",
+    "kind": "comment",
+    "before": "sample must not swap the meaning of short/long presses halfway through.",
+    "after": "sample leaves this session's short/long-press mapping unchanged."
+  },
+  {
+    "file": "firmware/main/app_games.c",
+    "kind": "comment",
+    "before": "这不是光学测量：LCD扫描/像素响应仍存在误差，结果只显示到10ms。",
+    "after": "计时含LCD扫描/像素响应误差，结果显示到10ms；光学延迟另行测量。"
+  },
+  {
+    "file": "firmware/main/app_history_store.c",
+    "kind": "comment",
+    "before": "当前卷与封存卷边界明确，生成过文本不代表完整播报过。",
+    "after": "当前卷与封存卷分别管理，生成文本和播放终态分别记录。"
+  },
+  {
+    "file": "firmware/main/app_history_store.c",
+    "kind": "comment",
+    "before": "有限中文别名，返回原文中的真实位置，而不是生成替代文本。",
+    "after": "按有限中文别名匹配，返回原文中的实际位置。"
+  },
+  {
+    "file": "firmware/main/app_log.h",
+    "kind": "comment",
+    "before": "Do not raise the global level or hide warning/error diagnostics.",
+    "after": "Preserve the global level and warning/error diagnostics."
+  },
+  {
+    "file": "firmware/main/app_media.c",
+    "kind": "comment",
+    "before": "Do not overwrite an unknown/corrupt future blob with defaults.",
+    "after": "Preserve an unknown/corrupt future blob for recovery."
+  },
+  {
+    "file": "firmware/main/app_media.h",
+    "kind": "comment",
+    "before": "their filename, so uploaded files do not need a metadata database.",
+    "after": "their filename as display metadata for uploaded files."
+  },
+  {
+    "file": "firmware/main/app_media.h",
+    "kind": "comment",
+    "before": "Four bounded receipts; IDs identify a request, not a filename/index guess.",
+    "after": "Four bounded receipts; IDs identify individual requests."
+  },
+  {
+    "file": "firmware/main/app_media_web.c",
+    "kind": "comment",
+    "before": "An earlier interrupted transfer is disposable; the valid destination is\n  // not.",
+    "after": "Discard an earlier interrupted transfer while preserving the valid\n  // destination."
+  },
+  {
+    "file": "firmware/main/app_media_web.c",
+    "kind": "comment",
+    "before": "FAT rename is not power-loss atomic. A valid .old is never discarded unless",
+    "after": "FAT rename can be interrupted by power loss. Retain a valid .old until"
+  },
+  {
+    "file": "firmware/main/app_media_web.c",
+    "kind": "comment",
+    "before": "Both names remain available for manual inspection; do not silently\n      // replace an unknown file from removable media.",
+    "after": "Keep both names for manual inspection and preserve the unknown\n      // file from removable media."
+  },
+  {
+    "file": "firmware/main/app_motion_gesture.h",
+    "kind": "comment",
+    "before": "实测静置约1.2g；这里是动作可信范围，不是传感器精度校准。",
+    "after": "实测静置约1.2g；该范围用于动作可信性判定，传感器精度另行校准。"
+  },
+  {
+    "file": "firmware/main/app_network.c",
+    "kind": "comment",
+    "before": "Save only changed hourly data, not every retry or ten-minute refresh.",
+    "after": "Persist hourly data when the observation changes."
+  },
+  {
+    "file": "firmware/main/app_network.c",
+    "kind": "comment",
+    "before": "This STA receives IPv4; do not select an unroutable IPv6 DNS result.",
+    "after": "Select routable IPv4 DNS results for this STA."
+  },
+  {
+    "file": "firmware/main/app_network.c",
+    "kind": "comment",
+    "before": "Do not immediately duplicate a successful forecast/AQ request.",
+    "after": "Retain the successful forecast/AQ result until its next scheduled refresh."
+  },
+  {
+    "file": "firmware/main/app_speech.c",
+    "kind": "comment",
+    "before": "不代表生产路径并行运行LLM/TTS；生产编排以main/app_cloud为准。",
+    "after": "生产路径按main/app_cloud编排LLM与TTS的串行连接。"
+  },
+  {
+    "file": "firmware/main/app_sse.c",
+    "kind": "comment",
+    "before": "~32 Chinese characters (or a completed short answer), not the whole reply.",
+    "after": "~32 Chinese characters, or a completed short answer."
+  },
+  {
+    "file": "firmware/main/app_turn.h",
+    "kind": "comment",
+    "before": "I2S调用成功提交的字节，不是声学已听字节。",
+    "after": "I2S调用成功提交的字节；实际听到的内容需声学确认。"
+  },
+  {
+    "file": "firmware/main/app_turn_log.c",
+    "kind": "comment",
+    "before": "日常日志只增加一行关键阶段。不是声学首声测量；ASR连接与录音可\n  // 重叠，不能把后台等待简单相加当作整个端到端延迟。",
+    "after": "日常日志增加一行关键阶段。声学首声需另测；ASR连接与录音可\n  // 重叠，端到端延迟按实际起止时刻测量。"
+  },
+  {
+    "file": "firmware/main/app_ui.c",
+    "kind": "comment",
+    "before": "动画不代表业务成功；对象由UI锁保护，慢I/O不进绘图回调。",
+    "after": "业务结果按设备回执核验；对象由UI锁保护，慢I/O由后台处理。"
+  },
+  {
+    "file": "firmware/main/app_ui.c",
+    "kind": "comment",
+    "before": "The 33-ms timer consumes continuous tilt, not one discrete page event.",
+    "after": "The 33-ms timer consumes continuous tilt input."
+  },
+  {
+    "file": "firmware/main/app_ui.c",
+    "kind": "comment",
+    "before": "A completed failure/cancel screen is not an active audio owner. The",
+    "after": "A completed failure/cancel screen leaves audio ownership idle. The"
+  },
+  {
+    "file": "firmware/main/app_ui.c",
+    "kind": "comment",
+    "before": "warm hands. Every unpainted pixel remains black, not a lit panel.",
+    "after": "warm hands. Every unpainted pixel remains black."
+  },
+  {
+    "file": "firmware/main/app_ui.c",
+    "kind": "comment",
+    "before": "Small opposite-motion parallax is a depth cue, not true optical depth.",
+    "after": "Small opposite-motion parallax creates a visual depth cue."
+  },
+  {
+    "file": "firmware/main/app_ui.c",
+    "kind": "comment",
+    "before": "Fixed single-line boxes: numeric text must not overlap the PM/update rows.",
+    "after": "Fixed single-line boxes keep numeric text clear of the PM/update rows."
+  },
+  {
+    "file": "firmware/main/app_ui.c",
+    "kind": "comment",
+    "before": "Optional pictures must not disable\n                                  // clock/voice/tools.",
+    "after": "Preserve clock/voice/tools\n                                  // when optional pictures fail."
+  },
+  {
+    "file": "firmware/main/app_ui_theme.h",
+    "kind": "comment",
+    "before": "V3: sparse warm objects on unlit pixels, not a translucent LCD panel.",
+    "after": "V3: sparse warm objects with the remaining pixels unlit."
+  },
+  {
+    "file": "firmware/main/app_wake.c",
+    "kind": "comment",
+    "before": "Its public getter reads that derived value, not the requested argument.",
+    "after": "Its public getter returns the derived internal threshold."
+  },
+  {
+    "file": "firmware/main/app_wake.c",
+    "kind": "comment",
+    "before": "Setter success and a valid probability suffice; do not reject a good model.",
+    "after": "Accept setter success with a valid returned probability."
+  },
+  {
+    "file": "firmware/main/app_wake.c",
+    "kind": "comment",
+    "before": "A continuous ~10 Hz DC blocker, not a separate mean per DMA block.",
+    "after": "Apply continuous ~10 Hz DC blocking across DMA blocks."
+  },
+  {
+    "file": "firmware/main/app_wake.c",
+    "kind": "comment",
+    "before": "An explicitly requested calibration must not open cloud recording.",
+    "after": "An explicit calibration keeps cloud recording closed."
+  },
+  {
+    "file": "firmware/main/app_wake.c",
+    "kind": "comment",
+    "before": "Debounce duplicate notifications, not the audio stream. Throwing away",
+    "after": "Keep audio continuous while debouncing notifications. Discarding"
+  },
+  {
+    "file": "firmware/main/app_wake.c",
+    "kind": "comment",
+    "before": "A wake word is trained into the model, not configured by a text string.",
+    "after": "A wake word comes from the trained model; configuration selects that model."
+  },
+  {
+    "file": "firmware/main/app_wake.c",
+    "kind": "comment",
+    "before": "An ineligible raw feed must not erase a partial echo-cleaned frame.",
+    "after": "Preserve the partial echo-cleaned frame across ineligible raw feeds."
+  },
+  {
+    "file": "firmware/main/app_wake.h",
+    "kind": "comment",
+    "before": "Logical switch only; rebuilding a detected model must not cancel its wake.",
+    "after": "Logical switch; retain an accepted wake during its model rebuild."
+  },
+  {
+    "file": "firmware/main/app_weather.c",
+    "kind": "comment",
+    "before": "可用性与数值分开，缺项不是0，预报不能冒充实时测量。",
+    "after": "可用性、数值和预报来源分别记录；缺项标记无效。"
+  },
+  {
+    "file": "firmware/main/app_weather.h",
+    "kind": "comment",
+    "before": "U.S. AQI, not China's AQI standard.",
+    "after": "Air quality uses the U.S. AQI standard."
+  },
+  {
+    "file": "firmware/main/app_weather.h",
+    "kind": "comment",
+    "before": "输出当天严格UV>3的逐时区间；等于3不计入，不代表分钟级实测。",
+    "after": "输出当天严格UV>3的逐时预报区间；等于3排除，分钟级实测需独立来源。"
+  },
+  {
+    "file": "firmware/main/app_words.c",
+    "kind": "comment",
+    "before": "mastered是用户自评，不代表考试能力；存储与界面由桌面模块负责。",
+    "after": "mastered记录用户自评；考试能力需独立评估，存储与界面由桌面模块负责。"
+  },
+  {
+    "file": "firmware/main/main.c",
+    "kind": "comment",
+    "before": "The recognizer must keep consuming microphone frames, not wait for LVGL,",
+    "after": "Keep the recognizer consuming microphone frames independently of LVGL,"
+  },
+  {
+    "file": "firmware/main/main.c",
+    "kind": "comment",
+    "before": "A detection queued just before manual calibration must not start ASR.",
+    "after": "Drop a detection queued before manual calibration before starting ASR."
+  },
+  {
+    "file": "firmware/main/main.c",
+    "kind": "comment",
+    "before": "Detection requests a model rebuild. Its brief ready=false is not a user\n  // disable: keep the accepted event, within the original bounded deadline.",
+    "after": "Detection briefly sets ready=false during its model rebuild; retain\n  // the accepted event within its original bounded deadline."
+  },
+  {
+    "file": "firmware/main/main.c",
+    "kind": "comment",
+    "before": "Retain this wake, but do not interrupt an actual voice/reminder/music owner.",
+    "after": "Retain this wake until the actual voice/reminder/music owner releases audio."
+  },
+  {
+    "file": "firmware/main/main.c",
+    "kind": "comment",
+    "before": "still run each second, so a long song does not postpone reminders.",
+    "after": "still run each second while a long song is playing."
+  },
+  {
+    "file": "firmware/main/main.c",
+    "kind": "comment",
+    "before": "ponytail: one-slot mailbox keeps the newest gesture, not a history of\n  // unseen pages; use a FIFO only if every rapid gesture must be retained.",
+    "after": "ponytail: one-slot mailbox retains the newest gesture; use a FIFO\n  // if every rapid gesture must be retained."
+  },
+  {
+    "file": "firmware/main/main.c",
+    "kind": "comment",
+    "before": "click must not cancel it; only a physical press/release requests a stop.",
+    "after": "click preserves it; a fresh physical press/release requests a stop."
+  },
+  {
+    "file": "firmware/main/main.c",
+    "kind": "comment",
+    "before": "A confirmed click is not a lossy sensor sample: wait for the current\n    // frame rather than discarding it after 100 ms. Audio stops remain above",
+    "after": "Keep a confirmed click pending across frame waits, including 100 ms.\n    // Deliver it after the current frame. Audio stops remain above"
+  },
+  {
+    "file": "firmware/main/main.c",
+    "kind": "comment",
+    "before": "The waiting window is not a failed dialogue or a saved empty turn.",
+    "after": "Keep quiet-window expiry outside dialogue failure and history persistence."
+  },
+  {
+    "file": "firmware/main/main.c",
+    "kind": "comment",
+    "before": "Stop-only is a control utterance, not an empty LLM request/history turn.",
+    "after": "Handle stop-only input as a local control utterance."
+  },
+  {
+    "file": "firmware/main/main.c",
+    "kind": "comment",
+    "before": "Reserve DSP while memory is available, but do not classify processing\n    // noises as a new utterance. TTS arms it only when playback starts.",
+    "after": "Reserve DSP while memory is available; start classification with\n    // actual playback. TTS arms it when playback starts."
+  },
+  {
+    "file": "firmware/main/main.c",
+    "kind": "comment",
+    "before": "Same clean speaker handoff as leaving a turn: do not hear our own tail.",
+    "after": "Reuse the clean speaker handoff to clear the preceding playback tail."
+  },
+  {
+    "file": "firmware/main/main.c",
+    "kind": "comment",
+    "before": "One small UI timer, not another FreeRTOS task or a blocking sensor callback.",
+    "after": "Dispatch navigation through one small UI timer."
+  },
+  {
+    "file": "firmware/main/media_web.html",
+    "kind": "comment",
+    "before": "Media refreshes must not erase partially edited anniversary rows.",
+    "after": "Preserve partially edited anniversary rows during media refresh."
+  },
+  {
+    "file": "hardware/mechanical/V3-SLA/source/build.py",
+    "kind": "comment",
+    "before": "SD sill stays below connector swept envelope and follows base, not shell.",
+    "after": "SD sill stays below the connector swept envelope and follows the base."
+  },
+  {
+    "file": "hardware/mechanical/V3-SLA/source/build.py",
+    "kind": "comment",
+    "before": "Sweep is continuous, not sampled only.",
+    "after": "Evaluate the sweep continuously."
+  },
+  {
+    "file": "firmware/main/app_cloud.c",
+    "kind": "display_or_explanation",
+    "before": "[回答被打断；以下仅为完整提交过I2S的句段，不代表用户听清。未播放部分不可引用。]",
+    "after": "[回答被打断；以下为完整提交过I2S的句段。实际听感待确认；引用限此范围。]"
+  },
+  {
+    "file": "firmware/main/app_cloud_tts.c",
+    "kind": "display_or_explanation",
+    "before": "buffering, not acoustic interruption",
+    "after": "buffering; acoustic continuity requires listening checks"
+  },
+  {
+    "file": "firmware/main/app_conversation.c",
+    "kind": "display_or_explanation",
+    "before": "[长回答摘录，完整生成原文需查历史，不是逐字全文]",
+    "after": "[长回答摘录；完整生成原文请查历史]"
+  },
+  {
+    "file": "firmware/main/main.c",
+    "kind": "display_or_explanation",
+    "before": "（不代表声学确认）",
+    "after": "（声学结果待听测）"
+  },
+  {
+    "file": "firmware/main/media_web.html",
+    "kind": "display_or_explanation",
+    "before": "这是手动刷新的状态快照，不持续轮询设备。",
+    "after": "点击刷新后读取一次设备状态。"
+  },
+  {
+    "file": "firmware/main/media_web.html",
+    "kind": "display_or_explanation",
+    "before": "语音对话由设备进行；这里负责设置、整理与诊断，不是在线聊天窗口。",
+    "after": "语音对话在设备上进行；网页用于设置、整理与诊断。"
+  },
+  {
+    "file": "firmware/main/media_web.html",
+    "kind": "display_or_explanation",
+    "before": "仅显示当前对话卷的文字，每次最多3条。已生成的回答不代表完整播放过；较长回答可能分段保存。封存卷需离线导出查看。",
+    "after": "当前对话卷每次读取最多3条文字；生成与完整播放状态分别记录，长回答可分段保存。封存卷需离线导出查看。"
+  },
+  {
+    "file": "firmware/main/media_web.html",
+    "kind": "display_or_explanation",
+    "before": "回读不是 SD 壁纸主页，请读取设置核对。",
+    "after": "SD 壁纸主页回读校验失败，请读取设置核对。"
+  },
+  {
+    "file": "firmware/main/media_web.html",
+    "kind": "display_or_explanation",
+    "before": "当前对话卷记录已读取；封存卷不在查询范围。",
+    "after": "当前对话卷记录已读取；封存卷需导出后查看。"
+  },
+  {
+    "file": "firmware/main/media_web.html",
+    "kind": "display_or_explanation",
+    "before": "配置与设备信息已读取，无需配对码。",
+    "after": "配置与设备信息已读取，同网管理已就绪。"
+  },
+  {
+    "file": "server/tts_client.py",
+    "kind": "display_or_explanation",
+    "before": "下载结果不是有效的WAV文件",
+    "after": "下载音频WAV格式校验失败"
+  },
+  {
+    "file": "hardware/mechanical/V3-SLA/source/build.py",
+    "kind": "display_or_explanation",
+    "before": "Component heights are envelope estimates, not measured assemblies.",
+    "after": "Component heights use conservative envelopes; assembled heights await measurement."
+  },
+  {
+    "file": "hardware/mechanical/V3-SLA/source/build.py",
+    "kind": "display_or_explanation",
+    "before": "03/05/06 reused unchanged; optical fit unchanged and not newly qualified.",
+    "after": "03/05/06 retain existing geometry; optical fit awaits physical qualification."
+  },
+  {
+    "file": "hardware/mechanical/V3-SLA/source/extract_pcb.py",
+    "kind": "display_or_explanation",
+    "before": "Body/pad XY envelopes from PCB; heights conservative estimates, not supplier assembly CAD. Cable dressing not measured.",
+    "after": "Body/pad XY envelopes follow the PCB with conservative height estimates. Supplier assembly geometry and cable dressing await measurement."
+  },
+  {
+    "file": "hardware/mechanical/V3-SLA/source/render.py",
+    "kind": "display_or_explanation",
+    "before": "电子器件为包络参考，不是厂家精细模型。",
+    "after": "电子器件采用参考包络，精细几何待厂家模型补齐。"
+  },
+  {
+    "file": "firmware/main/Kconfig.projbuild",
+    "kind": "display_or_explanation",
+    "before": "This affects console output only, not SD records or device behavior.",
+    "after": "Console verbosity changes here; SD records and device behavior stay unchanged."
+  },
+  {
+    "file": "firmware/main/Kconfig.projbuild",
+    "kind": "display_or_explanation",
+    "before": "partition as well as firmware. No external model path is needed.",
+    "after": "partition as well as firmware, using the bundled model path."
+  },
+  {
+    "file": "firmware/main/Kconfig.projbuild",
+    "kind": "display_or_explanation",
+    "before": "A text string cannot change a trained wake word.",
+    "after": "Select a trained model for the desired wake word."
+  },
+  {
+    "file": "firmware/main/Kconfig.projbuild",
+    "kind": "display_or_explanation",
+    "before": "Tong Xue, not an arbitrary custom phrase.",
+    "after": "Tong Xue; a custom phrase requires a matching trained model."
+  },
+  {
+    "file": "firmware/main/Kconfig.projbuild",
+    "kind": "display_or_explanation",
+    "before": "Does not change cloud recordings, speaker volume or model threshold.",
+    "after": "Cloud recording, speaker volume and model threshold keep their own settings."
+  },
+  {
+    "file": "firmware/main/Kconfig.projbuild",
+    "kind": "display_or_explanation",
+    "before": "Does not change microphone gain or cloud speech recognition.",
+    "after": "Microphone gain and cloud recognition keep their separate settings."
+  },
+  {
+    "file": "firmware/main/Kconfig.projbuild",
+    "kind": "display_or_explanation",
+    "before": "No second model, extra cloud listener, or idle audio upload is used.",
+    "after": "Reuse the existing model and keep idle audio processing local."
+  },
+  {
+    "file": "tools/prepare_media_pack.py",
+    "kind": "display_or_explanation",
+    "before": "Environment sounds: original procedural synthesis; not field recordings.",
+    "after": "Environment sounds: original procedural synthesis."
+  },
+  {
+    "file": "tools/prepare_media_pack.py",
+    "kind": "display_or_explanation",
+    "before": "Files remain on SD; they are not embedded in firmware. Existing project audio, image, voice and task files need not be deleted.",
+    "after": "Files are loaded from SD; preserve existing project audio, image, voice and task files."
+  },
+  {
+    "file": "tests/agent_safety/test_agent_semantics.c",
+    "kind": "comment",
+    "before": "The fixture's renamed main has C's implicit main-only return; it is not run.",
+    "after": "The fixture's renamed main retains C's implicit return; this harness runs its own main."
+  },
+  {
+    "file": "tests/test_agent.c",
+    "kind": "comment",
+    "before": "Native fixtures exercise argument validation, not the model's intent choice.",
+    "after": "Native fixtures exercise argument validation; model intent choice needs separate evaluation."
+  },
+  {
+    "file": "tests/test_air_quality_recovery.py",
+    "kind": "comment",
+    "before": "State fixtures for the intended cache semantics; not execution of C/NVS code.",
+    "after": "Python state fixtures cover cache semantics; C/NVS execution is a separate check."
+  },
+  {
+    "file": "tests/test_air_quality_recovery.py",
+    "kind": "comment",
+    "before": "first boot + connection timeout must not invent AQI=0",
+    "after": "first boot + connection timeout keep AQI unavailable"
+  },
+  {
+    "file": "tests/test_air_quality_recovery.py",
+    "kind": "comment",
+    "before": "unchanged hourly observation does not wear flash",
+    "after": "unchanged hourly observation preserves the flash write count"
+  },
+  {
+    "file": "tests/test_barge_diagnostic.py",
+    "kind": "comment",
+    "before": "Real browser handlers, with mocked HTTP and downloads, not a browser/device run.",
+    "after": "Execute browser handlers with mocked HTTP and downloads; device acceptance is separate."
+  },
+  {
+    "file": "tests/test_barge_in_source.py",
+    "kind": "comment",
+    "before": "Changing only the reference rate must not alter TTS/music pitch or duration.",
+    "after": "TTS/music pitch and duration stay unchanged when the reference rate changes."
+  },
+  {
+    "file": "tests/test_barge_in_source.py",
+    "kind": "comment",
+    "before": "A disabled raw feed does not erase a partly assembled playback frame.",
+    "after": "Preserve the partly assembled playback frame while raw feed is disabled."
+  },
+  {
+    "file": "tests/test_board_pins.py",
+    "kind": "comment",
+    "before": "Native backlight control must not change pins, optical compensation or buffers.",
+    "after": "Backlight controls preserve pins, optical compensation and buffers."
+  },
+  {
+    "file": "tests/test_clock_weather_wake.py",
+    "kind": "comment",
+    "before": "Bottom row is visible, not below the panel.",
+    "after": "Bottom row stays within the visible panel."
+  },
+  {
+    "file": "tests/test_cloud_http.c",
+    "kind": "comment",
+    "before": "Execute the production transport with a deterministic SDK fake, not cloud I/O.",
+    "after": "Execute the production transport with deterministic local SDK fixtures."
+  },
+  {
+    "file": "tests/test_config_latency_source.py",
+    "kind": "comment",
+    "before": "V5 reuses two unsigned slots, not a new serialized structure. Compare the",
+    "after": "V5 reuses two unsigned slots in the existing serialized structure. Compare the"
+  },
+  {
+    "file": "tests/test_config_latency_source.py",
+    "kind": "comment",
+    "before": "assets deliberately stay out of this coverage. Bracket checks are not a build.",
+    "after": "assets retain separate checks. Bracket checks cover source structure; builds run separately."
+  },
+  {
+    "file": "tests/test_config_latency_source.py",
+    "kind": "comment",
+    "before": "Model the CAS/partial-save contract, explicitly not native firmware execution.",
+    "after": "Model the CAS/partial-save contract in Python; native firmware execution is separate."
+  },
+  {
+    "file": "tests/test_display_memory.py",
+    "kind": "comment",
+    "before": "The original 64 KiB pool must not compete with internal FreeRTOS stacks.",
+    "after": "Keep the original 64 KiB pool separate from internal FreeRTOS stacks."
+  },
+  {
+    "file": "tests/test_display_memory.py",
+    "kind": "comment",
+    "before": "Do not move every LVGL object.",
+    "after": "Keep general LVGL objects under their existing allocation rules."
+  },
+  {
+    "file": "tests/test_input_navigation.py",
+    "kind": "comment",
+    "before": "Restore same-direction input in the shared mapping, not per-game patches.",
+    "after": "Restore same-direction input through the shared mapping."
+  },
+  {
+    "file": "tests/test_media_pack.py",
+    "kind": "comment",
+    "before": "Sample real PCM at start, middle and end. Not just header checks.",
+    "after": "Check real PCM at the start, middle and end alongside the headers."
+  },
+  {
+    "file": "tests/test_media_ui.py",
+    "kind": "comment",
+    "before": "Large catalogs/pixels are not task-stack or LVGL-pool allocations.",
+    "after": "Large catalogs/pixels use their dedicated allocations."
+  },
+  {
+    "file": "tests/test_media_ui.py",
+    "kind": "comment",
+    "before": "Manual album input does not advance on the first half of a double click.",
+    "after": "Manual album input keeps position during the first half of a double click."
+  },
+  {
+    "file": "tests/test_network_recovery.py",
+    "kind": "comment",
+    "before": "Local startup does not wait for an access point or a time server.",
+    "after": "Local startup proceeds independently of access-point and time-server readiness."
+  },
+  {
+    "file": "tests/test_serial_logs.py",
+    "kind": "comment",
+    "before": "Console changes must not abbreviate stored IDs or persisted dialogue text.",
+    "after": "Console changes preserve full stored IDs and persisted dialogue text."
+  },
+  {
+    "file": "tests/test_serial_logs.py",
+    "kind": "comment",
+    "before": "Model the preview's explicit UTF-8 boundary/escaping policy, not native execution.",
+    "after": "Model the preview's UTF-8 boundary/escaping policy; native execution is separate."
+  },
+  {
+    "file": "tests/test_voice_controls_source.py",
+    "kind": "comment",
+    "before": "Policy boundaries mirror validated ranges, not execution of the C functions.",
+    "after": "Policy models follow validated ranges; C execution is checked separately."
+  },
+  {
+    "file": "tests/test_voice_memory_order.py",
+    "kind": "comment",
+    "before": "ASR network setup does not delay recording",
+    "after": "recording starts before ASR network setup"
+  },
+  {
+    "file": "tests/test_voice_repair_source.py",
+    "kind": "comment",
+    "before": "Receipts use readback, not a copy of the requested value, and retain failures.",
+    "after": "Receipts use actual readback and retain failures."
+  },
+  {
+    "file": "tests/test_voice_setting_outcome.py",
+    "kind": "comment",
+    "before": "receipt, not authorization",
+    "after": "readback receipt; authorization remains separately managed"
+  },
+  {
+    "file": "tests/test_wake_handoff_source.py",
+    "kind": "comment",
+    "before": "conversation starts. Duplicates do not extend the two-second deadline.",
+    "after": "conversation starts; duplicates retain the original two-second deadline."
+  },
+  {
+    "file": "tests/test_wake_handoff_source.py",
+    "kind": "comment",
+    "before": "the UI coordinator runs. This must not be interpreted as switch-off.",
+    "after": "the UI coordinator runs; the accepted wake stays enabled during that rebuild."
+  },
+  {
+    "file": "tests/test_wake_handoff_source.py",
+    "kind": "comment",
+    "before": "Uptime rollover must not turn a recent wake into an expired event, and a\n# zero-valued deadline gets a one-millisecond sentinel adjustment, not lost.",
+    "after": "Preserve recent wakes across uptime rollover, including deadlines at zero.\n# Use a one-millisecond sentinel adjustment for that boundary."
+  },
+  {
+    "file": "tests/test_wake_handoff_source.py",
+    "kind": "comment",
+    "before": "Inject positive classifier outputs, not audio: all eligible frames are",
+    "after": "Inject positive classifier outputs: all eligible frames are"
+  },
+  {
+    "file": "tests/test_wake_network_reset.py",
+    "kind": "comment",
+    "before": "this is calibration, not a guaranteed fix",
+    "after": "calibration still requires device acceptance"
+  },
+  {
+    "file": "tests/test_wake_network_reset.py",
+    "kind": "comment",
+    "before": "saving other settings must not reset the recognizer",
+    "after": "saving other settings preserves the recognizer generation"
+  },
+  {
+    "file": "tests/test_wake_network_reset.py",
+    "kind": "comment",
+    "before": "repeated audio-owner hold is not another reset",
+    "after": "repeated audio-owner hold preserves the generation"
+  },
+  {
+    "file": "tests/test_wake_network_reset.py",
+    "kind": "comment",
+    "before": "Independent AQ deadline: weather success must not suppress the 30 s AQ retry.",
+    "after": "Independent AQ deadline: preserve the 30 s AQ retry after weather success."
+  },
+  {
+    "file": "tests/test_weather.c",
+    "kind": "comment",
+    "before": "Night is not missing.",
+    "after": "Night has a valid zero UV value."
+  },
+  {
+    "file": "tests/agent_safety/run_runtime_checks.py",
+    "kind": "docstring",
+    "before": "\"\"\"Offline target contracts: execute current production functions with mocks.\n\nNo production writes, network, credentials, RTOS, or physical device access.\nVirtual-clock tests cover software control flow, not physical acceptance.\n\"\"\"",
+    "after": "\"\"\"Offline target contracts execute current production functions with mocks.\n\nSide effects use synthetic local fixtures and a virtual clock.\nPhysical acceptance and RTOS/device behavior require separate validation.\"\"\""
+  },
+  {
+    "file": "tests/test_barge_in_source.py",
+    "kind": "docstring",
+    "before": "\"\"\"Computer interruption source/policy models; no C build or hardware test.\n\nInjected detections do not verify native WakeNet/AEC or physical echo timing.\n\"\"\"",
+    "after": "\"\"\"Computer interruption source/policy models with injected detections.\n\nNative WakeNet/AEC accuracy and physical echo timing require device validation.\"\"\""
+  },
+  {
+    "file": "tests/test_clock_weather_wake.py",
+    "kind": "docstring",
+    "before": "\"\"\"Read-only source/asset guards for clock, alarm, forecast and wake integration.\n\nDoes not compile or execute C. Behavioral C fixtures are in test_weather.c and\ntest_agent.c for a separately authorized host build.\n\"\"\"",
+    "after": "\"\"\"Read-only source/asset guards for clock, alarm, forecast and wake integration.\n\nScope: source and Python models. Behavioral C fixtures in test_weather.c and\ntest_agent.c provide separately runnable host checks.\"\"\""
+  },
+  {
+    "file": "tests/test_config_latency_source.py",
+    "kind": "docstring",
+    "before": "\"\"\"Offline structure and policy regression; no compiler, cloud or device access.\n\nSource guards bind the policy models to implementation sites. The models do not\nexecute C and cannot establish real DNS/TLS duration, VAD accuracy or sound quality.\nThe separate test_holo_rework.py executes the actual embedded JS in a mocked DOM.\n\"\"\"",
+    "after": "\"\"\"Offline source structure and Python policy models.\n\nSource guards bind policy models to implementation sites. Real DNS/TLS duration,\nVAD accuracy and sound quality require dedicated measurements.\nThe separate test_holo_rework.py executes embedded JS with a mocked DOM.\"\"\""
+  },
+  {
+    "file": "tests/test_desktop_assets.py",
+    "kind": "docstring",
+    "before": "\"\"\"Non-compiling source/asset checks. Not firmware or hardware validation.\"\"\"",
+    "after": "\"\"\"Source and asset checks; firmware and hardware acceptance are separate tasks.\"\"\""
+  },
+  {
+    "file": "tests/test_followup_alarm_source.py",
+    "kind": "docstring",
+    "before": "\"\"\"Follow-up/alarm source guards and boundary models; no firmware build.\n\nInjected speech decisions do not validate the native VAD or physical sensor.\n\"\"\"",
+    "after": "\"\"\"Follow-up/alarm source guards and boundary models.\n\nScope: injected speech decisions and source contracts. Native VAD and physical\nsensor behavior require separate validation.\"\"\""
+  },
+  {
+    "file": "tests/test_games_source.py",
+    "kind": "docstring",
+    "before": "\"\"\"Device integration guards; not a substitute for optical/input latency testing.\"\"\"",
+    "after": "\"\"\"Device integration source guards; optical/input latency requires device measurement.\"\"\""
+  },
+  {
+    "file": "tests/test_media_core_source.py",
+    "kind": "docstring",
+    "before": "\"\"\"Media contract/source guards plus Python boundary reference fixtures.\n\nThis deliberately does not compile firmware or claim C parser/device playback\nverification. It protects the important source invariants while the user builds.\n\"\"\"",
+    "after": "\"\"\"Media contract/source guards and Python boundary reference fixtures.\n\nScope: source invariants and Python models. C parser and device playback\nverification require their own execution checks.\"\"\""
+  },
+  {
+    "file": "tests/test_media_integration.py",
+    "kind": "docstring",
+    "before": "\"\"\"Source integration guards, not firmware compilation or hardware validation.\"\"\"",
+    "after": "\"\"\"Source integration guards; compilation and hardware validation run separately.\"\"\""
+  },
+  {
+    "file": "tests/test_memory_voice_cleanup.py",
+    "kind": "docstring",
+    "before": "\"\"\"Legacy game removal, bounded replacement, memory/voice guards. No C build or I/O.\n\nPolicy fixtures do not measure SRAM, recognition, DNS latency or speaker output.\n\"\"\"",
+    "after": "\"\"\"Legacy game lifetime, bounded replacement and memory/voice source guards.\n\nScope: local policy fixtures. SRAM, recognition, DNS latency and speaker output\nrequire device or native-runtime measurements.\"\"\""
+  },
+  {
+    "file": "tests/test_navigation_editors_source.py",
+    "kind": "docstring",
+    "before": "\"\"\"Menu/editor state and text geometry checks; no C build or device access.\n\nThe Python models check the proposed policy, not native LVGL rendering or the\nphysical tilt detector. Source guards tie that policy to the edited functions.\n\"\"\"",
+    "after": "\"\"\"Menu/editor source guards and Python policy models.\n\nNative LVGL rendering and the physical tilt detector require device validation.\nSource guards tie the models to the relevant functions.\"\"\""
+  },
+  {
+    "file": "tests/test_semantic_agent_source.py",
+    "kind": "docstring",
+    "before": "\"\"\"Source/schema checks plus optional real-model routing checks; never run device tools.\n\nDefault: offline checks only, no C compilation. --live uses the configured\nDeepSeek API with synthetic state/questions, incurs normal API usage, and only\ninspects proposed calls. It does not execute firmware, write an SD card or prove\nthat the microphone/UI works. The Python schema reconstruction is checked\nagainst C construction sites, not a substitute for a native build.\n\"\"\"",
+    "after": "\"\"\"Source/schema checks with optional real-model routing evaluation.\n\nDefault scope: offline source and schema checks. --live calls the configured\nDeepSeek API with synthetic state/questions, incurs normal API usage and inspects\nproposed calls. Firmware execution, SD writes and microphone/UI acceptance\nrequire separate tests. Native builds validate C schema construction.\"\"\""
+  },
+  {
+    "file": "tests/test_voice_controls_source.py",
+    "kind": "docstring",
+    "before": "\"\"\"Voice tool schemas/source invariants and policy fixtures; no C build/device I/O.\n\nThe policy fixtures model boundaries. They do not execute the native firmware,\nverify a microphone, or prove that an SD write or physical page switch succeeds.\n\"\"\"",
+    "after": "\"\"\"Voice tool source/schema guards and Python policy fixtures.\n\nMicrophone behavior, durable SD writes and physical page changes require\nseparate native or device acceptance tests.\"\"\""
+  },
+  {
+    "file": "tests/test_voice_memory_order.py",
+    "kind": "docstring",
+    "before": "\"\"\"Heap/order/handshake policy checks; no C build, network request or device I/O.\n\nThese models do not execute FreeRTOS, TLS, the native VAD, or a microphone.\n\"\"\"",
+    "after": "\"\"\"Heap/order/handshake source guards and Python policy fixtures.\n\nFreeRTOS, TLS, native VAD and microphone behavior require separate execution tests.\"\"\""
+  },
+  {
+    "file": "tests/test_voice_source_guards.py",
+    "kind": "docstring",
+    "before": "\"\"\"No compiler or device access: structural guards, not C/runtime validation.\"\"\"",
+    "after": "\"\"\"Structural guards and synthetic fixtures; C/runtime validation runs separately.\"\"\""
+  },
+  {
+    "file": "tests/test_weather_scroll_source.py",
+    "kind": "docstring",
+    "before": "\"\"\"No compilation: source guards plus a model of the tilt/time/window policy.\n\nThe model is not execution of C/LVGL or verification of device frame timing.\n\"\"\"",
+    "after": "\"\"\"Source guards and a Python tilt/time/window model.\n\nC/LVGL execution and physical device frame timing require separate validation.\"\"\""
+  },
+  {
+    "file": "tests/test_air_quality_recovery.py",
+    "kind": "test_summary",
+    "before": "'PASS: AQ IPv4/TLS diagnostics, cache restore/save/failure/reboot fixtures; C/API/device NOT run'",
+    "after": "'PASS: AQ IPv4/TLS diagnostics, cache restore/save/failure/reboot fixtures; scope=offline checks; pending=C/API/device validation'"
+  },
+  {
+    "file": "tests/test_auto_voice_source.py",
+    "kind": "test_summary",
+    "before": "\"PASS: auto capture source/order/lifetime guards and injected-VAD boundary model; C/native VAD/device NOT run\"",
+    "after": "'PASS: auto capture source/order/lifetime guards and injected-VAD boundary model; scope=offline checks; pending=C/native VAD/device validation'"
+  },
+  {
+    "file": "tests/test_barge_diagnostic.py",
+    "kind": "test_summary",
+    "before": "'PASS: bounded consent-only playback diagnostics and source instrumentation; C/native/device NOT run'",
+    "after": "'PASS: bounded consent-only playback diagnostics and source instrumentation; scope=offline checks; pending=C/native/device validation'"
+  },
+  {
+    "file": "tests/test_barge_in_source.py",
+    "kind": "test_summary",
+    "before": "\"PASS: interruption ownership/cancel/pre-roll/reference/endpoint source models; C/native AEC/device NOT run\"",
+    "after": "'PASS: interruption ownership/cancel/pre-roll/reference/endpoint source models; scope=offline checks; pending=C/native AEC/device validation'"
+  },
+  {
+    "file": "tests/test_board_pins.py",
+    "kind": "test_summary",
+    "before": "\"PASS: PWM range/startup/driver resources and fresh motion/manual stable calibration source guards; hardware/C not run\"",
+    "after": "'PASS: PWM range/startup/driver resources and fresh motion/manual stable calibration source guards; scope=offline checks; pending=hardware/C validation'"
+  },
+  {
+    "file": "tests/test_clock_weather_wake.py",
+    "kind": "test_summary",
+    "before": "\"PASS: clock backup hashes, alarm/forecast/wake source guards, black wallpaper export; C/build/device NOT run\"",
+    "after": "'PASS: clock backup hashes, alarm/forecast/wake source guards, black wallpaper export; scope=offline checks; pending=C/build/device validation'"
+  },
+  {
+    "file": "tests/test_config_latency_source.py",
+    "kind": "test_summary",
+    "before": "\"PASS: config CAS/partial-save, shared voice fields, abort-aware summary, 800 ms tail, business-module comments; C/device NOT run\"",
+    "after": "'PASS: config CAS/partial-save, shared voice fields, abort-aware summary, 800 ms tail, business-module comments; scope=offline checks; pending=C/device validation'"
+  },
+  {
+    "file": "tests/test_display_memory.py",
+    "kind": "test_summary",
+    "before": "\"PASS: primary LVGL pool mapped to PSRAM; three extra 64 KiB pools, rollback and diagnostics source guards; C/device NOT run\"",
+    "after": "'PASS: primary LVGL pool mapped to PSRAM; three extra 64 KiB pools, rollback and diagnostics source guards; scope=offline checks; pending=C/device validation'"
+  },
+  {
+    "file": "tests/test_followup_alarm_source.py",
+    "kind": "test_summary",
+    "before": "\"PASS: follow-up quiet/late speech/cancel/pre-roll and alarm speed/wrap source models; C/device NOT run\"",
+    "after": "'PASS: follow-up quiet/late speech/cancel/pre-roll and alarm speed/wrap source models; scope=offline checks; pending=C/device validation'"
+  },
+  {
+    "file": "tests/test_games_source.py",
+    "kind": "test_summary",
+    "before": "\"PASS: arcade input queue/lifetime/voice priority/no per-frame allocation and reaction timestamp wiring; device timing NOT measured\"",
+    "after": "'PASS: arcade input queue/lifetime/voice priority/no per-frame allocation and reaction timestamp wiring; scope=offline checks; pending=device timing validation'"
+  },
+  {
+    "file": "tests/test_holo_rework.py",
+    "kind": "test_summary",
+    "before": "\"PASS: bounded session-gated coordinator, NVS/media receipts, wallpaper readback, four animations and pure-black asset margins; C/device NOT tested\"",
+    "after": "'PASS: bounded session-gated coordinator, NVS/media receipts, wallpaper readback, four animations and pure-black asset margins; scope=offline checks; pending=C/device validation'"
+  },
+  {
+    "file": "tests/test_holo_ui.py",
+    "kind": "test_summary",
+    "before": "\"PASS: transparent UI, bounded arcade catalog, parent/input/audio boundaries, fonts and migration guards; C/runtime/hardware NOT run\"",
+    "after": "'PASS: transparent UI, bounded arcade catalog, parent/input/audio boundaries, fonts and migration guards; scope=offline checks; pending=C/runtime/hardware validation'"
+  },
+  {
+    "file": "tests/test_home_idle_source.py",
+    "kind": "test_summary",
+    "before": "\"PASS: explicit clock/digital picker, empty/full catalog bounds, preserved selection and clock-only idle; C/device NOT run\"",
+    "after": "'PASS: explicit clock/digital picker, empty/full catalog bounds, preserved selection and clock-only idle; scope=offline checks; pending=C/device validation'"
+  },
+  {
+    "file": "tests/test_input_navigation.py",
+    "kind": "test_summary",
+    "before": "\"PASS: input dispatch, double-click arbitration, parent navigation and screen-coordinate source guards; C/runtime/hardware NOT run\"",
+    "after": "'PASS: input dispatch, double-click arbitration, parent navigation and screen-coordinate source guards; scope=offline checks; pending=C/runtime/hardware validation'"
+  },
+  {
+    "file": "tests/test_interrupt_question_gate.py",
+    "kind": "test_summary",
+    "before": "'PASS: post-playback speech required, quiet interruption waits locally, output timing guards; C/device NOT run'",
+    "after": "'PASS: post-playback speech required, quiet interruption waits locally, output timing guards; scope=offline checks; pending=C/device validation'"
+  },
+  {
+    "file": "tests/test_media_core_source.py",
+    "kind": "test_summary",
+    "before": "\"media core source guards and Python boundary fixtures: OK (not C/device runtime)\"",
+    "after": "'media core source guards and Python boundary fixtures: OK (scope: source guards/Python fixtures; C/device validation pending)'"
+  },
+  {
+    "file": "tests/test_media_integration.py",
+    "kind": "test_summary",
+    "before": "\"PASS: media integration, priority leases and independent cancel source guards; C/runtime/hardware NOT run\"",
+    "after": "'PASS: media integration, priority leases and independent cancel source guards; scope=offline checks; pending=C/runtime/hardware validation'"
+  },
+  {
+    "file": "tests/test_memory_voice_cleanup.py",
+    "kind": "test_summary",
+    "before": "\"PASS: bounded game lifetime, PSRAM placement, serial voice phases and DNS-before-TTS guards; C/runtime/hardware NOT run\"",
+    "after": "'PASS: bounded game lifetime, PSRAM placement, serial voice phases and DNS-before-TTS guards; scope=offline checks; pending=C/runtime/hardware validation'"
+  },
+  {
+    "file": "tests/test_navigation_editors_source.py",
+    "kind": "test_summary",
+    "before": "\"PASS: setting drafts, latched button fallback, alarm select/edit/cancel/save, weather carousel and bounded AQI rows; C/LVGL/device NOT run\"",
+    "after": "'PASS: setting drafts, latched button fallback, alarm select/edit/cancel/save, weather carousel and bounded AQI rows; scope=offline checks; pending=C/LVGL/device validation'"
+  },
+  {
+    "file": "tests/test_network_recovery.py",
+    "kind": "test_summary",
+    "before": "\"PASS: network recovery source guards; C build, API and hardware NOT run\"",
+    "after": "'PASS: network recovery source guards; scope=offline checks; pending=C build, API and hardware validation'"
+  },
+  {
+    "file": "tests/test_reminder_font.py",
+    "kind": "test_summary",
+    "before": "\"PASS: reminder/UI labels and common punctuation have glyphs; display hardware NOT tested\"",
+    "after": "'PASS: reminder/UI labels and common punctuation have glyphs; scope=offline checks; pending=display hardware validation'"
+  },
+  {
+    "file": "tests/test_semantic_agent_source.py",
+    "kind": "test_summary",
+    "before": "\"PASS: semantic routing source guards, 14 reconstructed schemas, provenance/confirmation/budget bounds; 36 model cases defined but NOT run offline\"",
+    "after": "'PASS: semantic routing source guards, 14 reconstructed schemas, provenance/confirmation/budget bounds; scope=offline checks; pending=36 model cases defined but validation offline'"
+  },
+  {
+    "file": "tests/test_serial_logs.py",
+    "kind": "test_summary",
+    "before": "\"PASS: serial-log policy, UTF-8/escaping models, errors and full SD IDs; C/hardware NOT run\"",
+    "after": "'PASS: serial-log policy, UTF-8/escaping models, errors and full SD IDs; scope=offline checks; pending=C/hardware validation'"
+  },
+  {
+    "file": "tests/test_stable_voice_diagnostic.py",
+    "kind": "test_summary",
+    "before": "\"PASS: stable configuration and bounded/private paired-capture source guards; firmware/native/device NOT tested\"",
+    "after": "'PASS: stable configuration and bounded/private paired-capture source guards; scope=offline checks; pending=firmware/native/device validation'"
+  },
+  {
+    "file": "tests/test_tools_grid_source.py",
+    "kind": "test_summary",
+    "before": "\"PASS: four-cell menu order/hidden chrome/preserved wake, word persistence and focus confirmation wiring; LVGL/device NOT run\"",
+    "after": "'PASS: four-cell menu order/hidden chrome/preserved wake, word persistence and focus confirmation wiring; scope=offline checks; pending=LVGL/device validation'"
+  },
+  {
+    "file": "tests/test_voice_exit_output.py",
+    "kind": "test_summary",
+    "before": "'PASS: strict local exit, cancellation path, bounded aligned DMA and ISR diagnostics; device NOT tested'",
+    "after": "'PASS: strict local exit, cancellation path, bounded aligned DMA and ISR diagnostics; scope=offline checks; pending=device validation'"
+  },
+  {
+    "file": "tests/test_voice_memory_order.py",
+    "kind": "test_summary",
+    "before": "\"PASS: TTS internal-stack reservation/gated sender/serial TLS ordering and pressure policies; C/runtime/VAD NOT run\"",
+    "after": "'PASS: TTS internal-stack reservation/gated sender/serial TLS ordering and pressure policies; scope=offline checks; pending=C/runtime/VAD validation'"
+  },
+  {
+    "file": "tests/test_voice_repair_source.py",
+    "kind": "test_summary",
+    "before": "\"PASS: setting readback/home handoff/barge phrase/stream wait regression guards; device/native NOT run\"",
+    "after": "'PASS: setting readback/home handoff/barge phrase/stream wait regression guards; scope=offline checks; pending=device/native validation'"
+  },
+  {
+    "file": "tests/test_voice_setting_outcome.py",
+    "kind": "test_summary",
+    "before": "\"PASS: applied-home vs reply result, cancel/unapplied/deferred-action boundaries; native/device NOT run\"",
+    "after": "'PASS: applied-home vs reply result, cancel/unapplied/deferred-action boundaries; scope=offline checks; pending=native/device validation'"
+  },
+  {
+    "file": "tests/test_voice_source_guards.py",
+    "kind": "test_summary",
+    "before": "\"PASS: voice structural guards and synthetic export; C tests/build/hardware NOT run\"",
+    "after": "'PASS: voice structural guards and synthetic export; scope=offline checks; pending=C tests/build/hardware validation'"
+  },
+  {
+    "file": "tests/test_wake_handoff_source.py",
+    "kind": "test_summary",
+    "before": "\"PASS: queued wake/UI retry/owner/button/expiry/wrap/debounce models; native accuracy/device NOT run\"",
+    "after": "'PASS: queued wake/UI retry/owner/button/expiry/wrap/debounce models; scope=offline checks; pending=native accuracy/device validation'"
+  },
+  {
+    "file": "tests/test_wake_network_reset.py",
+    "kind": "test_summary",
+    "before": "\"PASS: wake threshold 60/config consistency, PCM DC/gain/clipping/continuity, overflow/owner/reset and AQ/Wi-Fi guards; C and hardware NOT run\"",
+    "after": "'PASS: wake threshold 60/config consistency, PCM DC/gain/clipping/continuity, overflow/owner/reset and AQ/Wi-Fi guards; scope=offline checks; pending=C and hardware validation'"
+  },
+  {
+    "file": "tests/test_weather_home_source.py",
+    "kind": "test_summary",
+    "before": "\"PASS: daylight clock, restored shared motion, all 12 forecast hours, current UV/air/wind cards and applied home preview; C/device NOT run\"",
+    "after": "'PASS: daylight clock, restored shared motion, all 12 forecast hours, current UV/air/wind cards and applied home preview; scope=offline checks; pending=C/device validation'"
+  },
+  {
+    "file": "tests/test_weather_scroll_source.py",
+    "kind": "test_summary",
+    "before": "\"PASS: tilt-speed/deadzone/time clamp/window model, delta rendering and numeric/UV-card source guards; C/LVGL/device NOT run\"",
+    "after": "'PASS: tilt-speed/deadzone/time clamp/window model, delta rendering and numeric/UV-card source guards; scope=offline checks; pending=C/LVGL/device validation'"
+  },
+  {
+    "file": "tests/agent_safety/test_agent_semantics.c",
+    "kind": "test_summary",
+    "before": "(host simulation, not power-cut)",
+    "after": "(scope: host simulation; power-cut acceptance pending)"
+  },
+  {
+    "file": "tests/agent_safety/test_device_transport.c",
+    "kind": "test_summary",
+    "before": "one total device budget, not a renewed budget per byte",
+    "after": "one shared total device budget across all received bytes"
+  },
+  {
+    "file": "tests/test_reminder_font.py",
+    "kind": "explanation_literal",
+    "before": "voice state labels not found",
+    "after": "voice state label section missing"
+  },
+  {
+    "file": "tests/test_semantic_agent_source.py",
+    "kind": "explanation_literal",
+    "before": "API connection failed (credentials not printed)",
+    "after": "API connection failed; credentials stay private"
+  },
+  {
+    "file": "firmware/main/app_audio.c",
+    "kind": "paired_event_label",
+    "before": "Follow-up window closed: no speech, audio not published",
+    "after": "Follow-up window closed: quiet expiry; capture kept local"
+  },
+  {
+    "file": "tests/test_followup_alarm_source.py",
+    "kind": "paired_event_label",
+    "before": "Follow-up window closed: no speech, audio not published",
+    "after": "Follow-up window closed: quiet expiry; capture kept local"
+  },
+  {
+    "file": "firmware/main/app_network.c",
+    "kind": "display_or_explanation",
+    "before": "(cached, not live)",
+    "after": "(cached observation)"
+  },
+  {
+    "file": "firmware/main/app_wake.c",
+    "kind": "display_or_explanation",
+    "before": "conversation not started",
+    "after": "calibration-only event"
+  },
+  {
+    "file": "firmware/main/main.c",
+    "kind": "display_or_explanation",
+    "before": "Wake ignored: network/time not ready",
+    "after": "Wake ignored: waiting for network/time readiness"
+  },
+  {
+    "file": "firmware/main/main.c",
+    "kind": "display_or_explanation",
+    "before": "Wake ignored: audio owner busy/not ready",
+    "after": "Wake ignored: audio owner busy or unavailable"
+  },
+  {
+    "file": "firmware/main/main.c",
+    "kind": "display_or_explanation",
+    "before": "Wake expired: not started within %ums",
+    "after": "Wake expired: start deadline=%ums"
+  },
+  {
+    "file": "firmware/main/main.c",
+    "kind": "display_or_explanation",
+    "before": "Follow-up not started: speaker cleanup failed",
+    "after": "Follow-up skipped: speaker cleanup failed"
+  },
+  {
+    "file": "firmware/main/app_agent.c",
+    "kind": "comment",
+    "before": "模型提议不等于操作完成。",
+    "after": "动作结果按实际执行与持久化回执核验。"
+  },
+  {
+    "file": "firmware/main/app_cloud.c",
+    "kind": "comment",
+    "before": "合计30秒完成；超时/EAGAIN不等于一个完整JSON响应。",
+    "after": "合计30秒完成；完整JSON响应需通过解析校验，超时/EAGAIN按等待状态处理。"
+  },
+  {
+    "file": "firmware/main/app_cloud_tts.c",
+    "kind": "comment",
+    "before": "提交I2S不等于声学上已听到。",
+    "after": "I2S提交状态与声学听测分别记录。"
+  },
+  {
+    "file": "firmware/main/app_cloud_tts.c",
+    "kind": "comment",
+    "before": "在等待网络回调退出之前停止硬件；仅停止提交PCM不等于停止DMA。",
+    "after": "等待网络回调退出之前先停止硬件DMA。"
+  },
+  {
+    "file": "firmware/main/app_conversation.c",
+    "kind": "comment",
+    "before": "解释步骤的编号不等于新候选方案；仅在开始/明确重建比较时替换候选。",
+    "after": "在开始比较或明确重建比较时替换候选；解释步骤保留现有候选。"
+  },
+  {
+    "file": "tests/test_air_quality_recovery.py",
+    "kind": "docstring",
+    "before": "\"\"\"Non-compiling source guards and AQ cache state fixtures; no network/device I/O.\"\"\"",
+    "after": "\"\"\"Air-quality cache source guards and local Python state fixtures. Native cache and device acceptance run separately.\"\"\""
+  },
+  {
+    "file": "tests/test_auto_voice_source.py",
+    "kind": "docstring",
+    "before": "\"\"\"Source guards and injected-VAD boundary model; no C build or hardware access.\n\nThe installed native classifier's speech accuracy still needs device testing.\n\"\"\"",
+    "after": "\"\"\"Automatic voice-capture source guards and local decision models. Native VAD and physical audio acceptance run separately.\"\"\""
+  },
+  {
+    "file": "tests/test_barge_diagnostic.py",
+    "kind": "docstring",
+    "before": "\"\"\"Source and browser-mock checks only; no C build, native DSP or device tests.\"\"\"",
+    "after": "\"\"\"Playback diagnostic source guards and mocked browser handlers. Firmware and physical capture validation run separately.\"\"\""
+  },
+  {
+    "file": "tests/test_board_pins.py",
+    "kind": "docstring",
+    "before": "\"\"\"Check PCB GPIOs; optional argument: KiCad XML netlist exported from schematic.\"\"\"",
+    "after": "\"\"\"Board pin and calibration source guards. Native driver and electrical acceptance run separately.\"\"\""
+  },
+  {
+    "file": "tests/test_display_memory.py",
+    "kind": "docstring",
+    "before": "\"\"\"Read-only LVGL pool capacity/rollback guards; no compiler or device access.\"\"\"",
+    "after": "\"\"\"Display allocation source guards. Native memory behavior and hardware acceptance run separately.\"\"\""
+  },
+  {
+    "file": "tests/test_home_idle_source.py",
+    "kind": "docstring",
+    "before": "\"\"\"Home-picker bounds and clock-only idle policy; no C build or device execution.\"\"\"",
+    "after": "\"\"\"Home-page selection and idle-policy source guards with local state models.\"\"\""
+  },
+  {
+    "file": "tests/test_input_navigation.py",
+    "kind": "docstring",
+    "before": "\"\"\"Input/navigation source guards only: no C compilation or device access.\"\"\"",
+    "after": "\"\"\"Input/navigation source guards and local arbitration models. Native timing and hardware validation run separately.\"\"\""
+  },
+  {
+    "file": "tests/test_interrupt_question_gate.py",
+    "kind": "docstring",
+    "before": "\"\"\"Post-interruption question gate and output timing guards; no C/device run.\"\"\"",
+    "after": "\"\"\"Post-interruption question-gate source guards and local output timing models. C/device acceptance runs separately.\"\"\""
+  },
+  {
+    "file": "tests/test_media_pack.py",
+    "kind": "docstring",
+    "before": "\"\"\"Verify real SD assets and source routing; no firmware build or device access.\"\"\"",
+    "after": "\"\"\"Verify local SD assets and source routing. Firmware build and physical SD acceptance run separately.\"\"\""
+  },
+  {
+    "file": "tests/test_media_ui.py",
+    "kind": "docstring",
+    "before": "\"\"\"Source guards for media UI ownership/navigation; no ESP-IDF or hardware needed.\"\"\"",
+    "after": "\"\"\"Source guards for media UI ownership and navigation. Native LVGL and device acceptance run separately.\"\"\""
+  },
+  {
+    "file": "tests/test_media_web.py",
+    "kind": "docstring",
+    "before": "\"\"\"Local media security/conversion source checks. No firmware build or board I/O.\"\"\"",
+    "after": "\"\"\"Local media security/conversion source checks with mocked browser operations. Firmware and board acceptance run separately.\"\"\""
+  },
+  {
+    "file": "tests/test_network_recovery.py",
+    "kind": "docstring",
+    "before": "\"\"\"Read-only source guards; no compiler, serial port, NTP or weather API access.\"\"\"",
+    "after": "\"\"\"Local network recovery source guards and policy models. Compiler, serial, NTP and weather-API execution run separately.\"\"\""
+  },
+  {
+    "file": "tests/test_reminder_font.py",
+    "kind": "docstring",
+    "before": "\"\"\"Check generated glyph coverage without compiling or accessing the device.\"\"\"",
+    "after": "\"\"\"Read generated font data to check glyph coverage. Compilation and display acceptance run separately.\"\"\""
+  },
+  {
+    "file": "tests/test_sd_backup.py",
+    "kind": "docstring",
+    "before": "\"\"\"Exercise backup/export on synthetic temporary files only; no card access.\"\"\"",
+    "after": "\"\"\"Exercise backup/export using synthetic temporary files; physical-card acceptance runs separately.\"\"\""
+  },
+  {
+    "file": "tests/test_serial_logs.py",
+    "kind": "docstring",
+    "before": "\"\"\"Serial-log source guards/policy models; no C compile or hardware calls.\"\"\"",
+    "after": "\"\"\"Serial-log source guards and local policy models. C compilation and hardware acceptance run separately.\"\"\""
+  },
+  {
+    "file": "tests/test_stable_voice_diagnostic.py",
+    "kind": "docstring",
+    "before": "\"\"\"Stable-mode source guards and mocked browser diagnostics.\n\nNo firmware compile, native WakeNet/AEC, physical microphone or network test.\nReal recognition accuracy requires the exported device recordings.\n\"\"\"",
+    "after": "\"\"\"Stable-mode source guards and mocked browser diagnostics.\n\nNative WakeNet/AEC, physical microphone and network acceptance require dedicated\nmeasurements; recognition accuracy uses exported device recordings.\"\"\""
+  },
+  {
+    "file": "tests/test_tts_preferences.py",
+    "kind": "docstring",
+    "before": "\"\"\"Execute the real NVS-load branch with synthetic preference blobs; no device.\"\"\"",
+    "after": "\"\"\"Execute the real NVS-load branch with synthetic preference blobs on the host.\"\"\""
+  },
+  {
+    "file": "tests/test_voice_exit_output.py",
+    "kind": "docstring",
+    "before": "\"\"\"Local exit and DMA policy regression checks; no firmware compilation.\"\"\"",
+    "after": "\"\"\"Local exit and DMA policy regression checks; firmware compilation runs separately.\"\"\""
+  },
+  {
+    "file": "tests/test_voice_repair_source.py",
+    "kind": "docstring",
+    "before": "\"\"\"Regression/source policies only. No C build, hardware, or paid API calls.\"\"\"",
+    "after": "\"\"\"Local source guards and regression policy fixtures. Native hardware and paid API evaluation run separately.\"\"\""
+  },
+  {
+    "file": "tests/test_voice_setting_outcome.py",
+    "kind": "docstring",
+    "before": "\"\"\"Applied home settings survive failed speech; source + policy, no C/device I/O.\"\"\"",
+    "after": "\"\"\"Applied-home source guards and local policy models for failed-speech outcomes. Native/device acceptance runs separately.\"\"\""
+  },
+  {
+    "file": "tests/test_wake_handoff_source.py",
+    "kind": "docstring",
+    "before": "\"\"\"Wake handoff source/logic models; no firmware compile or real recognition.\n\nInjected detections cannot establish WakeNet accuracy or real UI lock latency.\n\"\"\"",
+    "after": "\"\"\"Wake handoff source guards and injected-detection models.\n\nNative WakeNet accuracy and physical UI-lock latency require device measurements.\"\"\""
+  },
+  {
+    "file": "tests/test_wake_network_reset.py",
+    "kind": "docstring",
+    "before": "\"\"\"Source guards plus a small state model; no C compilation or device execution.\"\"\"",
+    "after": "\"\"\"Source guards and a local state model; native C and device acceptance run separately.\"\"\""
+  },
+  {
+    "file": "tests/test_media_pack.py",
+    "kind": "test_summary",
+    "before": "; no C or hardware test",
+    "after": "; scope=asset/source checks; pending=C/hardware acceptance"
+  },
+  {
+    "file": "tests/test_media_web.py",
+    "kind": "test_summary",
+    "before": "; no firmware build or hardware test",
+    "after": "; scope=source/mocked-browser checks; pending=firmware/hardware acceptance"
+  },
+  {
+    "file": "tests/test_voice_controls_source.py",
+    "kind": "test_summary",
+    "before": "; no C build or hardware verification",
+    "after": "; scope=source/policy fixtures; pending=C/hardware acceptance"
+  },
+  {
+    "file": "firmware/main/app_cloud.c",
+    "kind": "comment",
+    "before": "合计30秒完成；完整JSON响应需通过解析校验，超时/EAGAIN按等待状态处理。",
+    "after": "合计30秒完成；响应须完整解析校验，超时按失败处理，EAGAIN为暂时无数据。"
+  },
+  {
+    "file": "tests/test_semantic_agent_source.py",
+    "kind": "test_summary",
+    "before": "scope=offline checks; pending=36 model cases defined but validation offline",
+    "after": "scope=offline source/schema checks; 36 model cases await live evaluation"
+  },
+  {
+    "file": ".gitignore",
+    "kind": "comment",
+    "before": "Locally supplied reminder audio; redistribution rights are not established",
+    "after": "Locally supplied reminder audio; redistribution requires rights clearance"
+  },
+  {
+    "file": "firmware/main/main.c",
+    "kind": "comment",
+    "before": "取消不等于回滚。",
+    "after": "取消后保留已提交的副作用，并按实际结果记录。"
+  },
+  {
+    "file": "firmware/main/app_wake.c",
+    "kind": "comment",
+    "before": "public destroy/create lifecycle rather than accessing private model fields.",
+    "after": "public destroy/create lifecycle to keep model internals encapsulated."
+  },
+  {
+    "file": "hardware/mechanical/V3-SLA/source/build.py",
+    "kind": "comment",
+    "before": "Mated connectors and wire-turn reserves; no claim on actual cable/flex bending.",
+    "after": "Mated connectors and wire-turn reserves; actual cable/flex bending needs physical verification."
+  },
+  {
+    "file": "hardware/mechanical/V3-SLA/source/render_3d.py",
+    "kind": "docstring",
+    "before": "Orthographic CAD triangle render with per-pixel depth (no invented geometry).",
+    "after": "Orthographic render of source CAD triangles with per-pixel depth."
+  },
+  {
+    "file": "hardware/mechanical/V3-SLA/source/verify_delivery.py",
+    "kind": "docstring",
+    "before": "Independent export/fastener checks, no edits to model geometry.",
+    "after": "Read-only export and fastener checks against model geometry."
+  },
+  {
+    "file": "hardware/mechanical/V3-SLA/source/verify_delivery.py",
+    "kind": "comment",
+    "before": "Connector opening/plug envelopes cross actual outer walls; no tabletop geometry guessing.",
+    "after": "Check connector opening/plug envelopes against actual model outer walls."
+  },
+  {
+    "file": "firmware/main/app_turn_log.c",
+    "kind": "comment",
+    "before": "阶段时间是软件时间点，不等同于声学首声测量。",
+    "after": "阶段时间记录软件事件，声学首声需独立测量。"
+  },
+  {
+    "file": "firmware/main/app_audio.c",
+    "kind": "comment",
+    "before": "互斥锁保护硬件所有权，取消播放须清理DMA，而非只取消云端请求。",
+    "after": "互斥锁保护硬件所有权，取消播放须结束云端请求并清理DMA。"
+  },
+  {
+    "file": "tests/test_games.c",
+    "kind": "comment",
+    "before": "固定时间步使不同显示帧率产生相同运动，而非每帧固定移动。",
+    "after": "固定时间步使不同显示帧率产生相同运动。"
+  },
+  {
+    "file": "docs/WEB_MANAGEMENT_DESIGN.md",
+    "kind": "prose",
+    "before": "回退到不识别 v5 的旧固件并不保证配置可读，回退前应保留配置备份。",
+    "after": "回退到不识别 v5 的旧固件前应保留配置备份，配置可读性需按旧版格式核对。"
+  },
+  {
+    "file": "docs/DEVICE_CLOUD_VOICE.md",
+    "kind": "prose",
+    "before": "PCM 已提交：成功交给播放函数的原始单声道 PCM 字节数；不证明用户听清。",
+    "after": "PCM 已提交：成功交给播放函数的原始单声道 PCM 字节数；用户听感需独立确认。"
+  },
+  {
+    "file": "docs/MPU6050_GESTURES.md",
+    "kind": "prose",
+    "before": "代表性实测读数用于构造测试，不等同于完整实机采样回放。",
+    "after": "测试使用代表性实测读数构造输入，完整实机采样回放待验证。"
+  }
+]

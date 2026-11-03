@@ -10,7 +10,7 @@
 | `python3 tests/test_semantic_agent_source.py` | exit 0 |
 | `python3 tests/test_followup_alarm_source.py` | exit 0 |
 
-Agent gate含reliability/runtime/transport/semantic/storage五组，ASan/UBSan、虚拟时钟、合成SDK/设备输入。task-reconcile另覆盖真实文件快照、运行态恢复、取消、重复消息与新进程重载。源码契约检查不等于实机表现，36个模型案例未运行。
+Agent gate含reliability/runtime/transport/semantic/storage五组，使用ASan/UBSan、虚拟时钟和合成SDK/设备输入。task-reconcile另覆盖真实文件快照、运行态恢复、取消、重复消息与新进程重载。实机表现待专项验收，36个模型案例待运行。
 
 本次没有进行新固件构建、刷机、声学、断电、物理家居设备或付费模型测试。历史2026-10-25本地ESP32-S3构建成功是既往证据。当前公开源码缺少本地合法提醒PCM及用户凭据；构建前提详见PROGRESS.md。托管cJSON源码仅在本地复用，没有纳入提交。
 

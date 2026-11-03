@@ -6,7 +6,7 @@
 #define main baseline_agent_main
 #define app_storage_persist_context baseline_persist_context
 #define app_device_request baseline_device_request
-/* The fixture's renamed main has C's implicit main-only return; it is not run. */
+/* The fixture's renamed main retains C's implicit return; this harness runs its own main. */
 #pragma GCC diagnostic push
 #pragma GCC diagnostic ignored "-Wreturn-type"
 #include BASELINE_TEST_PATH
@@ -247,7 +247,7 @@ int main(int argc, char **argv) {
   assert(!app_agent_command("", h));
   contains(app_agent_command("确认执行", h), "没有有效");
   assert(dispatches == 1);
-  puts("PASS unknown_action_not_replayed_after_repeat_or_context_reload (host simulation, not power-cut)");
+  puts("PASS unknown_action_not_replayed_after_repeat_or_context_reload (scope: host simulation; power-cut acceptance pending)");
 
   reset_case(h);
   prepare(h, "cancelled-action", "打开灯");

@@ -55,5 +55,5 @@ examples/lan_switch/dependencies.lock
 /hardware/references/
 /hardware/reports/
 
-# Locally supplied reminder audio; redistribution rights are not established
+# Locally supplied reminder audio; redistribution requires rights clearance
 /firmware/main/reminder.pcm

@@ -13,7 +13,7 @@
 #define MOTION_RECENTER_MS 1000
 #define MOTION_LEVEL_MG 180
 #define MOTION_STABLE_MG 60
-// 实测静置约1.2g；这里是动作可信范围，不是传感器精度校准。
+// 实测静置约1.2g；该范围用于动作可信性判定，传感器精度另行校准。
 #define MOTION_VALID_MIN_MG 650
 #define MOTION_VALID_MAX_MG 1500
 #define MOTION_INVALID_RESET_MS 100

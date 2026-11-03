@@ -1,4 +1,4 @@
-"""Input/navigation source guards only: no C compilation or device access."""
+"""Input/navigation source guards and local arbitration models. Native timing and hardware validation run separately."""
 import re
 from pathlib import Path
 
@@ -68,7 +68,7 @@ assert "lv_screen_load(s_desktop_screen)" in layers
 assert "lv_screen_load(s_detail_screen)" in layers
 assert "lv_screen_load(s_test_screens[s_current_page_index])" in layers
 
-# Restore same-direction input in the shared mapping, not per-game patches.
+# Restore same-direction input through the shared mapping.
 assert "#define APP_MOTION_DIRECTION -1" in motion_header
 assert "#define APP_MOTION_VERTICAL_DIRECTION -1" in motion_header
 assert "(accel[axis] - horizontal_neutral) * horizontal_direction" in coordinates
@@ -91,4 +91,4 @@ for path in paths:
         elif char in ")}]":
             assert stack and stack.pop() == {")": "(", "}": "{", "]": "["}[char], path.name
     assert not stack, path.name
-print("PASS: input dispatch, double-click arbitration, parent navigation and screen-coordinate source guards; C/runtime/hardware NOT run")
+print('PASS: input dispatch, double-click arbitration, parent navigation and screen-coordinate source guards; scope=offline checks; pending=C/runtime/hardware validation')

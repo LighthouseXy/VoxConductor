@@ -247,7 +247,7 @@ static void update_discussion(app_conversation_t *h, const char *user, const cha
       positions[i] = strstr(answer, markers[i]);
       if (!positions[i]) positions[i] = strstr(answer, chinese[i]);
     }
-    // 解释步骤的编号不等于新候选方案；仅在开始/明确重建比较时替换候选。
+    // 在开始比较或明确重建比较时替换候选；解释步骤保留现有候选。
     if (new_goal && (comparison || (strstr(answer, "方案一") && strstr(answer, "方案二"))) &&
         positions[0] && positions[1] && positions[0] < positions[1]) {
       cJSON *options = cJSON_CreateArray();
@@ -339,7 +339,7 @@ bool app_conversation_add_source(app_conversation_t *history, const char *user,
   strcpy(turn->user, user);
   if (strlen(assistant) < sizeof(turn->assistant)) strcpy(turn->assistant, assistant);
   else {
-    const char *marker = "[长回答摘录，完整生成原文需查历史，不是逐字全文]";
+    const char *marker = "[长回答摘录；完整生成原文请查历史]";
     size_t n = excerpt_size(assistant, sizeof(turn->assistant) - strlen(marker) - 1);
     memcpy(turn->assistant, assistant, n); strcpy(turn->assistant + n, marker);
   }
