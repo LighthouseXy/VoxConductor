@@ -1,0 +1,122 @@
+{
+  "round": 1,
+  "scope": "README structural/link/media self-check; no firmware or hardware run",
+  "files": [
+    {
+      "file": "README.md",
+      "lines": 93,
+      "utf8_bytes": 7464,
+      "before_utf8_bytes": 11570,
+      "links": 41,
+      "images": 11,
+      "removed_original_links": [],
+      "removed_original_images": [],
+      "headings": 8,
+      "sha256": "f3acfd1e4c766896ae749f96a6838bd6d38259e1bdba8e55fda8e7ff0197ca15"
+    },
+    {
+      "file": "README.zh-CN.md",
+      "lines": 93,
+      "utf8_bytes": 7464,
+      "before_utf8_bytes": 11570,
+      "links": 41,
+      "images": 11,
+      "removed_original_links": [],
+      "removed_original_images": [],
+      "headings": 8,
+      "sha256": "f3acfd1e4c766896ae749f96a6838bd6d38259e1bdba8e55fda8e7ff0197ca15"
+    },
+    {
+      "file": "README.en.md",
+      "lines": 93,
+      "utf8_bytes": 8721,
+      "before_utf8_bytes": 7285,
+      "links": 41,
+      "images": 11,
+      "removed_original_links": [],
+      "removed_original_images": [],
+      "headings": 8,
+      "sha256": "73c399eeeea1d92404936f1ad8826c1678fa62c74a9a38869f1a3a3e78ec490f"
+    }
+  ],
+  "images": [
+    {
+      "file": "docs/images/2026-10-10/demo-time-weather-cover.jpg",
+      "decoded_dimensions": true,
+      "unchanged": true
+    },
+    {
+      "file": "docs/images/2026-10-10/demo-volume-cover.jpg",
+      "decoded_dimensions": true,
+      "unchanged": true
+    },
+    {
+      "file": "docs/images/2026-10-11/desktop-menu.jpg",
+      "decoded_dimensions": true,
+      "unchanged": true
+    },
+    {
+      "file": "docs/images/2026-10-11/device-clock-front.jpg",
+      "decoded_dimensions": true,
+      "unchanged": true
+    },
+    {
+      "file": "docs/images/2026-10-11/device-front.jpg",
+      "decoded_dimensions": true,
+      "unchanged": true
+    },
+    {
+      "file": "docs/images/2026-10-11/device-rear.jpg",
+      "decoded_dimensions": true,
+      "unchanged": true
+    },
+    {
+      "file": "docs/images/2026-10-11/device-side.jpg",
+      "decoded_dimensions": true,
+      "unchanged": true
+    },
+    {
+      "file": "docs/images/2026-10-11/pcb-assembled.jpg",
+      "decoded_dimensions": true,
+      "unchanged": true
+    },
+    {
+      "file": "docs/images/2026-10-11/weather-current.jpg",
+      "decoded_dimensions": true,
+      "unchanged": true
+    },
+    {
+      "file": "docs/images/2026-10-11/weather-hourly.jpg",
+      "decoded_dimensions": true,
+      "unchanged": true
+    },
+    {
+      "file": "docs/images/2026-10-11/weather-metrics.jpg",
+      "decoded_dimensions": true,
+      "unchanged": true
+    }
+  ],
+  "videos": [
+    {
+      "file": "docs/videos/2026-10-10/voice-volume-control.mp4",
+      "container_valid": true,
+      "duration_seconds": 29.27,
+      "unchanged": true,
+      "playback_tested": false
+    },
+    {
+      "file": "docs/videos/2026-10-10/wake-time-weather.mp4",
+      "container_valid": true,
+      "duration_seconds": 25.93,
+      "unchanged": true,
+      "playback_tested": false
+    }
+  ],
+  "external_links": {
+    "https://open-meteo.com/en/docs/air-quality-api": "opened successfully using web tool on 2026-11-03"
+  },
+  "chinese_mirrors_identical": true,
+  "bilingual_link_media_table_order_aligned": true,
+  "corresponding_blocks": 29,
+  "errors": []
+}
