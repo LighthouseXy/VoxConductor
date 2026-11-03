@@ -1,0 +1,15 @@
+menu "VoxConductor LAN peer"
+config VOX_PEER_SSID
+    string "Wi-Fi SSID"
+    default ""
+config VOX_PEER_PASSWORD
+    string "Wi-Fi password"
+    default ""
+config VOX_PEER_TOKEN
+    string "Shared bearer token (16-128 characters)"
+    default ""
+config VOX_PEER_GPIO
+    int "Safe low-voltage LED GPIO (-1 disables writes)"
+    range -1 48
+    default -1
+endmenu

@@ -1,0 +1,460 @@
+<!doctype html>
+<html lang="zh-CN">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>VoxConductor · 设备管理</title>
+<style>
+:root{color-scheme:light;font:15px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#242b29;background:#f4f5f1;--line:#dce1d9;--muted:#68716b;--accent:#dcf294;--ink:#25392e}*{box-sizing:border-box}body{margin:0}button,input,select{font:inherit;color:inherit}button{cursor:pointer;border:1px solid var(--line);border-radius:10px;background:#fff;padding:9px 14px;transition:background .15s}button:hover{background:#f0f4e9}button:disabled{opacity:.48;cursor:not-allowed}button.primary{background:var(--ink);color:#fff;border-color:var(--ink)}button:focus-visible,input:focus-visible,select:focus-visible,summary:focus-visible{outline:3px solid #a6bb6d;outline-offset:3px}input,select{border:1px solid #ccd4c9;border-radius:9px;background:#fff;padding:9px;max-width:100%;min-width:0}input[type=number]{width:90px}input[type=checkbox]{accent-color:#3b553c;width:17px;height:17px;vertical-align:middle}input[type=file]{width:100%;font-size:13px}label{display:inline-block;margin:6px 8px 6px 0}fieldset{border:0;padding:0;margin:0;min-width:0}h1,h2,h3,p{margin-top:0}h1{font-size:31px;letter-spacing:-1px;line-height:1.2;margin-bottom:8px}h2{font-size:18px;margin-bottom:12px}h3{font-size:15px}p,small{color:var(--muted)}p{line-height:1.8}a{color:#355d3d}aside{position:fixed;inset:0 auto 0 0;width:216px;background:#fff;border-right:1px solid var(--line);padding:30px 20px;display:flex;flex-direction:column;z-index:5}.brand{font-size:18px;letter-spacing:-.6px;font-weight:750;color:var(--ink)}.brand-mark{display:inline-grid;place-items:center;width:33px;height:33px;background:var(--ink);color:var(--accent);border-radius:10px;margin-right:7px}.eyebrow{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--muted)}nav{display:grid;gap:6px;margin-top:46px}nav button{text-align:left;border-color:transparent;background:transparent;color:#647066;padding:12px 15px}nav button[aria-current=page]{background:#edf3e3;color:#23372a;font-weight:700}nav span{display:inline-block;width:25px;font-size:13px;opacity:.6}.side-foot{margin-top:auto;font-size:12px;color:var(--muted)}main{max-width:1390px;margin-left:216px;padding:34px 42px 60px}.topbar,.heading,.row{display:flex;align-items:center;gap:10px;flex-wrap:wrap}.topbar{justify-content:space-between;margin-bottom:30px}.badge{font-size:12px;border:1px solid var(--line);border-radius:30px;padding:5px 10px;color:var(--muted);background:white}.badge.online{color:#286a43;background:#eef7eb;border-color:#cde1c5}.heading{justify-content:space-between;margin-bottom:24px}.subtitle{margin:0;font-size:14px}#notice{border-left:3px solid #a7bb83;padding:10px 14px;background:#eaf0e3;border-radius:0 9px 9px 0;white-space:pre-wrap;font-size:13px;margin-bottom:22px;overflow-wrap:anywhere}#notice[data-error=true]{background:#fff0e9;border-color:#c27751}.card{border:1px solid var(--line);border-radius:18px;background:#fff;padding:24px;margin-bottom:18px}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}.grid .card{margin-bottom:0}.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin:18px 0}.stat{background:#fff;border:1px solid var(--line);border-radius:14px;padding:20px}.stat small{display:block;font-size:12px}.stat strong{display:block;font-size:23px;font-weight:650;margin-top:6px}.hero{display:grid;grid-template-columns:1fr 260px;background:#e8efdc;border:0;min-height:282px;padding:30px;gap:24px;align-items:center}.hero h2{font-size:27px;line-height:1.4;margin:12px 0}.hero p{max-width:460px}.device-art{background:#19251f;color:#e2f7b8;aspect-ratio:1.18;border-radius:24px;display:grid;place-content:center;text-align:center;box-shadow:0 18px 26px #23372a15;position:relative;overflow:hidden}.clock-face{border:2px solid #a6bc84;width:122px;height:122px;border-radius:50%;position:relative;margin:auto;box-shadow:inset 0 0 0 7px #25372d}.clock-face:before,.clock-face:after{content:"";position:absolute;left:58px;bottom:58px;width:3px;height:38px;background:#e6f5ca;transform-origin:bottom;border-radius:3px;transform:rotate(40deg)}.clock-face:after{height:29px;transform:rotate(-70deg)}.device-art small{color:#abc38e;margin-top:12px}.device-art.wallpaper{background:radial-gradient(circle at 15% 28%,#c8e7b9 1px,transparent 2px),radial-gradient(circle at 80% 70%,#c8e7b9 1px,transparent 2px),linear-gradient(140deg,#203c46,#1b2631);background-size:53px 47px,71px 81px,auto}.digital{font-size:43px;font-weight:300;letter-spacing:2px}.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.form-grid label{display:grid;gap:6px;margin:0;font-size:13px}.form-grid input[type=number]{width:100%}.form-grid .check{display:flex;align-items:center}.actions{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:20px}.muted{font-size:12px}.file{border-top:1px solid var(--line);padding:16px 0;overflow-wrap:anywhere}.filename{display:block;font-weight:600;font-size:14px;margin-bottom:9px}.file button{font-size:12px;padding:6px 10px}.file p{color:#343e37}.empty{border:1px dashed #d3dace;border-radius:12px;padding:25px;text-align:center;color:var(--muted);font-size:13px}canvas{width:160px;height:160px;max-width:100%;background:black;border-radius:10px;display:block;margin:12px 0}audio{max-width:100%;display:block;margin:12px 0}progress{width:100%;height:6px;accent-color:#769c51}.date-row{display:flex;flex-wrap:wrap;gap:7px;padding:12px 0;border-top:1px solid var(--line)}.date-row input[type=text]{width:150px}details summary{cursor:pointer;font-weight:650;padding:4px 0}details[open] summary{margin-bottom:16px}.details-copy{font-size:13px}.list{display:grid;gap:12px}.list div{display:flex;justify-content:space-between;gap:12px;border-bottom:1px solid #edf0e9;padding-bottom:10px;font-size:13px}.list span{color:var(--muted)}.hint{padding:13px 16px;border-radius:10px;background:#f4f6f0;font-size:13px}.quick{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:16px}.quick button{text-align:left;padding:20px;background:#fff}.quick small{display:block;font-size:12px;margin-top:6px}.panel[hidden],[hidden]{display:none!important}footer{color:var(--muted);font-size:12px;padding-top:20px}.transfer{margin-bottom:18px}.diagnostic-info{font-family:ui-monospace,monospace;font-size:12px;white-space:pre-wrap;overflow-wrap:anywhere}.filter{margin-left:auto}.status-detail{font-size:12px}#checkJob{background:#ffefcb}body[data-busy=true] #connect{opacity:.5}#jobActivity{font-size:12px;color:var(--muted)}
+@media(min-width:1500px){main{margin-right:auto}}@media(max-width:1100px){main{padding:28px 25px}.hero{grid-template-columns:1fr 190px}.stats{gap:8px}.stat{padding:15px}.stat strong{font-size:20px}}
+@media(max-width:760px){aside{inset:auto 0 0;width:100%;height:74px;padding:5px 8px 12px;border-right:0;border-top:1px solid var(--line)}aside .brand,aside .eyebrow,.side-foot{display:none}nav{grid-template-columns:repeat(6,1fr);gap:0;margin:0}nav button{text-align:center;padding:7px 2px;font-size:11px;border-radius:8px}nav span{display:block;margin:auto;font-size:12px}main{margin:0;padding:20px 17px 95px}.topbar{margin-bottom:24px;gap:6px}.topbar .eyebrow{font-size:10px;letter-spacing:1px}h1{font-size:26px}.heading{margin-bottom:18px}.card{padding:19px;border-radius:14px}.hero{grid-template-columns:1fr 112px;gap:12px;padding:22px 18px;min-height:216px}.hero h2{font-size:23px}.hero p{font-size:12px}.clock-face{width:76px;height:76px}.clock-face:before,.clock-face:after{left:35px;bottom:35px;height:24px}.clock-face:after{height:19px}.device-art{border-radius:16px}.device-art small{font-size:9px}.digital{font-size:25px}.stats{grid-template-columns:repeat(3,1fr);gap:7px}.stat{padding:12px 8px}.stat strong{font-size:17px}.stat small{font-size:10px}.grid{grid-template-columns:1fr}.quick{gap:7px}.quick button{padding:12px 9px;font-size:13px}.quick small{font-size:10px}.form-grid{gap:12px}.badge{font-size:11px}.date-row input{max-width:100%}button{min-height:38px}.filter{margin-left:0}}
+@media(max-width:760px){.hero h2{font-size:20px}.hero .eyebrow{font-size:9px;letter-spacing:1px}.device-art{aspect-ratio:auto;min-height:138px;padding:12px 4px}.device-art small{font-size:8px;line-height:1.5}}
+@media(max-width:480px){.form-grid .tts-field{grid-column:1/-1}}
+</style>
+<body>
+<aside><div class="brand"><span class="brand-mark">V</span>VoxConductor</div><div class="eyebrow" style="margin:12px 0 0 42px">DESK COMPANION</div>
+<nav aria-label="管理页面"><button data-page="overview" aria-current="page"><span>01</span>概览</button><button data-page="appearance"><span>02</span>外观</button><button data-page="media"><span>03</span>媒体</button><button data-page="tasks"><span>04</span>事项</button><button data-page="history"><span>05</span>对话</button><button data-page="diagnostics"><span>06</span>诊断</button></nav>
+<div class="side-foot">设备的另一块屏幕。<br>在浏览器里，从容整理桌面。<hr style="border:0;border-top:1px solid var(--line);margin:20px 0">局域网连接 · 无需配对码<br>空闲 10 分钟后关闭</div></aside>
+<main><div class="topbar"><div class="eyebrow">VOXCONDUCTOR / DEVICE STUDIO</div><div class="row"><span id="connection" class="badge">尚未连接</span><button id="connect">刷新连接</button></div></div>
+<div class="heading"><div><h1 id="pageTitle">我的桌面</h1><p id="pageSubtitle" class="subtitle">看看设备状态，继续布置你的桌面。</p></div><span id="jobActivity"></span></div>
+<div id="notice" role="status" aria-live="polite">正在读取设备。请与设备连接同一个 Wi-Fi，并开启“网页管理”。</div>
+<button id="checkJob" hidden>查询未完成操作</button>
+<div class="transfer" id="transferArea" hidden><small>媒体传输进度</small><progress id="progress" max="100" value="0"></progress><button id="cancelTransfer" type="button" disabled>取消上传</button></div>
+<div class="panel" id="panel-overview">
+<section class="card hero"><div><span class="eyebrow">A LITTLE SPACE, YOUR WAY</span><h2>让桌面，<br>多一点自己的样子。</h2><p id="homeSummary">连接后查看当前主页、音量和唤醒状态。</p><button class="primary" data-page="appearance">调整我的主页 ↗</button></div><div class="device-art" id="overviewPreview"><div class="clock-face"></div><small>主页样式示意 · 非实时画面</small></div></section>
+<div class="stats"><div class="stat"><small>当前音量</small><strong id="statVolume">—</strong></div><div class="stat"><small>屏幕亮度</small><strong id="statBrightness">—</strong></div><div class="stat"><small>本地唤醒</small><strong id="statWake">—</strong></div></div>
+<div class="grid"><section class="card"><h2>设备状态</h2><div class="list"><div><span>北京时间</span><b id="overviewTime">等待读取</b></div><div><span>持续运行</span><b id="overviewUptime">—</b></div><div><span>SD 存储</span><b id="overviewStorage">—</b></div><div><span>读取时间</span><b id="lastRead">—</b></div></div><p class="muted" style="margin:14px 0 0">这是手动刷新的状态快照，不持续轮询设备。</p></section><section class="card"><h2>常用入口</h2><div class="quick"><button data-page="media">媒体库<small>壁纸与音乐</small></button><button data-page="tasks">我的事项<small>闹钟与备忘</small></button><button data-page="history">对话记录<small>搜索与回看</small></button></div><p class="muted" style="margin:20px 0 0">语音对话由设备进行；这里负责设置、整理与诊断，不是在线聊天窗口。</p></section></div></div>
+<div class="panel" id="panel-appearance" hidden>
+<section class="card">
+<div class="heading"><h2>主页与声音</h2><span id="draftStatus" class="badge">读取后可编辑</span></div>
+<fieldset id="deviceFields" disabled><div class="form-grid">
+<label>主页 <select id="homeStyle"><option value="0">圆形时钟</option><option value="1">壁纸 + 数字时间</option></select></label>
+<label>背景 <select id="wallMode"><option value="0">已选 SD 图片</option><option value="1">星空闪烁</option><option value="2">轨道星环</option><option value="3">漂浮水母</option><option value="4">光点花园</option></select></label>
+<label>音量（%） <input id="volume" type="number" min="0" max="100"></label>
+<label>亮度（%） <input id="brightness" type="number" min="0" max="100"></label>
+<label class="tts-field">AI 播报语速 <select id="ttsRate" aria-describedby="ttsHint"></select></label>
+<label class="tts-field">AI 播报音色 <select id="ttsVoice" aria-describedby="ttsHint"></select></label>
+<label class="check"><input id="wakeEnabled" type="checkbox">本地语音唤醒</label>
+<div class="hint" id="styleHint">圆形时钟主页；壁纸选择会保留。</div></div>
+<div class="actions"><button id="saveDevice" class="primary">保存到设备</button><button id="refreshDevice">读取最新状态</button><button id="resetDevice" type="button">放弃草稿</button></div></fieldset>
+<p class="muted" style="margin:16px 0 0">动态背景无需 SD 图片。屏保始终为纯时钟，不显示壁纸。修改先留在网页，保存后才应用到设备。</p>
+<p class="muted" id="ttsHint">语速与音色读取后可选。只影响 AI 回答和云端提醒，不改变音乐、麦克风增益或唤醒词。保存后从下一次播报生效，重启保留；可用同一句问题比较声音。离线提示音不变。</p>
+</section></div>
+<div class="panel" id="panel-diagnostics" hidden>
+<section class="card"><h2>连接与资源</h2><p id="deviceInfo">连接后读取设备状态。</p><div class="list"><div><span>内部可用 RAM</span><b id="ramFree">—</b></div><div><span>最大连续内部块</span><b id="ramLargest">—</b></div><div><span>可用 PSRAM</span><b id="ramExternal">—</b></div></div><p class="muted" style="margin:14px 0 0">内存数值为本次读取的快照，不能单凭空闲总量判断实时音频是否稳定。</p></section>
+<section class="card">
+<details><summary>小冰小冰 · 空闲唤醒诊断</summary>
+<p>开启本地唤醒后，空闲时说 小冰小冰 开始对话；回答过程中说“小冰小冰，新的问题”可请求打断并接着提问。普通说话或响声不会作为打断口令。按键会终止整个会话；完整回答后的聆听窗口内可以直接续问。若屏幕提示按键停止，表示本轮语音打断未就绪。</p>
+<p>手动开始12秒采集，在平常的距离和音量下重复说 小冰小冰，句间停一秒。诊断期间只检测、不进入对话。原始音频与模型输入仅暂存在设备内存，不上传云端、不写入SD卡，完成后5分钟或在设备上关闭网页管理即清除。下载的文件可能包含私人讲话，请自行保管。</p>
+<button id="startWakeDiagnostic">开始12秒采集</button><button id="refreshWakeDiagnostic">查看诊断状态</button>
+<button id="downloadWakeRaw" disabled>下载原始录音</button><button id="downloadWakeModel" disabled>下载模型输入</button>
+<button id="clearWakeDiagnostic">清除诊断录音</button><p id="wakeDiagnosticInfo">尚未采集。</p>
+</details></section>
+<section class="card">
+<details><summary>回答中打断 · 四轨诊断</summary>
+<p>仅在你点击后等待下一次回答，起播后采集最多12秒；等待超过2分钟自动结束。不会屏蔽正常打断。请让设备讲较长的故事，在起播后约2、5、8秒，以正常音量说“小冰小冰，现在几点？”，结束后点“查看结果”。</p>
+<p class="muted">录音仅暂存在设备PSRAM，结束5分钟后或关闭网页管理时清除，不写SD、不自动上传。会额外占用约1.5MB内存；下载内容可能含私人讲话。四轨分别保存原始麦克风、回声消除使用的参考、回声处理后和模型实际输入；各轨可能因队列或诊断漏帧长短不同，不能直接按文件位置判定回声延迟。</p>
+<button id="startBargeDiagnostic">准备下一次回答诊断</button><button id="refreshBargeDiagnostic">查看结果</button>
+<button id="downloadBarge0" disabled>下载原始麦克风</button><button id="downloadBarge1" disabled>下载参考音频</button>
+<button id="downloadBarge2" disabled>下载回声处理后</button><button id="downloadBarge3" disabled>下载模型输入</button>
+<button id="downloadBargeSummary" disabled>下载诊断摘要</button><button id="clearBargeDiagnostic">清除打断诊断</button>
+<p id="bargeDiagnosticInfo">尚未准备。</p>
+</details></section></div>
+<div class="panel" id="panel-tasks" hidden>
+<section class="card">
+<h2>闹钟、待办与备忘录</h2><p>共用设备任务存储，最多8条。闹钟时间按北京时间选择，必须在未来30天内。保存成功后才会提示完成。</p>
+<label>类型 <select id="taskKind"><option value="alarm">闹钟</option><option value="todo">待办</option><option value="note">备忘录</option></select></label>
+<input id="taskTitle" type="text" maxlength="40" placeholder="任务内容" aria-label="任务内容">
+<label>北京时间 <input id="taskDue" type="datetime-local"></label>
+<label>重复 <select id="taskRepeat"><option value="once">单次</option><option value="daily">每天</option><option value="weekdays">工作日</option><option value="weekly">每周</option></select></label>
+<button id="addTask" class="primary">添加事项</button><button id="refreshTasks">读取事项列表</button><p class="muted">事项与历史读取在设备空闲时执行；查看基本状态不占用此队列。</p>
+<div class="heading" style="margin:24px 0 8px"><h2>已有事项 <small id="taskCount"></small></h2><label class="filter">筛选 <select id="taskFilter"><option value="all">全部</option><option value="alarm">闹钟</option><option value="todo">待办</option><option value="note">备忘录</option></select></label></div><div id="tasks"><p class="muted">尚未读取事项，请点击“读取事项列表”。</p></div>
+</section></div>
+<div class="panel" id="panel-history" hidden>
+<section class="card">
+<h2>语音对话记录</h2><p>仅显示当前对话卷的文字，每次最多3条。已生成的回答不代表完整播放过；较长回答可能分段保存。封存卷需离线导出查看。</p>
+<input id="historyKeyword" type="text" maxlength="16" placeholder="关键词（留空看最近记录）">
+<button id="historySearch">查询最近 / 搜索</button><button id="historyOlder" disabled>更早记录</button>
+<div id="history"></div>
+</section></div>
+
+<div class="panel" id="panel-media" hidden>
+<p class="hint" id="space">读取 SD 容量后，可上传图片和音频。上传期间音乐会暂停。</p>
+<section class="card">
+<details><summary>批量安装预置素材包</summary>
+<p>推荐关机后将素材包 sdcard 文件夹内的 media 目录合并复制到 SD 卡根目录。也可在此选择 sdcard/media 文件夹批量上传；不会访问卡上的对话或任务文件。同名媒体会替换。</p>
+<input id="pack" type="file" webkitdirectory multiple>
+<button id="uploadPack">批量上传 / 继续上传</button>
+<p>整批上传没有十分钟总时限；单个文件最多传输 30 分钟，连续 30 秒未收到数据会终止本次上传。若断网或手动关闭，可重新开启网页管理，再按继续上传；不要刷新本网页，已完成的文件会跳过。</p>
+<p>素材包音乐：Kevin MacLeod（incompetech.com），CC BY 4.0。曲目署名与授权网址见素材包 ATTRIBUTION.txt。环境音为原创合成音，非实地录音。</p>
+</details></section>
+<section class="card">
+<h2>壁纸与相册</h2>
+<p>选择 JPG / PNG，由浏览器转换为 240 × 240 的 RGB565 图片。屏幕只读取转换后的文件；每类最多 32 个，按文件名排列。</p>
+<input id="picture" type="file" accept="image/jpeg,image/png,image/webp">
+<select id="fit"><option value="cover">裁切铺满</option><option value="contain">完整显示（黑边）</option></select>
+<input id="imageName" type="text" placeholder="英文文件名，例如 01-sunset" maxlength="40">
+<label><input id="pureBlack" type="checkbox" checked>纯黑空白区域（暗像素归零）</label>
+<canvas id="picturePreview" width="240" height="240"></canvas>
+<button id="uploadPicture" disabled>转换并上传图片</button>
+<div id="images"></div>
+</section>
+<section class="card">
+<h2>音乐与环境音</h2>
+<p>浏览器把可解码的音频转换为 24 kHz / 16 位 / 单声道 WAV。设备不直接解码 MP3。转换后最大 32 MiB（约 11 分钟）；较长音乐请分段。播放器与语音、提醒共用扬声器，不混音。</p>
+<input id="sound" type="file" accept="audio/*">
+<input id="audioName" type="text" placeholder="音乐用 music_，环境音用 env_ 开头" maxlength="40">
+<p>env_ 开头的 WAV 会归入环境音，其余 WAV 归入音乐。环境音默认单曲循环；上一首、下一首只切换同类音频。</p>
+<button id="uploadSound">转换并上传音频</button>
+<div class="row">
+<button data-command="previous">上一首</button><button data-command="resume">继续</button><button data-command="pause">暂停</button><button data-command="stop">停止</button><button data-command="next">下一首</button>
+<label><input id="repeat" type="checkbox">单曲循环</label>
+<label>环境音停止 <select id="timer"><option value="0">关闭定时</option><option value="15">15分钟</option><option value="30">30分钟</option><option value="60">60分钟</option><option value="120">120分钟</option></select></label>
+</div><small id="playStatus"></small><div id="audio"></div>
+</section></div>
+<div id="appearanceExtra">
+<section class="card">
+<h2>外观与夜间模式</h2>
+<label><input id="nightEnabled" type="checkbox">定时夜间亮度</label>
+<label>开始 <input id="nightStart" type="time" value="22:00"></label>
+<label>结束 <input id="nightEnd" type="time" value="07:00"></label>
+<label>夜间亮度 <input id="nightBrightness" type="number" min="1" max="100" value="15">%</label>
+<label>空闲屏保 <select id="idleSeconds"><option value="0">关闭</option><option value="30">30秒</option><option value="60">1分钟</option><option value="180">3分钟</option><option value="300">5分钟</option></select></label>
+<button id="saveAppearance">保存外观</button>
+<p class="muted">夜间模式在校时成功后生效。屏保始终只显示圆形时钟，不抢占语音或二级菜单；操作设备后返回之前的页面。</p>
+</section></div>
+<section class="card" id="datesCard"><details><summary>纪念日与倒数日</summary><p>最多 4 项。每年重复用于生日；不重复用于指定日期倒数。清空名称即可删除。</p><div id="dates"></div></details></section>
+<footer>同一局域网 · 无需配对码 · 请勿映射到公网。操作完成后可在设备上关闭网页管理。<br>页面设置不会修改服务密钥；二维码入口不用于首次配网。</footer></main>
+<script>
+'use strict';
+const $=id=>document.getElementById(id);
+let pictureBitmap=null, busy=false, previewUrls=[], activeUpload=null, cancelUpload=false, pendingMediaJob=0;
+const packCompleted=new Set();
+const notice=text=>{$('notice').textContent=text;$('notice').dataset.error='false';};
+const pages={overview:['我的桌面','看看设备状态，继续布置你的桌面。'],appearance:['外观与设置','时钟、壁纸、声音。调成你喜欢的样子。'],media:['媒体库','把喜欢的画面和声音，留在桌面上。'],tasks:['我的事项','整理闹钟、待办和那些值得记住的日子。'],history:['对话记录','回看说过的话，也找回重要的信息。'],diagnostics:['设备诊断','按需采集，让问题有据可查。']};
+$('panel-appearance').append($('appearanceExtra'));
+$('panel-tasks').append($('datesCard'));
+function showPage(name){if(!pages[name])return;for(const key of Object.keys(pages))$('panel-'+key).hidden=key!==name;document.querySelectorAll('nav [data-page]').forEach(b=>{if(b.dataset.page===name)b.setAttribute('aria-current','page');else b.removeAttribute('aria-current');});$('pageTitle').textContent=pages[name][0];$('pageSubtitle').textContent=pages[name][1];window.scrollTo?.({top:0,behavior:'instant'});}
+document.querySelectorAll('[data-page]').forEach(b=>b.onclick=()=>showPage(b.dataset.page));
+// 在这里读完响应，超时同时覆盖响应头与正文；调用者只处理业务数据。
+// 普通操作30秒，诊断录音/图片下载120秒；大文件上传仍由XHR单独管理。
+async function request(path,options={},format='json'){
+  const controller=new AbortController(),mutating=!['GET','HEAD'].includes(options.method||'GET');
+  const timer=setTimeout(()=>controller.abort(),format==='blob'||format==='arrayBuffer'?120000:30000);
+  let response,bodyRead=false;
+  try{
+    response=await fetch(path,{...options,signal:controller.signal,headers:{...(options.headers||{})}});
+    if(!response.ok){
+      const text=await response.text();bodyRead=true;
+      if(response.status===403||text.includes('网页管理已关闭')){$('connection').textContent='管理会话已关闭';$('connection').className='badge';}
+      throw Error(text||`请求失败 ${response.status}`);
+    }
+    return await response[format]();
+  }catch(error){
+    if(bodyRead)throw error;
+    $('connection').textContent=controller.signal.aborted?'响应超时':'响应未确认';$('connection').className='badge';
+    const reason=controller.signal.aborted?'等待设备响应超时。':'设备响应中断或格式无效。';
+    throw Error(reason+(mutating?'设备可能已执行，请先刷新并核对结果，不要直接重复提交。':'请检查同一 Wi-Fi 与网页管理开关，再点刷新。'));
+  }finally{clearTimeout(timer);}
+}
+async function pollMediaJob(id){const deadline=Date.now()+180000;while(Date.now()<deadline){const job=await request('/api/media-job?id='+id);if(job.done){pendingMediaJob=0;if(!job.applied||!job.saved)throw Error(job.message||'执行或保存失败，请读取设备状态确认。');return job;}notice('等待设备执行媒体操作（编号 '+id+'），不重复提交。');await new Promise(r=>setTimeout(r,500));}throw Error('媒体操作仍在等待；请点刷新连接查询结果。');}
+async function command(action,extra={}){
+  if(pendingMediaJob)throw Error('还有媒体操作未确认，请先刷新连接查询结果。');
+  const accepted=await request('/api/command',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({action,...extra})});
+  if(!Number.isInteger(accepted.job_id)||!accepted.job_id)throw Error('固件未提供执行回执，请升级固件后重试。');
+  pendingMediaJob=accepted.job_id;const result=await pollMediaJob(pendingMediaJob);
+  if(action==='anniversary'&&dateDrafts[extra.index])dateDrafts[extra.index].baseline={label:extra.label,date:extra.label?`${extra.year}-${String(extra.month).padStart(2,'0')}-${String(extra.day).padStart(2,'0')}`:'',annual:extra.annual};
+  if(action==='image'&&extra.wallpaper){
+    try{
+      const latest=await readDevice();await device('configure',configurationRequest(latest,{home_style:1,wallpaper_mode:0}));
+      const saved=await readDevice();renderDevice(saved);
+      if(saved.config.home_style!==1||saved.config.wallpaper_mode!==0)throw Error('回读不是 SD 壁纸主页，请读取设置核对。');
+    }catch(error){throw Error('图片选择已完成，但主页切换未确认：'+error.message);}
+  }
+  await refresh();notice(result.message||'设备已执行。');
+}
+const fileUrl=(kind,name)=>`/api/file?kind=${kind}&name=${encodeURIComponent(name)}`;
+function safeName(input,fallback,extension){let name=input.trim()||fallback.replace(/\.[^.]+$/,'');name=name.normalize('NFKD').replace(/[^A-Za-z0-9_-]/g,'-').replace(/-+/g,'-').replace(/^[-_]+|[-_]+$/g,'').slice(0,40);if(!name)name='media-'+Date.now();return name+'.'+extension;}
+const size=bytes=>(bytes/1024/1024).toFixed(2)+' MiB';
+const time=seconds=>`${Math.floor(seconds/60)}:${String(seconds%60).padStart(2,'0')}`;
+function button(text,run){const b=document.createElement('button');b.textContent=text;b.onclick=()=>guard(run);return b;}
+async function guard(run){if(busy){notice('上一项操作尚未完成，请稍候；可以继续浏览其他页面。');return;}busy=true;cancelUpload=false;$('jobActivity').textContent='正在与设备通信…';try{await run();}catch(error){notice(error.message);$('notice').dataset.error='true';}finally{busy=false;$('jobActivity').textContent='';}}
+function saveDiagnosticBlob(blob,name){const url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);}
+function renderBargeDiagnostic(s){
+  const done=s.state===3;
+  $('startBargeDiagnostic').disabled=s.state===1||s.state===2;
+  for(let i=0;i<4;i++)$('downloadBarge'+i).disabled=!done||!s.tracks[i].samples;
+  $('downloadBargeSummary').disabled=!done;
+  const c=s.counts,states=['尚未准备','等待下一次回答','正在采集','采集结束'],reasons=['','达到12秒','本次播放结束','等待回答超时','打断未就绪'];
+  $('bargeDiagnosticInfo').textContent=`${states[s.state]} ${reasons[s.reason]||''}；麦克风读取块 ${c.mic_reads}，采集/回声处理帧 ${c.mic}/${c.aec}，入队/模型处理帧 ${c.queued}/${c.processed}，命中 ${c.hit}，已接受打断 ${c.accepted}。队列丢帧 ${c.drop}，过期帧 ${c.stale}，输入未允许 ${c.disabled}，去重 ${c.debounce}，代次拒绝 ${c.reject_epoch}，状态拒绝 ${c.reject_state}，重复请求 ${c.duplicate}，交接竞争 ${c.handoff_race}；参考缺样 ${c.ref_missing_samples}，参考溢出 ${c.ref_overflow}；削波采样 ${s.clipped}，诊断漏块 ${s.skipped}。四轨时长：${s.tracks.map(t=>(t.samples/s.rate).toFixed(2)).join(' / ')} 秒。`;
+}
+async function refreshBargeDiagnostic(){const s=await request('/api/barge-diagnostic');renderBargeDiagnostic(s);return s;}
+$('refreshBargeDiagnostic').onclick=()=>guard(refreshBargeDiagnostic);
+$('startBargeDiagnostic').onclick=()=>guard(async()=>{
+  if(!confirm('手动采集下一次回答中的麦克风、参考及模型音频（最长12秒）？旧打断诊断会被覆盖，录音仅保存在设备内存，不自动上传。'))return;
+  renderBargeDiagnostic(await request('/api/barge-diagnostic',{method:'POST'}));
+  notice('已准备：现在唤醒设备，让它讲较长的故事，并在回答中尝试小冰小冰打断。完成后点击查看结果。');
+});
+for(let i=0;i<4;i++)$('downloadBarge'+i).onclick=()=>guard(async()=>{
+  const s=await refreshBargeDiagnostic();
+  if(s.state!==3||!s.id||!s.tracks[i].samples)throw Error('本轨尚无可下载音频，请先完成采集并查看结果。');
+  const blob=await request(`/api/barge-diagnostic/audio?track=${i}&id=${s.id}`,{},'blob');
+  if(blob.size!==44+s.tracks[i].samples*2)throw Error('诊断下载不完整，录音可能已清除或过期。');
+  saveDiagnosticBlob(blob,`barge-${s.id}-${['raw','reference','aec','model'][i]}.wav`);
+});
+$('downloadBargeSummary').onclick=()=>guard(async()=>{
+  const s=await refreshBargeDiagnostic();if(s.state!==3||!s.id)throw Error('请先完成采集。');
+  saveDiagnosticBlob(new Blob([JSON.stringify(s,null,2)],{type:'application/json'}),`barge-${s.id}-summary.json`);
+});
+$('clearBargeDiagnostic').onclick=()=>guard(async()=>{renderBargeDiagnostic(await request('/api/barge-diagnostic',{method:'DELETE'}));notice('打断诊断已清除，已下载的文件需自行删除。');});
+let wakeDiagnostic=null;
+function renderWakeDiagnostic(state){
+  wakeDiagnostic=state;
+  const ready=!state.active&&state.id&&state.samples>0;
+  $('downloadWakeRaw').disabled=$('downloadWakeModel').disabled=!ready;
+  $('startWakeDiagnostic').disabled=state.active;
+  const model=state.available?(state.enabled?'已开启':'未开启'):'未加载';
+  const mode=state.computer_barge_in?'小冰小冰回答中打断已配置':'当前固件未启用回答中打断';
+  $('wakeDiagnosticInfo').textContent=`模型${model}；${mode}。${state.active?'正在采集':state.reason===2?'音频占用变化，采集提前结束':state.id?'采集结束':'尚无录音'}；有效音频 ${(state.samples/state.rate).toFixed(2)} 秒，模型命中 ${state.hits} 次，削波 ${state.clipped} 个采样，诊断漏帧 ${state.skipped_frames}。原始峰值 ${state.raw_peak}，模型峰值 ${state.model_peak}。`;
+}
+async function refreshWakeDiagnostic(){const state=await request('/api/wake-diagnostic');renderWakeDiagnostic(state);return state;}
+$('refreshWakeDiagnostic').onclick=()=>guard(refreshWakeDiagnostic);
+$('startWakeDiagnostic').onclick=()=>guard(async()=>{
+  if(!confirm('在设备内存中采集12秒麦克风音频用于唤醒诊断？旧诊断录音会被覆盖；期间不触发语音对话。'))return;
+  renderWakeDiagnostic(await request('/api/wake-diagnostic',{method:'POST'}));
+  notice('诊断采集中，请以正常音量重复说 小冰小冰；此时不会进入对话。');
+  try{
+    for(let i=0;i<20;i++){await new Promise(resolve=>setTimeout(resolve,750));const state=await refreshWakeDiagnostic();if(!state.active){notice('采集结束。请下载原始录音和模型输入；听原始录音时无需提高设备音量。');return;}}
+    throw Error('采集状态未及时结束，请点击查看诊断状态。');
+  }finally{$('startWakeDiagnostic').disabled=false;}
+});
+async function downloadWakeDiagnostic(channel){
+  const state=await refreshWakeDiagnostic();
+  if(state.active||!state.id||!state.samples)throw Error('请先完成诊断采集。');
+  const blob=await request(`/api/wake-diagnostic/audio?channel=${channel}&id=${state.id}`,{},'blob');
+  if(blob.size!==44+state.samples*2)throw Error('诊断下载不完整，录音可能已过期或被清除，请重试。');
+  const url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=`wake-${state.id}-${channel}.wav`;a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);
+  notice('诊断录音已下载，16 kHz / 16位 / 单声道 WAV；请勿上传到公共网站。');
+}
+$('downloadWakeRaw').onclick=()=>guard(()=>downloadWakeDiagnostic('raw'));
+$('downloadWakeModel').onclick=()=>guard(()=>downloadWakeDiagnostic('model'));
+$('clearWakeDiagnostic').onclick=()=>guard(async()=>{renderWakeDiagnostic(await request('/api/wake-diagnostic',{method:'DELETE'}));notice('设备中的诊断录音已清除，已下载的文件需自行删除。');});
+function drawPicture(){if(!pictureBitmap)return;const canvas=$('picturePreview'),ctx=canvas.getContext('2d',{willReadFrequently:true});ctx.fillStyle='#000';ctx.fillRect(0,0,240,240);const scale=$('fit').value==='cover'?Math.max(240/pictureBitmap.width,240/pictureBitmap.height):Math.min(240/pictureBitmap.width,240/pictureBitmap.height);const w=pictureBitmap.width*scale,h=pictureBitmap.height*scale;ctx.drawImage(pictureBitmap,(240-w)/2,(240-h)/2,w,h);if($('pureBlack').checked){const image=ctx.getImageData(0,0,240,240),p=image.data;for(let i=0;i<p.length;i+=4)if(Math.max(p[i],p[i+1],p[i+2])<32)p[i]=p[i+1]=p[i+2]=0;ctx.putImageData(image,0,0);}}
+$('picture').onchange=()=>guard(async()=>{const file=$('picture').files[0];if(!file)return;if(file.size>16*1024*1024)throw Error('图片原文件最大16 MiB。');if(pictureBitmap)pictureBitmap.close();pictureBitmap=await createImageBitmap(file);drawPicture();$('imageName').value=safeName('',file.name,'rgb565').replace(/\.rgb565$/,'');$('uploadPicture').disabled=false;});
+$('fit').onchange=drawPicture;
+$('pureBlack').onchange=drawPicture;
+async function upload(kind,name,blob){if(cancelUpload)throw Error('本批上传已停止。');if(blob.size>32*1024*1024)throw Error('转换后超过32 MiB，请裁短音频。');notice(`正在上传 ${name}，传输期间音乐暂停……`);$('transferArea').hidden=false;$('progress').value=0;$('cancelTransfer').disabled=false;try{await new Promise((resolve,reject)=>{const xhr=new XMLHttpRequest();activeUpload=xhr;xhr.open('PUT',fileUrl(kind,name));xhr.timeout=31*60*1000;xhr.upload.onprogress=event=>{if(event.lengthComputable)$('progress').value=event.loaded/event.total*100;};xhr.onload=()=>xhr.status>=200&&xhr.status<300?resolve():reject(Error(xhr.responseText||`上传失败 ${xhr.status}`));xhr.onabort=()=>reject(Error('已停止传输；若取消时文件已提交，仍可能保留新文件。请刷新媒体库核对。'));xhr.onerror=()=>reject(Error('网络断开；请重新连接后继续上传。'));xhr.ontimeout=()=>reject(Error('单个文件上传超时；请检查Wi-Fi或SD卡后继续上传。'));xhr.send(blob);});}finally{activeUpload=null;$('cancelTransfer').disabled=true;}notice(`已上传 ${name}。`);await new Promise(r=>setTimeout(r,300));await refresh();}
+$('cancelTransfer').onclick=()=>{cancelUpload=true;activeUpload?.abort();};
+$('pack').onchange=()=>{packCompleted.clear();};
+$('uploadPack').onclick=()=>guard(async()=>{const files=[...$('pack').files].filter(file=>/\.(wav|rgb565)$/.test(file.name)).sort((a,b)=>a.name.localeCompare(b.name));if(!files.length)throw Error('请选择素材包中的 sdcard/media 文件夹。');const names=new Set();for(const file of files){if(!/^[A-Za-z0-9_-][A-Za-z0-9_.-]{0,47}$/.test(file.name)||file.name.includes('..'))throw Error('不合法的文件名：'+file.name);if(names.has(file.name))throw Error('文件名重复：'+file.name);names.add(file.name);if(file.name.endsWith('.rgb565')&&file.size!==115200)throw Error('RGB565长度无效：'+file.name);if(file.size>32*1024*1024||!file.size)throw Error('文件长度不支持：'+file.name);}if(!confirm('上传这些媒体文件？同名文件会替换，其他文件不改动。'))return;for(const file of files){if(packCompleted.has(file.name))continue;const kind=file.name.endsWith('.rgb565')?'image':'audio';await upload(kind,file.name,file);packCompleted.add(file.name);}notice(`素材包上传完成：${files.length}个文件。设备菜单可直接选择。`);});
+$('uploadPicture').onclick=()=>guard(async()=>{if(!pictureBitmap)throw Error('先选择图片。');const pixels=$('picturePreview').getContext('2d',{willReadFrequently:true}).getImageData(0,0,240,240).data;const bytes=new Uint8Array(240*240*2),view=new DataView(bytes.buffer);for(let i=0;i<240*240;i++){const at=i*4;const dark=$('pureBlack').checked&&Math.max(pixels[at],pixels[at+1],pixels[at+2])<32;const rgb=dark?0:((pixels[at]>>3)<<11)|((pixels[at+1]>>2)<<5)|(pixels[at+2]>>3);view.setUint16(i*2,rgb,true);}await upload('image',safeName($('imageName').value,$('picture').files[0].name,'rgb565'),new Blob([bytes],{type:'application/octet-stream'}));});
+function wav(samples){const bytes=new ArrayBuffer(44+samples.length*2),v=new DataView(bytes);const text=(offset,value)=>{for(let i=0;i<value.length;i++)v.setUint8(offset+i,value.charCodeAt(i));};text(0,'RIFF');v.setUint32(4,36+samples.length*2,true);text(8,'WAVE');text(12,'fmt ');v.setUint32(16,16,true);v.setUint16(20,1,true);v.setUint16(22,1,true);v.setUint32(24,24000,true);v.setUint32(28,48000,true);v.setUint16(32,2,true);v.setUint16(34,16,true);text(36,'data');v.setUint32(40,samples.length*2,true);for(let i=0;i<samples.length;i++){const s=Math.max(-1,Math.min(1,samples[i]));v.setInt16(44+i*2,Math.round(s<0?s*32768:s*32767),true);}return new Blob([bytes],{type:'audio/wav'});}
+$('sound').onchange=()=>{const file=$('sound').files[0];if(file)$('audioName').value=safeName('',file.name,'wav').replace(/\.wav$/,'');};
+$('uploadSound').onclick=()=>guard(async()=>{const file=$('sound').files[0];if(!file)throw Error('先选择音频。');if(file.size>64*1024*1024)throw Error('原始音频最大64 MiB。');const Audio=window.AudioContext||window.webkitAudioContext,Offline=window.OfflineAudioContext||window.webkitOfflineAudioContext;if(!Audio||!Offline)throw Error('此浏览器不支持音频转换，请使用新版Chrome、Edge或Safari。');notice('正在浏览器中解码、转换音频……');const context=new Audio();let decoded;try{decoded=await context.decodeAudioData(await file.arrayBuffer());}finally{await context.close();}const frames=Math.ceil(decoded.duration*24000);if(frames*2+44>32*1024*1024)throw Error('音频过长；请裁短至约11分钟以内。');const offline=new Offline(1,frames,24000);const source=offline.createBufferSource();source.buffer=decoded;source.connect(offline.destination);source.start();const result=await offline.startRendering();await upload('audio',safeName($('audioName').value,file.name,'wav'),wav(result.getChannelData(0)));});
+async function remove(kind,name){if(!confirm(`删除 ${name}？`))return;await request(fileUrl(kind,name),{method:'DELETE'},'text');notice('已删除。');await new Promise(r=>setTimeout(r,300));await refresh();}
+async function previewImage(name,canvas){const bytes=await request(fileUrl('image',name),{},'arrayBuffer');if(bytes.byteLength!==115200)throw Error('图片长度无效。');const view=new DataView(bytes),ctx=canvas.getContext('2d'),image=ctx.createImageData(240,240);for(let i=0;i<57600;i++){const rgb=view.getUint16(i*2,true),at=i*4;image.data[at]=Math.round(((rgb>>11)&31)*255/31);image.data[at+1]=Math.round(((rgb>>5)&63)*255/63);image.data[at+2]=Math.round((rgb&31)*255/31);image.data[at+3]=255;}ctx.putImageData(image,0,0);}
+async function previewAudio(name,element){element.src=fileUrl('audio',name);element.preload='metadata';element.hidden=false;element.onerror=()=>notice('试听失败：请检查连接、SD卡或管理开关。');await element.play();}
+function renderFiles(kind,files,selected){const container=$(kind==='image'?'images':'audio');container.replaceChildren();for(const file of files){const row=document.createElement('div');row.className='file';const title=document.createElement('span');title.className='filename';title.textContent=`${file.label||file.name} · ${size(file.bytes)}${kind==='audio'?(file.ambient?' · 环境音':' · 音乐'):''}${file.index===selected?' · 当前':''}`;row.append(title);const controls=document.createElement('div');controls.className='row';row.append(controls);if(kind==='image'){const canvas=document.createElement('canvas');canvas.width=canvas.height=240;canvas.hidden=true;controls.append(button('预览',async()=>{await previewImage(file.name,canvas);canvas.hidden=false;}),button('设为壁纸',()=>command('image',{index:file.index,wallpaper:true})),button('相册查看',()=>command('image',{index:file.index,wallpaper:false})));row.append(canvas);}else{const audio=document.createElement('audio');audio.controls=true;audio.hidden=true;controls.append(button('设备播放',()=>command('play',{value:file.index})),button('浏览器试听',()=>previewAudio(file.name,audio)));row.append(audio);}controls.append(button('删除',()=>remove(kind,file.name)));container.append(row);}}
+const toMinute=value=>{const [h,m]=value.split(':').map(Number);if(!Number.isInteger(h)||!Number.isInteger(m)||h<0||h>23||m<0||m>59)throw Error('时间无效。');return h*60+m;};
+const fromMinute=value=>`${String(Math.floor(value/60)).padStart(2,'0')}:${String(value%60).padStart(2,'0')}`;
+const dateDrafts=[];
+function renderDates(dates){dates.forEach((date,index)=>{const next={label:date.label,date:date.label?`${date.year}-${String(date.month).padStart(2,'0')}-${String(date.day).padStart(2,'0')}`:'',annual:date.annual};let draft=dateDrafts[index];if(!draft){const row=document.createElement('div');row.className='date-row';const label=document.createElement('input');label.type='text';label.placeholder=`第${index+1}项名称`;label.maxLength=15;const input=document.createElement('input');input.type='date';input.min='2000-01-01';input.max='2099-12-31';const annual=document.createElement('input');annual.type='checkbox';const check=document.createElement('label');check.append(annual,document.createTextNode('每年重复'));draft=dateDrafts[index]={label,input,annual,baseline:null};row.append(label,input,check,button('保存',()=>{const [year,month,day]=input.value.split('-').map(Number);return command('anniversary',{index,label:label.value.trim(),year:year||0,month:month||0,day:day||0,annual:annual.checked});}));$('dates').append(row);}for(const [key,node,property] of [['label',draft.label,'value'],['date',draft.input,'value'],['annual',draft.annual,'checked']])if(!draft.baseline||node[property]===draft.baseline[key])node[property]=next[key];draft.baseline=next;});}
+const fieldBaseline=new Map();
+function syncField(id,value,checked=false,force=false){const element=$(id),key=checked?'checked':'value',next=checked?Boolean(value):String(value);if(force||!fieldBaseline.has(id)||element[key]===fieldBaseline.get(id))element[key]=next;fieldBaseline.set(id,next);}
+async function refresh(){
+  const state=await request('/api/catalog');
+  for(const url of previewUrls)URL.revokeObjectURL(url);previewUrls=[];
+  renderFiles('image',state.images,state.wallpaper_index);renderFiles('audio',state.audio,state.audio_index);
+  for(const [id,files] of [['images',state.images],['audio',state.audio]])if(!files.length){const empty=document.createElement('p');empty.className='empty';empty.textContent=id==='images'?'还没有图片。上传一张，或者先使用动态背景。':'还没有音频。上传音乐或环境音后，就能在设备上播放。';$(id).append(empty);}
+  $('space').textContent=state.free_bytes===undefined?'SD容量不可用；请检查卡是否挂载。':`SD 剩余 ${size(state.free_bytes)} · 保留空间 ${size(state.reserve_bytes)} · 图片 ${state.images.length}/32 · 音频 ${state.audio.length}/32`;
+  $('repeat').checked=state.repeat;
+  $('playStatus').textContent=`${state.playing?'播放中':state.paused?'已暂停':'已停止'} · ${time(state.elapsed)} / ${time(state.duration)} · ${state.message||''}`;
+  const a=state.appearance;syncField('nightEnabled',a.night_enabled,true);syncField('nightStart',fromMinute(a.night_start_minute));syncField('nightEnd',fromMinute(a.night_end_minute));syncField('nightBrightness',a.night_brightness);syncField('idleSeconds',a.idle_seconds);
+  // Media refreshes must not erase partially edited anniversary rows.
+  renderDates(state.anniversaries);
+  $('overviewStorage').textContent=state.free_bytes===undefined?'不可用':'已挂载';
+}
+$('connect').onclick=()=>guard(async()=>{if(pendingMediaJob){try{await pollMediaJob(pendingMediaJob);}catch(e){if(e.message.includes('编号已失效'))pendingMediaJob=0;throw e;}}await refresh();await refreshDevice();notice('已连接；文件、配置和设备信息已刷新。');});
+document.querySelectorAll('[data-command]').forEach(b=>b.onclick=()=>guard(()=>command(b.dataset.command,{value:0})));
+$('repeat').onchange=()=>guard(()=>command('repeat',{value:$('repeat').checked?1:0}));
+$('timer').onchange=()=>guard(()=>command('timer',{value:Number($('timer').value)}));
+// Keep legacy wire fields for compatible firmware; neither controls the screensaver.
+$('saveAppearance').onclick=()=>guard(()=>command('appearance',{wallpaper_enabled:true,night_enabled:$('nightEnabled').checked,idle_album:false,night_start_minute:toMinute($('nightStart').value),night_end_minute:toMinute($('nightEnd').value),night_brightness:Number($('nightBrightness').value),idle_seconds:Number($('idleSeconds').value)}));
+
+let pendingJob=0,historyBefore=0;
+let appliedConfig=null,allTasks=[];
+let voiceChoices=[],voiceChoicesKey='';
+let ttsSupported=false;
+for(let rate=50;rate<=200;rate+=5){const option=document.createElement('option');option.value=String(rate);option.textContent=(rate/100).toFixed(2)+'×'+(rate===100?' · 标准':'');$('ttsRate').append(option);}
+const configFields={home_style:'homeStyle',wallpaper_mode:'wallMode',volume:'volume',brightness:'brightness',wake_enabled:'wakeEnabled',tts_rate_percent:'ttsRate',tts_voice_id:'ttsVoice'};
+function syncVoices(state){
+  ttsSupported=Array.isArray(state.tts_voices)&&state.tts_voices.length>0&&Number.isInteger(state.config?.tts_rate_percent)&&Number.isInteger(state.config?.tts_voice_id);
+  $('ttsRate').disabled=$('ttsVoice').disabled=!ttsSupported;
+  $('ttsHint').textContent=ttsSupported?'仅影响 AI 回答和云端提醒，不改变音乐、麦克风增益或唤醒词。下一次播报生效，保存成功后重启保留；离线提示音不变。':'当前固件不支持语速/音色设置，其他设备设置仍可使用。';
+  if(!ttsSupported)return;
+  const key=JSON.stringify(state.tts_voices);if(key===voiceChoicesKey)return;
+  const previous=$('ttsVoice').value;voiceChoices=state.tts_voices;voiceChoicesKey=key;$('ttsVoice').replaceChildren();
+  for(const voice of voiceChoices){const option=document.createElement('option');option.value=String(voice.id);option.textContent=voice.label+'（'+voice.voice+'）';$('ttsVoice').append(option);}
+  if(previous!==''&&voiceChoices.some(v=>v.id===Number(previous)))$('ttsVoice').value=previous;
+}
+function readConfig(){const c={};for(const [key,id] of Object.entries(configFields)){if(key.startsWith('tts_')&&!ttsSupported)continue;c[key]=key==='wake_enabled'?$(id).checked:Number($(id).value);}return c;}
+function configChanges(){const draft=readConfig(),changes={};for(const key of Object.keys(draft))if(!appliedConfig||draft[key]!==appliedConfig[key])changes[key]=draft[key];return changes;}
+// 新固件在设备锁内合并增量并核对版本。旧固件没有版本时只使用传统字段，
+// 不把不存在的TTS参数写成0；兼容路径不能保证与设备按键同时编辑无冲突。
+function configurationRequest(state,changes){
+  if(Number.isInteger(state.config_revision)&&state.config_revision>0&&state.config_revision<=4294967295)return {expected_revision:state.config_revision,...changes};
+  const config={};for(const key of Object.keys(configFields))if(state.config[key]!==undefined)config[key]=state.config[key];
+  return {...config,...changes};
+}
+function updateDraft(){const changed=Object.keys(configChanges()).length;$('draftStatus').textContent=!appliedConfig?'读取后可编辑':changed?`${changed} 项未保存`:'与设备一致';$('styleHint').textContent=$('homeStyle').value==='0'?'圆形时钟主页；壁纸选择会保留。':'壁纸 + 数字时间 · '+wallModeNames[Number($('wallMode').value)]+'。屏保仍是纯时钟。';}
+for(const id of Object.values(configFields))$(id).oninput=updateDraft;
+$('resetDevice').onclick=()=>{if(!appliedConfig)return;for(const [key,id] of Object.entries(configFields))syncField(id,appliedConfig[key],key==='wake_enabled',true);updateDraft();notice('已放弃网页草稿，设备未改动。');};
+const wallModeNames=['SD图片','星空闪烁','轨道星环','漂浮水母','光点花园'];
+const localTime=utc=>utc?new Date(utc*1000).toLocaleString('zh-CN',{timeZone:'Asia/Shanghai',hour12:false}):'无定时';
+const bytesLength=text=>new TextEncoder().encode(text).length;
+async function pollJob(id) {
+  const deadline=Date.now()+180000;
+  while(Date.now()<deadline){
+    const job=await request('/api/job?id='+id);
+    if(job.status==='done'){
+      pendingJob=0;$('checkJob').hidden=true;
+      if(!job.result || !job.result.ok)throw Error(job.result?.message||job.result?.error||job.error||'操作未完成');
+      return job.result;
+    }
+    notice('操作已提交，等待设备空闲执行（编号 '+id+'）。');
+    await new Promise(resolve=>setTimeout(resolve,500));
+  }
+  throw Error('设备仍在处理。请查询未完成操作，不要重复提交。');
+}
+async function device(action,extra={}) {
+  if(pendingJob)throw Error('还有未完成操作，请先查询结果。');
+  const job=await request('/api/device',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({action,...extra})});
+  if(!Number.isInteger(job.job_id)||job.job_id<=0)throw Error('设备未返回有效操作编号，请先刷新并核对状态，不要重复提交。');
+  pendingJob=job.job_id;$('checkJob').hidden=false;
+  return pollJob(pendingJob);
+}
+function renderDevice(state) {
+  syncVoices(state);
+  $('deviceFields').disabled=false;
+  $('deviceInfo').textContent=(state.wifi_connected?'Wi-Fi已连接':'Wi-Fi未连接')+' · '+
+    (state.time_valid?localTime(state.utc_seconds):'等待校时')+' · 已运行 '+time(state.uptime_seconds)+
+    ' · 内部可用内存 '+size(state.free_heap)+(state.storage_ready===undefined?'':
+    ' · '+(state.storage_ready?'SD可用':'SD/记录不可用')+' · 当前记录 '+size(state.history_bytes)+' · 封存卷 '+state.history_archives);
+  const c=state.config;for(const [key,id] of Object.entries(configFields))if(c[key]!==undefined)syncField(id,c[key],key==='wake_enabled');appliedConfig={...c};updateDraft();
+  $('connection').textContent=state.wifi_connected?'设备已连接':'设备离线';$('connection').className=state.wifi_connected?'badge online':'badge';
+  $('statVolume').textContent=c.volume+'%';$('statBrightness').textContent=c.brightness+'%';$('statWake').textContent=c.wake_enabled?'已开启':'未开启';
+  $('homeSummary').textContent=c.home_style===0?'当前使用圆形时钟主页。简简单单，抬头就能看到时间。':'当前使用壁纸 + 数字时间，背景为'+wallModeNames[c.wallpaper_mode]+'。';
+  const art=$('overviewPreview'),face=document.createElement('div'),caption=document.createElement('small');art.className='device-art'+(c.home_style?' wallpaper':'');face.className=c.home_style?'digital':'clock-face';if(c.home_style)face.textContent='10:24';caption.textContent='主页样式示意 · 非实时画面';art.replaceChildren(face,caption);
+  $('overviewTime').textContent=state.time_valid?localTime(state.utc_seconds):'等待校时';$('overviewUptime').textContent=Math.floor(state.uptime_seconds/3600)+' 小时 '+Math.floor(state.uptime_seconds%3600/60)+' 分';if(state.storage_ready!==undefined)$('overviewStorage').textContent=state.storage_ready?'已挂载':'不可用';$('lastRead').textContent=new Date().toLocaleTimeString('zh-CN',{hour12:false});
+  const kib=value=>Number.isFinite(value)?(value/1024).toFixed(1)+' KiB':'未提供';$('ramFree').textContent=kib(state.free_heap);$('ramLargest').textContent=kib(state.largest_internal_block);$('ramExternal').textContent=kib(state.free_psram);
+  if(state.tasks)renderTasks(state.tasks);
+}
+async function readDevice(){const s=await request('/api/state');if(!s.ok)throw Error(s.message||'设备状态暂不可用');return s;}
+async function refreshDevice(){renderDevice(await readDevice());}
+async function refreshTasks(){const state=await device('state');renderDevice(state);notice('事项与设备状态已刷新。');}
+$('refreshTasks').onclick=()=>guard(refreshTasks);
+function renderTasks(tasks){
+  allTasks=tasks;$('taskCount').textContent=`${tasks.length}/8`;
+  $('tasks').replaceChildren();
+  const visible=tasks.filter(t=>$('taskFilter').value==='all'||!$('taskFilter').value||t.kind===$('taskFilter').value);
+  for(const task of visible){
+    const row=document.createElement('div');row.className='file';
+    const title=document.createElement('p');
+    const status={pending:'待处理',completed:'已完成',cancelled:'已取消'};
+    const repeat={once:'单次',daily:'每天',weekdays:'工作日',weekly:'每周'};
+    title.textContent=({alarm:'闹钟',todo:'待办',note:'备忘录'}[task.kind]||task.kind)+' · '+task.title+' · '+
+      (status[task.status]||task.status)+' · '+localTime(task.due_utc)+' · '+(repeat[task.repeat]||task.repeat)+
+      (task.last_result?' · 播报结果 '+task.last_result:'')+' · 编号 '+task.id;
+    row.append(title);
+    const change=async(operation,extra={})=>{const r=await device('task_change',{id:task.id,operation,...extra});notice(r.message);await refreshTasks();};
+    row.append(button('修改内容',async()=>{const value=prompt('任务内容',task.title);if(value===null)return;
+      const text=value.trim();if(!text || bytesLength(text)>=128)throw Error('内容为空或超过127字节。');await change('edit',{title:text});}));
+    if(task.kind==='alarm'){
+      const date=document.createElement('input');date.type='datetime-local';
+      date.value=task.due_utc?new Date((task.due_utc+28800)*1000).toISOString().slice(0,16):'';
+      const repeatInput=document.createElement('select');
+      for(const [value,label] of Object.entries(repeat)){
+        const option=document.createElement('option');option.value=value;option.textContent=label;repeatInput.append(option);
+      }
+      repeatInput.value=task.repeat;
+      row.append(date,repeatInput,button('修改闹钟时间',()=>change('edit',{due_utc:beijingDue(date.value),repeat:repeatInput.value})));
+    }
+    if(task.status==='pending')row.append(button(task.kind==='alarm'?'取消闹钟':'标记完成',()=>change(task.kind==='alarm'?'cancel':'complete')));
+    if(task.status==='completed' && task.kind!=='alarm')row.append(button('恢复待办',()=>change('reopen')));
+    row.append(button('删除',async()=>{if(confirm('删除 '+task.title+'？'))await change('delete');}));
+    $('tasks').append(row);
+  }
+  if(!visible.length)$('tasks').textContent=tasks.length?'此分类暂无事项。':'暂无事项，先添加一个闹钟吧。';
+}
+$('taskFilter').onchange=()=>renderTasks(allTasks);
+$('taskKind').onchange=()=>{const alarm=$('taskKind').value==='alarm';$('taskRepeat').disabled=!alarm;if(!alarm)$('taskRepeat').value='once';};
+function beijingDue(value) {
+  if(!value)return 0;
+  const m=/^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2})$/.exec(value);
+  if(!m)throw Error('时间格式无效。');
+  const stamp=Date.UTC(+m[1],+m[2]-1,+m[3],+m[4],+m[5]);
+  if(new Date(stamp).toISOString().slice(0,16)!==value)throw Error('日期或时间不存在。');
+  return Math.floor(stamp/1000)-28800;
+}
+$('saveDevice').onclick=()=>guard(async()=>{
+  const changes=configChanges();$('deviceFields').disabled=true;
+  let submitted=false;
+  try{
+    const latest=await readDevice(),config={...latest.config,...changes};
+    if(!Object.keys(changes).length){renderDevice(latest);notice('没有未保存的改动，已刷新设备状态。');return;}
+    for(const key of ['volume','brightness'])if(!Number.isInteger(config[key])||config[key]<0||config[key]>100)throw Error('音量与亮度须为 0–100 的整数。');
+    if(ttsSupported){
+      if(!Number.isInteger(config.tts_rate_percent)||config.tts_rate_percent<50||config.tts_rate_percent>200||config.tts_rate_percent%5)throw Error('语速须为 0.50–2.00×，步长 0.05×。');
+      if(!Number.isInteger(config.tts_voice_id)||!voiceChoices.some(v=>v.id===config.tts_voice_id))throw Error('请从设备提供的音色列表选择，不支持自定义音色编号。');
+    }
+    submitted=true;const r=await device('configure',configurationRequest(latest,changes));notice(r.message);
+    const saved=await readDevice();for(const [key,id] of Object.entries(configFields))syncField(id,saved.config[key],key==='wake_enabled',true);renderDevice(saved);
+    if(Object.keys(changes).some(key=>saved.config[key]!==config[key]))throw Error('设备回读与提交值不同，请检查当前设置后重试。');
+  }catch(error){
+    // 冲突/保存失败不自动重试。刷新实际值，但保留用户尚未确认的草稿。
+    if(submitted){try{renderDevice(await readDevice());}catch{}}
+    throw error;
+  }finally{$('deviceFields').disabled=false;}
+});
+$('refreshDevice').onclick=()=>guard(refreshDevice);
+$('checkJob').onclick=()=>guard(async()=>{const id=pendingJob;if(!id)return;try{const r=await pollJob(id);notice(r.message||'操作已完成');}catch(e){
+  if(/编号已失效/.test(e.message)){pendingJob=0;$('checkJob').hidden=true;}throw e;}});
+$('addTask').onclick=()=>guard(async()=>{
+  const title=$('taskTitle').value.trim(),kind=$('taskKind').value,due=beijingDue($('taskDue').value),repeat=$('taskRepeat').value;
+  if(!title || bytesLength(title)>=128)throw Error('请填写127字节以内的内容。');
+  if(kind==='alarm' && !due)throw Error('请选择北京时间。');
+  if(!due && repeat!=='once')throw Error('没有定时的任务请选择单次。');
+  if(kind!=='alarm' && repeat!=='once')throw Error('待办与备忘录请选择单次。');
+  const r=await device('task_create',{kind,title,due_utc:due,repeat});notice(r.message);
+  $('taskTitle').value='';await refreshTasks();
+});
+function renderHistory(result,append=false) {
+  if(!append)$('history').replaceChildren();
+  for(const item of result.matches||[]){
+    const row=document.createElement('div');row.className='file';
+    const header=document.createElement('small');header.textContent=localTime(item.utc_seconds)+' · '+item.event+' · '+item.turn_id;
+    const text=document.createElement('p');text.style.whiteSpace='pre-wrap';text.textContent=item.text;
+    row.append(header,text);
+    if(item.truncated)row.append(button('查看完整片段',async()=>{
+      const full=await device('history',{before:0,record_id:item.record_id});
+      const record=full.matches?.[0];if(!record)throw Error('记录已变更或找不到。');
+      text.textContent=record.text;notice(record.truncated?'本次读取上限，仍有未显示文字。':'片段已读取。');
+    }));
+    $('history').append(row);
+  }
+  historyBefore=result.next_before_offset||0;
+  $('historyOlder').disabled=!result.more || !historyBefore;
+  if(!(result.matches||[]).length && !append)$('history').textContent='当前窗口无匹配记录。';
+}
+async function loadHistory(older) {
+  const keyword=$('historyKeyword').value.trim();if(bytesLength(keyword)>48)throw Error('关键词最多48字节。');
+  const r=await device('history',{before:older?historyBefore:0,keyword});renderHistory(r,older);
+  notice('当前对话卷记录已读取；封存卷不在查询范围。');
+}
+$('historySearch').onclick=()=>guard(()=>loadHistory(false));
+$('historyOlder').onclick=()=>guard(()=>loadHistory(true));
+// Drop legacy QR fragments; current QR codes contain only the device URL.
+if(location.hash)history.replaceState(null,'',location.pathname+location.search);
+window.onload=()=>guard(async()=>{await refresh();await refreshDevice();notice('配置与设备信息已读取，无需配对码。');});
+
+</script>
+</html>

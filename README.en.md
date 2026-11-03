@@ -1,5 +1,7 @@
 # VoxConductor
 
+> 2026-11-03: Development firmware sources and offline reliability tests are now synchronized. See [current progress and build prerequisites](docs/PROGRESS.md) and [validation](docs/SYNC_VALIDATION.md). Existing photos/demos describe their original captured version. Reminder audio and private credentials are supplied locally.
+
 [English](README.en.md) | [简体中文](README.md)
 
 [Development and maintenance history](DEVELOPMENT_HISTORY.en.md)

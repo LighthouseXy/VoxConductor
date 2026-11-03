@@ -25,3 +25,5 @@ MIT 软件不附加非商业条件。`licenses/PolyForm-Noncommercial-1.0.0.txt`
 项目署名为 2026 云月（GitHub: LighthouseXy）。第三方版权和许可声明须继续保留，详见 [第三方说明](THIRD_PARTY_NOTICES.md)。
 
 Source inventory records are distinct from distributed files. Entries marked `recorded_source_available_in_repository=false` identify other authored source versions and do not promise that the exact source is present here. Repository blob IDs refer to the commit specified in `license-scope.json`; the inventory is not a build manifest and does not add restrictions to MIT.
+
+2026-11-03开发源码同步的当前文件哈希和字体例外另见 [SOURCE_SYNC_MANIFEST.json](docs/SOURCE_SYNC_MANIFEST.json)；原license-scope.json保留其历史版本记录语义。新增原创软件及文档沿用MIT，字体仍为OFL派生，提醒PCM未分发。

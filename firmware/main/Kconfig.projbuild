@@ -1,0 +1,92 @@
+menu "VoxConductor voice"
+config VOX_LOG_VERBOSE
+    bool "Detailed serial diagnostics"
+    default n
+    help
+        Normal mode prints short voice turn IDs, a bounded transcript preview,
+        playback/result summaries and essential warnings/errors. Wake status
+        is printed every 15 seconds instead of every 2 seconds.
+        Enable for per-phase heap/timing, full dialogue text (if permitted by
+        APP_TURN_LOG_TEXT), model/tool internals and vendor INFO logs.
+        This affects console output only, not SD records or device behavior.
+config VOX_WAKE_WORD
+    bool "Build experimental local idle wake-word recognition"
+    default n
+    depends on IDF_TARGET_ESP32S3
+    help
+        Select the bundled Chinese 小冰小冰 model (wn9_xiaobinxiaobin_tts) in
+        ESP Speech Recognition and use partitions_wake.csv. Flash the model
+        partition as well as firmware. No external model path is needed.
+        A text string cannot change a trained wake word.
+        Runtime opt-in is also required in the device Settings menu.
+        Idle microphone audio stays on the device. After wake, wait for
+        the Listening screen before speaking. Recording ends on silence.
+config VOX_WAKE_MODEL_NAME
+    string "Exact WakeNet model name"
+    depends on VOX_WAKE_WORD
+    default "wn9_xiaobinxiaobin_tts"
+    help
+        The bundled model recognizes 小滨小滨 / 小冰小冰.
+        Use the real model name provided with a replacement trained model.
+        Empty or missing names keep wake-word recognition unavailable. Never choose
+        wn9_customword as a placeholder: that bundled model means Xiao Ai
+        Tong Xue, not an arbitrary custom phrase.
+config VOX_WAKE_GAIN
+    int "Wake-only microphone PCM gain"
+    depends on VOX_WAKE_WORD
+    range 1 16
+    default 1
+    help
+        Linear gain after DC removal, applied only to local WakeNet input.
+        Does not change cloud recordings, speaker volume or model threshold.
+        Start at 1 (no amplification). Use wake_diag raw/processed
+        peaks and clip counts to calibrate; too much gain also boosts noise.
+        A value of 1 disables amplification but keeps DC removal.
+config VOX_WAKE_THRESHOLD_PERCENT
+    int "小冰小冰 wake detection threshold (%)"
+    depends on VOX_WAKE_WORD
+    range 40 95
+    default 60
+    help
+        WakeNet's public detection threshold, applied at creation and reset.
+        Use a 60 percent trial threshold; validate misses and false wakes on hardware.
+        The previous 55 percent trial can falsely wake on ordinary speech.
+        Lower values can help missed wakes but also increase false wakes.
+        Higher values reject more audio but may miss real wake words.
+        Verify both quiet-room and background-speech behavior before use.
+        Does not change microphone gain or cloud speech recognition.
+config VOX_ACOUSTIC_BARGE_IN
+    bool "小冰小冰 wake-word interruption during assistant playback"
+    default y
+    depends on IDF_TARGET_ESP32S3 && SPIRAM && VOX_WAKE_WORD
+    help
+        Feed echo-cleaned microphone audio to the existing 小冰小冰 model.
+        Only a detected wake word cancels playback; generic speech/noise never
+        pauses an answer. Preserve recent audio and the following question in
+        PSRAM while the old TTS connection is released, then start the next ASR.
+        No second model, extra cloud listener, or idle audio upload is used.
+        Speaker playback remains 24 kHz; the echo reference uses 16 kHz.
+        Button cancellation remains available and takes priority.
+        Echo delay and recognition must be checked on the assembled device.
+config VOX_AEC_DELAY_MS
+    int "Speaker reference delay (ms)"
+    depends on VOX_ACOUSTIC_BARGE_IN
+    range 0 200
+    default 40
+config VOX_AUTO_END_SILENCE_MS
+    int "Silence before ending a wake/follow-up recording (ms)"
+    range 600 3000
+    default 800
+    help
+        Local end-of-utterance tail. 800 ms shortens question-to-answer delay
+        without changing microphone gain or wake-word sensitivity. Increase
+        this if pauses inside a sentence are being cut into separate turns.
+config VOX_AUTO_END_VAD_MODE
+    int "Automatic recording VAD aggressiveness"
+    range 0 3
+    default 0
+    help
+        ESP-SR voice activity detector. 0 is most sensitive; higher values
+        reject more noise but can miss quiet speech. Only automatic capture
+        uses this detector; button recording still ends on release.
+endmenu

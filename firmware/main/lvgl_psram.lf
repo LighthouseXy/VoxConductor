@@ -1,0 +1,7 @@
+# Move LVGL's original 64 KiB allocator pool out of internal task-stack RAM.
+# Keep code, constants, task stacks and display DMA buffers in their usual regions.
+[mapping:lvgl_primary_pool_psram]
+archive: liblvgl__lvgl.a
+entries:
+    if SPIRAM_ALLOW_BSS_SEG_EXTERNAL_MEMORY = y:
+        lv_mem_core_builtin (extram_bss)
