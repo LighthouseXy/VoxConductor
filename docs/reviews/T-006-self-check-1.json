@@ -1,0 +1,641 @@
+{
+  "round": 1,
+  "files": 34,
+  "changed_files": 29,
+  "classic_hit_lines": 1,
+  "expanded_hit_lines": 49,
+  "link_failures": [],
+  "fence_failures": [],
+  "heading_failures": [],
+  "inline_code_review": [],
+  "root_readmes_unchanged": true,
+  "files_detail": [
+    {
+      "file": "DEVELOPMENT_HISTORY.en.md",
+      "read_all_lines": 47,
+      "changed": true,
+      "sha256": "013886cdeccea49f683d13cd99c00b0341d18d3c33283a112bfd9c787b9b1882",
+      "links_preserved": true,
+      "code_fences_preserved": true,
+      "headings_preserved": true,
+      "inline_code_removed": [],
+      "classic_hits": [],
+      "expanded_hits": []
+    },
+    {
+      "file": "DEVELOPMENT_HISTORY.md",
+      "read_all_lines": 47,
+      "changed": true,
+      "sha256": "e082944ae421f51f1e1461f2697930dc55ee8254fa3caabb8383859e87da2f92",
+      "links_preserved": true,
+      "code_fences_preserved": true,
+      "headings_preserved": true,
+      "inline_code_removed": [],
+      "classic_hits": [],
+      "expanded_hits": []
+    },
+    {
+      "file": "LICENSE_SCOPE.md",
+      "read_all_lines": 29,
+      "changed": true,
+      "sha256": "6a28018cb07e1049dd6e78b93471e515bb4087b61222ada4543a50e147174644",
+      "links_preserved": true,
+      "code_fences_preserved": true,
+      "headings_preserved": true,
+      "inline_code_removed": [],
+      "classic_hits": [],
+      "expanded_hits": []
+    },
+    {
+      "file": "THIRD_PARTY_NOTICES.md",
+      "read_all_lines": 35,
+      "changed": true,
+      "sha256": "6c6bc00d4679f0d98cc6ae6e538542bad802607b2838a4cbd32a58aede3f4383",
+      "links_preserved": true,
+      "code_fences_preserved": true,
+      "headings_preserved": true,
+      "inline_code_removed": [],
+      "classic_hits": [
+        {
+          "line": 35,
+          "text": "参考：[FastAPI](https://raw.githubusercontent.com/fastapi/fastapi/master/LICENSE)、[Pydantic](https://raw.githubusercontent.com/pydantic/pydantic/main/LICENSE)、[Uvicorn](https://raw.githubusercontent.com/encode/uvicorn/main/LICENSE.md)、[DashScope](https://raw.githubusercontent.com/dashscope/dashscope-sdk-python/main/LICENSE)、[标准 MIT](https://opensource.org/license/mit)。当前上游文本不是对每个固定版本二进制包内容的穷尽核验。"
+        }
+      ],
+      "expanded_hits": []
+    },
+    {
+      "file": "docs/ARCHITECTURE.md",
+      "read_all_lines": 139,
+      "changed": true,
+      "sha256": "e6d47eba4fe41f109a418b38cd1fb4fd0b0c1f0d0acd5ce7a4cd4a29b6dab0ba",
+      "links_preserved": true,
+      "code_fences_preserved": true,
+      "headings_preserved": true,
+      "inline_code_removed": [],
+      "classic_hits": [],
+      "expanded_hits": [
+        {
+          "line": 139,
+          "text": "这些限制是后续工程化入口，当前仓库不将其记录为已实现能力。"
+        }
+      ]
+    },
+    {
+      "file": "docs/DEMO_AND_VERIFICATION.md",
+      "read_all_lines": 101,
+      "changed": true,
+      "sha256": "4ebcf93a16d4addf7eaafbb4b4ab6e4c1b69a246d47b535cda9072b1cc0b7db3",
+      "links_preserved": true,
+      "code_fences_preserved": true,
+      "headings_preserved": true,
+      "inline_code_removed": [],
+      "classic_hits": [],
+      "expanded_hits": [
+        {
+          "line": 6,
+          "text": "> 本文对应原V1服务端模式。当前固件的功能验证见 [语音对话实施方案](VOICE_DIALOGUE_AND_MEMORY_PLAN.md)，配置与启动见 [设备直连说明](DEVICE_CLOUD_VOICE.md)。旧版截图不表示最新直连、记忆与提醒改动已通过实机测试。"
+        }
+      ]
+    },
+    {
+      "file": "docs/DESKTOP_TOOLS_AND_GAMES.md",
+      "read_all_lines": 47,
+      "changed": true,
+      "sha256": "7436b01ade43da533b82ae930e446d1277feb4111600aee40a33c29129cfcdd4",
+      "links_preserved": true,
+      "code_fences_preserved": true,
+      "headings_preserved": true,
+      "inline_code_removed": [],
+      "classic_hits": [],
+      "expanded_hits": [
+        {
+          "line": 29,
+          "text": "音乐、环境音和导入的静态壁纸保存在 SD；内置动态背景由程序绘制，不要求 SD 视频文件。语音与媒体共用音频输出，需要协调播放，不承诺所有声音同时混播。资源包与其署名另行发布，不随本次文档和演示视频提交。"
+        }
+      ]
+    },
+    {
+      "file": "docs/DEVICE_CLOUD_VOICE.md",
+      "read_all_lines": 179,
+      "changed": true,
+      "sha256": "f7889846b92d50665392c394deae8423b753593f3152c37aeb41dd7e683a71e2",
+      "links_preserved": true,
+      "code_fences_preserved": true,
+      "headings_preserved": true,
+      "inline_code_removed": [],
+      "classic_hits": [],
+      "expanded_hits": [
+        {
+          "line": 24,
+          "text": "`build` 会处理必要的首次配置；修改组件、Kconfig 或分区后再按需要运行 `idf.py reconfigure`。日常改 C/HTML 源码直接增量构建，不每次 `fullclean`。串口端口用实际设备替换；只看日志、不想复位时使用 `idf.py -p <端口> monitor --no-reset`，先关闭其他占用串口的监视器。"
+        },
+        {
+          "line": 85,
+          "text": "| `history.idx` | 空闲增量生成的历史定位索引；可重建，不替代原文 |"
+        },
+        {
+          "line": 122,
+          "text": "本机提醒使用已保存的到期时间，不让模型自行生成成功状态；到期不调用 LLM，无前置提示音。联网时直接 TTS 播报具体事项，断网、云端未配置或失败时播放固件内置“时间到了，请查看屏幕上的提醒。”，屏幕保留具体标题。本地音源为 24 kHz/16 位单声道约 3.44 秒，支持按键取消，不承诺本地音源的 AEC 声学打断。任务与快照初始化不依赖云端密钥，但绝对钟点仍需有效时钟。循环周期提交状态和下次到期先保存，不因正常重启重播旧周期。完整规则见实施方案 M7。"
+        }
+      ]
+    },
+    {
+      "file": "docs/FEATURES.md",
+      "read_all_lines": 82,
+      "changed": true,
+      "sha256": "9c2ab49f3339244e13445df6c7a25d2ba74b65c7a2bf22d5ed16a31252b88028",
+      "links_preserved": true,
+      "code_fences_preserved": true,
+      "headings_preserved": true,
+      "inline_code_removed": [],
+      "classic_hits": [],
+      "expanded_hits": [
+        {
+          "line": 38,
+          "text": "工作日指周一至周五，不包含法定调休表。界面设置完成并不等于到期播报已验证，后续演示会补齐“设定 → 到期 → 取消 / 重复”的完整过程。"
+        }
+      ]
+    },
+    {
+      "file": "docs/FEATURE_ANALYSIS_AND_EXPANSION.md",
+      "read_all_lines": 271,
+      "changed": true,
+      "sha256": "944d6023c2dc47e633c1684912c18162f2b794b607e4bd5fa9aca57a8254da2f",
+      "links_preserved": true,
+      "code_fences_preserved": true,
+      "headings_preserved": true,
+      "inline_code_removed": [],
+      "classic_hits": [],
+      "expanded_hits": [
+        {
+          "line": 21,
+          "text": "本文维护当前架构下的优化取舍和实施范围。已接入语音/任务功能见 [语音对话实施方案](VOICE_DIALOGUE_AND_MEMORY_PLAN.md)，本地界面与游戏见 [桌面工具与游戏](DESKTOP_TOOLS_AND_GAMES.md)，连接及存储格式见 [设备直连说明](DEVICE_CLOUD_VOICE.md)。用户已明确游戏是必需功能、可行计划全部实施：2026-10-03 已接入本节列出的九款可行游戏及设备侧桌面功能；代码接入不等于实机验收通过。涉及新增硬件、外部账号或桌面服务的候选仍保留各自依赖，不擅自接入。"
+        },
+        {
+          "line": 41,
+          "text": "- 日志中的 I2S 提交不等于扬声器实际出声；声音是否连贯需要听测或录音佐证。"
+        },
+        {
+          "line": 80,
+          "text": "流式 ASR 不等于自动讲话起止；默认仍是长按说话、松开发送。新增本地 WakeNet 唤醒在空闲时只处理设备 PCM，检测成功后进入有界自动录音；有讲话后静音结束、5 秒无讲话超时、20 秒封顶。编译与运行开关均默认关闭，已处理忙时关闭、旧队列/半帧清理；还需误唤醒、时延和资源实测。更自然的语义结束判定及端到端实时语音模型不进入当前主线。"
+        },
+        {
+          "line": 135,
+          "text": "依据：[README](../README.md)、[语音实施方案 M7](VOICE_DIALOGUE_AND_MEMORY_PLAN.md#m7本机任务与局域网设备)、[设备直连说明](DEVICE_CLOUD_VOICE.md)、[硬件说明](HARDWARE_V1.md)、[倾斜手势说明](MPU6050_GESTURES.md)，以及 `firmware/main/app_ui.c`、`app_agent.c`、`app_motion_gesture.h`。代码接入与文档中的历史实测不等于最新定制 PCB 已全面验收。"
+        },
+        {
+          "line": 139,
+          "text": "推荐首页只承担三个问题：“现在几点”“环境/网络怎样”“接下来有什么事”。更丰富不等于更多小字；任务详情、天气详情和游戏放在独立页面。"
+        },
+        {
+          "line": 150,
+          "text": "| 像素宠物/主题动画 | 本地图形/资源，少量状态 | 空闲陪伴感、与语音状态呼应 | 可离线运行，资源失败退回默认界面 | P3：先做轻动画，不承诺复杂养成 |"
+        },
+        {
+          "line": 183,
+          "text": "1. **先可见**：语音保存成功后显示标题和到期时间；首页显示下一项；列表区分待执行、已提交、错过、失败。提交过播报不等于用户已听到或已完成事项。"
+        },
+        {
+          "line": 184,
+          "text": "2. **再可管理**：提供精确选中的任务编辑/取消/删除与“稍后提醒”。使用稳定任务标识，重复标题不应误删；写入成功才显示成功，失败保留原状态。当前的待办完成逻辑不等于这些管理能力已实现。"
+        },
+        {
+          "line": 207,
+          "text": "不再保留“只做一款”的限制。九款共用一个纯 C 规则模块和固定 LVGL 图形池；打砖块/Pong 用单键反向挡板，接落物/迷宫使用连续倾斜。是否舒适、稳定仍需实机操作，规则实现不等于棱镜与外壳已适合长时间游玩。"
+        },
+        {
+          "line": 209,
+          "text": "像素宠物可以作为独立的后续视觉主题，不等于上述游戏；初版只做表情和空闲动作，不让喂养、情绪或奖励系统挤占实用功能。"
+        },
+        {
+          "line": 213,
+          "text": "以下为 2026-10-02 讨论中查阅的项目/作者说明；只作规则、操作和实现思路参考，未在本机编译或硬件验证。公开仓库不等于成熟组件，复用前检查代码与素材许可、版本及维护情况。"
+        },
+        {
+          "line": 236,
+          "text": "- **容量与测试**：先核实实物模组Flash/PSRAM型号，再测空闲堆、最低堆、任务栈与帧耗时；配置文件中的容量不等于实物已确认。"
+        }
+      ]
+    },
+    {
+      "file": "docs/GITHUB_FILE_MANIFEST.md",
+      "read_all_lines": 110,
+      "changed": true,
+      "sha256": "cec48753a5e0a8f4aa7e54a2bec2856a75d2a116515c485008bfc512e2e1f4a9",
+      "links_preserved": true,
+      "code_fences_preserved": true,
+      "headings_preserved": true,
+      "inline_code_removed": [],
+      "classic_hits": [],
+      "expanded_hits": [
+        {
+          "line": 3,
+          "text": "盘点日期：2026-10-11。以下是本次整理涉及的公开文档树，包含已存在的历史文件；列出文件不意味着每个文件都产生了新修改。实际提交范围以 Git 提交为准。"
+        }
+      ]
+    },
+    {
+      "file": "docs/GITHUB_PUBLICATION_CHECKLIST.md",
+      "read_all_lines": 82,
+      "changed": true,
+      "sha256": "ad4c10c29d6d24350c0711fff3ccfca848a68b23ec51597f19ad4029b04f80f7",
+      "links_preserved": true,
+      "code_fences_preserved": true,
+      "headings_preserved": true,
+      "inline_code_removed": [],
+      "classic_hits": [],
+      "expanded_hits": [
+        {
+          "line": 32,
+          "text": "文档中的“当前开发版”描述我的实机开发进展，不表示这个文档提交已经带上全部新代码。代码发布另做完整性检查，不零散补几份文件制造不可构建的中间状态。"
+        },
+        {
+          "line": 43,
+          "text": "没有实际发布 Release 时不写下载地址，也不将历史资源包大小当作新版本统计。"
+        },
+        {
+          "line": 74,
+          "text": "新增裁边展示图、原理图/PCB SVG 和网页模拟截图，来源与校验单独记录。网页改版保留在本机开发版：本批只推送说明与预览，不将未发布固件文件零散混入文档提交。10 月 11 日后续接口修改已编译通过，烧录与实机回归仍待完成。"
+        }
+      ]
+    },
+    {
+      "file": "docs/HARDWARE_DESIGN.md",
+      "read_all_lines": 112,
+      "changed": true,
+      "sha256": "4741dfca1dbe152bafe9f6f55854fdc98cadfa998507b3d225133ed9e511a63b",
+      "links_preserved": true,
+      "code_fences_preserved": true,
+      "headings_preserved": true,
+      "inline_code_removed": [],
+      "classic_hits": [],
+      "expanded_hits": [
+        {
+          "line": 32,
+          "text": "我将显示、SD、采音和播放安排到各自对应的接口上。这样软件可以分别管理它们的速率、队列和错误恢复；并不意味着外设之间不存在 CPU、内存或总线竞争。Flash/PSRAM 容量需要依据模组完整后缀和启动日志确认，不能只看到 WROOM-1 就推断容量。"
+        },
+        {
+          "line": 105,
+          "text": "| V3 结构图 | 独立标注版本和待试装状态 | 不等于已打印、装好、通过声学测试 |"
+        }
+      ]
+    },
+    {
+      "file": "docs/HARDWARE_V1.md",
+      "read_all_lines": 106,
+      "changed": true,
+      "sha256": "fd508cee7b474984e8a75f22ced02295cd76ab9c657f4891141de2422410e3f1",
+      "links_preserved": true,
+      "code_fences_preserved": true,
+      "headings_preserved": true,
+      "inline_code_removed": [],
+      "classic_hits": [],
+      "expanded_hits": [
+        {
+          "line": 9,
+          "text": "原型备份已单独保存。[原型 BOM](BOM.csv) 仅记录旧模块阶段；定制板请看 [电子 BOM](../hardware/BOM.md) 与逐位号明细。已有定制 PCB 整机演示，换板或改变装配后仍需重新检查，编译结果不替代电气验收。"
+        },
+        {
+          "line": 89,
+          "text": "- 每次换板、接口返修或结构变更后，重新核对电源、显示、音频、SD、按键及姿态输入；已有整机演示不替代新装配的回归。"
+        }
+      ]
+    },
+    {
+      "file": "docs/LAN_DEVICE_PROTOCOL.md",
+      "read_all_lines": 68,
+      "changed": true,
+      "sha256": "7065ac0451980a5149db96f19beba746916d2eda033dc36092efbd60a03acbad",
+      "links_preserved": true,
+      "code_fences_preserved": true,
+      "headings_preserved": true,
+      "inline_code_removed": [],
+      "classic_hits": [],
+      "expanded_hits": []
+    },
+    {
+      "file": "docs/MPU6050_GESTURES.md",
+      "read_all_lines": 74,
+      "changed": true,
+      "sha256": "876d2a6a8a9a8507823b4d83a10978f0b7060fa1dc32e31414115e966822bf5c",
+      "links_preserved": true,
+      "code_fences_preserved": true,
+      "headings_preserved": true,
+      "inline_code_removed": [],
+      "classic_hits": [],
+      "expanded_hits": []
+    },
+    {
+      "file": "docs/PROGRESS.md",
+      "read_all_lines": 35,
+      "changed": true,
+      "sha256": "8b1bbf55a74c09a0cb6170d97d13f3f4e4f9980d0350d429309b80856cfa5ddc",
+      "links_preserved": true,
+      "code_fences_preserved": true,
+      "headings_preserved": true,
+      "inline_code_removed": [],
+      "classic_hits": [],
+      "expanded_hits": [
+        {
+          "line": 18,
+          "text": "2026-10-25的本地最终ESP32-S3构建已通过；该历史结果不能替代本次分支的全新固件构建。本次不刷机，也不声称完成实机声学、断电或家居设备验收。"
+        }
+      ]
+    },
+    {
+      "file": "docs/README.md",
+      "read_all_lines": 49,
+      "changed": true,
+      "sha256": "2de08259b757bde1ead323551167ed9373295d7cb828ec501b42d6f5f67a2cad",
+      "links_preserved": true,
+      "code_fences_preserved": true,
+      "headings_preserved": true,
+      "inline_code_removed": [],
+      "classic_hits": [],
+      "expanded_hits": []
+    },
+    {
+      "file": "docs/ROADMAP.md",
+      "read_all_lines": 47,
+      "changed": true,
+      "sha256": "8325569d634363a2e8cee03a116fe0b43ba1a5e7f8daf4ca75384f41154f7082",
+      "links_preserved": true,
+      "code_fences_preserved": true,
+      "headings_preserved": true,
+      "inline_code_removed": [],
+      "classic_hits": [],
+      "expanded_hits": []
+    },
+    {
+      "file": "docs/SHOWCASE.md",
+      "read_all_lines": 106,
+      "changed": true,
+      "sha256": "25911caa6c9e914a85bb92a38808989414f756b5112ee1538b94d05dda248bce",
+      "links_preserved": true,
+      "code_fences_preserved": true,
+      "headings_preserved": true,
+      "inline_code_removed": [],
+      "classic_hits": [],
+      "expanded_hits": [
+        {
+          "line": 76,
+          "text": "这组照片展示聆听、处理和回答三个状态。界面显示打断提示说明功能入口存在，不等于在所有声学环境下都能稳定触发；实际进展见 [语音说明](VOICE_DIALOGUE_AND_MEMORY_PLAN.md)。"
+        }
+      ]
+    },
+    {
+      "file": "docs/SYNC_VALIDATION.md",
+      "read_all_lines": 17,
+      "changed": false,
+      "sha256": "2e6a14168a17e31d0fa20f64cb4db66cbb68c40cdc1e162210f0a42e16e6d66d",
+      "links_preserved": true,
+      "code_fences_preserved": true,
+      "headings_preserved": true,
+      "inline_code_removed": [],
+      "classic_hits": [],
+      "expanded_hits": [
+        {
+          "line": 13,
+          "text": "Agent gate含reliability/runtime/transport/semantic/storage五组，ASan/UBSan、虚拟时钟、合成SDK/设备输入。task-reconcile另覆盖真实文件快照、运行态恢复、取消、重复消息与新进程重载。源码契约检查不等于实机表现，36个模型案例未运行。"
+        }
+      ]
+    },
+    {
+      "file": "docs/TECHNICAL_ARCHITECTURE.md",
+      "read_all_lines": 67,
+      "changed": true,
+      "sha256": "7777ea46cffe576891b54fe8f72799d99832a05fb6de2d73c6ca9aa1153d5322",
+      "links_preserved": true,
+      "code_fences_preserved": true,
+      "headings_preserved": true,
+      "inline_code_removed": [],
+      "classic_hits": [],
+      "expanded_hits": [
+        {
+          "line": 15,
+          "text": "| 设备工具 | 模型函数调用、本机快捷命令、白名单执行器 | 参数校验、确认规则、实际回执而非模型口头承诺 |"
+        },
+        {
+          "line": 18,
+          "text": "屏幕通过 SPI2 驱动，SD 使用 SPI3；麦克风与扬声器分别使用 I2S 输入和输出。各接口独立不等于没有资源竞争：CPU、内部 RAM、任务优先级及 DMA 都会影响连续音频。具体 GPIO 见 [板级接口](HARDWARE_V1.md)，器件数量见 [电子 BOM](../hardware/BOM.md)。"
+        },
+        {
+          "line": 26,
+          "text": "5. **接收与播放**：24 kHz、16 位单声道 PCM 进入 PSRAM 环形缓冲，经音量缩放和 I2S 输出。当前队列 384 KiB、首次预缓冲 24 KiB；底层 DMA 为 8 × 256 帧，约 85 ms 的输出容量，不等于增加同等问答网络延迟。"
+        },
+        {
+          "line": 57,
+          "text": "近期上下文最多 6 对，长期记忆最多 16 条，任务最多 8 条。SD 按轮次保存用户原文、生成回答和终态；回答“已生成”不等于“已完整播放”。快照使用双槽、校验和读回，较新槽损坏时回退有效旧槽；这不能保证介质损坏时恢复全部数据。"
+        }
+      ]
+    },
+    {
+      "file": "docs/VOICE_DIALOGUE_AND_MEMORY_PLAN.md",
+      "read_all_lines": 336,
+      "changed": true,
+      "sha256": "b633d8c9aa5adacead1708527e25ac2ff8de7ba474adf65e7e3676f3d0704f16",
+      "links_preserved": true,
+      "code_fences_preserved": true,
+      "headings_preserved": true,
+      "inline_code_removed": [],
+      "classic_hits": [],
+      "expanded_hits": [
+        {
+          "line": 47,
+          "text": "原文、生成状态、PCM 提交和终态分别记录。“生成了”不表示“用户听到了”。长回答在日志中按完整 UTF-8 字符分块，每块最多 2047 字节，并记录 `text_offset` 和 `text_total_bytes`；保留完整生成原文不意味着近期窗口也保留全文。"
+        },
+        {
+          "line": 121,
+          "text": "未找到仅表示本次范围没找到，不表示所有历史不存在。材料不作为指令，生成原文也不表示已听到；记录在删除后变化时，旧 ID 可能失效，不能把旧位置当作永久引用。"
+        },
+        {
+          "line": 137,
+          "text": "唤醒模型为 `wn9_xiaobinxiaobin_tts`，本地检测增益 1 倍、请求阈值 60%，库实际日志约 595/1000。这里的 1 倍是 WakeNet 检测输入增益，不等于所有 VAD 或音频环节都没有独立处理。"
+        },
+        {
+          "line": 143,
+          "text": "旧轮退出前不创建第二条云端流水线；按键取消优先，并清除待接话。声学接续仍受箱体、距离、回声、失真和任务调度影响。目前有成功打断日志，不等于完成稳定全双工验收。"
+        },
+        {
+          "line": 276,
+          "text": "本次修复回归：连续创建三次一分钟喝水提醒，检查到期后的整句是否连贯，“提醒中”及“时间到了，提醒你：喝水。”是否还有方框。短提醒起播日志应核对完整接收与实际任务优先级，结束日志应显示缓冲等待次数/时长；首声允许有收齐音频的等待，不把它与中途卡顿混为一项。播报时短按，应停止而非暂停；随后发起普通问题，旧提醒不能续播。日志中等待为零仍不能单独证明 I2S 或扬声器无卡顿。"
+        },
+        {
+          "line": 284,
+          "text": "普通确认回答和提醒语音均打印“TTS PCM幅度(音量缩放前)”：峰值为零表示读取到的 PCM 全为零；非零幅度和 I2S 提交成功仍不等于实际出声。若仍无声，请保留幅度、采样数、提醒语音结果和 I2S 错误日志，并说明普通回答和到期提醒语音是否分别可听见。"
+        },
+        {
+          "line": 298,
+          "text": "保持摆位、音量、固件和测试句一致，以下是回归步骤，不表示全部通过："
+        },
+        {
+          "line": 308,
+          "text": "音乐和本地提醒不承诺同一唤醒词打断路径。诊断录音只在明确启动诊断后采集，不随 GitHub 文档发布。"
+        }
+      ]
+    },
+    {
+      "file": "docs/WEB_MANAGEMENT_DESIGN.md",
+      "read_all_lines": 128,
+      "changed": true,
+      "sha256": "9665f40401796a68557d71542a195fab882cfbb759a72729dd4e1d110085ced1",
+      "links_preserved": true,
+      "code_fences_preserved": true,
+      "headings_preserved": true,
+      "inline_code_removed": [],
+      "classic_hits": [],
+      "expanded_hits": [
+        {
+          "line": 70,
+          "text": "本轮未加入额外的云端试听入口，以免与回答、提醒和音乐争用扬声器。先保存，然后用同一句问题比较声音。主机测试核对了每个音色对应的实际请求、语速边界、会话内参数固定、提醒共用设置、非法值拒绝和旧 NVS 迁移；参数发送、服务端确认与配置回读不等于已经听测过音色和语速效果。"
+        },
+        {
+          "line": 78,
+          "text": "图片的压黑效果同时用于预览和 RGB565 输出。上传显示浏览器传输进度，等待设备校验、提交并返回 HTTP 成功后才提示完成。新增“取消上传”：终止浏览器请求并停止后续批量文件，后端保留未提交文件清理与旧文件恢复机制。若取消时已完成提交，新文件可能仍存在，页面明确要求刷新核对，不承诺撤回。"
+        },
+        {
+          "line": 82,
+          "text": "图片选择、媒体控制、夜间外观和纪念日命令均使用有界回执，分别报告接受、应用和保存结果。播放命令成功只表示播放设置已应用，不等于文件已完整播放。设为壁纸先确认文件选择，再将主页切为 SD 图片样式；若后一阶段失败，会显示错误而不隐去前一阶段已生效的事实。"
+        },
+        {
+          "line": 88,
+          "text": "诊断区默认折叠，点击后才采集；语音唤醒开关不等于模型就绪检测。现有状态接口没有返回固件版本、RSSI 和模型失败原因，页面不虚构这些数值。"
+        }
+      ]
+    },
+    {
+      "file": "docs/images/README.md",
+      "read_all_lines": 28,
+      "changed": true,
+      "sha256": "0bccfd8800715341b089100f11faf9f0449e8131eaeb2bbeb168bb6d3da5f153",
+      "links_preserved": true,
+      "code_fences_preserved": true,
+      "headings_preserved": true,
+      "inline_code_removed": [],
+      "classic_hits": [],
+      "expanded_hits": []
+    },
+    {
+      "file": "docs/videos/2026-10-10/README.md",
+      "read_all_lines": 22,
+      "changed": true,
+      "sha256": "8e1895e669e53c673792ec1d8f0f09e1a538188acccde61363baa4933dd67d01",
+      "links_preserved": true,
+      "code_fences_preserved": true,
+      "headings_preserved": true,
+      "inline_code_removed": [],
+      "classic_hits": [],
+      "expanded_hits": []
+    },
+    {
+      "file": "hardware/BOM.md",
+      "read_all_lines": 91,
+      "changed": true,
+      "sha256": "89be7897714579fe6a12325e4f11bd1a7f931216167202dd195957bb600295e0",
+      "links_preserved": true,
+      "code_fences_preserved": true,
+      "headings_preserved": true,
+      "inline_code_removed": [],
+      "classic_hits": [],
+      "expanded_hits": []
+    },
+    {
+      "file": "hardware/README.md",
+      "read_all_lines": 29,
+      "changed": false,
+      "sha256": "ee2034b545467fe788f4e464b68848af727886f7a60b84e2ea0c4ba59cb03b28",
+      "links_preserved": true,
+      "code_fences_preserved": true,
+      "headings_preserved": true,
+      "inline_code_removed": [],
+      "classic_hits": [],
+      "expanded_hits": [
+        {
+          "line": 25,
+          "text": "V3-SLA 修复外壳 USB 左右镜像与 PCB 装入时的螺丝柱干涉，需要成套替换主壳、底盖和扬声器托架。CAD 检查已通过，树脂打印后的实际试装、线束弯折与螺纹强度仍待验证。先打印入口框和底盖，不将装配 STEP 当作单件打印模型。"
+        },
+        {
+          "line": 27,
+          "text": "`lib/` 只保留当前主工程使用的三个项目封装及符号库；标准库和标准 3D 模型由 KiCad 10 提供。J2 等自定义器件未绑定完整厂家三维模型；结构校验使用 PCB 平面数据与保守高度包络，不等于完整厂家装配模型。"
+        }
+      ]
+    },
+    {
+      "file": "hardware/checks/README.md",
+      "read_all_lines": 12,
+      "changed": true,
+      "sha256": "e5acbfb222f40d89a0c53b0d128e2f4a83b1b6f188e2739398afa65544e2f948",
+      "links_preserved": true,
+      "code_fences_preserved": true,
+      "headings_preserved": true,
+      "inline_code_removed": [],
+      "classic_hits": [],
+      "expanded_hits": []
+    },
+    {
+      "file": "hardware/docs/audio/README.md",
+      "read_all_lines": 11,
+      "changed": false,
+      "sha256": "c01c6c47d320d1b1a8dbbb442fbe8aaa4100df6d9dadde3193b459b5f5fdad9d",
+      "links_preserved": true,
+      "code_fences_preserved": true,
+      "headings_preserved": true,
+      "inline_code_removed": [],
+      "classic_hits": [],
+      "expanded_hits": []
+    },
+    {
+      "file": "hardware/docs/display/README.md",
+      "read_all_lines": 13,
+      "changed": false,
+      "sha256": "dbb81bf5ce4fdce94978e1545d4eff197433a278641d3d6420024387c46397ec",
+      "links_preserved": true,
+      "code_fences_preserved": true,
+      "headings_preserved": true,
+      "inline_code_removed": [],
+      "classic_hits": [],
+      "expanded_hits": []
+    },
+    {
+      "file": "hardware/fabrication/2026-09-16/README.md",
+      "read_all_lines": 13,
+      "changed": true,
+      "sha256": "0af453a69d0cd89685f06a214b498e553f12a698c362b26ca629b194ec158141",
+      "links_preserved": true,
+      "code_fences_preserved": true,
+      "headings_preserved": true,
+      "inline_code_removed": [],
+      "classic_hits": [],
+      "expanded_hits": []
+    },
+    {
+      "file": "hardware/mechanical/V3-SLA/README.md",
+      "read_all_lines": 86,
+      "changed": true,
+      "sha256": "20f4f7c77fa22543ffc6cf62a8d34bb8f886b6abe47ac7afe5acf70d01b220cf",
+      "links_preserved": true,
+      "code_fences_preserved": true,
+      "headings_preserved": true,
+      "inline_code_removed": [],
+      "classic_hits": [],
+      "expanded_hits": []
+    },
+    {
+      "file": "tests/agent_safety/README.md",
+      "read_all_lines": 7,
+      "changed": false,
+      "sha256": "38541c0bfb96b747fddc726d6a40ff0210897804497d711891c68ed94d12550d",
+      "links_preserved": true,
+      "code_fences_preserved": true,
+      "headings_preserved": true,
+      "inline_code_removed": [],
+      "classic_hits": [],
+      "expanded_hits": [
+        {
+          "line": 6,
+          "text": "models, storage faults and SDK operations use synthetic fixtures. No network,"
+        }
+      ]
+    }
+  ]
+}
