@@ -88,6 +88,6 @@ The target is ESP32-S3 / ESP-IDF 6.0.2, with component versions in `firmware/dep
 
 ## License and attribution
 
-Project-authored software and original technical documentation use the [MIT License](LICENSE), permitting commercial use, modification, and redistribution subject to retaining copyright and permission notices. See [License scope](LICENSE_SCOPE.md) and [Third-party notices](THIRD_PARTY_NOTICES.md): hardware, dependencies, fonts, images, audiovisual material, and data retain their own rights and are not relicensed with the project software.
+Only the project-authored software and original technical documentation identified in [License scope](LICENSE_SCOPE.md) and its inventories are covered by the [MIT License](LICENSE), permitting commercial use, modification, and redistribution subject to retaining copyright and permission notices. `hardware/**` (including mechanical scripts), dependencies, fonts, images, audiovisual material, and data are excluded from this project MIT grant and retain their own rights; see [Third-party notices](THIRD_PARTY_NOTICES.md).
 
 Weather and air quality use Open-Meteo; air-quality sources include CAMS. See the [data-service documentation](https://open-meteo.com/en/docs/air-quality-api). ESP-IDF, LVGL, ESP-SR, cloud services, and third-party media have their own terms; music attribution remains with the media pack.

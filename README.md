@@ -88,6 +88,6 @@ VoxConductor 是一台基于 ESP32-S3 的桌面语音助手，整合定制 PCB�
 
 ## 许可与归属
 
-项目原创软件与原创技术文档采用 [MIT License](LICENSE)，允许按许可商业使用、修改和再分发，须保留版权及许可声明。见[许可范围](LICENSE_SCOPE.md)与[第三方说明](THIRD_PARTY_NOTICES.md)：硬件、依赖、字体、图片、影音和数据保留各自权利，不随项目软件重授权。
+仅[许可范围](LICENSE_SCOPE.md)及其清单列明的项目原创软件与原创技术文档采用 [MIT License](LICENSE)，允许按许可商业使用、修改和再分发，须保留版权及许可声明。`hardware/**`（含机械脚本）、依赖、字体、图片、影音和数据不纳入项目 MIT 授权，保留各自权利；见[第三方说明](THIRD_PARTY_NOTICES.md)。
 
 天气与空气质量来自 Open-Meteo，空气质量来源包含 CAMS，见[数据服务说明](https://open-meteo.com/en/docs/air-quality-api)。ESP-IDF、LVGL、ESP-SR、云服务及第三方媒体适用各自条款；音乐归属随媒体包保留。
