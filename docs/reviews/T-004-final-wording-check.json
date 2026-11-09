@@ -1,0 +1,233 @@
+{
+  "task": "T-004 final user wording amendment",
+  "base": "191af54c7c962e8abc8feaf8682a7afcffe832d3",
+  "review_rounds": 2,
+  "new_review_rounds": 0,
+  "check_type": "user-requested final sentence read-through, appended to existing round 2",
+  "files": [
+    {
+      "file": "README.md",
+      "sha256": "cd86685958517999295b11472dc8ef47f0f259f72bc94c89a58f3a257fe29de5",
+      "blocks": 29,
+      "links": 41,
+      "images": 11,
+      "disclaimer_pattern_hits": [],
+      "all_previous_targets_retained": true
+    },
+    {
+      "file": "README.zh-CN.md",
+      "sha256": "cd86685958517999295b11472dc8ef47f0f259f72bc94c89a58f3a257fe29de5",
+      "blocks": 29,
+      "links": 41,
+      "images": 11,
+      "disclaimer_pattern_hits": [],
+      "all_previous_targets_retained": true
+    },
+    {
+      "file": "README.en.md",
+      "sha256": "386ba129785debe9bd486fb34bf2d443813dcaf9fa5d1b4be0b7652cebf31a8f",
+      "blocks": 29,
+      "links": 41,
+      "images": 11,
+      "disclaimer_pattern_hits": [],
+      "all_previous_targets_retained": true
+    }
+  ],
+  "parallel_blocks": [
+    {
+      "block": 1,
+      "chinese_checked": true,
+      "english_checked": true,
+      "meaning_and_status_aligned": true
+    },
+    {
+      "block": 2,
+      "chinese_checked": true,
+      "english_checked": true,
+      "meaning_and_status_aligned": true
+    },
+    {
+      "block": 3,
+      "chinese_checked": true,
+      "english_checked": true,
+      "meaning_and_status_aligned": true
+    },
+    {
+      "block": 4,
+      "chinese_checked": true,
+      "english_checked": true,
+      "meaning_and_status_aligned": true
+    },
+    {
+      "block": 5,
+      "chinese_checked": true,
+      "english_checked": true,
+      "meaning_and_status_aligned": true
+    },
+    {
+      "block": 6,
+      "chinese_checked": true,
+      "english_checked": true,
+      "meaning_and_status_aligned": true
+    },
+    {
+      "block": 7,
+      "chinese_checked": true,
+      "english_checked": true,
+      "meaning_and_status_aligned": true
+    },
+    {
+      "block": 8,
+      "chinese_checked": true,
+      "english_checked": true,
+      "meaning_and_status_aligned": true
+    },
+    {
+      "block": 9,
+      "chinese_checked": true,
+      "english_checked": true,
+      "meaning_and_status_aligned": true
+    },
+    {
+      "block": 10,
+      "chinese_checked": true,
+      "english_checked": true,
+      "meaning_and_status_aligned": true
+    },
+    {
+      "block": 11,
+      "chinese_checked": true,
+      "english_checked": true,
+      "meaning_and_status_aligned": true
+    },
+    {
+      "block": 12,
+      "chinese_checked": true,
+      "english_checked": true,
+      "meaning_and_status_aligned": true
+    },
+    {
+      "block": 13,
+      "chinese_checked": true,
+      "english_checked": true,
+      "meaning_and_status_aligned": true
+    },
+    {
+      "block": 14,
+      "chinese_checked": true,
+      "english_checked": true,
+      "meaning_and_status_aligned": true
+    },
+    {
+      "block": 15,
+      "chinese_checked": true,
+      "english_checked": true,
+      "meaning_and_status_aligned": true
+    },
+    {
+      "block": 16,
+      "chinese_checked": true,
+      "english_checked": true,
+      "meaning_and_status_aligned": true
+    },
+    {
+      "block": 17,
+      "chinese_checked": true,
+      "english_checked": true,
+      "meaning_and_status_aligned": true
+    },
+    {
+      "block": 18,
+      "chinese_checked": true,
+      "english_checked": true,
+      "meaning_and_status_aligned": true
+    },
+    {
+      "block": 19,
+      "chinese_checked": true,
+      "english_checked": true,
+      "meaning_and_status_aligned": true
+    },
+    {
+      "block": 20,
+      "chinese_checked": true,
+      "english_checked": true,
+      "meaning_and_status_aligned": true
+    },
+    {
+      "block": 21,
+      "chinese_checked": true,
+      "english_checked": true,
+      "meaning_and_status_aligned": true
+    },
+    {
+      "block": 22,
+      "chinese_checked": true,
+      "english_checked": true,
+      "meaning_and_status_aligned": true
+    },
+    {
+      "block": 23,
+      "chinese_checked": true,
+      "english_checked": true,
+      "meaning_and_status_aligned": true
+    },
+    {
+      "block": 24,
+      "chinese_checked": true,
+      "english_checked": true,
+      "meaning_and_status_aligned": true
+    },
+    {
+      "block": 25,
+      "chinese_checked": true,
+      "english_checked": true,
+      "meaning_and_status_aligned": true
+    },
+    {
+      "block": 26,
+      "chinese_checked": true,
+      "english_checked": true,
+      "meaning_and_status_aligned": true
+    },
+    {
+      "block": 27,
+      "chinese_checked": true,
+      "english_checked": true,
+      "meaning_and_status_aligned": true
+    },
+    {
+      "block": 28,
+      "chinese_checked": true,
+      "english_checked": true,
+      "meaning_and_status_aligned": true
+    },
+    {
+      "block": 29,
+      "chinese_checked": true,
+      "english_checked": true,
+      "meaning_and_status_aligned": true
+    }
+  ],
+  "manual_readthrough_findings": [
+    "English repeated subject after semicolon corrected",
+    "Cloud prerequisites consolidated in progress table"
+  ],
+  "important_boundaries_retained": [
+    "Chinese UI",
+    "online service credentials/cost/data terms",
+    "legal PCM format and physical Flash/PSRAM match",
+    "stable-ID task deduplication and revoked authorization",
+    "unknown device outcomes await reconciliation",
+    "SD plaintext and local private files",
+    "J2 correction and V3 fit testing",
+    "historical build versus pending branch build",
+    "controlled statistics, real-time/full-duplex and device acceptance pending",
+    "MIT scope remains tied to listed original contents"
+  ],
+  "media_and_license_source_files_unchanged": true,
+  "remaining_documentation_requirements": [],
+  "firmware_tests_run": false,
+  "deployed": false,
+  "merged": false
+}

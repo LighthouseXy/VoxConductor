@@ -1,0 +1,40 @@
+{
+  "round": 2,
+  "review_round": 2,
+  "base": "7c3cc548a51e18f9dbc44a982092ab16236e6d11",
+  "finding": "MIT main clause lacked explicit inventory scope",
+  "correction": "Only original software/docs identified by license scope and inventories; hardware/** including mechanical scripts excluded",
+  "files": [
+    {
+      "file": "README.md",
+      "only_license_paragraph_changed": true,
+      "link_targets": 41,
+      "images": 11,
+      "original_targets_preserved": true,
+      "sha256": "892897c93523f1300b2fecc5a9c9e4b73546b6e94658a11fd7ecb21c12401e51"
+    },
+    {
+      "file": "README.zh-CN.md",
+      "only_license_paragraph_changed": true,
+      "link_targets": 41,
+      "images": 11,
+      "original_targets_preserved": true,
+      "sha256": "892897c93523f1300b2fecc5a9c9e4b73546b6e94658a11fd7ecb21c12401e51"
+    },
+    {
+      "file": "README.en.md",
+      "only_license_paragraph_changed": true,
+      "link_targets": 41,
+      "images": 11,
+      "original_targets_preserved": true,
+      "sha256": "57b699922a7c69774b8995e071309bff6a4c0e9500ee2899da39bee333fca0d9"
+    }
+  ],
+  "chinese_mirrors_identical": true,
+  "license_source_files_unchanged": true,
+  "media_unchanged": true,
+  "reused_media_checks_from_round": 1,
+  "new_issues": [],
+  "remaining_documentation_requirements": [],
+  "no_further_rounds_performed": true
+}

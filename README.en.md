@@ -1,93 +1,96 @@
-# VoxConductor
+# VoxConductor | Prism-display desktop voice assistant
 
-[English](README.en.md) | [简体中文](README.md)
+[简体中文](README.md) · [English](README.en.md) · [Chinese mirror](README.zh-CN.md)
 
-[Development and maintenance history](DEVELOPMENT_HISTORY.en.md)
+VoxConductor is an ESP32-S3 desktop voice assistant with a custom PCB, a screen and beam-splitting prism, a microphone, a speaker, buttons, and motion input. The device handles its interface, audio, tool execution, and local records, and connects directly to cloud services for ASR, model responses, and TTS.
 
-VoxConductor is an ESP32-S3 desktop voice assistant that combines a custom PCB, a prism display, audio input and output, physical controls, motion interaction, and cloud voice services. The device handles its interface, audio capture and playback, local tools, and local records. Speech recognition, language-model responses, and speech synthesis run in the cloud.
+The prism reflects the screen’s two-dimensional image to create a floating appearance.
 
-The display appears to float inside the prism, but it is a two-dimensional image. The firmware interface is currently Chinese-only; the repository does not provide an English UI or a language switch.
+<p align="center">
+  <img src="docs/images/2026-10-11/device-clock-front.jpg" alt="Assembled VoxConductor with the round clock" width="340">
+</p>
 
-## What it does
-
-- Shows the time and weather, and provides pages for alarms, media, focus tools, and settings.
-- Supports voice queries and selected device actions through tools handled on the device.
-- Uses physical buttons and an inertial sensor for interaction; it does not rely on a touchscreen.
-- Runs the main interaction on the device without a PC-hosted FastAPI service.
-- Includes a KiCad hardware project, manufacturing files, a board-level bill of materials, and mechanical design files.
-
-Voice features require an internet connection and credentials for the configured cloud services. VoxConductor is not an offline language-model device. The existing demonstrations show individual queries and a volume-control interaction; they do not measure wake-word success, latency, or long-term reliability.
-
-## Device photos
-
-![Assembled VoxConductor viewed from the front, with the round clock visible in the prism](docs/images/2026-10-11/device-clock-front.jpg)
-
-![Front view of the assembled enclosure](docs/images/2026-10-11/device-front.jpg)
-
-![Custom VoxConductor PCB after component assembly](docs/images/2026-10-11/pcb-assembled.jpg)
-
-![The device menu showing desktop tools](docs/images/2026-10-11/desktop-menu.jpg)
-
-Additional images and demonstration videos are collected in [Showcase](docs/SHOWCASE.md). The question audio in the full demonstration videos has been pitch-shifted. They are edited demonstrations, not untouched recordings or statistical tests.
+Updated: 2026-11-03. [Current progress](docs/PROGRESS.md) · [Validation](docs/SYNC_VALIDATION.md) · [Development history](DEVELOPMENT_HISTORY.en.md).
 
 ## Hardware
 
-The active hardware project is in the hardware directory. It includes the KiCad schematic and PCB, fabrication outputs, project libraries, and V3-SLA mechanical files. The board is 52 × 50 mm and four-layer. The board BOM covers 61 component positions; it is not a complete bill of materials for the whole assembled device.
+The 52 × 50 mm four-layer PCB uses an ESP32-S3-WROOM-1, a 240 × 240 ST7789-family display, an INMP441 microphone, a MAX98357A I2S amplifier, and an MPU motion sensor. Input is handled through physical buttons and tilt; firmware uses ESP-IDF / FreeRTOS and LVGL 9.
 
-There are known revision boundaries to review before fabricating or printing:
+<p align="center">
+  <img src="docs/images/2026-10-11/device-front.jpg" alt="Device front" width="170">
+  <img src="docs/images/2026-10-11/device-side.jpg" alt="Device side" width="170">
+  <img src="docs/images/2026-10-11/device-rear.jpg" alt="Device rear" width="170">
+  <img src="docs/images/2026-10-11/pcb-assembled.jpg" alt="Assembled custom PCB" width="170">
+</p>
 
-- The physical J2 screen connector was repaired on the assembled device, but that repair has not yet been written back to the current KiCad design.
-- The V3-SLA enclosure has passed CAD checks, but its resin-printed fit, cable bends, and thread strength still need physical validation.
+The [hardware project](hardware/README.md) contains KiCad, fabrication, and V3-SLA mechanical files. The [board BOM](hardware/BOM.md) lists 61 component positions.
 
-Start with [Hardware design and assembly](hardware/README.md) and [Hardware design notes](docs/HARDWARE_DESIGN.md). Do not treat the current design files as a newly verified production revision.
+## Software features
 
-## Architecture and documentation
+| Area | Implemented in the current code |
+| --- | --- |
+| Desktop and weather | Clock, wallpapers, brightness and orientation; current weather, 12-hour forecast, UV, US AQI / PM2.5, wind, and humidity |
+| Voice and tools | Local “小冰小冰” wake word, push-to-talk, follow-up turns, and cancellation; time/weather queries, volume/home settings, and bounded tool calls |
+| Daily tools and media | Alarms, reminders, to-dos, notes, countdowns, and Pomodoro; SD music/ambient audio/wallpapers and a LAN management page |
+| Records and recovery | Bounded recent context, memory with provenance and expiry, history search and deletion; SD text records and two checksummed snapshot slots |
 
-- [Technical architecture](docs/TECHNICAL_ARCHITECTURE.md)
-- [Feature overview](docs/FEATURES.md)
-- [Device-direct voice setup](docs/DEVICE_CLOUD_VOICE.md)
-- [Roadmap](docs/ROADMAP.md)
-- [Showcase and media notes](docs/SHOWCASE.md)
+<p align="center">
+  <img src="docs/images/2026-10-11/desktop-menu.jpg" alt="Desktop tools menu" width="170">
+  <img src="docs/images/2026-10-11/weather-current.jpg" alt="Current weather" width="170">
+  <img src="docs/images/2026-10-11/weather-hourly.jpg" alt="Hourly forecast" width="170">
+  <img src="docs/images/2026-10-11/weather-metrics.jpg" alt="Air quality, UV, wind, and humidity" width="170">
+</p>
 
-The repository also keeps material from an earlier V1 server-based architecture for historical reference. The current device-direct voice flow does not require that server to run on a PC.
+## Voice flow
 
-## Using an existing device
+1. A button or WakeNet starts capture; 16 kHz real-time ASR returns a transcript.
+2. Exact local commands run directly; other questions enter a bounded model/tool loop. Example configuration uses Qwen ASR/TTS and DeepSeek.
+3. The device validates arguments and confirmation rules, then returns actual execution results to the model.
+4. After releasing the model connection, it opens a 24 kHz TTS session and plays audio through I2S. Successful turns then commit context and wait for another utterance within the follow-up window.
 
-1. Power on the device and connect it to a 2.4 GHz Wi-Fi network.
-2. Wait for network time synchronization. Weather requires internet access; it is an online service, not a measurement from an onboard environmental sensor.
-3. For a voice query, use the device's configured push-to-talk or wake-word interaction and wait for the listening state before speaking.
-4. Cloud voice queries require working ASR, model, and TTS service configuration. Keep Wi-Fi and provider credentials in local, ignored configuration files; never commit real credentials or paste them into issue reports.
+Model-proposed reminders and notes remain candidates until the next-turn exact command “确认执行” (confirm). “查看任务保存状态” reads disk snapshots; “重试任务保存” reconciles by stable task ID, restores runtime state, and requests confirmation again for candidates awaiting storage. “取消执行” clears pending and retry authorization.
 
-The repository includes a Wi-Fi placeholder at [firmware/main/wifi_credentials.example.h](firmware/main/wifi_credentials.example.h). Configure cloud service credentials only in the local, ignored files documented for the current firmware, and never commit them. See [Device and cloud voice setup](docs/DEVICE_CLOUD_VOICE.md) for the current configuration context.
+## Progress and remaining work
 
-The SD-card conversation log is plain text. Use care with personal content and do not upload private conversations, logs, or recordings to public issues.
+Development sources and host tests are synchronized; the firmware currently provides a Chinese UI and coordinates capture and playback by turn.
 
-## Building firmware
+| Status | Evidence and next steps |
+| --- | --- |
+| Demonstrations | Two videos from 2026-10-10 show basic queries and volume control; October 11 device and weather photos record device state and online service data at capture time |
+| Offline checks passed | On 2026-11-03, five Agent host-test groups, task snapshot reconciliation/reload, and three source-contract checks passed, using mocks, virtual clocks, and fault injection |
+| Build record | A local ESP32-S3 build passed on 2026-10-25; rebuilding and flashing the November 3 sync branch remain pending |
+| Operating prerequisites | Cloud queries require internet access and your own service credentials; supply a legally usable 24 kHz, 16-bit little-endian mono `firmware/main/reminder.pcm`; match Flash/PSRAM settings to the physical board |
+| Execution and privacy | Device actions with unknown outcomes await user inspection and reconciliation; task reconciliation deduplicates writes by stable ID; cancellation or process reload invalidates confirmation and retry authorization, so execution requires renewed confirmation; SD conversations are plain text, while credentials, reminder audio, and private records stay local |
+| Hardware revisions | KiCad retains the pre-repair J2 design, pending the physical correction and design review; V3-SLA awaits printed fit testing; complete assembly procurement needs items beyond the board BOM |
+| Device acceptance pending | Validate waking and interruption across distance, pronunciation, and noise, plus echo control, playback continuity, web upload/save and voice contention, SD power-loss recovery, memory peaks, and end-to-end latency |
+| Measurements and plans | Recognition accuracy, wake-word success, latency, and long-term stability await controlled statistical tests; multi-device action previews, capability registration, multi-day task continuation, and controllable proactive reminders await implementation |
 
-The documented target is ESP32-S3. The project uses ESP-IDF 6.0.2 with component versions recorded in firmware/dependencies.lock and project configuration. Use the matching board's flash and PSRAM configuration.
+The 180-second software budget constrains turn processing; SD synchronization and driver-cleanup tail latency, hard real-time behavior, and full-duplex stability await dedicated validation. Review provider availability, costs, and data terms when using cloud services.
 
-With a compatible ESP-IDF environment, the documented commands are:
+## Demonstration videos
 
-```sh
-cd firmware
-idf.py build
-idf.py -p YOUR_SERIAL_PORT flash monitor
-```
+| Wake word, time and weather queries · about 26 s | Voice volume control · about 29 s |
+| --- | --- |
+| [![Wake and query cover](docs/images/2026-10-10/demo-time-weather-cover.jpg)](docs/videos/2026-10-10/wake-time-weather.mp4?raw=true) | [![Volume control cover](docs/images/2026-10-10/demo-volume-cover.jpg)](docs/videos/2026-10-10/voice-volume-control.mp4?raw=true) |
 
-Replace `YOUR_SERIAL_PORT` with the actual serial device path. Consult the linked device setup and architecture documents before mixing the current firmware with historical V1 server or partition settings.
+The question audio is pitch-shifted; the original visual sequence and duration are retained. [Video processing record](docs/videos/2026-10-10/README.md) · [Showcase](docs/SHOWCASE.md).
 
-## Limitations
+## Documentation and reproduction
 
-- Wake-word performance depends on distance, pronunciation, and the acoustic environment.
-- Interruption during speech and playback continuity still have reliability limits; the project is not described as stable full-duplex voice.
-- The management web interface includes settings and media tools, but upload, save, and voice-busy interactions still require device regression testing.
-- A single demonstration does not establish recognition accuracy, latency, wake-word success rate, or long-term stability.
-- Cloud model and speech services have their own availability, account, privacy, and pricing terms.
+The target is ESP32-S3 / ESP-IDF 6.0.2, with component versions in `firmware/dependencies.lock`. Follow [setup](docs/DEVICE_CLOUD_VOICE.md), create local configuration from templates such as the [Wi-Fi example](firmware/main/wifi_credentials.example.h), prepare the reminder PCM, then run `idf.py build` in `firmware`.
 
-## Contributing
+| Entry | Contents |
+| --- | --- |
+| [Documentation index](docs/README.md) | Full documentation directory |
+| [Hardware design and assembly](docs/HARDWARE_DESIGN.md) / [Wiring](docs/HARDWARE_V1.md) | PCB, components, GPIO, and mechanical boundaries |
+| [Technical architecture](docs/TECHNICAL_ARCHITECTURE.md) / [Voice and memory](docs/VOICE_DIALOGUE_AND_MEMORY_PLAN.md) | Pipeline, resources, execution, and persistence |
+| [Features and pages](docs/FEATURES.md) / [Desktop interaction](docs/DESKTOP_TOOLS_AND_GAMES.md) | Pages and controls |
+| [Web management](docs/WEB_MANAGEMENT_DESIGN.md) | Interfaces and acceptance steps |
+| [Roadmap](docs/ROADMAP.md) / [Publication checklist](docs/GITHUB_PUBLICATION_CHECKLIST.md) | Priorities and publication scope |
+| [Historical V1 architecture](docs/ARCHITECTURE.md) / [Earlier validation](docs/DEMO_AND_VERIFICATION.md) | Earlier FastAPI architecture and validation records |
 
-Issues and pull requests are useful for reproducible firmware or documentation problems, hardware-document corrections, and improvements that preserve current device behavior. Include the board revision, toolchain version, and concise reproduction steps when relevant. Do not attach credentials, private logs, conversation records, or third-party media without permission. For hardware or media contributions, identify the source and redistribution terms.
+## License and attribution
 
-## License
+The project-authored software and original technical documentation identified in [License scope](LICENSE_SCOPE.md) and its inventories use the [MIT License](LICENSE), permitting commercial use, modification, and redistribution subject to retaining copyright and permission notices. For `hardware/**` (including mechanical scripts), dependencies, fonts, images, audiovisual material, and data, follow [Third-party notices](THIRD_PARTY_NOTICES.md) and their applicable terms.
 
-The project-authored software and original technical documentation listed for this version are licensed under the [MIT License](LICENSE). MIT permits commercial use, modification, and redistribution subject to retaining the copyright and permission notice. See [License scope](LICENSE_SCOPE.md) for the exact paths and current-file records. Hardware, dependencies, fonts, vendor materials, photos, audio, video, and data are excluded from this project MIT grant and retain their own copyrights, licenses, or existing terms. See [Third-party notices](THIRD_PARTY_NOTICES.md) before reuse.
+Weather and air quality use Open-Meteo; air-quality sources include CAMS. See the [data-service documentation](https://open-meteo.com/en/docs/air-quality-api). ESP-IDF, LVGL, ESP-SR, cloud services, and third-party media have their own terms; music attribution remains with the media pack.

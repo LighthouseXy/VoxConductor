@@ -35,6 +35,25 @@ server/tts/
 
 # 本机 Wi-Fi 凭据，禁止提交到 Git
 firmware/main/wifi_credentials.h
+firmware/main/cloud_credentials.h
+firmware/main/device_registry.h
+examples/lan_switch/sdkconfig
+examples/lan_switch/dependencies.lock
 
 # 仅本地保留的开发日志与面试技术资料
 /docs/logs/
+
+# Local publication drafts imported during project integration
+/docs/publication/
+
+# Local development materials and media packs
+/backups/
+/assets/
+/firmware/log.*.txt
+/docs/validation/
+/docs/design/
+/hardware/references/
+/hardware/reports/
+
+# Locally supplied reminder audio; redistribution rights are not established
+/firmware/main/reminder.pcm

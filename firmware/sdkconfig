@@ -970,15 +970,236 @@ CONFIG_ESPTOOLPY_MONITOR_BAUD=115200
 # CONFIG_PARTITION_TABLE_TWO_OTA_LARGE is not set
 # default:
 CONFIG_PARTITION_TABLE_CUSTOM=y
+CONFIG_PARTITION_TABLE_CUSTOM_FILENAME="partitions_wake.csv"
 # default:
-CONFIG_PARTITION_TABLE_CUSTOM_FILENAME="partitions.csv"
-# default:
-CONFIG_PARTITION_TABLE_FILENAME="partitions.csv"
+CONFIG_PARTITION_TABLE_FILENAME="partitions_wake.csv"
 # default:
 CONFIG_PARTITION_TABLE_OFFSET=0x8000
 # default:
 CONFIG_PARTITION_TABLE_MD5=y
 # end of Partition Table
+
+#
+# VoxConductor voice
+#
+# CONFIG_VOX_LOG_VERBOSE is not set
+CONFIG_VOX_WAKE_WORD=y
+CONFIG_VOX_WAKE_MODEL_NAME="wn9_xiaobinxiaobin_tts"
+# default:
+CONFIG_VOX_WAKE_GAIN=1
+# default:
+CONFIG_VOX_WAKE_THRESHOLD_PERCENT=60
+CONFIG_VOX_ACOUSTIC_BARGE_IN=y
+CONFIG_VOX_AEC_DELAY_MS=40
+# default:
+CONFIG_VOX_AUTO_END_SILENCE_MS=800
+# default:
+CONFIG_VOX_AUTO_END_VAD_MODE=0
+# end of VoxConductor voice
+
+#
+# ESP Speech Recognition
+#
+# default:
+CONFIG_MODEL_IN_FLASH=y
+# default:
+# CONFIG_MODEL_IN_SDCARD is not set
+# default:
+CONFIG_AFE_INTERFACE_V1=y
+# default:
+CONFIG_SR_NSN_WEBRTC=y
+# default:
+# CONFIG_SR_NSN_NSNET2 is not set
+# default:
+# CONFIG_SR_NSN_NSNET3 is not set
+# default:
+CONFIG_SR_VADN_WEBRTC=y
+# default:
+# CONFIG_SR_VADN_VADNET1_MEDIUM is not set
+
+#
+# Load Multiple Wake Words (WakeNet9s)
+#
+# default:
+# CONFIG_SR_WN_WN9S_HILEXIN is not set
+# default:
+# CONFIG_SR_WN_WN9S_HIESP is not set
+# default:
+# CONFIG_SR_WN_WN9S_NIHAOXIAOZHI is not set
+# default:
+# CONFIG_SR_WN_WN9S_HIJASON is not set
+# end of Load Multiple Wake Words (WakeNet9s)
+
+#
+# Load Multiple Wake Words (WakeNet9 or WakeNet10)
+#
+# default:
+# CONFIG_SR_WN_WN10_HILEXIN_INT16 is not set
+# default:
+# CONFIG_SR_WN_WN10_XIAOAITONGXUE is not set
+# default:
+# CONFIG_SR_WN_WN10_XIAOAITONGXUE_INT16 is not set
+# default:
+# CONFIG_SR_WN_WN10_NIHAOXIAOZHI is not set
+# default:
+# CONFIG_SR_WN_WN10_NIHAOXIAOZHI_INT16 is not set
+# default:
+# CONFIG_SR_WN_WN9_HILEXIN is not set
+# default:
+# CONFIG_SR_WN_WN9_HIESP is not set
+# default:
+# CONFIG_SR_WN_WN10_MOSAICO is not set
+# default:
+# CONFIG_SR_WN_WN10_HEYHERMES is not set
+# default:
+# CONFIG_SR_WN_WN10_HEYNOVA is not set
+# default:
+# CONFIG_SR_WN_WN10_HIESP is not set
+# default:
+# CONFIG_SR_WN_WN10_ALEXA is not set
+# default:
+# CONFIG_SR_WN_WN10_TU2TU2NI3HAO3 is not set
+# default:
+# CONFIG_SR_WN_WN10_JA_AIRISU is not set
+# default:
+# CONFIG_SR_WN_WN9L_JA_KONNICHIHAESP_TTS3 is not set
+# default:
+# CONFIG_SR_WN_WN9L_FR_BONJOURESP_TTS3 is not set
+# default:
+# CONFIG_SR_WN_WN9_NIHAOMIAOBAN_TTS2 is not set
+# default:
+# CONFIG_SR_WN_WN9_XIAOAITONGXUE is not set
+# default:
+# CONFIG_SR_WN_WN9L_XIAOAITONGXUE is not set
+# default:
+# CONFIG_SR_WN_WN9_NIHAOXIAOZHI_TTS is not set
+# default:
+# CONFIG_SR_WN_WN9L_NIHAOXIAOZHI_TTS3 is not set
+# default:
+# CONFIG_SR_WN_WN9_ALEXA is not set
+# default:
+# CONFIG_SR_WN_WN9_JARVIS_TTS is not set
+# CONFIG_SR_WN_WN9_COMPUTER_TTS is not set
+# default:
+# CONFIG_SR_WN_WN9_HEYWILLOW_TTS is not set
+# default:
+# CONFIG_SR_WN_WN9_HIMFIVE is not set
+# default:
+# CONFIG_SR_WN_WN9_SOPHIA_TTS is not set
+# default:
+# CONFIG_SR_WN_WN9_HEYWANDA_TTS is not set
+# default:
+# CONFIG_SR_WN_WN9_HIJOLLY_TTS2 is not set
+# default:
+# CONFIG_SR_WN_WN9_HIFAIRY_TTS2 is not set
+# default:
+# CONFIG_SR_WN_WN9_HEYPRINTER_TTS is not set
+# default:
+# CONFIG_SR_WN_WN9_MYCROFT_TTS is not set
+# default:
+# CONFIG_SR_WN_WN9_HIJOY_TTS is not set
+# default:
+# CONFIG_SR_WN_WN9_HIJASON_TTS2 is not set
+# default:
+# CONFIG_SR_WN_WN9_ASTROLABE_TTS is not set
+# default:
+# CONFIG_SR_WN_WN9_HEYILY_TTS2 is not set
+# default:
+# CONFIG_SR_WN_WN9_BLUECHIP_TTS2 is not set
+# default:
+# CONFIG_SR_WN_WN9_HIANDY_TTS2 is not set
+# default:
+# CONFIG_SR_WN_WN9_HEYIVY_TTS2 is not set
+# default:
+# CONFIG_SR_WN_WN9L_HISTACKCHAN_TTS3 is not set
+# default:
+# CONFIG_SR_WN_WN9_HEYKIRA_TTS3 is not set
+# default:
+# CONFIG_SR_WN_WN9L_HEYGIGI_TTS3 is not set
+# default:
+# CONFIG_SR_WN_WN9_XIAOLONGXIAOLONG_TTS is not set
+# default:
+# CONFIG_SR_WN_WN9_HIMIAOMIAO_TTS is not set
+# default:
+# CONFIG_SR_WN_WN9_MIAOMIAOTONGXUE_TTS is not set
+# default:
+# CONFIG_SR_WN_WN9_NIHAOXIAOXIN_TTS is not set
+# default:
+# CONFIG_SR_WN_WN9_XIAOMEITONGXUE_TTS is not set
+# default:
+# CONFIG_SR_WN_WN9_HILILI_TTS is not set
+# default:
+# CONFIG_SR_WN_WN9_HITELLY_TTS is not set
+CONFIG_SR_WN_WN9_XIAOBINXIAOBIN_TTS=y
+# default:
+# CONFIG_SR_WN_WN9_HAIXIAOWU_TTS is not set
+# default:
+# CONFIG_SR_WN_WN9_XIAOYAXIAOYA_TTS2 is not set
+# default:
+# CONFIG_SR_WN_WN9_LINAIBAN_TTS2 is not set
+# default:
+# CONFIG_SR_WN_WN9_XIAOSUROU_TTS2 is not set
+# default:
+# CONFIG_SR_WN_WN9_XIAOYUTONGXUE_TTS2 is not set
+# default:
+# CONFIG_SR_WN_WN9_XIAOMINGTONGXUE_TTS2 is not set
+# default:
+# CONFIG_SR_WN_WN9_XIAOKANGTONGXUE_TTS2 is not set
+# default:
+# CONFIG_SR_WN_WN9_XIAOJIANXIAOJIAN_TTS2 is not set
+# default:
+# CONFIG_SR_WN_WN9_XIAOTEXIAOTE_TTS2 is not set
+# default:
+# CONFIG_SR_WN_WN9_NIHAOXIAOYI_TTS2 is not set
+# default:
+# CONFIG_SR_WN_WN9_NIHAOBAIYING_TTS2 is not set
+# default:
+# CONFIG_SR_WN_WN9_NIHAODONGDONG_TTS2 is not set
+# default:
+# CONFIG_SR_WN_WN9_HIWALLE_TTS2 is not set
+# default:
+# CONFIG_SR_WN_WN9_XIAOLUXIAOLU_TTS2 is not set
+# default:
+# CONFIG_SR_WN_WN9_NIHAOXIAOAN_TTS2 is not set
+# default:
+# CONFIG_SR_WN_WN9_NI3HAO3XIAO3MAI4_TTS2 is not set
+# default:
+# CONFIG_SR_WN_WN9_NI3HAO3XIAO3RUI4_TTS3 is not set
+# default:
+# CONFIG_SR_WN_WN9_HAI1XIAO3OU1_TTS3 is not set
+# default:
+# CONFIG_SR_WN_WN9_XIAO3JIA1XIAO3JIA1_TTS3 is not set
+# default:
+# CONFIG_SR_WN_WN9_XIAO3FENG1XIAO3FENG1_TTS3 is not set
+# default:
+# CONFIG_SR_WN_WN9_HAI1XIAO3XIANG4_TTS3 is not set
+# default:
+# CONFIG_SR_WN_WN9L_NI3HAO3XING1BAO3_TTS3 is not set
+# end of Load Multiple Wake Words (WakeNet9 or WakeNet10)
+
+# default:
+CONFIG_SR_MN_CN_NONE=y
+# default:
+# CONFIG_SR_MN_CN_MULTINET5_RECOGNITION_QUANT8 is not set
+# default:
+# CONFIG_SR_MN_CN_MULTINET6_QUANT is not set
+# default:
+# CONFIG_SR_MN_CN_MULTINET6_AC_QUANT is not set
+# default:
+# CONFIG_SR_MN_CN_MULTINET7_QUANT is not set
+# default:
+# CONFIG_SR_MN_CN_MULTINET7_AC_QUANT is not set
+# default:
+CONFIG_SR_MN_EN_NONE=y
+# default:
+# CONFIG_SR_MN_EN_MULTINET5_SINGLE_RECOGNITION_QUANT8 is not set
+# default:
+# CONFIG_SR_MN_EN_MULTINET6_QUANT is not set
+# default:
+# CONFIG_SR_MN_EN_MULTINET7_QUANT is not set
+# default:
+CONFIG_ESP_SR_EXTERNAL_MODEL_PATH=""
+# end of ESP Speech Recognition
 
 #
 # Compiler options
@@ -1204,6 +1425,8 @@ CONFIG_ESP_COEX_ENABLED=y
 #
 # default:
 CONFIG_ESP_ERR_TO_NAME_LOOKUP=y
+# default:
+CONFIG_ESP_ALLOW_BSS_SEG_EXTERNAL_MEMORY=y
 # end of Common ESP-related
 
 #
@@ -1263,7 +1486,7 @@ CONFIG_I2C_MASTER_ISR_HANDLER_IN_IRAM=y
 # ESP-Driver:I2S Configurations
 #
 # default:
-# CONFIG_I2S_ISR_IRAM_SAFE is not set
+CONFIG_I2S_ISR_IRAM_SAFE=y
 # default:
 # CONFIG_I2S_CTRL_FUNC_IN_IRAM is not set
 # default:
@@ -1874,8 +2097,6 @@ CONFIG_SPIRAM_BOOT_HW_INIT=y
 CONFIG_SPIRAM_BOOT_INIT=y
 # default:
 CONFIG_SPIRAM_PRE_CONFIGURE_MEMORY_PROTECTION=y
-# default:
-# CONFIG_SPIRAM_IGNORE_NOTFOUND is not set
 # CONFIG_SPIRAM_USE_MEMMAP is not set
 CONFIG_SPIRAM_USE_CAPS_ALLOC=y
 # CONFIG_SPIRAM_USE_MALLOC is not set
@@ -1883,8 +2104,7 @@ CONFIG_SPIRAM_USE_CAPS_ALLOC=y
 CONFIG_SPIRAM_MEMTEST=y
 # default:
 # CONFIG_SPIRAM_TRY_ALLOCATE_WIFI_LWIP is not set
-# default:
-# CONFIG_SPIRAM_ALLOW_BSS_SEG_EXTERNAL_MEMORY is not set
+CONFIG_SPIRAM_ALLOW_BSS_SEG_EXTERNAL_MEMORY=y
 # default:
 # CONFIG_SPIRAM_ALLOW_NOINIT_SEG_EXTERNAL_MEMORY is not set
 # end of SPI RAM config
@@ -2987,9 +3207,9 @@ CONFIG_MBEDTLS_HAVE_TIME=y
 # default:
 # CONFIG_MBEDTLS_HAVE_TIME_DATE is not set
 # default:
-CONFIG_MBEDTLS_INTERNAL_MEM_ALLOC=y
+# CONFIG_MBEDTLS_INTERNAL_MEM_ALLOC is not set
 # default:
-# CONFIG_MBEDTLS_EXTERNAL_MEM_ALLOC is not set
+CONFIG_MBEDTLS_EXTERNAL_MEM_ALLOC=y
 # default:
 # CONFIG_MBEDTLS_DEFAULT_MEM_ALLOC is not set
 # default:
@@ -3675,9 +3895,88 @@ CONFIG_CJSON_CIRCULAR_LIMIT=10000
 # end of cJSON
 
 #
+# ESP-DL Configuration
+#
+
+#
+# Vision/Image: Pixel Convert Support
+#
+# default:
+CONFIG_PIX_CVT_RGB565_TO_RGB565_SUPPORT=y
+# default:
+CONFIG_PIX_CVT_RGB565_TO_RGB888_SUPPORT=y
+# default:
+CONFIG_PIX_CVT_RGB565_TO_GRAY_SUPPORT=y
+# default:
+CONFIG_PIX_CVT_RGB565_TO_HSV_SUPPORT=y
+# default:
+CONFIG_PIX_CVT_RGB888_TO_RGB888_SUPPORT=y
+# default:
+CONFIG_PIX_CVT_RGB888_TO_RGB565_SUPPORT=y
+# default:
+CONFIG_PIX_CVT_RGB888_TO_GRAY_SUPPORT=y
+# default:
+CONFIG_PIX_CVT_RGB888_TO_HSV_SUPPORT=y
+# default:
+CONFIG_PIX_CVT_GRAY_TO_GRAY_SUPPORT=y
+# default:
+CONFIG_PIX_CVT_HSV_TO_HSV_MASK_SUPPORT=y
+# default:
+CONFIG_PIX_CVT_YUV_TO_RGB888_SUPPORT=y
+# default:
+CONFIG_PIX_CVT_YUV_TO_RGB565_SUPPORT=y
+# default:
+CONFIG_PIX_CVT_YUV_TO_GRAY_SUPPORT=y
+# default:
+CONFIG_PIX_CVT_YUV_TO_HSV_SUPPORT=y
+# default:
+CONFIG_PIX_CVT_YUV_TO_YUV_SUPPORT=y
+# end of Vision/Image: Pixel Convert Support
+# end of ESP-DL Configuration
+
+#
+# DSP Library
+#
+# default:
+CONFIG_DSP_OPTIMIZATIONS_SUPPORTED=y
+# default:
+# CONFIG_DSP_ANSI is not set
+# default:
+CONFIG_DSP_OPTIMIZED=y
+# default:
+CONFIG_DSP_OPTIMIZATION=1
+# default:
+# CONFIG_DSP_MAX_FFT_SIZE_512 is not set
+# default:
+# CONFIG_DSP_MAX_FFT_SIZE_1024 is not set
+# default:
+# CONFIG_DSP_MAX_FFT_SIZE_2048 is not set
+# default:
+CONFIG_DSP_MAX_FFT_SIZE_4096=y
+# default:
+# CONFIG_DSP_MAX_FFT_SIZE_8192 is not set
+# default:
+# CONFIG_DSP_MAX_FFT_SIZE_16384 is not set
+# default:
+# CONFIG_DSP_MAX_FFT_SIZE_32768 is not set
+# default:
+CONFIG_DSP_MAX_FFT_SIZE=4096
+# end of DSP Library
+
+#
 # ESP LVGL PORT
 #
 # end of ESP LVGL PORT
+
+#
+# ESP WebSocket client
+#
+# default:
+# CONFIG_ESP_WS_CLIENT_ENABLE_DYNAMIC_BUFFER is not set
+# default:
+CONFIG_ESP_WS_CLIENT_SEPARATE_TX_LOCK=y
+CONFIG_ESP_WS_CLIENT_TX_LOCK_TIMEOUT_MS=2000
+# end of ESP WebSocket client
 
 #
 # LVGL configuration
@@ -3946,7 +4245,7 @@ CONFIG_LV_ATTRIBUTE_MEM_ALIGN_SIZE=1
 # default:
 # CONFIG_LV_FONT_MONTSERRAT_10 is not set
 # default:
-# CONFIG_LV_FONT_MONTSERRAT_12 is not set
+CONFIG_LV_FONT_MONTSERRAT_12=y
 # default:
 CONFIG_LV_FONT_MONTSERRAT_14=y
 # default:
@@ -3971,8 +4270,7 @@ CONFIG_LV_FONT_MONTSERRAT_32=y
 # CONFIG_LV_FONT_MONTSERRAT_36 is not set
 # default:
 # CONFIG_LV_FONT_MONTSERRAT_38 is not set
-# default:
-# CONFIG_LV_FONT_MONTSERRAT_40 is not set
+CONFIG_LV_FONT_MONTSERRAT_40=y
 # default:
 # CONFIG_LV_FONT_MONTSERRAT_42 is not set
 # default:
@@ -4256,7 +4554,7 @@ CONFIG_LV_FS_DEFAULT_DRIVER_LETTER=0
 # default:
 # CONFIG_LV_USE_RLE is not set
 # default:
-# CONFIG_LV_USE_QRCODE is not set
+CONFIG_LV_USE_QRCODE=y
 # default:
 # CONFIG_LV_USE_BARCODE is not set
 # default:

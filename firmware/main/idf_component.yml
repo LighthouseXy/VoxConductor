@@ -1,6 +1,8 @@
 dependencies:
+  espressif/esp-sr: "2.5.4"
+  espressif/esp_websocket_client: "^1.8.0"
   espressif/esp_lvgl_port: "2.8.0~1"
   lvgl/lvgl:
-    version: "^9.5.0"
+    version: "9.5.0"
     public: true
   espressif/cjson: "^1.7.19"

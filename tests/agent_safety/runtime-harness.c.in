@@ -1,0 +1,250 @@
+/* Test-only mocks surround exact functions extracted by run_checks.py. */
+@FIXTURE_STUBS@
+#include "app_memory_alloc.h"
+#include <setjmp.h>
+#include <stdatomic.h>
+
+typedef int esp_err_t;
+enum { ESP_OK = 0, ESP_FAIL = -1, ESP_ERR_INVALID_ARG = 1,
+       ESP_ERR_INVALID_STATE, ESP_ERR_NO_MEM, ESP_ERR_TIMEOUT,
+       ESP_ERR_INVALID_SIZE, ESP_ERR_INVALID_RESPONSE };
+static const char *TAG = "mock";
+static void mock_log(const char *tag, const char *format, ...) { (void)tag; (void)format; }
+static const char *esp_err_to_name(esp_err_t error) { (void)error; return "mock"; }
+#define app_log_id(id) (id)
+#define ESP_LOGI(...) mock_log(__VA_ARGS__)
+#define ESP_LOGW(...) mock_log(__VA_ARGS__)
+#define APP_LOG_DETAIL(...) mock_log(__VA_ARGS__)
+#define pdMS_TO_TICKS(x) (x)
+#define pdTRUE 1
+#define portMAX_DELAY 0xffffffffu
+#define APP_UI_VOICE_REMINDER 1
+#define APP_AUDIO_FOLLOWUP_WAIT_SECONDS 12
+
+static time_t wall_now = 1800000000;
+time_t time(time_t *out) { if (out) *out = wall_now; return wall_now; }
+static _Atomic int64_t s_voice_accepted_us;
+static _Atomic bool s_voice_turn_active, s_audio_active, s_voice_ready, s_media_audio_active;
+static bool cancelled;
+static unsigned background_ticks, desktop_calls, network_calls, played, turns, stop_after;
+static unsigned queue_executes, cleanup_calls, media_suspends;
+static bool cancel_after_turn;
+static jmp_buf background_return;
+static unsigned delay_calls;
+static void vTaskDelay(unsigned ms) {
+  if (ms == 100) { now_us += 100000; return; }
+  assert(ms == 1000);
+  if (delay_calls++) longjmp(background_return, 1);
+  ++background_ticks; ++wall_now; now_us += 1000000;
+}
+static void vTaskDelete(void *unused) { (void)unused; }
+static void retry_media_release(void) {}
+static void app_desktop_service(void) { ++desktop_calls; }
+static bool app_desktop_take_focus_notice(char *title) { (void)title; return false; }
+static bool app_media_suspend(unsigned ms) { (void)ms; ++media_suspends; return true; }
+static void app_media_resume(void) {}
+static void app_wake_allow(bool allow) { (void)allow; }
+static void app_cloud_summary_interrupt(void) {}
+static void app_cloud_reset_cancel(void) { cancelled = false; }
+static bool app_cloud_is_cancelled(void) { return cancelled; }
+static bool app_network_is_connected(void) { return true; }
+static void app_ui_show_voice_state(int state, const char *text) { (void)state; (void)text; }
+static void app_ui_hide_voice_state(void) {}
+void app_turn_begin(app_turn_t *turn) { app_turn_init(turn, "mock-boot", 1, now_us); }
+void app_turn_emit(app_turn_t *turn, app_turn_event_type_t event, const char *text, int error) {
+  app_turn_event_t out; (void)app_turn_apply(turn, event, now_us, text, error, &out);
+}
+static esp_err_t app_cloud_speak_reminder(const char *text, app_turn_t *turn) {
+  (void)text; (void)turn; ++network_calls; return ESP_OK;
+}
+static esp_err_t app_audio_local_reminder(void) { ++played; return ESP_OK; }
+static esp_err_t app_audio_abort_playback(void) { return ESP_OK; }
+static void app_cloud_memory_tick(void) {}
+static void app_storage_index_tick(void) {}
+static void restore_wake(void) {}
+static void release_media_audio(void) {}
+static void app_network_voice_priority(bool active) { (void)active; }
+bool app_control_voice_finish(bool success) { (void)success; return false; }
+static bool app_acoustic_pending(void) { return false; }
+static bool app_cloud_resume_barge_in(void) { return false; }
+static void app_audio_prepare_recording(void) {}
+static void app_audio_prepare_auto_recording(void) {}
+static void app_acoustic_discard(void) {}
+static void app_motion_set_enabled(bool enabled) { (void)enabled; }
+
+typedef int SemaphoreHandle_t;
+static SemaphoreHandle_t s_lock = 1;
+static char s_request[768], *s_reply;
+static uint32_t s_id;
+typedef enum { CONTROL_IDLE, CONTROL_PENDING, CONTROL_RUNNING, CONTROL_DONE } control_phase_t;
+static control_phase_t s_phase;
+static int xSemaphoreTake(SemaphoreHandle_t lock, unsigned wait) { (void)lock; (void)wait; return pdTRUE; }
+static void xSemaphoreGive(SemaphoreHandle_t lock) { (void)lock; }
+static cJSON *execute(cJSON *in) { (void)in; ++queue_executes; return cJSON_Parse("{\"ok\":true}"); }
+static cJSON *result(bool ok, const char *text) { (void)ok; (void)text; return cJSON_Parse("{}"); }
+@app_control_submit@
+@app_control_status@
+@app_control_service@
+
+@service_background_boundary@
+@reminder_task@
+static void tick_background(void) {
+  delay_calls = 0;
+  if (!setjmp(background_return)) reminder_task(NULL);
+}
+static esp_err_t run_voice_turn(bool automatic, bool followup, bool interrupted) {
+  (void)automatic; (void)followup; (void)interrupted;
+  ++turns;
+  tick_background();
+  if (cancel_after_turn && turns == stop_after) { cancelled = true; return ESP_OK; }
+  return turns < stop_after ? ESP_OK : ESP_FAIL;
+}
+@voice_conversation_task@
+
+typedef void *esp_http_client_handle_t;
+#define CLOUD_DEEPSEEK_MODEL "offline-mock"
+#define CLOUD_DEEPSEEK_URL "mock://no-network"
+#define CLOUD_DEEPSEEK_API_KEY ""
+#define CLOUD_CONNECT_TIMEOUT_MS 10000
+static app_conversation_t *s_history;
+static int64_t stream_elapsed_us;
+static bool cancel_in_stream;
+static unsigned http_opens, stream_reads, stream_tool_responses, tool_receipts;
+static void app_cloud_begin_turn(const app_turn_t *turn) { (void)turn; }
+static esp_err_t app_cloud_http_open_until(const char *url, const char *key, size_t length,
+                                    unsigned timeout, const _Atomic bool *abort,
+                                    esp_http_client_handle_t *client, int64_t until) {
+  assert(until > now_us);
+  (void)url; (void)key; (void)length; (void)timeout; (void)abort;
+  *client = (void *)1; ++http_opens; return ESP_OK;
+}
+static esp_err_t app_cloud_http_write_until(esp_http_client_handle_t client, const char *body,
+                                     size_t length, const _Atomic bool *abort, int64_t until) {
+  assert(until > now_us);
+  cJSON *request = cJSON_Parse(body); assert(request);
+  const cJSON *message;
+  cJSON_ArrayForEach(message, cJSON_GetObjectItemCaseSensitive(request, "messages")) {
+    const cJSON *role = cJSON_GetObjectItemCaseSensitive(message, "role");
+    if (cJSON_IsString(role) && !strcmp(role->valuestring, "tool")) {
+      assert(!strcmp(cJSON_GetObjectItemCaseSensitive(message, "tool_call_id")->valuestring, "mock-call-1"));
+      cJSON *receipt = cJSON_Parse(cJSON_GetObjectItemCaseSensitive(message, "content")->valuestring);
+      assert(receipt && cJSON_HasObjectItem(receipt, "error"));
+      cJSON_Delete(receipt); ++tool_receipts;
+    }
+  }
+  cJSON_Delete(request);
+  (void)client; (void)length; (void)abort; return ESP_OK;
+}
+static bool app_cloud_http_reusable(esp_http_client_handle_t client) { (void)client; return false; }
+static void esp_http_client_cleanup(esp_http_client_handle_t client) { (void)client; ++cleanup_calls; }
+static esp_err_t read_stream(esp_http_client_handle_t client, char **answer, app_turn_t *turn,
+                             cJSON **tool, bool enabled) {
+  (void)client; (void)turn; (void)enabled;
+  now_us += stream_elapsed_us;
+  if (cancel_in_stream) cancelled = true;
+  if (stream_reads++ < stream_tool_responses) {
+    *tool = cJSON_Parse("{\"role\":\"assistant\",\"tool_calls\":[{\"id\":\"mock-call\",\"function\":{\"name\":\"get_weather\",\"arguments\":\"{}\"}}]}");
+    char id[32]; snprintf(id, sizeof(id), "mock-call-%u", stream_reads);
+    cJSON *call = cJSON_GetArrayItem(cJSON_GetObjectItemCaseSensitive(*tool, "tool_calls"), 0);
+    assert(cJSON_ReplaceItemInObjectCaseSensitive(call, "id", cJSON_CreateString(id)));
+  } else *answer = strdup("offline answer");
+  return ESP_OK;
+}
+void app_turn_resources(const app_turn_t *turn, const char *point) { (void)turn; (void)point; }
+@app_cloud_ask@
+
+static void set_alarm(app_conversation_t *history, long long due) {
+  snprintf(history->tasks, sizeof(history->tasks),
+    "[{\"id\":\"synthetic-alarm\",\"kind\":\"alarm\",\"title\":\"offline fixture\",\"status\":\"pending\",\"repeat\":\"once\",\"due_utc\":%.0f}]", (double)due);
+}
+int main(void) {
+  app_conversation_t *history = calloc(1, sizeof(*history)); assert(history);
+  free(app_agent_command("", history));
+  wall_now = 1800000000; now_us = 1000000;
+  set_alarm(history, wall_now + 1);
+  uint32_t job = app_control_submit("{\"op\":\"mock\"}"); assert(job);
+  assert(app_control_submit("{\"op\":\"second-mock\"}") == 0);
+  s_voice_turn_active = true; s_audio_active = true;
+  stop_after = 401;
+  voice_conversation_task((void *)1);
+  assert(turns == 401 && background_ticks == 401);
+  assert(media_suspends == 0); // Reuse the voice session lease, never increment it per reminder.
+  assert(queue_executes == 1 && desktop_calls == 400 && s_phase == CONTROL_DONE);
+  cJSON *status = app_control_status(job);
+  assert(status && !strcmp(cJSON_GetObjectItemCaseSensitive(status, "status")->valuestring, "done"));
+  cJSON_Delete(status);
+  assert(strstr(history->tasks, "played") && !strstr(history->tasks, "missed"));
+  assert(!s_voice_turn_active && !s_audio_active);
+  puts("PASS: continuous voice gives Web and reminder work a serialized opportunity at each successful boundary");
+  tick_background();
+  assert(queue_executes == 1 && s_phase == CONTROL_DONE && desktop_calls == 401);
+  assert(strstr(history->tasks, "played") && played == 1 && network_calls == 0);
+  puts("PASS: reminder delivered once by local-audio mock without waiting for session release");
+
+  app_task_notice_t notice;
+  set_alarm(history, wall_now - 300); assert(app_agent_due_notice(&notice));
+  assert(strstr(history->tasks, "notification_committed"));
+  set_alarm(history, wall_now - 301); assert(!app_agent_due_notice(&notice));
+  assert(strstr(history->tasks, "missed"));
+  writable = false; set_alarm(history, wall_now - 1);
+  assert(!app_agent_due_notice(&notice));
+  assert(strstr(history->tasks, "pending")); writable = true;
+  puts("PASS: real due_notice threshold 300/301 seconds and failed save preserves pending state");
+
+  turns = 0; stop_after = 1; cancel_after_turn = true;
+  s_voice_turn_active = true; s_audio_active = true;
+  voice_conversation_task((void *)1);
+  assert(turns == 1 && !s_voice_turn_active && !s_audio_active);
+  assert(cancelled); cancelled = false;
+  puts("PASS: cancellation after successful turn stops follow-up and releases coordinator/audio ownership");
+
+  s_history = history;
+  app_turn_t turn; char *answer = NULL;
+  app_turn_init(&turn, "deadline", 1, now_us);
+  stream_elapsed_us = 100000000; stream_tool_responses = 1;
+  assert(app_cloud_ask("普通问题", &answer, &turn) == ESP_ERR_TIMEOUT);
+  assert(!answer && now_us - turn.accepted_us == 200000000);
+  assert(turn.agent_requests == 2 && turn.agent_tools == 1);
+  free(answer); answer = NULL;
+  assert(cleanup_calls == 2 && http_opens == 2);
+  puts("PASS: late final model answer is rejected at the shared turn deadline");
+
+  stream_reads = 0; stream_tool_responses = 2;
+  app_turn_init(&turn, "deadline", 2, now_us);
+  assert(app_cloud_ask("普通问题", &answer, &turn) == ESP_ERR_TIMEOUT);
+  assert(turn.agent_tools == 1 && !answer);
+  puts("PASS: after two 100-second model rounds, expired Agent budget blocks second tool and calls HTTP cleanup stub");
+  stream_reads = 0; stream_elapsed_us = 0; cancel_in_stream = true;
+  app_turn_init(&turn, "cancel", 3, now_us);
+  assert(app_cloud_ask("普通问题", &answer, &turn) == ESP_ERR_INVALID_STATE);
+  assert(turn.agent_tools == 0 && !answer && cleanup_calls == 5);
+  puts("PASS: cancelled model response admits no next tool; all five mock HTTP handles receive cleanup calls");
+  stream_reads = 0; stream_tool_responses = 0;
+  cancelled = false;
+  app_turn_init(&turn, "cancel-final", 4, now_us);
+  assert(app_cloud_ask("普通问题", &answer, &turn) == ESP_ERR_INVALID_STATE);
+  assert(!answer && turn.agent_tools == 0);
+  puts("PASS: cancellation concurrent with final model response discards answer");
+
+  cancelled = false; cancel_in_stream = false;
+  free(app_agent_command("", history));
+  char *candidate = app_agent_execute("prepare_task",
+    "{\"kind\":\"note\",\"title\":\"synthetic note\",\"delay_seconds\":0,\"request\":\"synthetic note\"}",
+    "synthetic note", &turn);
+  assert(candidate && strstr(candidate, "pending_not_executed")); free(candidate);
+  unsigned before_writes = writes;
+  cancelled = true;
+  app_turn_init(&turn, "cancel-local", 5, now_us);
+  assert(app_cloud_ask("确认执行", &answer, &turn) == ESP_ERR_INVALID_STATE);
+  assert(!answer && writes == before_writes && !app_agent_has_pending());
+  cancelled = false;
+  assert(app_cloud_ask("确认执行", &answer, &turn) == ESP_OK);
+  assert(answer && strstr(answer, "没有有效") && writes == before_writes);
+  free(answer); answer = NULL;
+  assert(tool_receipts == 2);
+  puts("PASS: cancelled local confirmation never saves; reset/repeated message cannot resurrect candidate");
+  puts("PASS: tool error receipt and matching call ID survive two HTTP reconnects");
+  free(s_reply); free(history);
+  puts("PASS: runtime target contracts passed with production functions and virtual clock");
+  return 0;
+}
